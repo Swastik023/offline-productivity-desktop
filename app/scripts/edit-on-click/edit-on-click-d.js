@@ -24,7 +24,6 @@
       scope: {
         editOnClickEvId: '@',
         editOnClick: '=',
-        editOnClickType: '@',
         editOnClickOnEditFinished: '&'
       }
     };
