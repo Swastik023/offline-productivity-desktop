@@ -8,9 +8,9 @@ describe('JiraCfgStepperComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ JiraCfgStepperComponent ]
+      declarations: [JiraCfgStepperComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
