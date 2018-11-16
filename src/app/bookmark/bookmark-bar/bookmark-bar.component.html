@@ -34,15 +34,6 @@
          tabindex="1"
          draggable="false"
          aria-label="open global bookmark">
-        <mat-icon *ngIf="!bookmark.icon && bookmark.type === 'LINK'"
-                  aria-label="Open bookmark">bookmark
-        </mat-icon>
-        <mat-icon *ngIf="!bookmark.icon && bookmark.type === 'FILE'"
-                  aria-label="Open file">insert_drive_file
-        </mat-icon>
-        <mat-icon *ngIf="!bookmark.icon && bookmark.type === 'COMMAND'"
-                  aria-label="Exec command">laptop_windows
-        </mat-icon>
         <mat-icon *ngIf="bookmark.icon"
                   aria-label="Open">{{bookmark.icon}}
         </mat-icon>
