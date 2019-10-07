@@ -46,8 +46,8 @@ mac:
   provisioningProfile: embedded.provisionprofile
 #  darkModeSupport: true
   target:
-    - dmg
-#    - mas
+#    - dmg
+    - mas
 #    - pkg
 #    - zip
 
@@ -56,7 +56,7 @@ mas:
   category: public.app-category.productivity
   entitlements: build/entitlements.mas.plist
   entitlementsInherit: build/entitlements.mas.inherit.plist
-#  provisioningProfile: embedded.provisionprofile
+  provisioningProfile: prod.provisionprofile
   icon: build/icon.icns
   hardenedRuntime: true
 
