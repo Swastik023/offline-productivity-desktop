@@ -14,7 +14,6 @@ mac:
   type: distribution
   category: public.app-category.productivity
   entitlements: build/entitlements.mac.plist
-  entitlementsInherit: build/entitlements.mac.plist
   icon: build/icon.icns
   hardenedRuntime: true
   gatekeeperAssess: false
