@@ -35,21 +35,8 @@ const ANI = [
     ]),
     { optional: true },
   ),
-
-  query(
-    '.gu-transit',
-    style({
-      display: 'none',
-      opacity: 0,
-      height: 0,
-      visibility: 'hidden',
-    }),
-    { optional: true },
-  ),
 ];
 
 export const standardListAnimation = trigger('standardList', [
   transition(':increment, :decrement', ANI),
-  transition('* <=> ALWAYS', ANI),
-  transition('* <=> BLOCK', []),
 ]);
