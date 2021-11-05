@@ -8,9 +8,9 @@ export const slideInFromBottomAni = [
       animate(ANI_ENTER_TIMING, style({ transform: 'translateY(0)' })),
     ]),
 
-    transition(':leave', [
-      style({ transform: 'translateY(0)' }),
-      animate(ANI_ENTER_TIMING, style({ transform: 'translateY(100%)' })),
-    ]),
+    // transition(':leave', [
+    //   style({ transform: 'translateY(0)' }),
+    //   animate(ANI_ENTER_TIMING, style({ transform: 'translateY(100%)' })),
+    // ]),
   ]),
 ];

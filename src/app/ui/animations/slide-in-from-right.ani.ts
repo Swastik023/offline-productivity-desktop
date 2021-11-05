@@ -8,9 +8,9 @@ export const slideInFromRightAni = [
       animate(ANI_ENTER_TIMING, style({ transform: 'translateX(0)' })),
     ]),
 
-    transition(':leave', [
-      style({ transform: 'translateX(0)' }),
-      animate(ANI_ENTER_TIMING, style({ transform: 'translateX(100%)' })),
-    ]),
+    // transition(':leave', [
+    //   style({ transform: 'translateX(0)' }),
+    //   animate(ANI_ENTER_TIMING, style({ transform: 'translateX(100%)' })),
+    // ]),
   ]),
 ];
