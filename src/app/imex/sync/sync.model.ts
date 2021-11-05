@@ -23,6 +23,7 @@ export interface AppBaseData {
   archivedProjects: ProjectArchive;
   globalConfig: GlobalConfigState;
   reminders: Reminder[];
+  note: NoteState;
 
   // Metric models
   metric: MetricState;
@@ -57,18 +58,9 @@ export type AppBaseDataEntityLikeStates =
 
 // NOTE: [key:string] always refers to projectId
 export interface AppDataForProjects {
-  note: {
-    [key: string]: NoteState;
-  };
   bookmark: {
     [key: string]: BookmarkState;
   };
-}
-
-export interface AppDataCompleteOptionalSyncModelChange
-  extends AppBaseData,
-    AppDataForProjects {
-  lastLocalSyncModelChange?: number | null;
 }
 
 export interface AppDataComplete extends AppBaseData, AppDataForProjects {
