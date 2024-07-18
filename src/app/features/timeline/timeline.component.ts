@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
-import { TimelineCalendarMapEntry, TimelineViewEntry } from './timeline.model';
+import { TimelineViewEntry } from './timeline.model';
 import { debounceTime, map, tap } from 'rxjs/operators';
 import { TaskService } from '../tasks/task.service';
 import { combineLatest, Observable } from 'rxjs';
@@ -17,7 +17,6 @@ import { TaskRepeatCfgService } from '../task-repeat-cfg/task-repeat-cfg.service
 import { Task } from '../tasks/task.model';
 import { DialogAddTaskReminderComponent } from '../tasks/dialog-add-task-reminder/dialog-add-task-reminder.component';
 import { AddTaskReminderInterface } from '../tasks/dialog-add-task-reminder/add-task-reminder-interface';
-import { loadFromRealLs } from '../../core/persistence/local-storage';
 import { CalendarIntegrationService } from '../calendar-integration/calendar-integration.service';
 
 @Component({
@@ -148,17 +147,5 @@ export class TimelineComponent implements OnDestroy {
     this._matDialog.open(DialogAddTaskReminderComponent, {
       data: { task } as AddTaskReminderInterface,
     });
-  }
-
-  private _getCalProviderFromCache(): TimelineCalendarMapEntry[] {
-    const now = Date.now();
-    return (
-      ((loadFromRealLs(LS.CAL_EVENTS_CACHE) as TimelineCalendarMapEntry[]) || [])
-        // filter out cached past entries
-        .map((provider) => ({
-          ...provider,
-          items: provider.items.filter((item) => item.start + item.duration >= now),
-        }))
-    );
   }
 }
