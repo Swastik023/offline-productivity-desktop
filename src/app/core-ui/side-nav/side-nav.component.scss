@@ -171,6 +171,13 @@ section {
       }
     }
   }
+
+  button:last-of-type {
+    @include mousePrimaryDevice {
+      opacity: 0.8;
+      display: inline-flex;
+    }
+  }
 }
 
 // color bar left styles
@@ -283,17 +290,6 @@ section {
 
   &.isExpanded ::ng-deep mat-icon:last-of-type {
     transform: rotate(180deg);
-  }
-}
-
-.scroll-down-btn {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  ::ng-deep mat-icon:last-of-type {
-    margin-left: auto;
-    margin-right: 0;
   }
 }
 
