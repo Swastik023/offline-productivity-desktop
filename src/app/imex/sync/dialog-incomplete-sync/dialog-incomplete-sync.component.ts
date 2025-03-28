@@ -17,8 +17,7 @@ import { PfapiService } from '../../../pfapi/pfapi.service';
 import { T } from '../../../t.const';
 
 export interface DialogIncompleteSyncData {
-  archiveRevInMainFile?: string;
-  archiveRevReal?: string;
+  modelId: string;
 }
 
 @Component({
@@ -39,14 +38,14 @@ export class DialogIncompleteSyncComponent {
   private _matDialogRef =
     inject<MatDialogRef<DialogIncompleteSyncComponent>>(MatDialogRef);
   private _pfapiService = inject(PfapiService);
-  data? = inject<DialogIncompleteSyncData>(MAT_DIALOG_DATA);
+
+  data = inject<DialogIncompleteSyncData>(MAT_DIALOG_DATA);
 
   T: typeof T = T;
   IS_ANDROID_WEB_VIEW = IS_ANDROID_WEB_VIEW;
 
   constructor() {
     const _matDialogRef = this._matDialogRef;
-
     _matDialogRef.disableClose = true;
   }
 
