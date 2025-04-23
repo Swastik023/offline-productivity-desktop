@@ -54,9 +54,9 @@
                     flood-color="white"
                     flood-opacity="0.9" />
     </filter>
-
-
   </defs>
+
+<!--  <rect width="100%" height="100%" fill="#eef"/>-->
 
 
   <circle cx="200"
