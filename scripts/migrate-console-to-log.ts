@@ -11,11 +11,11 @@ interface Replacement {
 }
 
 const replacements: Replacement[] = [
-  { pattern: /console\.log\(/g, replacement: 'Log.log(', logMethod: 'log' },
-  { pattern: /console\.info\(/g, replacement: 'Log.info(', logMethod: 'info' },
-  { pattern: /console\.error\(/g, replacement: 'Log.err(', logMethod: 'err' },
-  { pattern: /console\.warn\(/g, replacement: 'Log.err(', logMethod: 'err' },
-  { pattern: /console\.debug\(/g, replacement: 'Log.debug(', logMethod: 'debug' },
+  { pattern: /\bconsole\.log\(/g, replacement: 'Log.log(', logMethod: 'log' },
+  { pattern: /\bconsole\.info\(/g, replacement: 'Log.info(', logMethod: 'info' },
+  { pattern: /\bconsole\.error\(/g, replacement: 'Log.err(', logMethod: 'err' },
+  { pattern: /\bconsole\.warn\(/g, replacement: 'Log.err(', logMethod: 'err' },
+  { pattern: /\bconsole\.debug\(/g, replacement: 'Log.debug(', logMethod: 'debug' },
 ];
 
 // Files to exclude
@@ -48,7 +48,8 @@ function calculateImportPath(filePath: string): string {
 }
 
 function hasLogImport(content: string): boolean {
-  return /import\s+{[^}]*\bLog\b[^}]*}\s+from\s+['"].*\/log['"]/.test(content);
+  // More flexible pattern that matches any Log import
+  return /import\s+{[^}]*\bLog\b[^}]*}\s+from\s+['"].*['"]/.test(content);
 }
 
 function addLogImport(content: string, importPath: string): string {
@@ -72,20 +73,20 @@ function addLogImport(content: string, importPath: string): string {
   }
 }
 
-function processFile(filePath: string): boolean {
+function processFile(filePath: string, dryRun: boolean = false): boolean {
   try {
     let content = fs.readFileSync(filePath, 'utf8');
     const originalContent = content;
     let hasChanges = false;
 
-    // Check if file uses any console methods
+    // Check if file uses any console methods (including in comments)
     const usesConsole = replacements.some((r) => r.pattern.test(content));
 
     if (!usesConsole) {
       return false;
     }
 
-    // Apply replacements
+    // Apply replacements - this will replace even in comments, which is what we want
     for (const { pattern, replacement } of replacements) {
       if (pattern.test(content)) {
         content = content.replace(pattern, replacement);
@@ -99,7 +100,9 @@ function processFile(filePath: string): boolean {
     }
 
     if (content !== originalContent) {
-      fs.writeFileSync(filePath, content, 'utf8');
+      if (!dryRun) {
+        fs.writeFileSync(filePath, content, 'utf8');
+      }
       return true;
     }
 
@@ -111,7 +114,13 @@ function processFile(filePath: string): boolean {
 }
 
 function main() {
-  console.log('Starting console to Log migration...\n');
+  const args = process.argv.slice(2);
+  const dryRun = args.includes('--dry-run');
+
+  console.log('Starting console to Log migration...');
+  if (dryRun) {
+    console.log('Running in DRY RUN mode - no files will be modified\n');
+  }
 
   // Find all TypeScript files
   const files = glob.sync('src/**/*.ts', {
@@ -134,21 +143,22 @@ function main() {
   for (const file of files) {
     const content = fs.readFileSync(file, 'utf8');
 
-    // Count occurrences before processing
-    stats.log += (content.match(/console\.log\(/g) || []).length;
-    stats.info += (content.match(/console\.info\(/g) || []).length;
-    stats.error += (content.match(/console\.error\(/g) || []).length;
-    stats.warn += (content.match(/console\.warn\(/g) || []).length;
-    stats.debug += (content.match(/console\.debug\(/g) || []).length;
+    // Count occurrences before processing (with word boundary)
+    stats.log += (content.match(/\bconsole\.log\(/g) || []).length;
+    stats.info += (content.match(/\bconsole\.info\(/g) || []).length;
+    stats.error += (content.match(/\bconsole\.error\(/g) || []).length;
+    stats.warn += (content.match(/\bconsole\.warn\(/g) || []).length;
+    stats.debug += (content.match(/\bconsole\.debug\(/g) || []).length;
 
-    if (processFile(file)) {
+    const willModify = processFile(file, dryRun);
+    if (willModify) {
       modifiedFiles.push(file);
     }
   }
 
   stats.total = stats.log + stats.info + stats.error + stats.warn + stats.debug;
 
-  console.log('Migration complete!\n');
+  console.log('\nMigration complete!\n');
   console.log('Statistics:');
   console.log(`  Total console calls found: ${stats.total}`);
   console.log(`  - console.log: ${stats.log}`);
@@ -156,7 +166,7 @@ function main() {
   console.log(`  - console.error: ${stats.error}`);
   console.log(`  - console.warn: ${stats.warn}`);
   console.log(`  - console.debug: ${stats.debug}`);
-  console.log(`\nModified ${modifiedFiles.length} files:`);
+  console.log(`\n${dryRun ? 'Would modify' : 'Modified'} ${modifiedFiles.length} files:`);
 
   modifiedFiles.forEach((file) => {
     console.log(`  - ${path.relative(process.cwd(), file)}`);
