@@ -80,14 +80,14 @@ test.describe('Work View', () => {
 
     // Wait for work view to be ready
     await workViewPage.waitForTaskList();
-    await page.waitForLoadState('networkidle'); // Wait for UI to stabilize
+    await page.waitForTimeout(2000); // Wait for UI to stabilize
 
     // Simply add two tasks using the standard method
     await workViewPage.addTask('2 test task hihi');
-    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(500);
 
     await workViewPage.addTask('3 some other task');
-    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(500);
 
     // Verify both tasks are visible
     const tasks = page.locator('task');

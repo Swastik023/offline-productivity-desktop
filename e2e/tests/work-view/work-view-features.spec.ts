@@ -20,7 +20,7 @@ test.describe('Work View Features', () => {
     await workViewPage.waitForTaskList();
 
     // Wait for any dialogs to be dismissed
-    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(2000);
 
     // Verify undone task list is visible
     await expect(page.locator(UNDONE_TASK_LIST)).toBeVisible({ timeout: 10000 });
@@ -28,10 +28,10 @@ test.describe('Work View Features', () => {
     // Create tasks
     await workViewPage.addTask('Task 1');
     await page.waitForSelector(TASK, { state: 'visible', timeout: 5000 });
-    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(500);
 
     await workViewPage.addTask('Task 2');
-    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(1000);
 
     // Verify we have 2 tasks
     await expect(page.locator(TASK)).toHaveCount(2);
@@ -49,7 +49,7 @@ test.describe('Work View Features', () => {
     await doneBtn.click();
 
     // Wait a bit for the transition
-    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(2000);
 
     // Check if done section exists (it might not show if there are no done tasks)
     const doneSectionExists = await page
@@ -62,7 +62,7 @@ test.describe('Work View Features', () => {
       const toggleBtn = page.locator(TOGGLE_DONE_TASKS_BTN);
       if (await toggleBtn.isVisible({ timeout: 1000 }).catch(() => false)) {
         await toggleBtn.click();
-        await page.waitForLoadState('networkidle');
+        await page.waitForTimeout(1000);
       }
 
       // Verify done task list is visible
@@ -82,17 +82,17 @@ test.describe('Work View Features', () => {
 
     // Wait for work view to be ready
     await workViewPage.waitForTaskList();
-    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(1000);
 
     // Create multiple tasks
     await workViewPage.addTask('First created');
-    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(500);
     await workViewPage.addTask('Second created');
-    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(500);
     await workViewPage.addTask('Third created');
-    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(500);
     await workViewPage.addTask('Fourth created');
-    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(500);
 
     // Verify order (newest first)
     await expect(page.locator('task:nth-of-type(1) textarea')).toHaveValue(
