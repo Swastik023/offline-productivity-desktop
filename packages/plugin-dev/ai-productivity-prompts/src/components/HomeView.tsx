@@ -1,6 +1,7 @@
 import { Component, For } from 'solid-js';
 import { PromptCategory } from '../types';
 import { PROMPT_CATEGORIES } from '../prompts';
+import { Card } from './shared/Card';
 
 interface HomeViewProps {
   onSelectCategory: (category: PromptCategory) => void;
@@ -18,25 +19,38 @@ const HomeView: Component<HomeViewProps> = (props) => {
       <div class="category-grid page-fade">
         <For each={PROMPT_CATEGORIES}>
           {(category) => (
-            <button
-              class="category-card card card-clickable"
+            <CategoryCard
+              category={category}
               onClick={() => props.onSelectCategory(category)}
-            >
-              <h3 class="text-primary">{category.title}</h3>
-              <p class="text-muted">{category.prompts.length} prompts</p>
-            </button>
+            />
           )}
         </For>
 
-        <button
-          class="category-card card card-clickable custom-prompts-card"
+        <Card
           onClick={props.onCustomPromptsClick}
+          class="custom-prompts-card"
         >
           <h3 class="text-primary">My Custom Prompts</h3>
           <p class="text-muted">Create & manage your own prompts</p>
-        </button>
+        </Card>
       </div>
     </>
+  );
+};
+
+// Extracted CategoryCard component
+const CategoryCard: Component<{
+  category: PromptCategory;
+  onClick: () => void;
+}> = (props) => {
+  return (
+    <Card
+      onClick={props.onClick}
+      class="category-card"
+    >
+      <h3 class="text-primary">{props.category.title}</h3>
+      <p class="text-muted">{props.category.prompts.length} prompts</p>
+    </Card>
   );
 };
 
