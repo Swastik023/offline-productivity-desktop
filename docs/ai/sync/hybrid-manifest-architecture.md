@@ -605,7 +605,8 @@ Remote Storage Layout (v2):
 Code Files:
 src/app/core/persistence/operation-log/
 ├── operation.types.ts              # Add HybridManifest types
-├── operation-log-sync.service.ts   # Buffer/overflow logic
+├── sync/
+│   └── operation-log-sync.service.ts   # Buffer/overflow logic
 ├── hybrid-snapshot.service.ts      # NEW: Snapshot generation/loading
 └── manifest-recovery.service.ts    # NEW: Corruption recovery
 ```

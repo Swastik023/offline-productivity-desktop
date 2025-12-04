@@ -1763,23 +1763,28 @@ What if data exists in both `pf` AND `SUP_OPS` databases?
 ```
 src/app/core/persistence/operation-log/
 ├── operation.types.ts                    # Type definitions (Operation, OpType, EntityType)
-├── operation-log-store.service.ts        # SUP_OPS IndexedDB wrapper
+├── operation-log.const.ts                # Constants
 ├── operation-log.effects.ts              # Action capture + META_MODEL bridge
-├── operation-log-hydrator.service.ts     # Startup hydration
-├── operation-log-compaction.service.ts   # Snapshot + cleanup
-├── operation-log-migration.service.ts    # Genesis migration from legacy
-├── operation-log-sync.service.ts         # Upload/download operations (Part C)
-├── operation-applier.service.ts          # Apply ops to store with dependency handling
 ├── operation-converter.util.ts           # Op ↔ Action conversion
 ├── persistent-action.interface.ts        # PersistentAction type + isPersistentAction guard
-├── lock.service.ts                       # Cross-tab locking (Web Locks + fallback)
-├── multi-tab-coordinator.service.ts      # BroadcastChannel coordination
-├── schema-migration.service.ts           # State schema migrations
-├── dependency-resolver.service.ts        # Extract/check operation dependencies
-├── conflict-resolution.service.ts        # Conflict UI presentation
-├── validate-state.service.ts             # Typia + cross-model validation wrapper
-├── validate-operation-payload.ts         # Checkpoint A - payload validation
-└── repair-operation.service.ts           # REPAIR operation creation + notification
+├── entity-key.util.ts                    # Entity key generation utilities
+├── store/
+│   ├── operation-log-store.service.ts        # SUP_OPS IndexedDB wrapper
+│   ├── operation-log-hydrator.service.ts     # Startup hydration
+│   ├── operation-log-compaction.service.ts   # Snapshot + cleanup
+│   ├── operation-log-migration.service.ts    # Genesis migration from legacy
+│   └── schema-migration.service.ts           # State schema migrations
+├── sync/
+│   ├── operation-log-sync.service.ts         # Upload/download operations (Part C)
+│   ├── lock.service.ts                       # Cross-tab locking (Web Locks + fallback)
+│   ├── multi-tab-coordinator.service.ts      # BroadcastChannel coordination
+│   ├── dependency-resolver.service.ts        # Extract/check operation dependencies
+│   └── conflict-resolution.service.ts        # Conflict UI presentation
+└── processing/
+    ├── operation-applier.service.ts          # Apply ops to store with dependency handling
+    ├── validate-state.service.ts             # Typia + cross-model validation wrapper
+    ├── validate-operation-payload.ts         # Checkpoint A - payload validation
+    └── repair-operation.service.ts           # REPAIR operation creation + notification
 
 src/app/pfapi/
 ├── pfapi-store-delegate.service.ts       # Reads NgRx for sync (Part B)
