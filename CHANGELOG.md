@@ -1,3 +1,9 @@
+## [17.2.4](https://github.com/super-productivity/super-productivity/compare/v17.2.3...v17.2.4) (2026-02-28)
+
+### Bug Fixes
+
+- **note:** return null instead of undefined for absent project tag ([6020c80](https://github.com/super-productivity/super-productivity/commit/6020c80a9ef927cc2a0732fdb8293c0e03f2ffa3))
+
 ## [17.2.3](https://github.com/super-productivity/super-productivity/compare/v17.2.2...v17.2.3) (2026-02-28)
 
 ## [17.2.2](https://github.com/super-productivity/super-productivity/compare/v17.2.1...v17.2.2) (2026-02-28)
