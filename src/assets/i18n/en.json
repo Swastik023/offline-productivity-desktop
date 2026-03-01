@@ -1037,6 +1037,12 @@
         "REASON_REPAIR": "Reason: An automatic data repair was performed.",
         "REASON_UNKNOWN": "Reason: A full state replacement was performed."
       },
+      "D_SERVER_MIGRATION_CONFIRM": {
+        "TITLE": "Server Already Has Data",
+        "MESSAGE": "This sync server already contains data. Would you like to upload your local data to merge with it? If you skip this, some of your local changes may not sync.",
+        "CONFIRM": "Upload Local Data",
+        "SKIP": "Skip"
+      },
       "D_LOCAL_DATA_REPLACE_CONFIRM": {
         "MESSAGE": "You have {{count}} unsynced local changes that will be replaced by remote data. Do you want to continue?",
         "TITLE": "Replace Local Data?"
