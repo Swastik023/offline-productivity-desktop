@@ -290,6 +290,16 @@ export class SyncProviderManager {
     }
   }
 
+  private readonly _LAST_SYNCED_PROVIDER_KEY = 'SP_LAST_SYNCED_PROVIDER_ID';
+
+  getLastSyncedProviderId(): SyncProviderId | null {
+    return toSyncProviderId(localStorage.getItem(this._LAST_SYNCED_PROVIDER_KEY));
+  }
+
+  setLastSyncedProviderId(id: SyncProviderId): void {
+    localStorage.setItem(this._LAST_SYNCED_PROVIDER_KEY, id);
+  }
+
   /**
    * Sets the active sync provider
    */
