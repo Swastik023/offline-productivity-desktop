@@ -71,6 +71,8 @@ describe('SyncWrapperService', () => {
         'setProviderConfig',
         'getProviderById',
         'clearAuthCredentials',
+        'getLastSyncedProviderId',
+        'setLastSyncedProviderId',
       ],
       {
         syncStatus$: of('SYNCED'),
@@ -79,6 +81,7 @@ describe('SyncWrapperService', () => {
       },
     );
     mockProviderManager.clearAuthCredentials.and.returnValue(Promise.resolve());
+    mockProviderManager.getLastSyncedProviderId.and.returnValue(null);
     mockProviderManager.getActiveProvider.and.returnValue({
       id: SyncProviderId.SuperSync,
     } as any);
@@ -278,6 +281,70 @@ describe('SyncWrapperService', () => {
       expect(result).toBe(SyncStatus.InSync);
       expect(mockSyncService.downloadRemoteOps).not.toHaveBeenCalled();
       expect(mockSyncService.uploadPendingOps).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('_sync() - Provider switch detection', () => {
+    it('should pass forceFromSeq0 when provider has changed', async () => {
+      mockProviderManager.getLastSyncedProviderId.and.returnValue(SyncProviderId.Dropbox);
+      configSubject.next(createMockSyncConfig(SyncProviderId.SuperSync));
+
+      await service.sync();
+
+      expect(mockSyncService.downloadRemoteOps).toHaveBeenCalledWith(
+        mockSyncCapableProvider,
+        { forceFromSeq0: true },
+      );
+    });
+
+    it('should NOT pass forceFromSeq0 when provider is the same', async () => {
+      mockProviderManager.getLastSyncedProviderId.and.returnValue(
+        SyncProviderId.SuperSync,
+      );
+      configSubject.next(createMockSyncConfig(SyncProviderId.SuperSync));
+
+      await service.sync();
+
+      expect(mockSyncService.downloadRemoteOps).toHaveBeenCalledWith(
+        mockSyncCapableProvider,
+        undefined,
+      );
+    });
+
+    it('should NOT pass forceFromSeq0 on first-ever sync (no last synced provider)', async () => {
+      mockProviderManager.getLastSyncedProviderId.and.returnValue(null);
+
+      await service.sync();
+
+      expect(mockSyncService.downloadRemoteOps).toHaveBeenCalledWith(
+        mockSyncCapableProvider,
+        undefined,
+      );
+    });
+
+    it('should update lastSyncedProviderId after successful download', async () => {
+      configSubject.next(createMockSyncConfig(SyncProviderId.SuperSync));
+
+      await service.sync();
+
+      expect(mockProviderManager.setLastSyncedProviderId).toHaveBeenCalledWith(
+        SyncProviderId.SuperSync,
+      );
+    });
+
+    it('should NOT update lastSyncedProviderId when download is cancelled', async () => {
+      mockSyncService.downloadRemoteOps.and.returnValue(
+        Promise.resolve({
+          newOpsCount: 0,
+          serverMigrationHandled: false,
+          localWinOpsCreated: 0,
+          cancelled: true,
+        }),
+      );
+
+      await service.sync();
+
+      expect(mockProviderManager.setLastSyncedProviderId).not.toHaveBeenCalled();
     });
   });
 

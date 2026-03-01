@@ -452,16 +452,20 @@ export class OperationLogSyncService {
       const hasLocalChanges = unsyncedOps.length > 0;
 
       if (hasLocalChanges) {
-        // Only throw LocalDataConflictError if unsynced ops contain meaningful user data.
-        // Fresh clients may have initial state ops (settings, etc.), but these shouldn't
-        // trigger a conflict dialog - we should just download the remote data.
-        const hasMeaningfulUserData = this._hasMeaningfulPendingOps(unsyncedOps);
+        // Throw LocalDataConflictError if unsynced ops contain meaningful user data
+        // OR if the NgRx store has meaningful data (tasks, projects, tags, notes).
+        // The store check catches provider-switch scenarios: user switches from
+        // SuperSync→Dropbox, only has a config-change op (not "meaningful"), but the
+        // store is full of real data that would be overwritten by old Dropbox state.
+        const hasMeaningfulUserData =
+          this._hasMeaningfulPendingOps(unsyncedOps) || this._hasMeaningfulLocalData();
 
         if (hasMeaningfulUserData) {
           // Client has meaningful user data - show conflict dialog
           OpLog.warn(
             `OperationLogSyncService: Client has ${unsyncedOps.length} unsynced local ops ` +
-              'with meaningful user data. Throwing LocalDataConflictError for conflict resolution dialog.',
+              'with meaningful user data (pending ops or store data). ' +
+              'Throwing LocalDataConflictError for conflict resolution dialog.',
           );
 
           throw new LocalDataConflictError(
@@ -470,7 +474,7 @@ export class OperationLogSyncService {
             result.snapshotVectorClock,
           );
         } else {
-          // Only system/config ops - proceed with download (don't throw)
+          // Only system/config ops AND no meaningful store data - proceed with download
           OpLog.normal(
             `OperationLogSyncService: Client has ${unsyncedOps.length} unsynced ops but no meaningful user data. ` +
               'Proceeding with snapshot download (no conflict dialog needed).',

@@ -308,20 +308,37 @@ export class SyncWrapperService {
       // Perform actual sync: download first, then upload
       SyncLog.log('SyncWrapperService: Starting op-log sync...');
 
+      // Detect provider switch: force fresh download to trigger conflict dialog
+      const lastSyncedProvider = this._providerManager.getLastSyncedProviderId();
+      const isProviderSwitch =
+        lastSyncedProvider !== null && lastSyncedProvider !== providerId;
+      if (isProviderSwitch) {
+        SyncLog.warn(
+          `SyncWrapperService: Provider switch detected (${lastSyncedProvider} → ${providerId}). ` +
+            'Forcing download from seq 0 for fresh state comparison.',
+        );
+      }
+
       // 1. Download remote ops first (important for fresh clients to receive data)
-      const downloadResult =
-        await this._opLogSyncService.downloadRemoteOps(syncCapableProvider);
+      const downloadResult = await this._opLogSyncService.downloadRemoteOps(
+        syncCapableProvider,
+        isProviderSwitch ? { forceFromSeq0: true } : undefined,
+      );
       SyncLog.log(
         `SyncWrapperService: Download complete. newOps=${downloadResult.newOpsCount}, migration=${downloadResult.serverMigrationHandled}`,
       );
 
       // If user cancelled the sync import conflict dialog, skip upload entirely.
       // This keeps the local state unchanged and doesn't push it to the server.
+      // Don't update lastSyncedProvider so the next sync retries with forceFromSeq0.
       if (downloadResult.cancelled) {
         SyncLog.log('SyncWrapperService: Sync cancelled by user. Skipping upload phase.');
         this._providerManager.setSyncStatus('UNKNOWN_OR_CHANGED');
         return 'HANDLED_ERROR';
       }
+
+      // Track the successfully synced provider for switch detection on next sync
+      this._providerManager.setLastSyncedProviderId(providerId);
 
       // 2. Upload pending local ops
       const uploadResult =

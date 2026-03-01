@@ -859,6 +859,60 @@ describe('OperationLogSyncService', () => {
           expect(syncHydrationServiceSpy.hydrateFromRemoteSync).toHaveBeenCalled();
         });
 
+        it('should throw LocalDataConflictError when only config ops but store has meaningful data (provider switch)', async () => {
+          const unsyncedEntry: OperationLogEntry = {
+            seq: 1,
+            op: {
+              id: 'config-op-1',
+              clientId: 'client-A',
+              actionType: '[Global Config] Update Global Config Section' as ActionType,
+              opType: OpType.Update,
+              entityType: 'GLOBAL_CONFIG',
+              entityId: 'config-1',
+              payload: { sectionKey: 'sync' },
+              vectorClock: { clientA: 2 },
+              timestamp: Date.now(),
+              schemaVersion: 1,
+            },
+            appliedAt: Date.now(),
+            source: 'local',
+          };
+          opLogStoreSpy.getUnsynced.and.returnValue(Promise.resolve([unsyncedEntry]));
+
+          // Store has real user data (tasks from SuperSync)
+          stateSnapshotServiceSpy.getStateSnapshot.and.returnValue({
+            task: { ids: ['task-1', 'task-2'] },
+            project: { ids: [INBOX_PROJECT.id] },
+            tag: { ids: [TODAY_TAG.id] },
+            note: { ids: [] },
+          } as any);
+
+          downloadServiceSpy.downloadRemoteOps.and.returnValue(
+            Promise.resolve({
+              newOps: [],
+              hasMore: false,
+              latestSeq: 0,
+              needsFullStateUpload: false,
+              success: true,
+              failedFileCount: 0,
+              snapshotState: { tasks: [{ id: 'old-dropbox-task' }] },
+              snapshotVectorClock: { clientB: 5 },
+              latestServerSeq: 1,
+            }),
+          );
+
+          const mockProvider = {
+            isReady: () => Promise.resolve(true),
+            supportsOperationSync: true,
+            setLastServerSeq: jasmine.createSpy('setLastServerSeq').and.resolveTo(),
+          } as any;
+
+          // Should throw - store has meaningful data even though pending ops are config-only
+          await expectAsync(service.downloadRemoteOps(mockProvider)).toBeRejectedWith(
+            jasmine.any(LocalDataConflictError),
+          );
+        });
+
         it('should throw LocalDataConflictError when client has meaningful user data (tasks)', async () => {
           // Client with task operations should see conflict dialog when receiving
           // snapshotState, to prevent losing user-created data.
