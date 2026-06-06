@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { LocalRestApiHandlerService } from './local-rest-api-handler.service';
 import { TaskService } from '../../features/tasks/task.service';
@@ -9,6 +10,9 @@ import { TagService } from '../../features/tag/tag.service';
 import { TODAY_TAG } from '../../features/tag/tag.const';
 import { DateService } from '../date/date.service';
 import { Task, TaskWithSubTasks, TaskArchive } from '../../features/tasks/task.model';
+import { GlobalConfigService } from '../../features/config/global-config.service';
+import { FocusModeMode, TimerState } from '../../features/focus-mode/focus-mode.model';
+import * as focusModeSelectors from '../../features/focus-mode/store/focus-mode.selectors';
 import {
   LocalRestApiRequestPayload,
   LocalRestApiResponsePayload,
@@ -22,9 +26,19 @@ describe('LocalRestApiHandlerService', () => {
   let tagServiceMock: jasmine.SpyObj<TagService>;
   let dateServiceMock: jasmine.SpyObj<DateService>;
   let activeProjects: Project[];
+  let storeMock: jasmine.SpyObj<Store>;
+  let globalConfigServiceMock: jasmine.SpyObj<GlobalConfigService>;
   let requestHandler: ((payload: LocalRestApiRequestPayload) => void) | null = null;
   let responsePromiseResolve: ((response: LocalRestApiResponsePayload) => void) | null =
     null;
+
+  const defaultTimer: TimerState = {
+    isRunning: false,
+    startedAt: null,
+    elapsed: 0,
+    duration: 0,
+    purpose: null,
+  };
 
   const createMockTask = (id: string, overrides: Partial<Task> = {}): Task =>
     ({
@@ -130,10 +144,13 @@ describe('LocalRestApiHandlerService', () => {
 
     taskArchiveServiceMock = jasmine.createSpyObj(
       'TaskArchiveService',
-      ['load', 'getById', 'hasTask'],
+      ['load', 'loadYoung', 'getById', 'hasTask'],
       {},
     );
     (taskArchiveServiceMock as any).load.and.returnValue(
+      Promise.resolve({ ids: [], entities: {} } as TaskArchive),
+    );
+    (taskArchiveServiceMock as any).loadYoung.and.returnValue(
       Promise.resolve({ ids: [], entities: {} } as TaskArchive),
     );
     (taskArchiveServiceMock as any).hasTask.and.returnValue(Promise.resolve(false));
@@ -143,6 +160,7 @@ describe('LocalRestApiHandlerService', () => {
       ['add', 'update', 'remove', 'archive'],
       {
         list$: of([]),
+        currentProject$: of(null),
       },
     );
     Object.defineProperty(projectServiceMock, 'list', {
@@ -159,11 +177,34 @@ describe('LocalRestApiHandlerService', () => {
 
     dateServiceMock = jasmine.createSpyObj<DateService>(
       'DateService',
-      ['todayStr', 'getStartOfNextDayDiffMs'],
+      ['todayStr', 'getStartOfNextDayDiffMs', 'isToday'],
       {},
     );
     dateServiceMock.todayStr.and.returnValue('2026-05-12');
     dateServiceMock.getStartOfNextDayDiffMs.and.returnValue(0);
+    dateServiceMock.isToday.and.returnValue(false);
+
+    storeMock = jasmine.createSpyObj<Store>('Store', ['select']);
+    storeMock.select.and.callFake((selector: unknown) => {
+      if (selector === focusModeSelectors.selectTimer) {
+        return of(defaultTimer);
+      }
+      if (selector === focusModeSelectors.selectMode) {
+        return of(FocusModeMode.Pomodoro);
+      }
+      if (selector === focusModeSelectors.selectCurrentCycle) {
+        return of(1);
+      }
+      return of(undefined);
+    });
+
+    globalConfigServiceMock = jasmine.createSpyObj<GlobalConfigService>(
+      'GlobalConfigService',
+      ['pomodoroConfig'],
+    );
+    globalConfigServiceMock.pomodoroConfig.and.returnValue({
+      cyclesBeforeLongerBreak: 4,
+    } as any);
 
     TestBed.configureTestingModule({
       providers: [
@@ -173,6 +214,8 @@ describe('LocalRestApiHandlerService', () => {
         { provide: ProjectService, useValue: projectServiceMock },
         { provide: TagService, useValue: tagServiceMock },
         { provide: DateService, useValue: dateServiceMock },
+        { provide: Store, useValue: storeMock },
+        { provide: GlobalConfigService, useValue: globalConfigServiceMock },
       ],
     });
 
@@ -212,6 +255,124 @@ describe('LocalRestApiHandlerService', () => {
 
       expect(response.body.ok).toBe(true);
       expect(response.status).toBe(200);
+    });
+  });
+
+  describe('GET /api/productivity-state', () => {
+    beforeEach(() => {
+      service.init();
+    });
+
+    it('should return the contract shape with real values and v1 null placeholders', async () => {
+      const startedAt = Date.UTC(2026, 4, 12, 9, 0, 0);
+      const completedAt = Date.UTC(2026, 4, 12, 10, 0, 0);
+      const archivedCompletedAt = Date.UTC(2026, 4, 12, 11, 0, 0);
+      const currentTask = createMockTask('task-1', {
+        title: 'Deep work',
+        projectId: 'project-1',
+        timeEstimate: 1_500_000,
+        timeSpent: 300_000,
+        timeSpentOnDay: { '2026-05-12': 120_000 },
+      });
+      const completedActiveTask = createMockTask('task-2', {
+        isDone: true,
+        doneOn: completedAt,
+        timeSpentOnDay: { '2026-05-12': 60_000 },
+      });
+      const archivedTask = createMockTask('archived-task', {
+        isDone: true,
+        doneOn: archivedCompletedAt,
+        timeSpentOnDay: { '2026-05-12': 240_000 },
+      });
+      const focusTimer: TimerState = {
+        isRunning: true,
+        startedAt,
+        elapsed: 5_000,
+        duration: 25_000,
+        purpose: 'work',
+      };
+
+      Object.defineProperty(taskServiceMock, 'currentTask$', {
+        get: () => of(currentTask),
+      });
+      Object.defineProperty(taskServiceMock, 'allTasks$', {
+        get: () => of([currentTask, completedActiveTask]),
+      });
+      Object.defineProperty(projectServiceMock, 'list$', {
+        get: () => of([{ id: 'project-1', title: 'Project One' }]),
+      });
+      (taskArchiveServiceMock as any).loadYoung.and.returnValue(
+        Promise.resolve({
+          ids: ['archived-task'],
+          entities: { 'archived-task': archivedTask },
+        } as TaskArchive),
+      );
+      dateServiceMock.isToday.and.callFake(
+        (date: number | Date) => date === completedAt || date === archivedCompletedAt,
+      );
+      storeMock.select.and.callFake((selector: unknown) => {
+        if (selector === focusModeSelectors.selectTimer) {
+          return of(focusTimer);
+        }
+        if (selector === focusModeSelectors.selectMode) {
+          return of(FocusModeMode.Pomodoro);
+        }
+        if (selector === focusModeSelectors.selectCurrentCycle) {
+          return of(2);
+        }
+        return of(undefined);
+      });
+
+      const response = await sendRequestAndWait(
+        createRequest('GET', '/api/productivity-state'),
+      );
+
+      expect(response.status).toBe(200);
+      expect(response.body.ok).toBe(true);
+      if (!response.body.ok) {
+        throw new Error(`Expected success response, got ${response.body.error.code}`);
+      }
+      const data = response.body.data as any;
+      expect(data).toEqual(
+        jasmine.objectContaining({
+          appStatus: 'running',
+          schemaVersion: 1,
+        }),
+      );
+      expect(data.timestamp).toEqual(jasmine.any(String));
+      expect(data.currentTask).toEqual({
+        id: 'task-1',
+        title: 'Deep work',
+        estimateMs: 1_500_000,
+        timeSpentMs: 300_000,
+      });
+      expect(data.currentProject).toEqual({
+        id: 'project-1',
+        title: 'Project One',
+      });
+      expect(data.timer).toEqual({
+        mode: 'pomodoro',
+        state: 'running',
+        elapsedMs: 5_000,
+        remainingMs: 20_000,
+        startedAt: new Date(startedAt).toISOString(),
+      });
+      expect(data.session).toEqual({
+        round: 2,
+        roundsPerCycle: 4,
+        completedPomodoros: null,
+      });
+      expect(data.break).toEqual({
+        state: 'none',
+        type: null,
+        nextBreakInMs: null,
+        breakRemainingMs: null,
+      });
+      expect(data.today).toEqual({
+        completedTasks: 2,
+        focusTimeMs: 420_000,
+        dailyProgress: null,
+      });
     });
   });
 

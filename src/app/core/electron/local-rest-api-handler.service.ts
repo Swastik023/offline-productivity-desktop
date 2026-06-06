@@ -1,4 +1,5 @@
 import { Injectable, inject } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { firstValueFrom } from 'rxjs';
 import typia from 'typia';
 import { TaskService } from '../../features/tasks/task.service';
@@ -9,6 +10,14 @@ import { TagService } from '../../features/tag/tag.service';
 import { TODAY_TAG } from '../../features/tag/tag.const';
 import { DateService } from '../date/date.service';
 import { isTodayWithOffset } from '../../util/is-today.util';
+import { GlobalConfigService } from '../../features/config/global-config.service';
+import {
+  FOCUS_MODE_DEFAULTS,
+  FocusModeMode,
+  getBreakCycle,
+  TimerState,
+} from '../../features/focus-mode/focus-mode.model';
+import * as focusModeSelectors from '../../features/focus-mode/store/focus-mode.selectors';
 import {
   LocalRestApiRequestPayload,
   LocalRestApiResponsePayload,
@@ -154,6 +163,11 @@ const createSuccessResponse = (
 });
 
 type TaskSource = 'active' | 'archived' | 'all';
+type ProductivityStateAppStatus = 'running' | 'idle' | 'break' | 'paused' | 'unknown';
+type ProductivityStateTimerMode = 'pomodoro' | 'flowtime' | 'countdown' | 'none';
+type ProductivityStateTimerState = 'running' | 'paused' | 'break' | 'stopped';
+
+const PRODUCTIVITY_STATE_SCHEMA_VERSION = 1;
 
 const isValidTimestamp = (value: unknown): value is number =>
   typeof value === 'number' && Number.isFinite(value) && new Date(value).getTime() > 0;
@@ -169,6 +183,66 @@ const isTaskInToday = (
   return task.dueDay === todayStr;
 };
 
+const isFiniteNumber = (value: unknown): value is number =>
+  typeof value === 'number' && Number.isFinite(value);
+
+const mapFocusModeMode = (
+  mode: FocusModeMode | null | undefined,
+): ProductivityStateTimerMode => {
+  switch (mode) {
+    case FocusModeMode.Pomodoro:
+      return 'pomodoro';
+    case FocusModeMode.Flowtime:
+      return 'flowtime';
+    case FocusModeMode.Countdown:
+      return 'countdown';
+    default:
+      return 'none';
+  }
+};
+
+const getTimerState = (timer: TimerState): ProductivityStateTimerState => {
+  if (timer.purpose === 'break') {
+    return 'break';
+  }
+  if (timer.purpose === 'work') {
+    return timer.isRunning ? 'running' : 'paused';
+  }
+  return 'stopped';
+};
+
+const getAppStatus = (
+  timer: TimerState,
+  currentTask: Task | null | undefined,
+): ProductivityStateAppStatus => {
+  if (timer.purpose === 'break') {
+    return 'break';
+  }
+  if (timer.purpose === 'work' && !timer.isRunning) {
+    return 'paused';
+  }
+  if ((timer.purpose === 'work' && timer.isRunning) || currentTask) {
+    return 'running';
+  }
+  return 'idle';
+};
+
+const getRemainingMs = (timer: TimerState): number | null =>
+  timer.purpose && timer.duration > 0
+    ? Math.max(0, timer.duration - timer.elapsed)
+    : null;
+
+const getStartedAtIso = (timer: TimerState): string | null =>
+  isValidTimestamp(timer.startedAt) ? new Date(timer.startedAt).toISOString() : null;
+
+const sumTimeSpentForDay = (tasks: Task[], day: string): number =>
+  tasks
+    .filter((task) => !task.parentId)
+    .reduce((sum, task) => {
+      const timeSpent = task.timeSpentOnDay?.[day];
+      return sum + (isFiniteNumber(timeSpent) ? timeSpent : 0);
+    }, 0);
+
 @Injectable({
   providedIn: 'root',
 })
@@ -178,6 +252,8 @@ export class LocalRestApiHandlerService {
   private readonly _projectService = inject(ProjectService);
   private readonly _tagService = inject(TagService);
   private readonly _dateService = inject(DateService);
+  private readonly _store = inject(Store);
+  private readonly _globalConfigService = inject(GlobalConfigService);
   private _isInitialized = false;
 
   init(): void {
@@ -216,6 +292,10 @@ export class LocalRestApiHandlerService {
 
     if (method === 'GET' && path === '/status') {
       return this._handleGetStatus(requestId);
+    }
+
+    if (method === 'GET' && path === '/api/productivity-state') {
+      return this._handleGetProductivityState(requestId);
     }
 
     if (method === 'GET' && path === '/task-control/current') {
@@ -265,6 +345,100 @@ export class LocalRestApiHandlerService {
       currentTask,
       currentTaskId: currentTask?.id ?? null,
       taskCount: allTasks.length,
+    });
+  }
+
+  private async _handleGetProductivityState(
+    requestId: string,
+  ): Promise<LocalRestApiResponsePayload> {
+    const [
+      currentTask,
+      allTasks,
+      projects,
+      currentProjectContext,
+      timer,
+      mode,
+      currentCycle,
+    ] = await Promise.all([
+      firstValueFrom(this._taskService.currentTask$),
+      firstValueFrom(this._taskService.allTasks$),
+      firstValueFrom(this._projectService.list$),
+      firstValueFrom(this._projectService.currentProject$),
+      firstValueFrom(this._store.select(focusModeSelectors.selectTimer)),
+      firstValueFrom(this._store.select(focusModeSelectors.selectMode)),
+      firstValueFrom(this._store.select(focusModeSelectors.selectCurrentCycle)),
+    ]);
+    const archive = await this._taskArchiveService.loadYoung();
+    const archivedTasks = archive.ids
+      .map((id) => archive.entities[id])
+      .filter((task): task is Task => !!task);
+    const todayStr = this._dateService.todayStr();
+    const tasksForTodayStats = [...allTasks, ...archivedTasks];
+    const resolvedProject =
+      projects.find((project) => project.id === currentTask?.projectId) ??
+      currentProjectContext ??
+      null;
+    const isPomodoro = mode === FocusModeMode.Pomodoro;
+    const remainingMs = getRemainingMs(timer);
+    const isBreakActive = timer.purpose === 'break';
+    const currentTaskEstimateMs =
+      currentTask && isFiniteNumber(currentTask.timeEstimate)
+        ? currentTask.timeEstimate
+        : null;
+    const currentTaskTimeSpentMs =
+      currentTask && isFiniteNumber(currentTask.timeSpent) ? currentTask.timeSpent : null;
+
+    return createSuccessResponse(requestId, 200, {
+      appStatus: getAppStatus(timer, currentTask),
+      timestamp: new Date().toISOString(),
+      schemaVersion: PRODUCTIVITY_STATE_SCHEMA_VERSION,
+      currentTask: {
+        id: currentTask?.id ?? null,
+        title: currentTask?.title ?? null,
+        estimateMs: currentTaskEstimateMs,
+        timeSpentMs: currentTaskTimeSpentMs,
+      },
+      currentProject: {
+        id: resolvedProject?.id ?? null,
+        title: resolvedProject?.title ?? null,
+      },
+      timer: {
+        mode: timer.purpose === null ? 'none' : mapFocusModeMode(mode),
+        state: getTimerState(timer),
+        elapsedMs: timer.purpose ? timer.elapsed : null,
+        remainingMs,
+        startedAt: getStartedAtIso(timer),
+      },
+      session: {
+        round:
+          isPomodoro && timer.purpose
+            ? isBreakActive
+              ? getBreakCycle(currentCycle)
+              : currentCycle
+            : null,
+        roundsPerCycle: isPomodoro
+          ? (this._globalConfigService.pomodoroConfig()?.cyclesBeforeLongerBreak ??
+            FOCUS_MODE_DEFAULTS.CYCLES_BEFORE_LONG_BREAK)
+          : null,
+        completedPomodoros: null,
+      },
+      break: {
+        state: isBreakActive ? 'active' : 'none',
+        type: isBreakActive ? (timer.isLongBreak ? 'long' : 'micro') : null,
+        nextBreakInMs: null,
+        breakRemainingMs: isBreakActive ? remainingMs : null,
+      },
+      today: {
+        completedTasks: tasksForTodayStats.filter(
+          (task) =>
+            !task.parentId &&
+            task.isDone &&
+            isFiniteNumber(task.doneOn) &&
+            this._dateService.isToday(task.doneOn),
+        ).length,
+        focusTimeMs: sumTimeSpentForDay(tasksForTodayStats, todayStr),
+        dailyProgress: null,
+      },
     });
   }
 
