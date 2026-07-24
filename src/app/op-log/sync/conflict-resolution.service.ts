@@ -2523,11 +2523,12 @@ export class ConflictResolutionService {
   }
 
   /**
-   * Creates a new UPDATE operation to sync local state when local wins LWW.
+   * Creates a replacement operation to sync local state when local wins LWW.
    *
    * The new operation has:
    * - Fresh UUIDv7 ID
-   * - Current entity state from NgRx store
+   * - The original semantic restore payload for the exact restore-vs-delete case,
+   *   otherwise the current entity state from NgRx store
    * - Merged vector clock (local + remote) + increment
    * - Preserved maximum timestamp from local ops (for correct LWW semantics)
    *
@@ -2537,6 +2538,63 @@ export class ConflictResolutionService {
   private async _createLocalWinUpdateOp(
     conflict: EntityConflict,
   ): Promise<Operation | undefined> {
+    const [semanticRestoreOp] = conflict.localOps;
+    const [remoteDeleteOp] = conflict.remoteOps;
+    const remoteDeleteIds = remoteDeleteOp ? getOpEntityIds(remoteDeleteOp) : [];
+    // Only re-emit the semantic restore for the exact 1-restore-vs-1-single-entity-
+    // delete shape. Mixed histories need the generic snapshot path so a stale restore
+    // payload cannot overwrite a later local edit or compensate for unrelated deletes.
+    //
+    // Consequence, scoped to #9290: for a bulk `deleteTasks` (multi-`entityIds`) or any
+    // multi-op history the guard fails, and the generic path below emits a `[TASK] LWW
+    // Update` rather than a `restoreTask` action. That still recreates the active entity,
+    // but receivers won't run archive cleanup (dispatched only by the semantic restore
+    // action, see ArchiveOperationHandler), so a stale archived copy can survive next to
+    // the active task. This matches the pre-existing behavior for those shapes — this fix
+    // deliberately covers only the common single-op path; broadening it (and the
+    // dependency that `deleteTask` stays single-entity) is tracked in #9290.
+    if (
+      conflict.entityType === 'TASK' &&
+      conflict.localOps.length === 1 &&
+      conflict.remoteOps.length === 1 &&
+      semanticRestoreOp?.actionType === ActionType.TASK_SHARED_RESTORE &&
+      semanticRestoreOp.opType === OpType.Update &&
+      semanticRestoreOp.entityType === 'TASK' &&
+      semanticRestoreOp.entityId === conflict.entityId &&
+      remoteDeleteOp?.opType === OpType.Delete &&
+      remoteDeleteOp.entityType === 'TASK' &&
+      remoteDeleteIds.length === 1 &&
+      remoteDeleteIds[0] === conflict.entityId
+    ) {
+      const clientId = await this.clientIdProvider.loadClientId();
+      if (!clientId) {
+        OpLog.err(
+          'ConflictResolutionService: Cannot create restore-win op - no client ID',
+        );
+        return undefined;
+      }
+
+      return {
+        id: uuidv7(),
+        actionType: semanticRestoreOp.actionType,
+        opType: semanticRestoreOp.opType,
+        entityType: semanticRestoreOp.entityType,
+        entityId: semanticRestoreOp.entityId,
+        entityIds: semanticRestoreOp.entityIds,
+        payload: semanticRestoreOp.payload,
+        clientId,
+        vectorClock: this.mergeAndIncrementClocks(
+          [
+            ...conflict.localOps.map((op) => op.vectorClock),
+            ...conflict.remoteOps.map((op) => op.vectorClock),
+          ],
+          clientId,
+        ),
+        timestamp: semanticRestoreOp.timestamp,
+        schemaVersion: CURRENT_SCHEMA_VERSION,
+      };
+    }
+
     // Get current entity state from store
     let entityState = await this.getCurrentEntityState(
       conflict.entityType,
@@ -3479,17 +3537,10 @@ export class ConflictResolutionService {
   }
 
   /**
-   * Converts remote UPDATE operations to LWW Update format when entity was deleted locally.
+   * Makes winning remote updates recreate entities deleted locally.
    *
-   * When a local DELETE loses to a remote UPDATE via LWW, the entity is already deleted
-   * from the local store. Regular UPDATE operations can't recreate deleted entities -
-   * only LWW Update operations can (via lwwUpdateMetaReducer).
-   *
-   * This method detects DELETE vs UPDATE conflicts and converts the winning remote UPDATE
-   * to LWW Update format by changing its actionType to '[ENTITY_TYPE] LWW Update'.
-   *
-   * @param conflict - The entity conflict being resolved
-   * @returns Remote operations, with UPDATEs converted to LWW Updates if needed
+   * Generic updates become LWW snapshots. Archive/restore actions already recreate
+   * state and retain their type so archive side effects receive the semantic payload.
    */
   private _convertToLWWUpdatesIfNeeded(conflict: EntityConflict): Operation[] {
     // Check if local side has a DELETE operation
@@ -3501,7 +3552,9 @@ export class ConflictResolutionService {
     }
 
     const convertibleRemoteOps = conflict.remoteOps.filter(
-      (op) => op.actionType !== ActionType.TASK_SHARED_MOVE_TO_ARCHIVE,
+      (op) =>
+        op.actionType !== ActionType.TASK_SHARED_MOVE_TO_ARCHIVE &&
+        op.actionType !== ActionType.TASK_SHARED_RESTORE,
     );
     if (convertibleRemoteOps.length === 0) {
       return conflict.remoteOps;
