@@ -203,7 +203,7 @@ const mapFocusModeMode = (
 
 const getTimerState = (timer: TimerState): ProductivityStateTimerState => {
   if (timer.purpose === 'break') {
-    return 'break';
+    return timer.isRunning ? 'running' : 'paused';
   }
   if (timer.purpose === 'work') {
     return timer.isRunning ? 'running' : 'paused';
@@ -255,6 +255,11 @@ export class LocalRestApiHandlerService {
   private readonly _store = inject(Store);
   private readonly _globalConfigService = inject(GlobalConfigService);
   private _isInitialized = false;
+  private _archiveCache: any = null;
+  private _lastArchiveCacheTime = 0;
+  private _cachedArchivedTodayStats: { completed: number; focusTimeMs: number } | null =
+    null;
+  private _isBroadcasting = false;
 
   init(): void {
     if (this._isInitialized || !window.ea?.onLocalRestApiRequest) {
@@ -265,6 +270,27 @@ export class LocalRestApiHandlerService {
     window.ea.onLocalRestApiRequest((payload) => {
       void this._handleRequest(payload);
     });
+
+    if (window.ea.broadcastLocalRestApiState) {
+      const broadcastLoop = async (): Promise<void> => {
+        if (!this._isBroadcasting) {
+          this._isBroadcasting = true;
+          try {
+            const statePayload = await this._handleGetProductivityState('broadcast');
+            if (statePayload.body.ok) {
+              window.ea.broadcastLocalRestApiState(statePayload.body.data);
+            }
+          } catch (e) {
+            // eslint-disable-next-line no-console
+            console.error('Failed to broadcast REST API state', e);
+          } finally {
+            this._isBroadcasting = false;
+          }
+        }
+        setTimeout(broadcastLoop, 1000);
+      };
+      setTimeout(broadcastLoop, 1000);
+    }
   }
 
   private async _handleRequest(payload: LocalRestApiRequestPayload): Promise<void> {
@@ -359,6 +385,8 @@ export class LocalRestApiHandlerService {
       timer,
       mode,
       currentCycle,
+      pausedTaskId,
+      isWaitingForNextFocus,
     ] = await Promise.all([
       firstValueFrom(this._taskService.currentTask$),
       firstValueFrom(this._taskService.allTasks$),
@@ -367,13 +395,45 @@ export class LocalRestApiHandlerService {
       firstValueFrom(this._store.select(focusModeSelectors.selectTimer)),
       firstValueFrom(this._store.select(focusModeSelectors.selectMode)),
       firstValueFrom(this._store.select(focusModeSelectors.selectCurrentCycle)),
+      firstValueFrom(this._store.select(focusModeSelectors.selectPausedTaskId)),
+      firstValueFrom(this._store.select(focusModeSelectors.selectIsWaitingForNextFocus)),
     ]);
-    const archive = await this._taskArchiveService.loadYoung();
-    const archivedTasks = archive.ids
-      .map((id) => archive.entities[id])
-      .filter((task): task is Task => !!task);
     const todayStr = this._dateService.todayStr();
-    const tasksForTodayStats = [...allTasks, ...archivedTasks];
+    const now = Date.now();
+    if (!this._archiveCache || now - this._lastArchiveCacheTime > 60000) {
+      this._archiveCache = await this._taskArchiveService.loadYoung();
+      this._lastArchiveCacheTime = now;
+
+      const archivedTasks = this._archiveCache.ids
+        .map((id: string) => this._archiveCache.entities[id])
+        .filter((task: Task | undefined): task is Task => !!task);
+
+      this._cachedArchivedTodayStats = {
+        completed: archivedTasks.filter(
+          (task: Task) =>
+            !task.parentId &&
+            task.isDone &&
+            isFiniteNumber(task.doneOn) &&
+            this._dateService.isToday(task.doneOn),
+        ).length,
+        focusTimeMs: sumTimeSpentForDay(archivedTasks, todayStr),
+      };
+    }
+
+    const activeCompleted = allTasks.filter(
+      (task) =>
+        !task.parentId &&
+        task.isDone &&
+        isFiniteNumber(task.doneOn) &&
+        this._dateService.isToday(task.doneOn),
+    ).length;
+
+    const activeFocusTimeMs = sumTimeSpentForDay(allTasks, todayStr);
+
+    const totalCompletedTasks =
+      activeCompleted + (this._cachedArchivedTodayStats?.completed || 0);
+    const totalFocusTimeMs =
+      activeFocusTimeMs + (this._cachedArchivedTodayStats?.focusTimeMs || 0);
     const resolvedProject =
       projects.find((project) => project.id === currentTask?.projectId) ??
       currentProjectContext ??
@@ -381,12 +441,23 @@ export class LocalRestApiHandlerService {
     const isPomodoro = mode === FocusModeMode.Pomodoro;
     const remainingMs = getRemainingMs(timer);
     const isBreakActive = timer.purpose === 'break';
+    const cfg = this._globalConfigService.pomodoroConfig();
+    const isStrict = isBreakActive
+      ? !!(timer.isLongBreak ? cfg?.isStrictLongBreak : cfg?.isStrictShortBreak)
+      : false;
     const currentTaskEstimateMs =
       currentTask && isFiniteNumber(currentTask.timeEstimate)
         ? currentTask.timeEstimate
         : null;
     const currentTaskTimeSpentMs =
       currentTask && isFiniteNumber(currentTask.timeSpent) ? currentTask.timeSpent : null;
+
+    const lastActiveTaskRaw = pausedTaskId
+      ? (allTasks.find((t) => t.id === pausedTaskId) ?? null)
+      : null;
+    const lastActiveProjectRaw = lastActiveTaskRaw
+      ? (projects.find((p) => p.id === lastActiveTaskRaw.projectId) ?? null)
+      : null;
 
     return createSuccessResponse(requestId, 200, {
       appStatus: getAppStatus(timer, currentTask),
@@ -405,9 +476,24 @@ export class LocalRestApiHandlerService {
       timer: {
         mode: timer.purpose === null ? 'none' : mapFocusModeMode(mode),
         state: getTimerState(timer),
+        isRunning: timer.isRunning,
+        purpose: timer.purpose,
         elapsedMs: timer.purpose ? timer.elapsed : null,
         remainingMs,
+        remaining:
+          timer.purpose && remainingMs !== null ? Math.floor(remainingMs / 1000) : null,
+        duration: timer.purpose ? Math.floor(timer.duration / 1000) : null,
+        isStrict,
         startedAt: getStartedAtIso(timer),
+        isWaitingForNextFocus,
+      },
+      lastActiveTask: {
+        id: lastActiveTaskRaw?.id ?? null,
+        title: lastActiveTaskRaw?.title ?? null,
+      },
+      lastActiveProject: {
+        id: lastActiveProjectRaw?.id ?? null,
+        title: lastActiveProjectRaw?.title ?? null,
       },
       session: {
         round:
@@ -429,14 +515,8 @@ export class LocalRestApiHandlerService {
         breakRemainingMs: isBreakActive ? remainingMs : null,
       },
       today: {
-        completedTasks: tasksForTodayStats.filter(
-          (task) =>
-            !task.parentId &&
-            task.isDone &&
-            isFiniteNumber(task.doneOn) &&
-            this._dateService.isToday(task.doneOn),
-        ).length,
-        focusTimeMs: sumTimeSpentForDay(tasksForTodayStats, todayStr),
+        completedTasks: totalCompletedTasks,
+        focusTimeMs: totalFocusTimeMs,
         dailyProgress: null,
       },
     });
