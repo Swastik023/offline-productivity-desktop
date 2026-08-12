@@ -451,6 +451,10 @@ export class LocalRestApiHandlerService {
         : null;
     const currentTaskTimeSpentMs =
       currentTask && isFiniteNumber(currentTask.timeSpent) ? currentTask.timeSpent : null;
+    const currentTaskTimeSpentTodayMs =
+      currentTask && currentTask.timeSpentOnDay && isFiniteNumber(currentTask.timeSpentOnDay[this._dateService.todayStr()]) 
+        ? currentTask.timeSpentOnDay[this._dateService.todayStr()] 
+        : 0;
 
     const lastActiveTaskRaw = pausedTaskId
       ? (allTasks.find((t) => t.id === pausedTaskId) ?? null)
@@ -459,15 +463,38 @@ export class LocalRestApiHandlerService {
       ? (projects.find((p) => p.id === lastActiveTaskRaw.projectId) ?? null)
       : null;
 
+    const todayTasks = allTasks
+      .filter(
+        (t) =>
+          !t.parentId &&
+          (!t.isDone || (isFiniteNumber(t.doneOn) && this._dateService.isToday(t.doneOn))),
+      )
+      .map((t) => ({ 
+        id: t.id, 
+        title: t.title, 
+        isDone: t.isDone, 
+        timeSpentMs: t.timeSpent,
+        timeSpentTodayMs: (t.timeSpentOnDay && isFiniteNumber(t.timeSpentOnDay[this._dateService.todayStr()])) 
+          ? t.timeSpentOnDay[this._dateService.todayStr()] 
+          : 0,
+        estimateMs: t.timeEstimate
+      }));
+
+    const totalEstimate = todayTasks.reduce((acc, t) => acc + (t.estimateMs || 0), 0);
+    const completedEstimate = todayTasks.filter(t => t.isDone).reduce((acc, t) => acc + (t.estimateMs || 0), 0);
+    const dailyProgress = totalEstimate > 0 ? (completedEstimate / totalEstimate) : null;
+
     return createSuccessResponse(requestId, 200, {
       appStatus: getAppStatus(timer, currentTask),
       timestamp: new Date().toISOString(),
       schemaVersion: PRODUCTIVITY_STATE_SCHEMA_VERSION,
+      todayTasks,
       currentTask: {
         id: currentTask?.id ?? null,
         title: currentTask?.title ?? null,
         estimateMs: currentTaskEstimateMs,
         timeSpentMs: currentTaskTimeSpentMs,
+        timeSpentTodayMs: currentTaskTimeSpentTodayMs,
       },
       currentProject: {
         id: resolvedProject?.id ?? null,
@@ -511,13 +538,13 @@ export class LocalRestApiHandlerService {
       break: {
         state: isBreakActive ? 'active' : 'none',
         type: isBreakActive ? (timer.isLongBreak ? 'long' : 'micro') : null,
-        nextBreakInMs: null,
+        nextBreakInMs: (isPomodoro && !isBreakActive) ? remainingMs : null,
         breakRemainingMs: isBreakActive ? remainingMs : null,
       },
       today: {
         completedTasks: totalCompletedTasks,
         focusTimeMs: totalFocusTimeMs,
-        dailyProgress: null,
+        dailyProgress: dailyProgress,
       },
     });
   }
