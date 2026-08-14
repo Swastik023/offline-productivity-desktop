@@ -33,8 +33,10 @@ export const initialState: FocusModeState = {
   currentCycle: 1,
   lastCompletedDuration: 0,
   pausedTaskId: null,
+  pausedWorkContext: null,
   _isResumingBreak: false,
   _isOvertimeEnabled: false,
+  breakMessageKey: null,
 };
 
 const createWorkTimer = (duration: number): TimerState => ({
@@ -198,7 +200,13 @@ export const focusModeReducer = createReducer(
     mainState: FocusMainUIState.Preparation,
     isOverlayShown: false,
     pausedTaskId: null,
+    pausedWorkContext: null,
     _isOvertimeEnabled: false,
+  })),
+
+  on(a.setBreakMessageKey, (state, { breakMessageKey }) => ({
+    ...state,
+    breakMessageKey,
   })),
 
   // Flowtime end-of-session: store elapsed duration and pause the timer. The
@@ -222,7 +230,7 @@ export const focusModeReducer = createReducer(
   })),
 
   // Break handling
-  on(a.startBreak, (state, { duration, isLongBreak, pausedTaskId }) => {
+  on(a.startBreak, (state, { duration, isLongBreak, pausedTaskId, workContext }) => {
     const timer = createBreakTimer(
       duration || FOCUS_MODE_DEFAULTS.SHORT_BREAK_DURATION,
       isLongBreak || false,
@@ -234,6 +242,7 @@ export const focusModeReducer = createReducer(
       currentScreen: FocusScreen.Break,
       mainState: FocusMainUIState.Preparation,
       pausedTaskId: pausedTaskId ?? state.pausedTaskId,
+      pausedWorkContext: workContext ?? state.pausedWorkContext,
     };
   }),
 
@@ -243,6 +252,7 @@ export const focusModeReducer = createReducer(
     currentScreen: FocusScreen.Main,
     mainState: FocusMainUIState.Preparation,
     pausedTaskId: null,
+    pausedWorkContext: null,
   })),
 
   // Timer updates - much simpler!
@@ -271,10 +281,14 @@ export const focusModeReducer = createReducer(
           lastCompletedDuration: updatedTimer.elapsed,
         };
       } else if (updatedTimer.purpose === 'break') {
-        // Break completed - stop timer but stay on break screen for user confirmation
+        // Break completed naturally — stop the timer and enter the explicit
+        // "waiting for next focus" state. This is distinct from a paused break
+        // (purpose:'break', isRunning:false) and persists across overlay
+        // close/reopen until the user manually starts the next Focus session.
         return {
           ...state,
           timer: { ...updatedTimer, isRunning: false },
+          currentScreen: FocusScreen.WaitingForNextFocus,
         };
       }
     }

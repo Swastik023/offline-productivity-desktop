@@ -45,6 +45,38 @@ const POMODORO_DURATION_FIELDS: FormlyFieldConfig[] = [
       min: 1,
     },
   },
+  {
+    key: 'isStrictShortBreak',
+    type: 'checkbox',
+    props: {
+      label: T.GCF.POMODORO.STRICT_SHORT_BREAK,
+    },
+  },
+  {
+    key: 'isStrictLongBreak',
+    type: 'checkbox',
+    props: {
+      label: T.GCF.POMODORO.STRICT_LONG_BREAK,
+    },
+  },
+  {
+    key: 'isEnableNaturalBreaks',
+    type: 'checkbox',
+    props: {
+      label: T.GCF.POMODORO.ENABLE_NATURAL_BREAKS,
+      description: 'Only works if Idle Tracking is suppressed during Focus Mode.',
+    },
+  },
+  {
+    key: 'naturalBreaksInactivityResetTime',
+    type: 'duration',
+    props: {
+      label: T.GCF.POMODORO.NATURAL_BREAK_THRESHOLD,
+    },
+    expressions: {
+      hide: '!model.isEnableNaturalBreaks',
+    },
+  },
 ];
 
 @Component({

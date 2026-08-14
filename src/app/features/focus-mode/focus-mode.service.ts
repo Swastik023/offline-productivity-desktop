@@ -40,6 +40,10 @@ export class FocusModeService {
   isBreakActive = this._store.selectSignal(selectors.selectIsBreakActive);
   isLongBreak = this._store.selectSignal(selectors.selectIsLongBreak);
 
+  isWaitingForNextFocus = this._store.selectSignal(selectors.selectIsWaitingForNextFocus);
+
+  breakMessageKey = this._store.selectSignal(selectors.selectBreakMessageKey);
+
   // Config signals
   pomodoroConfig = this._globalConfigService.pomodoroConfig;
   focusModeConfig = this._store.selectSignal(selectFocusModeConfig);

@@ -15,7 +15,11 @@ import {
   statSync,
   unlinkSync,
   writeFileSync,
+  readdirSync,
+  createReadStream,
 } from 'fs';
+import { extname } from 'path';
+import { WebSocketServer, WebSocket } from 'ws';
 import { dirname, join } from 'path';
 import { IPC } from './shared-with-frontend/ipc-events.const';
 import { getIsAppReady, getWin } from './main-window';
@@ -44,6 +48,10 @@ let isEnabled = false;
 // apart so a later recovery can tell "the user wants this on" from "it is on".
 let isEnabledDesired = false;
 let isListening = false;
+let wss: WebSocketServer | null = null;
+let localMusicFolderPath: string | null = null;
+const activeSockets = new Set<WebSocket>();
+
 const pendingRequests = new Map<
   string,
   {
@@ -481,6 +489,56 @@ const getForcedDevToken = (): string => {
   return generatedForcedDevToken;
 };
 
+const serveOverlayStaticFile = (pathname: string, res: ServerResponse): void => {
+  // Strip '/overlay' prefix, default to /index.html
+  let filePath = pathname.replace(/^\/overlay/, '');
+  if (filePath === '' || filePath === '/') {
+    filePath = '/index.html';
+  }
+
+  // Prevent directory traversal attacks
+  const safeSuffix = filePath.replace(/^(\.\.[\/\\])+/, '');
+  const finalPath = join(__dirname, 'overlay-dist', safeSuffix);
+
+  if (!existsSync(finalPath)) {
+    // SPA fallback: return index.html for unknown routes under /overlay
+    const indexPath = join(__dirname, 'overlay-dist', 'index.html');
+    if (existsSync(indexPath)) {
+      const content = readFileSync(indexPath);
+      res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+      res.end(content);
+      return;
+    }
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('Not Found');
+    return;
+  }
+
+  try {
+    const content = readFileSync(finalPath);
+    let contentType = 'text/plain';
+    const ext = extname(finalPath).toLowerCase();
+    switch (ext) {
+      case '.html': contentType = 'text/html; charset=utf-8'; break;
+      case '.js': contentType = 'application/javascript; charset=utf-8'; break;
+      case '.css': contentType = 'text/css; charset=utf-8'; break;
+      case '.json': contentType = 'application/json; charset=utf-8'; break;
+      case '.png': contentType = 'image/png'; break;
+      case '.jpg': 
+      case '.jpeg': contentType = 'image/jpeg'; break;
+      case '.gif': contentType = 'image/gif'; break;
+      case '.svg': contentType = 'image/svg+xml'; break;
+      case '.ico': contentType = 'image/x-icon'; break;
+      case '.mp3': contentType = 'audio/mpeg'; break;
+    }
+    res.writeHead(200, { 'Content-Type': contentType });
+    res.end(content);
+  } catch (err) {
+    res.writeHead(500, { 'Content-Type': 'text/plain' });
+    res.end('Internal Server Error');
+  }
+};
+
 const handleHttpRequest = async (
   req: IncomingMessage,
   res: ServerResponse,
@@ -496,6 +554,126 @@ const handleHttpRequest = async (
         message: 'Local REST API is disabled',
       },
     });
+    return;
+  }
+
+  // Intercept requests for the overlay UI
+  const requestUrl = new URL(req.url ?? '/', `http://${LOCAL_REST_API_HOST}`);
+  if (requestUrl.pathname.startsWith('/overlay')) {
+    serveOverlayStaticFile(requestUrl.pathname, res);
+    return;
+  }
+
+  // Handle local music player API
+  if (requestUrl.pathname === '/music/list') {
+    console.log('[local-rest-api-music] GET /music/list requested. localMusicFolderPath:', localMusicFolderPath);
+    if (!localMusicFolderPath) {
+      res.writeHead(400, JSON_HEADERS);
+      res.end(JSON.stringify({ ok: false, error: 'No music folder configured' }));
+      return;
+    }
+    try {
+      const files = readdirSync(localMusicFolderPath).filter(file => {
+        const ext = extname(file).toLowerCase();
+        return ['.mp3', '.wav', '.ogg'].includes(ext);
+      });
+      console.log(`[local-rest-api-music] GET /music/list found ${files.length} valid audio files.`);
+      res.writeHead(200, JSON_HEADERS);
+      res.end(JSON.stringify({ ok: true, files }));
+    } catch (e) {
+      console.error('[local-rest-api-music] GET /music/list Error reading directory:', e);
+      res.writeHead(500, JSON_HEADERS);
+      res.end(JSON.stringify({ ok: false, error: 'Failed to read directory' }));
+    }
+    return;
+  }
+
+  if (requestUrl.pathname === '/music/stream') {
+    const fileName = requestUrl.searchParams.get('file');
+    if (!fileName || !localMusicFolderPath) {
+      res.writeHead(400, { 'Content-Type': 'text/plain' });
+      res.end('Bad Request');
+      return;
+    }
+    const safeName = fileName.replace(/^[\.\/]+/, '');
+    const fullPath = join(localMusicFolderPath, safeName);
+    
+    try {
+      const stat = statSync(fullPath);
+      const fileSize = stat.size;
+      const range = req.headers.range;
+
+      if (range) {
+        const parts = range.replace(/bytes=/, '').split('-');
+        const start = parseInt(parts[0], 10);
+        const end = parts[1] ? parseInt(parts[1], 10) : fileSize - 1;
+        const chunksize = (end - start) + 1;
+        const file = createReadStream(fullPath, { start, end });
+        const head = {
+          'Content-Range': `bytes ${start}-${end}/${fileSize}`,
+          'Accept-Ranges': 'bytes',
+          'Content-Length': chunksize,
+          'Content-Type': 'audio/mpeg',
+        };
+        res.writeHead(206, head);
+        file.pipe(res);
+      } else {
+        const head = {
+          'Content-Length': fileSize,
+          'Content-Type': 'audio/mpeg',
+        };
+        res.writeHead(200, head);
+        createReadStream(fullPath).pipe(res);
+      }
+    } catch (e) {
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      res.end('Failed to stream file');
+    }
+    return;
+  }
+
+  if (requestUrl.pathname === '/music/command' && req.method === 'POST') {
+    let body: any;
+    try {
+      body = await readJsonBody(req);
+      console.log('[local-rest-api-music] POST /music/command received:', body);
+    } catch (e) {
+      console.error('[local-rest-api-music] POST /music/command Error parsing JSON body:', e);
+      res.writeHead(400, JSON_HEADERS);
+      res.end(JSON.stringify({ ok: false, error: 'Invalid body' }));
+      return;
+    }
+    
+    if (wss) {
+      const msg = JSON.stringify({ type: 'MUSIC_COMMAND', action: body.action, value: body.value });
+      console.log(`[local-rest-api-music] Broadcasting to ${wss.clients.size} WebSocket clients:`, msg);
+      wss.clients.forEach(client => {
+        if (client.readyState === WebSocket.OPEN) {
+          client.send(msg);
+        }
+      });
+    } else {
+      console.warn('[local-rest-api-music] Warning: Received command but WebSocket server is NOT running!');
+    }
+    
+    res.writeHead(200, {
+      ...JSON_HEADERS,
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type'
+    });
+    res.end(JSON.stringify({ ok: true }));
+    return;
+  }
+
+  // Handle OPTIONS for CORS preflight
+  if (requestUrl.pathname === '/music/command' && req.method === 'OPTIONS') {
+    res.writeHead(204, {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type'
+    });
+    res.end();
     return;
   }
 
@@ -540,7 +718,6 @@ const handleHttpRequest = async (
     return;
   }
 
-  const requestUrl = new URL(req.url ?? '/', `http://${LOCAL_REST_API_HOST}`);
   const method = req.method ?? 'GET';
 
   if (method === 'GET' && requestUrl.pathname === '/health') {
@@ -637,6 +814,15 @@ export const initLocalRestApi = (): void => {
   isInitialized = true;
 
   ipcMain.on(IPC.LOCAL_REST_API_RESPONSE, handleResponse);
+  ipcMain.on(IPC.LOCAL_REST_API_BROADCAST_STATE, (_event, state) => {
+    if (!wss) return;
+    const msg = JSON.stringify(state);
+    for (const client of activeSockets) {
+      if (client.readyState === WebSocket.OPEN) {
+        client.send(msg);
+      }
+    }
+  });
 
   // The renderer reads and regenerates the token over IPC; it is never stored
   // in the synced config. Both handlers throw when the token cannot be stored,
@@ -663,6 +849,73 @@ export const initLocalRestApi = (): void => {
 
   server = createServer((req, res) => {
     void handleHttpRequest(req, res);
+  });
+
+  wss = new WebSocketServer({ noServer: true });
+
+  server.on('upgrade', (request, socket, head) => {
+    const url = new URL(request.url ?? '/', `http://${LOCAL_REST_API_HOST}`);
+    
+    if (url.pathname === '/music/ws') {
+      wss?.handleUpgrade(request, socket, head, (ws) => {
+        console.log('[local-rest-api-music] New WebSocket client connected!');
+        activeSockets.add(ws);
+        ws.on('close', () => {
+          console.log('[local-rest-api-music] WebSocket client disconnected!');
+          activeSockets.delete(ws);
+        });
+        
+        ws.on('message', (message) => {
+          try {
+            const parsed = JSON.parse(message.toString());
+            // Broadcast to ALL OTHER clients (except the one that sent it)
+            const payload = JSON.stringify({ type: 'MUSIC_COMMAND', action: parsed.action, value: parsed.value });
+            for (const client of activeSockets) {
+              if (client !== ws && client.readyState === 1 /* OPEN */) {
+                client.send(payload);
+              }
+            }
+          } catch (e) {
+            console.error('[local-rest-api-music] Failed to parse message', e);
+          }
+        });
+
+        // Ping clients occasionally to keep connections alive
+        ws.on('pong', () => {
+          (ws as any).isAlive = true;
+        });
+        wss?.emit('connection', ws, request);
+      });
+      return;
+    }
+
+    // Existing /ws path for extension bridge
+    if (url.pathname !== '/ws') {
+      socket.write('HTTP/1.1 404 Not Found\r\n\r\n');
+      socket.destroy();
+      return;
+    }
+
+    const tokenToValidate = url.searchParams.get('token');
+    if (!tokenToValidate || !isCurrentToken(tokenToValidate)) {
+      socket.write('HTTP/1.1 401 Unauthorized\r\n\r\n');
+      socket.destroy();
+      return;
+    }
+
+    wss?.handleUpgrade(request, socket, head, (ws) => {
+      console.log('[local-rest-api] New bridge WebSocket client connected!');
+      activeSockets.add(ws);
+      ws.on('close', () => {
+        console.log('[local-rest-api] Bridge WebSocket client disconnected!');
+        activeSockets.delete(ws);
+      });
+      // Ping clients occasionally to keep connections alive
+      ws.on('pong', () => {
+        (ws as any).isAlive = true;
+      });
+      wss?.emit('connection', ws, request);
+    });
   });
 
   server.on('error', (error: NodeJS.ErrnoException) => {
@@ -740,6 +993,7 @@ const stopServer = (): void => {
 };
 
 export const updateLocalRestApiConfig = (cfg: GlobalConfigState): void => {
+  localMusicFolderPath = cfg.misc.localMusicFolderPath || null;
   const isForcedForDev = isForceEnabledForDev();
   const nextEnabled = isForcedForDev || !!cfg.misc.isLocalRestApiEnabled;
   isEnabledDesired = nextEnabled;

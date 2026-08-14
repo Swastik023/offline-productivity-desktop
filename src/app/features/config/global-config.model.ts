@@ -66,6 +66,8 @@ export type MiscConfig = Readonly<{
   taskNotesTpl?: string; // Deprecated
   isOverlayIndicatorEnabled?: boolean; // Deprecated – moved to taskWidget.isEnabled
   overlayIndicatorOpacity?: number; // Deprecated – moved to taskWidget.opacity
+
+  localMusicFolderPath?: string | null;
 }>;
 
 export type TasksConfig = Readonly<{
@@ -128,6 +130,10 @@ export type PomodoroConfig = Readonly<{
   breakDuration?: number | null;
   longerBreakDuration?: number | null;
   cyclesBeforeLongerBreak?: number | null;
+  isStrictShortBreak?: boolean;
+  isStrictLongBreak?: boolean;
+  isEnableNaturalBreaks?: boolean;
+  naturalBreaksInactivityResetTime?: number;
 }>;
 
 export type FlowtimeBreakRule = Readonly<{

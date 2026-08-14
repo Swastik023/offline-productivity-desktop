@@ -334,6 +334,49 @@
     </task-detail-item>
   }
   <task-detail-item
+    (collapseParent)="collapseParent()"
+    (keyPress)="onItemKeyPress($event)"
+    [inputIcon]="'edit'"
+    class="input-item"
+    [matMenuTriggerFor]="projectMenu"
+    (menuOpened)="_loadProjectListIfNeeded()"
+  >
+    <ng-container input-title>
+      <mat-icon>folder</mat-icon>
+      <span>{{ T.F.TASK.ADDITIONAL_INFO.PROJECT | translate }}</span>
+    </ng-container>
+    <ng-container input-value>
+      @if (currentProjectData(); as p) {
+        <span>{{ p.title }}</span>
+      } @else {
+        <span>{{ T.G.INBOX_PROJECT_TITLE | translate }}</span>
+      }
+    </ng-container>
+    <ng-container input-additional>
+      <mat-menu #projectMenu="matMenu">
+        <ng-template matMenuContent>
+          @if (moveToProjectList()) {
+            @for (project of moveToProjectList(); track trackByProjectId($index, project)) {
+              <button
+                (click)="moveTaskToProject(project.id)"
+                mat-menu-item
+              >
+                <select-option-row
+                  [title]="project.title"
+                  [icon]="project.icon"
+                  [defaultIcon]="DEFAULT_PROJECT_ICON"
+                  [color]="project.theme?.primary"
+                  [folderPath]="projectFolderMap().get(project.id)"
+                ></select-option-row>
+              </button>
+            }
+          }
+        </ng-template>
+      </mat-menu>
+    </ng-container>
+  </task-detail-item>
+
+  <task-detail-item
     #tagEditDetailItemElRef
     (collapseParent)="collapseParent()"
     (keyPress)="onItemKeyPress($event)"

@@ -48,6 +48,7 @@ export class FocusButtonComponent {
   readonly isSessionRunning = this.focusModeService.isSessionRunning;
   readonly isSessionPaused = this.focusModeService.isSessionPaused;
   readonly isBreakActive = this.focusModeService.isBreakActive;
+  readonly isWaitingForNextFocus = this.focusModeService.isWaitingForNextFocus;
   readonly progress = this.focusModeService.progress;
   readonly mode = this.focusModeService.mode;
   readonly currentCycle = this.focusModeService.currentCycle;
@@ -64,8 +65,13 @@ export class FocusButtonComponent {
 
   // Indicator stays visible while a session is paused too — otherwise the
   // user loses sight of the session until they manually reopen the overlay.
+  // Also stays visible when waiting for the next focus session after a break.
   readonly circleVisible = computed(
-    () => this.isSessionRunning() || this.isSessionPaused() || this.isBreakActive(),
+    () =>
+      this.isSessionRunning() ||
+      this.isSessionPaused() ||
+      this.isBreakActive() ||
+      this.isWaitingForNextFocus(),
   );
 
   readonly isCountdownMode = computed(() => {
@@ -76,6 +82,10 @@ export class FocusButtonComponent {
   readonly circleProgress = computed<number | null>(() => {
     if (!this.circleVisible()) {
       return null;
+    }
+    // Show full (completed) ring when waiting — the break is done.
+    if (this.isWaitingForNextFocus()) {
+      return 100;
     }
     // Show progress for both work sessions and breaks in countdown modes
     if (this.isCountdownMode() || this.isBreakActive()) {
@@ -93,6 +103,11 @@ export class FocusButtonComponent {
 
   readonly runningTimeMs = computed<number | null>(() => {
     if (!this.circleVisible()) {
+      return null;
+    }
+    // Don't show "00:00" when waiting — that makes it look like a stalled break.
+    // The user should see a clear "ready" indicator, not a stuck timer.
+    if (this.isWaitingForNextFocus()) {
       return null;
     }
     // Breaks always use countdown

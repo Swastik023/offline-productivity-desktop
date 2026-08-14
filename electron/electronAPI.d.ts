@@ -247,6 +247,12 @@ export interface ElectronAPI {
 
   showFullScreenBlocker(args: { msg?: string; takeABreakCfg: TakeABreakConfig }): void;
 
+
+
+  focusModeSkipBreak(): void;
+
+  onFocusModeSkipBreak(cb: () => void): void;
+
   backupAppData(args: {
     data: AppDataCompleteLegacy | AppDataComplete;
     maxBackupFiles?: number | null;
@@ -259,6 +265,11 @@ export interface ElectronAPI {
     isFocusModeEnabled?: boolean,
     currentFocusSessionTime?: number,
     focusModeMode?: string,
+    breakModeData?: {
+      isInBreak: boolean;
+      pausedTask: Task | null;
+      pausedWorkContextTitle: string | null;
+    },
   );
 
   updateTodayTasks(
@@ -282,4 +293,5 @@ export interface ElectronAPI {
   sendLocalRestApiResponse(payload: LocalRestApiResponsePayload): void;
   getLocalRestApiToken(): Promise<string>;
   regenerateLocalRestApiToken(): Promise<string>;
+  broadcastLocalRestApiState(state: any): void;
 }

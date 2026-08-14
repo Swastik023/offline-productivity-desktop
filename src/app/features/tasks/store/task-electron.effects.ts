@@ -1,4 +1,5 @@
 import { inject, Injectable } from '@angular/core';
+import { toObservable } from '@angular/core/rxjs-interop';
 import { createEffect, ofType } from '@ngrx/effects';
 import { setCurrentTask, unsetCurrentTask } from './task.actions';
 import { select, Store } from '@ngrx/store';
@@ -13,7 +14,11 @@ import {
 import { selectCurrentTask, selectTaskEntities } from './task.selectors';
 import { selectTodayTaskIds } from '../../work-context/store/work-context.selectors';
 import { GlobalConfigService } from '../../config/global-config.service';
-import { selectIsOverlayShown } from '../../focus-mode/store/focus-mode.selectors';
+import { 
+  selectIsOverlayShown,
+  selectPausedTaskId,
+  selectPausedWorkContext 
+} from '../../focus-mode/store/focus-mode.selectors';
 import { TimeTrackingActions } from '../../time-tracking/store/time-tracking.actions';
 import { FocusModeService } from '../../focus-mode/focus-mode.service';
 import {
@@ -30,6 +35,7 @@ import { IPC } from '../../../../../electron/shared-with-frontend/ipc-events.con
 import { TaskService } from '../task.service';
 import { TaskSharedActions } from '../../../root-store/meta/task-shared.actions';
 import { LOCAL_ACTIONS } from '../../../util/local-actions.token';
+import { DateService } from '../../../core/date/date.service';
 
 // TODO send message to electron when current task changes here
 
@@ -40,6 +46,8 @@ export class TaskElectronEffects {
   private _configService = inject(GlobalConfigService);
   private _focusModeService = inject(FocusModeService);
   private _taskService = inject(TaskService);
+  private _dateService = inject(DateService);
+  private _isBreakActive$ = toObservable(this._focusModeService.isBreakActive);
 
   // -----------------------------------------------------------------------------------
   // NOTE: IS_ELECTRON checks not necessary, since we check before importing this module
@@ -60,11 +68,18 @@ export class TaskElectronEffects {
           withLatestFrom(
             this._store$.pipe(select(selectIsOverlayShown)),
             this._focusModeService.currentSessionTime$,
+            this._isBreakActive$,
+            this._store$.pipe(select(selectPausedTaskId)),
+            this._store$.pipe(select(selectPausedWorkContext)),
+            this._store$.pipe(select(selectTaskEntities)),
           ),
           // Only take the first value and complete
           take(1),
         )
-        .subscribe(([current, isFocusModeEnabled, currentFocusSessionTime]) => {
+        .subscribe(([current, isFocusModeEnabled, currentFocusSessionTime, isBreakActive, pausedTaskId, pausedWorkContext, taskEntities]) => {
+          const pausedTask = (pausedTaskId ? taskEntities[pausedTaskId] : null) ?? null;
+          const pausedWorkContextTitle = pausedWorkContext?.title || null;
+          
           window.ea.updateCurrentTask(
             current,
             false, // isPomodoroEnabled - legacy, always false
@@ -72,6 +87,11 @@ export class TaskElectronEffects {
             isFocusModeEnabled,
             currentFocusSessionTime,
             this._focusModeService.mode(),
+            {
+              isInBreak: isBreakActive,
+              pausedTask,
+              pausedWorkContextTitle,
+            },
           );
         });
     });
@@ -95,6 +115,7 @@ export class TaskElectronEffects {
               title: t!.title,
               timeEstimate: t!.timeEstimate,
               timeSpent: t!.timeSpent,
+              timeSpentToday: t!.timeSpentOnDay[this._dateService.todayStr()] || 0,
             }));
           window.ea.updateTodayTasks(tasks);
         }),
@@ -129,8 +150,16 @@ export class TaskElectronEffects {
           this._store$.pipe(select(selectCurrentTask)),
           this._store$.pipe(select(selectIsOverlayShown)),
           this._focusModeService.currentSessionTime$.pipe(startWith(0)),
+          this._isBreakActive$,
+          this._store$.pipe(select(selectPausedTaskId)),
+          this._store$.pipe(select(selectPausedWorkContext)),
+          this._store$.pipe(select(selectTaskEntities)),
         ),
-        tap(([action, current, isFocusModeEnabled, currentFocusSessionTime]) => {
+        tap(([action, current, isFocusModeEnabled, currentFocusSessionTime, isBreakActive, pausedTaskId, pausedWorkContext, taskEntities]) => {
+          // Get paused task information during breaks
+          const pausedTask = (pausedTaskId ? taskEntities[pausedTaskId] : null) ?? null;
+          const pausedWorkContextTitle = pausedWorkContext?.title || null;
+
           window.ea.updateCurrentTask(
             current,
             false, // isPomodoroEnabled - legacy, always false
@@ -138,6 +167,12 @@ export class TaskElectronEffects {
             isFocusModeEnabled,
             currentFocusSessionTime,
             this._focusModeService.mode(),
+            // Add break mode data
+            {
+              isInBreak: isBreakActive,
+              pausedTask,
+              pausedWorkContextTitle,
+            },
           );
         }),
       ),

@@ -391,7 +391,1186 @@
       "START_FOCUS_SESSION": "Start focus session",
       "START_NEXT_FOCUS_SESSION": "Start next focus session",
       "SWITCH_TASK": "Switch task",
-      "WORKED_FOR": "You worked for"
+      "WORKED_FOR": "You worked for",
+      "MINI_BREAK_IDEAS": {
+        "aaa": {
+          "title": "Grab Water",
+          "text": "Go grab a glass of water.",
+          "howTo": [
+            "Stand up and go to the kitchen",
+            "Pour a glass of water",
+            "Drink it slowly",
+            "Return to your desk"
+          ],
+          "why": "Rehydrates your body and gives a short movement reset.",
+          "duration": "1–2 min",
+          "category": "hydration"
+        },
+        "aab": {
+          "title": "Eye Side Stretch",
+          "text": "Slowly look all the way left, then right.",
+          "howTo": [
+            "Keep your head still",
+            "Look as far left as comfortable",
+            "Hold for a second",
+            "Slowly look to the right",
+            "Hold for a second"
+          ],
+          "why": "Relieves tension from prolonged screen focus.",
+          "duration": "30–60 sec",
+          "category": "eyes"
+        },
+        "aac": {
+          "title": "Eye Vertical Stretch",
+          "text": "Slowly look all the way up, then down.",
+          "howTo": [
+            "Keep your head still",
+            "Look up toward the ceiling",
+            "Hold for a second",
+            "Slowly look down toward the floor",
+            "Hold for a second"
+          ],
+          "why": "Stretches the eye muscles and encourages blinking.",
+          "duration": "30–60 sec",
+          "category": "eyes"
+        },
+        "aad": {
+          "title": "Deep Breathing",
+          "text": "Close your eyes and take a few deep breaths.",
+          "howTo": [
+            "Close your eyes",
+            "Inhale slowly through your nose for 4 counts",
+            "Hold for 2 counts",
+            "Exhale slowly through your mouth for 6 counts",
+            "Repeat 3–5 times"
+          ],
+          "why": "Activates the relaxation response and calms the mind.",
+          "duration": "1–2 min",
+          "category": "breathing"
+        },
+        "aae": {
+          "title": "Close & Relax",
+          "text": "Close your eyes and relax.",
+          "howTo": [
+            "Sit comfortably",
+            "Close your eyes gently",
+            "Let your shoulders drop",
+            "Breathe naturally for a minute"
+          ],
+          "why": "Gives your eyes and mind a complete break from the screen.",
+          "duration": "1 min",
+          "category": "eyes"
+        },
+        "aaf": {
+          "title": "Stretch Legs",
+          "text": "Stretch your legs.",
+          "howTo": [
+            "Stand up",
+            "Lift one heel toward your glutes, hold for 5–10 sec",
+            "Switch legs",
+            "Then gently swing each leg a few times"
+          ],
+          "why": "Improves circulation after prolonged sitting.",
+          "duration": "1–2 min",
+          "category": "stretching",
+          "safety": "Use your desk for support if needed."
+        },
+        "aag": {
+          "title": "Arm & Shoulder Reset",
+          "text": "Stretch your arms.",
+          "howTo": [
+            "Raise one arm overhead",
+            "Reach toward the opposite side",
+            "Hold comfortably for 10 seconds",
+            "Repeat on the other side"
+          ],
+          "why": "Releases tension in shoulders and upper back.",
+          "duration": "1–2 min",
+          "category": "stretching",
+          "safety": "Keep the movement gentle. Stop if you feel pain."
+        },
+        "aah": {
+          "title": "Posture Check",
+          "text": "Is your sitting posture correct?",
+          "howTo": [
+            "Sit tall",
+            "Align ears over shoulders",
+            "Relax your shoulders down",
+            "Check that your feet are flat on the floor"
+          ],
+          "why": "Prevents strain and promotes better breathing.",
+          "duration": "30 sec",
+          "category": "posture"
+        },
+        "aai": {
+          "title": "Neck Side Turn",
+          "text": "Slowly turn your head to one side. Hold. Then switch.",
+          "howTo": [
+            "Sit tall",
+            "Slowly turn your head to the left",
+            "Hold for 10 seconds",
+            "Return to center",
+            "Repeat on the right"
+          ],
+          "why": "Relieves neck stiffness from looking straight ahead.",
+          "duration": "1 min",
+          "category": "stretching",
+          "safety": "Do not force the turn; stop if you feel discomfort."
+        },
+        "aaj": {
+          "title": "Neck Side Tilt",
+          "text": "Gently tilt your head to one side. Hold for a few seconds, then switch.",
+          "howTo": [
+            "Sit tall",
+            "Tilt your head toward your left shoulder",
+            "Hold for 5–10 seconds",
+            "Return to center",
+            "Repeat on the right"
+          ],
+          "why": "Stretches the side of the neck and upper trapezius.",
+          "duration": "1 min",
+          "category": "stretching",
+          "safety": "Keep the stretch gentle, no pulling."
+        },
+        "aak": {
+          "title": "Stand & Stretch",
+          "text": "Stand up and stretch.",
+          "howTo": [
+            "Push your chair back",
+            "Stand up slowly",
+            "Raise your arms overhead",
+            "Reach for the ceiling for 5 seconds",
+            "Lower arms and sit back down"
+          ],
+          "why": "Counters the effects of sitting and boosts alertness.",
+          "duration": "1 min",
+          "category": "movement"
+        },
+        "aal": {
+          "title": "Far Focus",
+          "text": "Refocus your eyes on an object at least 20 meters away.",
+          "howTo": [
+            "Look away from your screen",
+            "Find an object far away (out a window if possible)",
+            "Focus on it for 20–30 seconds",
+            "Relax your eyes"
+          ],
+          "why": "Reduces eye strain by relaxing the focusing muscles.",
+          "duration": "30–60 sec",
+          "category": "eyes"
+        },
+        "aam": {
+          "title": "Appreciation Pause",
+          "text": "Take a moment to think about something you appreciate.",
+          "howTo": [
+            "Close your eyes",
+            "Recall one thing that made you smile recently",
+            "Spend a few seconds feeling grateful",
+            "Open your eyes"
+          ],
+          "why": "A tiny positive reset can shift your mood.",
+          "duration": "30 sec",
+          "category": "mindfulness"
+        },
+        "aan": {
+          "title": "Smile",
+          "text": "Take a moment to smile at being alive.",
+          "howTo": [
+            "Pause what you're doing",
+            "Take a deep breath",
+            "Let a gentle smile form",
+            "Notice any shift in mood"
+          ],
+          "why": "Smiling, even briefly, can reduce stress.",
+          "duration": "15–30 sec",
+          "category": "mindfulness"
+        },
+        "aao": {
+          "title": "Step Away",
+          "text": "Step away from your desk for a moment.",
+          "howTo": [
+            "Stand up",
+            "Take 3–5 steps away from your desk",
+            "Take a few slow breaths",
+            "Return when ready"
+          ],
+          "why": "A literal change of position helps reset focus.",
+          "duration": "30–60 sec",
+          "category": "movement"
+        },
+        "aap": {
+          "title": "Counted Breathing",
+          "text": "Close your eyes and count your breaths.",
+          "howTo": [
+            "Close your eyes",
+            "Inhale quietly",
+            "Count 'one' silently",
+            "Exhale slowly",
+            "Continue counting up to five, then start again"
+          ],
+          "why": "Draws attention inward and calms the mind.",
+          "duration": "1 min",
+          "category": "breathing"
+        },
+        "aaq": {
+          "title": "Sound Awareness",
+          "text": "Close your eyes and name the things you hear.",
+          "howTo": [
+            "Close your eyes",
+            "Identify 3–5 sounds around you",
+            "Name them silently",
+            "Notice which sounds are closest and which are far"
+          ],
+          "why": "Grounds you in the present moment and reduces mental chatter.",
+          "duration": "1 min",
+          "category": "mindfulness"
+        },
+        "aar": {
+          "title": "Shoulder Rolls",
+          "text": "Roll your shoulders forward for 10 seconds, then backward.",
+          "howTo": [
+            "Sit tall",
+            "Lift your shoulders toward your ears",
+            "Roll them forward 5 times",
+            "Roll them backward 5 times"
+          ],
+          "why": "Loosens tight shoulders and improves blood flow.",
+          "duration": "30–60 sec",
+          "category": "stretching"
+        },
+        "aas": {
+          "title": "Overhead Side Reach",
+          "text": "Raise your right arm, stretch it over your head to the left, and hold for 10 seconds. Repeat on the other side.",
+          "howTo": [
+            "Raise one arm overhead",
+            "Bend sideways toward the opposite side",
+            "Hold for 10 seconds",
+            "Switch arms and repeat"
+          ],
+          "why": "Stretches the side body and relieves rib cage tension.",
+          "duration": "1 min",
+          "category": "stretching",
+          "safety": "Don't bounce; hold the stretch gently."
+        },
+        "aat": {
+          "title": "Finger Squeeze",
+          "text": "With your right hand, grab each finger of your left hand in turn and squeeze. Repeat on the other side.",
+          "howTo": [
+            "Gently grasp your left thumb with your right hand",
+            "Squeeze lightly for 2 seconds",
+            "Move to the next finger",
+            "Repeat on all fingers, then switch hands"
+          ],
+          "why": "Relieves hand tension from typing and mousing.",
+          "duration": "1 min",
+          "category": "hands-wrists"
+        },
+        "aau": {
+          "title": "Gentle Lunge",
+          "text": "Stand up and do a lunge. Hold for 10 seconds, then do the other leg.",
+          "howTo": [
+            "Stand behind your chair",
+            "Step one foot forward",
+            "Bend both knees slightly, keeping your torso upright",
+            "Hold for 10 seconds",
+            "Switch legs"
+          ],
+          "why": "Stretches the hip flexors that tighten from sitting.",
+          "duration": "1–2 min",
+          "category": "stretching",
+          "safety": "Use the chair for balance if needed."
+        },
+        "aav": {
+          "title": "Momentary Awareness",
+          "text": "Close your eyes and simply notice whatever arises in the current moment, without judgement.",
+          "howTo": [
+            "Close your eyes",
+            "Notice any thoughts, feelings, or body sensations",
+            "Let them be there without trying to change them",
+            "Stay for 1 minute"
+          ],
+          "why": "Practicing non-judgemental awareness reduces stress.",
+          "duration": "1 min",
+          "category": "mindfulness"
+        },
+        "aaw": {
+          "title": "20-20-20 Rule",
+          "text": "Every 20 minutes, look at something 20 feet away for 20 seconds.",
+          "howTo": [
+            "Look away from your screen",
+            "Find an object about 20 feet (6 meters) away",
+            "Focus on it for 20 seconds",
+            "Blink naturally"
+          ],
+          "why": "Gives your eyes regular breaks from close-up work.",
+          "duration": "20 sec",
+          "category": "eyes"
+        },
+        "aax": {
+          "title": "Ask for Help",
+          "text": "If you need help, ask for it.",
+          "howTo": [
+            "Notice if you've been stuck for more than a few minutes",
+            "Think of one person or resource that could help",
+            "Draft a quick message or set an intention to ask",
+            "Return to work"
+          ],
+          "why": "Prevents unnecessary frustration and wasted time.",
+          "duration": "30 sec",
+          "category": "mental-reset"
+        },
+        "aay": {
+          "title": "Single Task",
+          "text": "Do one thing at a time.",
+          "howTo": [
+            "Identify the single most important task right now",
+            "Close distracting tabs or apps",
+            "Commit to doing only that task until the next break",
+            "Let go of multitasking"
+          ],
+          "why": "Improves focus and reduces mental fatigue.",
+          "duration": "30 sec",
+          "category": "mental-reset"
+        },
+        "aaz": {
+          "title": "Attention Check",
+          "text": "Is your attention spent wisely?",
+          "howTo": [
+            "Ask yourself: is my current activity aligned with my goal?",
+            "If yes, continue",
+            "If no, choose one small action to redirect",
+            "Refocus"
+          ],
+          "why": "A quick mental audit prevents lost hours on low-value tasks.",
+          "duration": "30 sec",
+          "category": "mental-reset"
+        },
+        "aba": {
+          "title": "Posture Shift",
+          "text": "Change your sitting posture.",
+          "howTo": [
+            "Stand up for a moment",
+            "Sit down again in a slightly different position",
+            "Adjust chair height or lumbar support if available",
+            "Relax your shoulders"
+          ],
+          "why": "Varying posture reduces strain on any single area.",
+          "duration": "30 sec",
+          "category": "posture"
+        },
+        "abb": {
+          "title": "Natural Light",
+          "text": "Expose your eyes to natural light.",
+          "howTo": [
+            "If possible, look out a window",
+            "Spend a few seconds looking at daylight",
+            "Notice the brightness change",
+            "Return to screen"
+          ],
+          "why": "Natural light helps regulate circadian rhythm and mood.",
+          "duration": "30–60 sec",
+          "category": "environment"
+        },
+        "abc": {
+          "title": "Eye Vertical Sweep",
+          "text": "With your eyes closed, slowly and gently raise your eyes to the ceiling and back down to the floor.",
+          "howTo": [
+            "Close your eyes",
+            "Slowly look up as far as comfortable",
+            "Hold for a second",
+            "Slowly look down as far as comfortable",
+            "Repeat 3 times"
+          ],
+          "why": "Gently stretches extraocular muscles without visual input.",
+          "duration": "30 sec",
+          "category": "eyes",
+          "safety": "Move slowly; stop if you feel any strain."
+        },
+        "abd": {
+          "title": "Eye Horizontal Sweep",
+          "text": "With your eyes closed, slowly and gently move your eyes to the left, then slowly to the right.",
+          "howTo": [
+            "Close your eyes",
+            "Slowly look far left",
+            "Hold for a second",
+            "Slowly look far right",
+            "Repeat 3 times"
+          ],
+          "why": "Improves eye muscle flexibility and relaxation.",
+          "duration": "30 sec",
+          "category": "eyes",
+          "safety": "Keep movements gentle."
+        },
+        "abe": {
+          "title": "Shake Out Hands",
+          "text": "Shake your hands out to get some relief.",
+          "howTo": [
+            "Let your arms hang at your sides",
+            "Vigorously shake your hands for 10 seconds",
+            "Rotate wrists a few times",
+            "Relax"
+          ],
+          "why": "Reduces tension and increases blood flow to the hands.",
+          "duration": "30 sec",
+          "category": "hands-wrists"
+        },
+        "abf": {
+          "title": "Finger O-Shape",
+          "text": "One at a time, touch the tip of each finger to the tip of your thumb so they make an O-shape.",
+          "howTo": [
+            "Spread fingers comfortably",
+            "Touch index finger to thumb",
+            "Move through middle, ring, pinky",
+            "Repeat on both hands"
+          ],
+          "why": "Improves finger dexterity and circulation.",
+          "duration": "30 sec",
+          "category": "hands-wrists"
+        },
+        "abg": {
+          "title": "Fist Extension",
+          "text": "Make a fist and then slide your fingers up until they point toward the ceiling.",
+          "howTo": [
+            "Make a gentle fist",
+            "Slowly uncurl fingers and point them upward",
+            "Hold for 2 seconds",
+            "Relax",
+            "Repeat 5 times"
+          ],
+          "why": "Stretches the forearm and finger extensors.",
+          "duration": "30 sec",
+          "category": "hands-wrists"
+        },
+        "abh": {
+          "title": "Finger Fan",
+          "text": "Make a fist and then fan your fingers out and stretch them as far as you can.",
+          "howTo": [
+            "Make a gentle fist",
+            "Spread your fingers wide",
+            "Stretch them as far as comfortable",
+            "Hold for 3 seconds",
+            "Repeat"
+          ],
+          "why": "Counteracts the curled finger posture from typing.",
+          "duration": "30 sec",
+          "category": "hands-wrists"
+        },
+        "abi": {
+          "title": "Neck Gentle Circle",
+          "text": "Relax your shoulders. Slowly look left, then right.",
+          "howTo": [
+            "Sit tall",
+            "Relax shoulders",
+            "Slowly turn head left",
+            "Return to center",
+            "Turn head right",
+            "Return to center"
+          ],
+          "why": "Reduces neck stiffness without aggressive circular movements.",
+          "duration": "30–60 sec",
+          "category": "stretching",
+          "safety": "Avoid full neck circles; keep turns gentle."
+        },
+        "abj": {
+          "title": "Neck Side Stretch with Hand",
+          "text": "Gently tilt your head toward your shoulder and use your hand to deepen the stretch.",
+          "howTo": [
+            "Sit tall",
+            "Tilt head to the left",
+            "Place left hand on top of head (do not pull)",
+            "Let gravity deepen the stretch",
+            "Hold for 10 sec, switch sides"
+          ],
+          "why": "Targets the upper trapezius and levator scapulae.",
+          "duration": "1 min",
+          "category": "stretching",
+          "safety": "Use only gentle weight; stop if uncomfortable."
+        },
+        "abk": {
+          "title": "Shoulder Blade Squeeze",
+          "text": "Squeeze your shoulder blades together and hold.",
+          "howTo": [
+            "Sit or stand tall",
+            "Pull shoulder blades toward each other",
+            "Hold for 5 seconds",
+            "Release slowly",
+            "Repeat 5 times"
+          ],
+          "why": "Strengthens upper back and improves posture.",
+          "duration": "30–60 sec",
+          "category": "stretching"
+        },
+        "abl": {
+          "title": "Shoulder Rotation",
+          "text": "Stand tall with your arms raised along your shoulders. Move hands slightly behind your back, hold for a second and return.",
+          "howTo": [
+            "Stand tall",
+            "Raise arms out to sides at shoulder height",
+            "Move hands slightly backward",
+            "Hold for 1 second",
+            "Return to front",
+            "Repeat 5 times"
+          ],
+          "why": "Activates the posterior shoulder muscles.",
+          "duration": "30 sec",
+          "category": "movement"
+        },
+        "abm": {
+          "title": "Seated Torso Twist",
+          "text": "Sit on the edge of your chair, twist your torso to one side and hold for 10-15 seconds. Repeat on the other side.",
+          "howTo": [
+            "Sit on edge of chair",
+            "Turn your upper body to the left",
+            "Place right hand on outside of left knee",
+            "Hold for 10–15 sec",
+            "Repeat on right"
+          ],
+          "why": "Improves spinal mobility and relieves lower back stiffness.",
+          "duration": "1 min",
+          "category": "stretching",
+          "safety": "Keep the twist gentle; don't force."
+        },
+        "abn": {
+          "title": "Hip Flexor Stretch",
+          "text": "Stand up and put one foot on a nearby object, like a chair. Keep your knee bent and hold for 10-15 seconds. Repeat.",
+          "howTo": [
+            "Stand near a sturdy chair",
+            "Place one foot on the chair seat",
+            "Keep your standing leg straight",
+            "Lean forward slightly to feel a stretch in the front of the hip",
+            "Hold for 10–15 sec, switch legs"
+          ],
+          "why": "Stretches the hip flexors that tighten from prolonged sitting.",
+          "duration": "1–2 min",
+          "category": "stretching",
+          "safety": "Use a stable chair; keep your balance."
+        },
+        "abo": {
+          "title": "Chair Squats",
+          "text": "Stand up and do a few gentle squats.",
+          "howTo": [
+            "Stand in front of your chair",
+            "Lower your body as if sitting back",
+            "Lightly touch the chair seat",
+            "Stand back up",
+            "Repeat 5 times"
+          ],
+          "why": "Engages leg muscles and boosts circulation.",
+          "duration": "1 min",
+          "category": "movement",
+          "safety": "Keep your knees aligned with toes; don't go too deep."
+        },
+        "abp": {
+          "title": "Arm Snow Angel",
+          "text": "Stand up and stretch your shoulders and arms.",
+          "howTo": [
+            "Stand with your back against a wall",
+            "Raise arms to shoulder height",
+            "Slowly slide arms up and down along the wall",
+            "Repeat 5 times"
+          ],
+          "why": "Mobilizes shoulders and improves posture.",
+          "duration": "1 min",
+          "category": "movement"
+        },
+        "abq": {
+          "title": "Wall Push-Up",
+          "text": "Stand facing a wall and place your hands on it, then do several gentle push-ups.",
+          "howTo": [
+            "Stand arms' length from a wall",
+            "Place palms flat on wall at shoulder height",
+            "Bend elbows to bring chest toward wall",
+            "Push back to start",
+            "Repeat 5–8 times"
+          ],
+          "why": "Light upper body movement without equipment.",
+          "duration": "1 min",
+          "category": "movement",
+          "safety": "Keep your body in a straight line; stop if you feel strain."
+        },
+        "abr": {
+          "title": "Leg Extension",
+          "text": "Sit on the edge of your chair and extend one leg straight out in front of you, holding for 10-15 seconds. Repeat with the other leg.",
+          "howTo": [
+            "Sit on edge of chair",
+            "Extend one leg straight",
+            "Flex your foot toward you",
+            "Hold for 10–15 sec",
+            "Switch legs"
+          ],
+          "why": "Stretches the hamstrings and activates the quadriceps.",
+          "duration": "1 min",
+          "category": "stretching"
+        },
+        "abs": {
+          "title": "Calf Stretch at Wall",
+          "text": "Stand up and gently stretch your calves.",
+          "howTo": [
+            "Stand facing a wall",
+            "Place both hands on wall",
+            "Step one foot back, keep heel on floor",
+            "Lean forward until you feel a stretch in the calf",
+            "Hold for 15 sec, switch legs"
+          ],
+          "why": "Relieves tension in the lower legs.",
+          "duration": "1 min",
+          "category": "stretching"
+        },
+        "abt": {
+          "title": "Overhead Triceps Stretch",
+          "text": "Gentle overhead arm stretch.",
+          "howTo": [
+            "Raise one arm overhead",
+            "Bend elbow so hand reaches behind your head",
+            "Use opposite hand to gently press elbow",
+            "Hold for 10–15 sec",
+            "Switch arms"
+          ],
+          "why": "Stretches the triceps and shoulder.",
+          "duration": "1 min",
+          "category": "stretching",
+          "safety": "Do not force the elbow; stop if it hurts."
+        },
+        "abu": {
+          "title": "Neck Full Tilt",
+          "text": "Give your neck a gentle side-to-side stretch.",
+          "howTo": [
+            "Sit tall",
+            "Tilt head to left, hold 5 sec",
+            "Tilt to right, hold 5 sec",
+            "Tilt forward gently, hold 5 sec",
+            "Tilt backward gently, hold 5 sec"
+          ],
+          "why": "Relieves neck tension in all directions.",
+          "duration": "1 min",
+          "category": "stretching"
+        },
+        "abv": {
+          "title": "Cross-Body Arm Stretch",
+          "text": "Arm across chest stretch.",
+          "howTo": [
+            "Bring one arm across your chest",
+            "Use the other arm to gently pull it closer",
+            "Hold for 10–15 seconds",
+            "Switch arms"
+          ],
+          "why": "Stretches the posterior shoulder and upper back.",
+          "duration": "1 min",
+          "category": "stretching"
+        },
+        "abw": {
+          "title": "Hamstring Stretch",
+          "text": "Stand up, put one foot on a chair or step, and reach down to touch your toes.",
+          "howTo": [
+            "Place one heel on a sturdy chair",
+            "Keep the knee straight",
+            "Hinge at your hips and reach toward your toes",
+            "Hold for 15 seconds",
+            "Switch legs"
+          ],
+          "why": "Stretches the hamstrings and lower back.",
+          "duration": "1–2 min",
+          "category": "stretching",
+          "safety": "Bend your knees slightly if needed."
+        },
+        "abx": {
+          "title": "Doorway Chest Stretch",
+          "text": "Stand in a doorway and place your arms on either side, then gently lean forward to stretch your chest.",
+          "howTo": [
+            "Stand in an open doorway",
+            "Place forearms on doorframe at shoulder height",
+            "Gently lean forward until you feel a stretch in your chest",
+            "Hold for 15 seconds"
+          ],
+          "why": "Opens the chest and counters rounded shoulders.",
+          "duration": "1 min",
+          "category": "stretching"
+        },
+        "aby": {
+          "title": "Butterfly Stretch",
+          "text": "Sit on the edge of a chair or floor, place soles of feet together, and gently press knees down.",
+          "howTo": [
+            "Sit on a chair or floor",
+            "Place soles of feet together",
+            "Let knees fall outward",
+            "Gently press knees down with elbows",
+            "Hold for 15 seconds"
+          ],
+          "why": "Stretches inner thighs and improves hip mobility.",
+          "duration": "1 min",
+          "category": "stretching",
+          "safety": "Do not force knees down; stop if uncomfortable."
+        }
+      },
+      "LONG_BREAK_IDEAS": {
+        "aaa": {
+          "title": "Break Together",
+          "text": "Do you find it hard to take a break alone? Try to do it with a co-worker.",
+          "howTo": [
+            "Message a friend or co-worker",
+            "Invite them to take a 5-minute break together",
+            "Chat or walk together",
+            "Return to work refreshed"
+          ],
+          "why": "Social breaks reduce isolation and improve mood.",
+          "duration": "5–10 min",
+          "category": "general"
+        },
+        "aab": {
+          "title": "Step Away",
+          "text": "Step away from the computer and let your brain wander.",
+          "howTo": [
+            "Close your laptop or lock screen",
+            "Walk to another room",
+            "Look out a window or do a small household task",
+            "Return when you feel a mental shift"
+          ],
+          "why": "Gives your brain a chance to process and reset.",
+          "duration": "5–10 min",
+          "category": "mental-reset"
+        },
+        "aac": {
+          "title": "Microbreaks",
+          "text": "Frequent breaks can decrease fatigue and improve comfort.",
+          "howTo": [
+            "Take a short break now",
+            "Stand up and move around",
+            "Do a few stretches",
+            "Drink water",
+            "Return to desk"
+          ],
+          "why": "Regular movement prevents stiffness and maintains energy.",
+          "duration": "3–5 min",
+          "category": "movement"
+        },
+        "aad": {
+          "title": "Mindful Reset",
+          "text": "Close your eyes and take a few slow breaths.",
+          "howTo": [
+            "Sit comfortably",
+            "Close your eyes",
+            "Inhale for 4 counts, exhale for 6",
+            "Repeat for 2–3 minutes"
+          ],
+          "why": "Reduces stress and improves focus for the next work block.",
+          "duration": "3–5 min",
+          "category": "breathing"
+        },
+        "aae": {
+          "title": "Rest Your Eyes",
+          "text": "Looking at screens for long periods causes you to blink less.",
+          "howTo": [
+            "Look away from all screens",
+            "Blink slowly 10 times",
+            "Focus on a distant object for 30 seconds",
+            "Repeat a few times"
+          ],
+          "why": "Rehydrates and relaxes the eyes.",
+          "duration": "2–3 min",
+          "category": "eyes"
+        },
+        "aaf": {
+          "title": "Desk Ergonomics Check",
+          "text": "Take a moment to adjust your workstation.",
+          "howTo": [
+            "Check monitor height (top of screen at eye level)",
+            "Adjust chair so feet are flat",
+            "Place keyboard and mouse within easy reach",
+            "Sit back in your chair"
+          ],
+          "why": "Proper ergonomics prevents long-term discomfort.",
+          "duration": "5 min",
+          "category": "posture"
+        },
+        "aag": {
+          "title": "Move Around",
+          "text": "Walk around or do some desk push-ups.",
+          "howTo": [
+            "Stand up",
+            "Walk around your room or office for 3–4 minutes",
+            "If you prefer, do 5–10 desk push-ups",
+            "Return to work"
+          ],
+          "why": "Boosts circulation and energy levels.",
+          "duration": "3–5 min",
+          "category": "movement"
+        },
+        "aah": {
+          "title": "Change Your Seat",
+          "text": "Consider using a stability ball or standing desk for a while.",
+          "howTo": [
+            "If you have a stability ball or standing desk, set it up",
+            "Spend 5–10 minutes working in the new position",
+            "Return to your regular setup"
+          ],
+          "why": "Varied postures reduce strain on the body.",
+          "duration": "5–10 min",
+          "category": "posture",
+          "safety": "Ensure the alternative setup is stable."
+        },
+        "aai": {
+          "title": "Notice the Signs",
+          "text": "Are you daydreaming or having trouble focusing? It's a sign you need a break.",
+          "howTo": [
+            "Notice your current attention level",
+            "If you're struggling, stand up and step away",
+            "Do something unrelated for 5 minutes",
+            "Return with a clearer mind"
+          ],
+          "why": "Pushing through fatigue reduces productivity.",
+          "duration": "5 min",
+          "category": "mental-reset"
+        },
+        "aaj": {
+          "title": "No-Tech Walk",
+          "text": "Take a short walk without your phone.",
+          "howTo": [
+            "Leave your phone at your desk",
+            "Step outside or walk indoors",
+            "Walk at a relaxed pace for 5–10 minutes",
+            "Notice your surroundings"
+          ],
+          "why": "Disconnecting from tech helps the mind truly rest.",
+          "duration": "5–10 min",
+          "category": "walking"
+        },
+        "aak": {
+          "title": "Metabolic Movement",
+          "text": "Sitting for long periods contributes to health risks. Take regular walking breaks.",
+          "howTo": [
+            "Stand up",
+            "Walk briskly for 2–3 minutes",
+            "Swing your arms gently",
+            "Return to your desk"
+          ],
+          "why": "Walking breaks improve circulation and reduce health risks.",
+          "duration": "3–5 min",
+          "category": "walking"
+        },
+        "aal": {
+          "title": "Walking Meeting",
+          "text": "If you need to talk with someone, consider doing it while walking.",
+          "howTo": [
+            "Call or meet someone for a walking conversation",
+            "Keep a relaxed pace",
+            "Keep the discussion brief and casual"
+          ],
+          "why": "Walking meetings combine social interaction with movement.",
+          "duration": "5–10 min",
+          "category": "walking"
+        },
+        "aam": {
+          "title": "Mindful Snack",
+          "text": "Take your time and eat some fruit slowly.",
+          "howTo": [
+            "Choose a piece of fruit",
+            "Sit down away from your desk",
+            "Eat slowly, noticing taste and texture",
+            "Drink some water"
+          ],
+          "why": "Mindful eating provides a sensory break and nourishment.",
+          "duration": "5 min",
+          "category": "general"
+        },
+        "aan": {
+          "title": "Walk to Restroom",
+          "text": "When going to the restroom, walk the long way.",
+          "howTo": [
+            "Head to the restroom",
+            "Take a longer route",
+            "Walk at a comfortable pace",
+            "Return to your desk"
+          ],
+          "why": "Adds extra steps and a change of scenery.",
+          "duration": "3–5 min",
+          "category": "walking"
+        },
+        "aao": {
+          "title": "Coffee Break Walk",
+          "text": "Going for coffee? Walk for 5 minutes first.",
+          "howTo": [
+            "Stand up",
+            "Walk for 5 minutes before preparing coffee",
+            "Then make your coffee",
+            "Return to your desk"
+          ],
+          "why": "Combines hydration with light exercise.",
+          "duration": "5 min",
+          "category": "walking"
+        },
+        "aap": {
+          "title": "Walk to Colleague",
+          "text": "Instead of emailing a colleague, walk to their desk.",
+          "howTo": [
+            "Stand up",
+            "Walk to your colleague's desk",
+            "Deliver your message in person",
+            "Walk back"
+          ],
+          "why": "In-person interaction and movement break the sedentary pattern.",
+          "duration": "5 min",
+          "category": "walking"
+        },
+        "aaq": {
+          "title": "Learning Break",
+          "text": "Short breaks help your brain learn new skills.",
+          "howTo": [
+            "Step away from your work",
+            "Do a small, unrelated task for 5 minutes",
+            "Return and try to recall what you were working on"
+          ],
+          "why": "Spacing learning improves retention.",
+          "duration": "5 min",
+          "category": "mental-reset"
+        },
+        "aar": {
+          "title": "Gentle Exercise",
+          "text": "Small amounts of regular exercise bring dramatic health benefits.",
+          "howTo": [
+            "Do 2–3 minutes of light exercise (jumping jacks, marching in place)",
+            "Keep it low intensity",
+            "Cool down with a stretch"
+          ],
+          "why": "Regular movement reduces stress and improves mood.",
+          "duration": "5 min",
+          "category": "movement"
+        },
+        "aas": {
+          "title": "Repeat Your Stretches",
+          "text": "Repeat your favorite stretches more than once to fight sitting effects.",
+          "howTo": [
+            "Choose 2–3 stretches you like",
+            "Perform each for 15–20 seconds",
+            "Repeat the sequence twice",
+            "Breathe slowly"
+          ],
+          "why": "Repetition increases the benefits of stretching.",
+          "duration": "3–5 min",
+          "category": "stretching"
+        },
+        "aat": {
+          "title": "Wrist & Forearm Stretch",
+          "text": "Extend your arms with palms facing you, then rotate hands.",
+          "howTo": [
+            "Extend arms forward, palms facing up",
+            "Slowly rotate hands down",
+            "Repeat 4 times each direction",
+            "Shake hands out"
+          ],
+          "why": "Relieves forearm and wrist tension.",
+          "duration": "1–2 min",
+          "category": "hands-wrists"
+        },
+        "aau": {
+          "title": "Back Stretch",
+          "text": "Join hands behind your head, then lift them up above your head.",
+          "howTo": [
+            "Sit or stand tall",
+            "Interlace fingers behind head",
+            "Lift arms upward, palms up",
+            "Hold for 10–15 seconds",
+            "Release slowly"
+          ],
+          "why": "Stretches the upper back and shoulders.",
+          "duration": "1–2 min",
+          "category": "stretching"
+        },
+        "aav": {
+          "title": "Mobilize",
+          "text": "For every 30 minutes of sitting, move for at least one minute.",
+          "howTo": [
+            "Set a mental timer",
+            "When it goes off, stand up",
+            "Walk or stretch for 1 minute",
+            "Sit back down"
+          ],
+          "why": "Frequent movement prevents stiffness and boosts energy.",
+          "duration": "1 min",
+          "category": "movement"
+        },
+        "aaw": {
+          "title": "7-Minute Workout",
+          "text": "A full-body workout in a fraction of the time.",
+          "howTo": [
+            "Find a 7-minute workout app or video",
+            "Follow the routine",
+            "Modify any exercise as needed",
+            "Rest briefly after"
+          ],
+          "why": "Efficient way to get your heart rate up.",
+          "duration": "7 min",
+          "category": "movement",
+          "safety": "Consult a professional if you have health concerns."
+        },
+        "aax": {
+          "title": "Raise Your Heart Rate",
+          "text": "Regularly raising your heart rate improves cardiovascular health.",
+          "howTo": [
+            "Do 2–3 minutes of brisk walking or stair climbing",
+            "Aim for moderate intensity",
+            "Cool down briefly"
+          ],
+          "why": "Cardiovascular exercise benefits long-term health.",
+          "duration": "3–5 min",
+          "category": "movement"
+        },
+        "aay": {
+          "title": "Take the Stairs",
+          "text": "Stair climbing burns more calories per minute than jogging.",
+          "howTo": [
+            "Find stairs nearby",
+            "Walk up and down for 3–5 minutes",
+            "Keep a steady pace"
+          ],
+          "why": "A quick, accessible workout that builds endurance.",
+          "duration": "3–5 min",
+          "category": "movement",
+          "safety": "Use handrail if needed."
+        },
+        "aaz": {
+          "title": "Creative Break",
+          "text": "Art therapy has great mental health benefits. Try a quick creative activity.",
+          "howTo": [
+            "Choose a simple creative outlet (drawing, writing, photo)",
+            "Set a 5-minute timer",
+            "Create without judgement",
+            "Return to work"
+          ],
+          "why": "Creativity reduces stress and refreshes the mind.",
+          "duration": "5 min",
+          "category": "mental-reset"
+        },
+        "aba": {
+          "title": "Declutter",
+          "text": "A clean space helps your focus at work.",
+          "howTo": [
+            "Choose one small area (desk, nearby shelf)",
+            "Spend 3–5 minutes tidying it",
+            "Put items where they belong",
+            "Notice the change"
+          ],
+          "why": "A tidy environment reduces mental clutter and improves focus.",
+          "duration": "5 min",
+          "category": "environment"
+        },
+        "abb": {
+          "title": "Lunch Outside",
+          "text": "Whenever possible, take your lunch break outside.",
+          "howTo": [
+            "Prepare a simple meal",
+            "Go outside (balcony, garden, nearby park)",
+            "Eat slowly and look around",
+            "Return refreshed"
+          ],
+          "why": "Nature and fresh air reduce stress and boost mood.",
+          "duration": "10–20 min",
+          "category": "environment"
+        },
+        "abc": {
+          "title": "Stand on Public Transport",
+          "text": "If you use public transport, stand instead of sitting.",
+          "howTo": [
+            "On your commute or travel, stand if possible",
+            "Hold onto a rail",
+            "Keep balance"
+          ],
+          "why": "Standing burns a few extra calories and improves circulation.",
+          "duration": "N/A",
+          "category": "posture"
+        },
+        "abd": {
+          "title": "Yawn",
+          "text": "Yawning produces tears to help moisten and lubricate the eyes.",
+          "howTo": [
+            "Open your mouth wide and yawn",
+            "Let your eyes water naturally",
+            "Blink a few times"
+          ],
+          "why": "Helps relieve dry eyes from screen use.",
+          "duration": "15 sec",
+          "category": "eyes"
+        },
+        "abe": {
+          "title": "Focus Change",
+          "text": "Hold one finger close to your eye, focus on it, then look far away.",
+          "howTo": [
+            "Hold your finger a few inches from your face",
+            "Focus on it for 5 seconds",
+            "Move it away and focus on something across the room",
+            "Repeat 3 times"
+          ],
+          "why": "Exercises the eye's focusing ability and reduces fatigue.",
+          "duration": "30–60 sec",
+          "category": "eyes"
+        },
+        "abf": {
+          "title": "Palming",
+          "text": "Cup your hands over your eyes to relax them.",
+          "howTo": [
+            "Rub hands together to warm them",
+            "Cup palms over closed eyes",
+            "Rest elbows on desk",
+            "Breathe slowly for 1–2 minutes"
+          ],
+          "why": "Darkness and warmth soothe tired eyes.",
+          "duration": "1–2 min",
+          "category": "eyes"
+        },
+        "abg": {
+          "title": "Hand Squeezes",
+          "text": "Squeeze a soft rubber ball or balled-up socks.",
+          "howTo": [
+            "Hold a soft ball or rolled socks",
+            "Squeeze firmly for 5 seconds",
+            "Release slowly",
+            "Repeat 5 times with each hand"
+          ],
+          "why": "Relieves hand and forearm tension.",
+          "duration": "1–2 min",
+          "category": "hands-wrists"
+        },
+        "abh": {
+          "title": "Slow Breathing",
+          "text": "Slow breathing may optimise physiological parameters associated with health.",
+          "howTo": [
+            "Sit comfortably",
+            "Inhale for 4 seconds",
+            "Hold for 4 seconds",
+            "Exhale for 6 seconds",
+            "Repeat for 2–3 minutes"
+          ],
+          "why": "Calms the nervous system and lowers stress.",
+          "duration": "3 min",
+          "category": "breathing"
+        },
+        "abi": {
+          "title": "Visualization",
+          "text": "Close your eyes and imagine yourself in a peaceful place.",
+          "howTo": [
+            "Close your eyes",
+            "Picture a peaceful scene (beach, forest, mountains)",
+            "Engage your senses: sight, sound, smell",
+            "Stay for 2–3 minutes"
+          ],
+          "why": "Mental imagery reduces stress and promotes relaxation.",
+          "duration": "3–5 min",
+          "category": "mindfulness"
+        },
+        "abj": {
+          "title": "5-4-3-2-1 Grounding",
+          "text": "Try the 5-4-3-2-1 technique to manage overwhelm.",
+          "howTo": [
+            "Name 5 things you can see",
+            "Name 4 things you can touch",
+            "Name 3 things you can hear",
+            "Name 2 things you can smell",
+            "Name 1 thing you can taste"
+          ],
+          "why": "Grounds you in the present and reduces anxiety.",
+          "duration": "2–3 min",
+          "category": "mindfulness"
+        }
+      }
     },
     "GITEA": {
       "FORM": {
@@ -992,7 +2171,7 @@
         "RESOLVE": {
           "MSG": "still has {{nr}} unfinished tasks. What should happen to them?",
           "MSG_ONE": "still has {{nr}} unfinished task. What should happen to it?",
-          "MOVE_TO_INBOX": "Move to Inbox",
+          "MOVE_TO_INBOX": "Move to Others",
           "MARK_DONE": "Mark as done"
         },
         "CONFIRM": {
@@ -1827,7 +3006,8 @@
         "SCHEDULE_TASK": "Schedule Task",
         "SUB_TASKS": "Subtasks ({{nr}})",
         "TIME": "Duration",
-        "TITLE_PLACEHOLDER": "Enter a title"
+        "TITLE_PLACEHOLDER": "Enter a title",
+        "PROJECT": "Project"
       },
       "B": {
         "ADD_ALL_TO_TODAY": "Add all to today",
@@ -2359,7 +3539,7 @@
     "EXTENSION_INFO": "Please <a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/super-productivity/ljkbjodfmekklcoibdnhahlaalhihmlb\"> download the Chrome extension</a> to allow communication with the Jira API and Idle Time Handling. Note that this doesn't work for mobile. <strong>Without the extension, the features will not work!</strong>",
     "HIDE": "Hide",
     "ICON_INP_DESCRIPTION": "All UTF-8 emojis are also supported!",
-    "INBOX_PROJECT_TITLE": "Inbox",
+    "INBOX_PROJECT_TITLE": "Others",
     "MINUTES": "{{m}} minutes",
     "MORE_ACTIONS": "More actions",
     "MOVE_BACKWARD": "Move backward",

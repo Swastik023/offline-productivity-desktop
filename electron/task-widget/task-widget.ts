@@ -25,10 +25,13 @@ let isAlwaysShow = false;
 // the next focus event.
 let isUserForcedVisible = false;
 let currentTask: TaskCopy | null = null;
+let pausedTask: TaskCopy | null = null;
+let pausedWorkContextTitle: string | null = null;
 let isPomodoroEnabled = false;
 let currentPomodoroSessionTime = 0;
 let isFocusModeEnabled = false;
 let currentFocusSessionTime = 0;
+let isInBreakMode = false;
 let initTimeoutId: NodeJS.Timeout | null = null;
 let currentOpacity = 95;
 let listenersRegistered = false;
@@ -443,12 +446,23 @@ export const updateTaskWidgetTask = (
   pomodoroTime: number,
   focusModeEnabled: boolean,
   focusTime: number,
+  breakModeData?: {
+    isInBreak: boolean;
+    pausedTask: TaskCopy | null;
+    pausedWorkContextTitle: string | null;
+  },
 ): void => {
   currentTask = task;
   isPomodoroEnabled = pomodoroEnabled;
   currentPomodoroSessionTime = pomodoroTime;
   isFocusModeEnabled = focusModeEnabled;
   currentFocusSessionTime = focusTime;
+  
+  if (breakModeData) {
+    isInBreakMode = breakModeData.isInBreak;
+    pausedTask = breakModeData.pausedTask;
+    pausedWorkContextTitle = breakModeData.pausedWorkContextTitle;
+  }
 
   updateTaskWidgetContent();
 };
@@ -462,6 +476,7 @@ const updateTaskWidgetContent = (): void => {
   let timeStr = '';
   let mode: 'pomodoro' | 'focus' | 'task' | 'idle' = 'idle';
 
+  // Check for active task first
   if (currentTask && currentTask.title) {
     title = currentTask.title;
     if (title.length > 40) {
@@ -483,11 +498,21 @@ const updateTaskWidgetContent = (): void => {
       timeStr = formatTime(currentTask.timeSpent);
     }
   }
+  // NEW: Check for paused task during focus mode breaks
+  else if (isFocusModeEnabled && isInBreakMode && pausedTask && pausedTask.title) {
+    title = pausedTask.title; // Show preserved task instead of "No active task"
+    if (title.length > 40) {
+      title = title.substring(0, 37) + '...';
+    }
+    mode = 'focus';
+    timeStr = formatTime(currentFocusSessionTime);
+  }
 
   taskWidgetWin.webContents.send('update-content', {
     title,
     time: timeStr,
     mode,
+    workContext: pausedWorkContextTitle, // Add work context info for display
   });
 };
 

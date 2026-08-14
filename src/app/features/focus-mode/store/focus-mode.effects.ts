@@ -2,7 +2,8 @@ import { inject, Injectable } from '@angular/core';
 import { createEffect, ofType } from '@ngrx/effects';
 import { LOCAL_ACTIONS } from '../../../util/local-actions.token';
 import { Action, Store } from '@ngrx/store';
-import { combineLatest, EMPTY, of } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+import { combineLatest, defer, EMPTY, of, Observable } from 'rxjs';
 import { skipWhileApplyingRemoteOps } from '../../../util/skip-during-sync.operator';
 import {
   distinctUntilChanged,
@@ -20,6 +21,7 @@ import * as selectors from './focus-mode.selectors';
 import { FocusModeStrategyFactory } from '../focus-mode-strategies';
 import { GlobalConfigService } from '../../config/global-config.service';
 import { TaskService } from '../../tasks/task.service';
+import { WorkContextService } from '../../work-context/work-context.service';
 import { playSound } from '../../../util/play-sound';
 import { startWhiteNoise, stopWhiteNoise } from '../../../util/white-noise';
 import { startBreakEndAlarm, stopBreakEndAlarm } from '../../../util/break-end-alarm';
@@ -27,12 +29,14 @@ import { FocusModeLocalSettingsService } from '../../config/focus-mode-local-set
 import { IS_ELECTRON } from '../../../app.constants';
 import { setCurrentTask, unsetCurrentTask } from '../../tasks/store/task.actions';
 import { selectLastCurrentTask, selectTaskById } from '../../tasks/store/task.selectors';
+import { setActiveWorkContext } from '../../work-context/store/work-context.actions';
 import { openIdleDialog } from '../../idle/store/idle.actions';
 import { LS } from '../../../core/persistence/storage-keys.const';
 import {
   selectFocusModeConfig,
   selectIsFocusModeEnabled,
   selectPomodoroConfig,
+  selectIdleConfig,
 } from '../../config/store/global-config.reducer';
 import { updateGlobalConfigSection } from '../../config/store/global-config.actions';
 import {
@@ -41,16 +45,18 @@ import {
   getBreakCycle,
   TimerState,
 } from '../focus-mode.model';
-import { MetricService } from '../../metric/metric.service';
 import { FocusModeStorageService } from '../focus-mode-storage.service';
 import { TakeABreakService } from '../../take-a-break/take-a-break.service';
 import { NotifyService } from '../../../core/notify/notify.service';
+import { getNextIdeaKey } from '../focus-mode-break-idea.util';
 import { msToString } from '../../../ui/duration/ms-to-string.pipe';
 import { T } from '../../../t.const';
 import { IS_ANDROID_WEB_VIEW_TOKEN } from '../../../util/is-android-web-view';
 import { BannerService } from '../../../core/banner/banner.service';
 import { BannerId } from '../../../core/banner/banner.model';
+import { ipcIdleTime$ } from '../../../core/ipc-events';
 
+import { MetricService } from '../../metric/metric.service';
 const SESSION_DONE_SOUND = 'positive.mp3';
 const TICK_SOUND = 'tick.mp3';
 /** Focus-mode ambient sounds play at 40% of the user's main volume to avoid being intrusive. */
@@ -58,11 +64,14 @@ const FOCUS_SOUND_VOLUME_FACTOR = 0.4;
 
 @Injectable()
 export class FocusModeEffects {
+  ipcIdleTime$ = ipcIdleTime$;
+
   private actions$ = inject(LOCAL_ACTIONS);
   private store = inject(Store);
   private strategyFactory = inject(FocusModeStrategyFactory);
   private globalConfigService = inject(GlobalConfigService);
   private taskService = inject(TaskService);
+  private workContextService = inject(WorkContextService);
   private metricService = inject(MetricService);
   private storageService = inject(FocusModeStorageService);
   private takeABreakService = inject(TakeABreakService);
@@ -70,6 +79,7 @@ export class FocusModeEffects {
   private bannerService = inject(BannerService);
   private isAndroidWebView = inject(IS_ANDROID_WEB_VIEW_TOKEN);
   private focusModeLocalSettingsService = inject(FocusModeLocalSettingsService);
+  private translateService = inject(TranslateService);
 
   // Sync: When tracking starts → resume/skip-break or auto-spawn a new session.
   //
@@ -406,6 +416,9 @@ export class FocusModeEffects {
         this.store.select(selectors.selectCurrentCycle),
         this.store.select(selectFocusModeConfig),
         this.taskService.currentTaskId$,
+        this.workContextService.activeWorkContext$,
+        this.workContextService.getTimeWorkedForDay$(),
+        this.taskService.currentTask$,
       ),
       filter(([_, mode, __, config]) => {
         // Only for Pomodoro mode (since only Pomodoro increments cycles)
@@ -413,39 +426,64 @@ export class FocusModeEffects {
         const strategy = this.strategyFactory.getStrategy(mode);
         return strategy.shouldStartBreakAfterSession;
       }),
-      switchMap(([_, mode, cycle, config, currentTaskId]) => {
-        const strategy = this.strategyFactory.getStrategy(mode);
-        // Cycle Adjustment needed, Cycle is 1 too high after incrementCycle
-        // we want to get the last session's cycle
-        const breakInfo = strategy.getBreakDuration(getBreakCycle(cycle));
-        const shouldPauseTracking = config?.isPauseTrackingDuringBreak && currentTaskId;
-        const actionsArr: Action[] = [];
+      switchMap(
+        ([
+          _,
+          mode,
+          cycle,
+          config,
+          currentTaskId,
+          workContext,
+          dailyTimeWorked,
+          currentTask,
+        ]) => {
+          const strategy = this.strategyFactory.getStrategy(mode);
+          // Cycle Adjustment needed, Cycle is 1 too high after incrementCycle
+          // we want to get the last session's cycle
+          const breakInfo = strategy.getBreakDuration(getBreakCycle(cycle));
+          const shouldPauseTracking = config?.isPauseTrackingDuringBreak && currentTaskId;
+          const actionsArr: Action[] = [];
 
-        // Pause tracking during break if configured
-        if (shouldPauseTracking) {
-          actionsArr.push(unsetCurrentTask());
-        }
+          // Pause tracking during break if configured
+          if (shouldPauseTracking) {
+            actionsArr.push(unsetCurrentTask());
+          }
 
-        // Start break with appropriate duration
-        if (breakInfo) {
-          actionsArr.push(
-            actions.startBreak({
-              duration: breakInfo.duration,
-              isLongBreak: breakInfo.isLong,
-              pausedTaskId: shouldPauseTracking ? currentTaskId : undefined,
-            }),
-          );
-        } else {
-          // Fallback if no break info
-          actionsArr.push(
-            actions.startBreak({
-              pausedTaskId: shouldPauseTracking ? currentTaskId : undefined,
-            }),
-          );
-        }
+          // Capture work context for preservation during break
+          const workContextSnapshot =
+            workContext && currentTask
+              ? {
+                  activeId: workContext.id,
+                  activeType: workContext.type,
+                  title: workContext.title,
+                  taskTitle: currentTask.title,
+                  dailyTimeWorked: dailyTimeWorked || 0,
+                }
+              : null;
 
-        return of(...actionsArr);
-      }),
+          // Start break with appropriate duration and work context
+          if (breakInfo) {
+            actionsArr.push(
+              actions.startBreak({
+                duration: breakInfo.duration,
+                isLongBreak: breakInfo.isLong,
+                pausedTaskId: shouldPauseTracking ? currentTaskId : undefined,
+                workContext: workContextSnapshot,
+              }),
+            );
+          } else {
+            // Fallback if no break info
+            actionsArr.push(
+              actions.startBreak({
+                pausedTaskId: shouldPauseTracking ? currentTaskId : undefined,
+                workContext: workContextSnapshot,
+              }),
+            );
+          }
+
+          return of(...actionsArr);
+        },
+      ),
     ),
   );
 
@@ -472,36 +510,66 @@ export class FocusModeEffects {
         this.store.select(selectors.selectTimer),
         this.store.select(selectFocusModeConfig),
         this.taskService.currentTaskId$,
+        this.workContextService.activeWorkContext$,
+        this.workContextService.getTimeWorkedForDay$(),
+        this.taskService.currentTask$,
       ),
       filter(([_action, mode, timer]) => {
         if (mode !== FocusModeMode.Flowtime) return false;
         if (timer.purpose !== 'work') return false;
         return true;
       }),
-      switchMap(([action, mode, timer, config, currentTaskId]) => {
-        const strategy = this.strategyFactory.getStrategy(mode);
-        const breakInfo = strategy.getBreakDuration(timer.elapsed);
+      switchMap(
+        ([
+          action,
+          mode,
+          timer,
+          config,
+          currentTaskId,
+          workContext,
+          dailyTimeWorked,
+          currentTask,
+        ]) => {
+          const strategy = this.strategyFactory.getStrategy(mode);
+          const breakInfo = strategy.getBreakDuration(timer.elapsed);
 
-        if (!strategy.shouldStartBreakAfterSession || !breakInfo) {
-          return [actions.completeFocusSession({ isManual: true })];
-        }
+          if (!strategy.shouldStartBreakAfterSession || !breakInfo) {
+            return [actions.completeFocusSession({ isManual: true })];
+          }
 
-        const pausedTaskId = action.pausedTaskId ?? currentTaskId;
-        const shouldPauseTracking =
-          !!config?.isPauseTrackingDuringBreak && !!pausedTaskId;
-        const actionsArr: Action[] = [actions.completeFocusSession({ isManual: false })];
-        if (shouldPauseTracking) {
-          actionsArr.push(unsetCurrentTask());
-        }
-        actionsArr.push(
-          actions.startBreak({
-            duration: breakInfo.duration,
-            isLongBreak: breakInfo.isLong,
-            pausedTaskId: shouldPauseTracking ? pausedTaskId : undefined,
-          }),
-        );
-        return actionsArr;
-      }),
+          const pausedTaskId = action.pausedTaskId ?? currentTaskId;
+          const shouldPauseTracking =
+            !!config?.isPauseTrackingDuringBreak && !!pausedTaskId;
+
+          // Capture work context for preservation during break
+          const workContextSnapshot =
+            workContext && currentTask
+              ? {
+                  activeId: workContext.id,
+                  activeType: workContext.type,
+                  title: workContext.title,
+                  taskTitle: currentTask.title,
+                  dailyTimeWorked: dailyTimeWorked || 0,
+                }
+              : null;
+
+          const actionsArr: Action[] = [
+            actions.completeFocusSession({ isManual: false }),
+          ];
+          if (shouldPauseTracking) {
+            actionsArr.push(unsetCurrentTask());
+          }
+          actionsArr.push(
+            actions.startBreak({
+              duration: breakInfo.duration,
+              isLongBreak: breakInfo.isLong,
+              pausedTaskId: shouldPauseTracking ? pausedTaskId : undefined,
+              workContext: workContextSnapshot,
+            }),
+          );
+          return actionsArr;
+        },
+      ),
     ),
   );
 
@@ -571,6 +639,40 @@ export class FocusModeEffects {
         }),
       ),
     { dispatch: false },
+  );
+
+  // Restore work context when breaks are completed or skipped
+  restoreWorkContextOnBreakEnd$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(actions.skipBreak, actions.completeBreak),
+      withLatestFrom(
+        this.store.select(selectors.selectPausedWorkContext),
+        this.store.select(selectors.selectPausedTaskId),
+      ),
+      filter(([action, pausedWorkContext, pausedTaskId]) => {
+        // Only restore if we have a paused work context and potentially a task to restore
+        return !!pausedWorkContext && (!!action.pausedTaskId || !!pausedTaskId);
+      }),
+      switchMap(([action, pausedWorkContext, pausedTaskId]) => {
+        const actionsToDispatch: Action[] = [];
+        const taskIdToResume = action.pausedTaskId || pausedTaskId;
+
+        if (taskIdToResume && pausedWorkContext) {
+          // Set the work context back to the paused context
+          actionsToDispatch.push(
+            setActiveWorkContext({
+              activeId: pausedWorkContext.activeId,
+              activeType: pausedWorkContext.activeType,
+            }),
+          );
+
+          // Resume tracking the task
+          actionsToDispatch.push(setCurrentTask({ id: taskIdToResume }));
+        }
+
+        return actionsToDispatch.length > 0 ? of(...actionsToDispatch) : EMPTY;
+      }),
+    ),
   );
 
   // Overtime: set _isOvertimeEnabled when a Pomodoro session starts with isManualBreakStart
@@ -646,16 +748,6 @@ export class FocusModeEffects {
         });
       }),
     ),
-  );
-
-  // Effect 3: Notification side effect (non-dispatching)
-  notifyOnBreakComplete$ = createEffect(
-    () =>
-      this.actions$.pipe(
-        ofType(actions.completeBreak),
-        tap(() => this._notifyUser()),
-      ),
-    { dispatch: false },
   );
 
   // Handle skip break
@@ -878,29 +970,70 @@ export class FocusModeEffects {
           withLatestFrom(
             this.store.select(selectors.selectProgress),
             this.store.select(selectors.selectIsRunning),
+            this.store.select(selectors.selectTimeRemaining),
+            this.store.select(selectors.selectBreakMessageKey),
+            this.store.select(selectors.selectMode),
+            this.store.select(selectors.selectIsSessionPaused),
+            this.store.select(selectors.selectIsLongBreak),
+            this.store.select(selectors.selectIsBreakActive),
+            this.store.select(selectPomodoroConfig),
           ),
-          tap(([_action, progress, isRunning]) => {
-            window.ea.setProgressBar({
-              progress: progress / 100,
-              progressBarMode: isRunning ? 'normal' : 'pause',
-            });
-          }),
+          tap(
+            ([
+              _action,
+              progress,
+              isRunning,
+              remainingTime,
+              breakMessageKey,
+              mode,
+              isPaused,
+              isLongBreak,
+              isBreakActive,
+              pomodoroConfig,
+            ]) => {
+              try {
+                window.ea.setProgressBar({
+                  progress: progress / 100,
+                  progressBarMode: isRunning ? 'normal' : 'pause',
+                });
+
+                if (isBreakActive) {
+                  // Unused desktop notification variables have been removed to fix lint errors
+                }
+              } catch (e) {
+                // Ignore errors
+              }
+            },
+          ),
         ),
       { dispatch: false },
     );
 
-  focusWindowOnBreakStart$ =
-    IS_ELECTRON &&
-    createEffect(
-      () =>
-        this.actions$.pipe(
-          ofType(actions.startBreak),
-          tap(() => {
-            this._notifyUser(true);
-          }),
-        ),
-      { dispatch: false },
-    );
+  focusWindowOnBreakStart$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(actions.startBreak),
+      withLatestFrom(this.store.select(selectors.selectMode)),
+      switchMap(([action, mode]) => {
+        if (IS_ELECTRON) {
+          this._notifyUser(true);
+        }
+
+        let key = T.F.FOCUS_MODE.BREAK_RELAX_MSG;
+        if (mode === FocusModeMode.Pomodoro) {
+          const isLong = !!action.isLongBreak;
+          const randomKey = getNextIdeaKey(isLong);
+          key = isLong
+            ? `F.FOCUS_MODE.LONG_BREAK_IDEAS.${randomKey}`
+            : `F.FOCUS_MODE.MINI_BREAK_IDEAS.${randomKey}`;
+        } else if (mode === FocusModeMode.Flowtime) {
+          const randomKey = getNextIdeaKey(true);
+          key = `F.FOCUS_MODE.LONG_BREAK_IDEAS.${randomKey}`;
+        }
+
+        return of(actions.setBreakMessageKey({ breakMessageKey: key }));
+      }),
+    ),
+  );
 
   // Play ticking sound during focus sessions if enabled
   playTickSound$ = createEffect(
@@ -991,4 +1124,47 @@ export class FocusModeEffects {
       });
     }
   }
+
+  // Handle Skip Break from overlay (Phase 5H)
+  skipBreakFromIpc$ = createEffect(() =>
+    defer(() => {
+      if (IS_ELECTRON && window.ea && window.ea.onFocusModeSkipBreak) {
+        return new Observable<void>((subscriber) => {
+          window.ea.onFocusModeSkipBreak(() => {
+            subscriber.next();
+          });
+        });
+      }
+      return EMPTY;
+    }).pipe(map(() => actions.skipBreak({ pausedTaskId: null }))),
+  );
+
+  // Phase 4D: Natural Breaks
+  naturalBreak$ = createEffect(() =>
+    defer(() => this.ipcIdleTime$).pipe(
+      withLatestFrom(
+        this.store.select(selectors.selectMode),
+        this.store.select(selectors.selectIsSessionRunning),
+        this.store.select(selectors.selectIsBreakActive),
+        this.store.select(selectPomodoroConfig),
+        this.store.select(selectIdleConfig),
+      ),
+      switchMap(
+        ([idleTime, mode, isSessionRunning, isBreakActive, pomodoroCfg, idleCfg]) => {
+          const isEligible =
+            mode === FocusModeMode.Pomodoro &&
+            isSessionRunning &&
+            !isBreakActive &&
+            pomodoroCfg?.isEnableNaturalBreaks === true &&
+            idleCfg?.isSuppressIdleDuringFocusMode === true &&
+            idleTime >= (pomodoroCfg?.naturalBreaksInactivityResetTime || 5 * 60 * 1000);
+
+          if (isEligible) {
+            return of(actions.cancelFocusSession(), actions.resetCycles());
+          }
+          return EMPTY;
+        },
+      ),
+    ),
+  );
 }

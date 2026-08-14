@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { FOCUS_MODE_FEATURE_KEY } from './focus-mode.reducer';
-import { FocusModeState } from '../focus-mode.model';
+import { FocusModeState, FocusScreen } from '../focus-mode.model';
 
 // Base selectors
 export const selectFocusModeState =
@@ -11,6 +11,11 @@ export const selectTimer = createSelector(selectFocusModeState, (state) => state
 export const selectCurrentScreen = createSelector(
   selectFocusModeState,
   (state) => state.currentScreen,
+);
+
+export const selectBreakMessageKey = createSelector(
+  selectFocusModeState,
+  (state) => state.breakMessageKey,
 );
 
 export const selectMainState = createSelector(
@@ -92,6 +97,12 @@ export const selectPausedTaskId = createSelector(
   (state) => state.pausedTaskId,
 );
 
+// Paused work context during breaks
+export const selectPausedWorkContext = createSelector(
+  selectFocusModeState,
+  (state) => state.pausedWorkContext,
+);
+
 // Internal flag for break resume tracking
 export const selectIsResumingBreak = createSelector(
   selectFocusModeState,
@@ -115,4 +126,11 @@ export const selectIsInOvertime = createSelector(
     timer.purpose === 'work' &&
     timer.duration > 0 &&
     timer.elapsed >= timer.duration,
+);
+
+// True when a Pomodoro break has expired naturally and the system is waiting
+// for the user to manually start the next Focus session.
+export const selectIsWaitingForNextFocus = createSelector(
+  selectCurrentScreen,
+  (screen) => screen === FocusScreen.WaitingForNextFocus,
 );

@@ -16,7 +16,10 @@
       (contextmenu)="openFocusSessionDialog(); $event.preventDefault()"
       (longPress)="openFocusSessionDialog()"
     >
-      @if (isBreakActive()) {
+      @if (isWaitingForNextFocus()) {
+        <!-- Break finished — click to start next focus session -->
+        <mat-icon>play_circle</mat-icon>
+      } @else if (isBreakActive()) {
         <mat-icon>free_breakfast</mat-icon>
       } @else {
         <mat-icon>center_focus_strong</mat-icon>

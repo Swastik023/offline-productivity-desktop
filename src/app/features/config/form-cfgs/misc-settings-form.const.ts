@@ -175,5 +175,13 @@ export const MISC_SETTINGS_FORM_CFG: ConfigFormSection<MiscConfig> = {
         label: T.GCF.MISC.DEFAULT_START_PAGE,
       },
     },
+    {
+      key: 'localMusicFolderPath',
+      type: 'input',
+      templateOptions: {
+        label: 'Local Music Folder Path (for Overlay Widget)',
+        description: 'Absolute path to a folder containing .mp3 files on your computer. (e.g. /Users/name/Music)',
+      },
+    },
   ],
 };

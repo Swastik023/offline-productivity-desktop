@@ -35,6 +35,9 @@
         @case (FocusScreen.Break) {
           <focus-mode-break @warpIn></focus-mode-break>
         }
+        @case (FocusScreen.WaitingForNextFocus) {
+          <focus-mode-waiting @warpIn></focus-mode-waiting>
+        }
       }
     </main>
   }

@@ -23,12 +23,26 @@ import {
   selectUnarchivedVisibleProjects,
 } from '../../features/project/store/project.selectors';
 import { toggleHideFromMenu } from '../../features/project/store/project.actions';
-import { NavConfig, NavItem } from './magic-side-nav.model';
+import {
+  NavActionItem,
+  NavContextItem,
+  NavHrefItem,
+  NavMenuItem,
+  NavPluginItem,
+  NavRouteItem,
+  NavSeparatorItem,
+  NavSliderItem,
+  NavTreeItem,
+  NavWorkContextItem,
+  NavConfig,
+  NavItem,
+} from './magic-side-nav.model';
 import { PluginBridgeService } from '../../plugins/plugin-bridge.service';
 import { PluginService } from '../../plugins/plugin.service';
 import { lsGetBoolean, lsSetItem } from '../../util/ls-util';
 import { MenuTreeService } from '../../features/menu-tree/menu-tree.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import {
   MenuTreeKind,
   MenuTreeViewNode,
@@ -53,6 +67,7 @@ export class MagicNavConfigService {
   private readonly _configService = inject(GlobalConfigService);
   private readonly _snackService = inject(SnackService);
   private readonly _router = inject(Router);
+  private readonly _http = inject(HttpClient);
 
   // Simple state signals
   private readonly _isProjectsExpanded = signal(
@@ -338,6 +353,48 @@ export class MagicNavConfigService {
         route: '/config',
         tourClass: 'tour-settingsMenuBtn',
       },
+
+      // Music Menu
+      {
+        type: 'menu',
+        id: 'music-controls',
+        label: 'Music',
+        icon: 'music_note',
+        children: [
+          {
+            type: 'action',
+            id: 'music-play-pause',
+            label: 'Play / Pause',
+            icon: 'play_arrow',
+            action: () => this._sendMusicCommand('play_pause'),
+          },
+          {
+            type: 'action',
+            id: 'music-next',
+            label: 'Next Track',
+            icon: 'skip_next',
+            action: () => this._sendMusicCommand('next'),
+          },
+          {
+            type: 'action',
+            id: 'music-prev',
+            label: 'Prev Track',
+            icon: 'skip_previous',
+            action: () => this._sendMusicCommand('prev'),
+          },
+          {
+            type: 'slider',
+            id: 'music-volume',
+            label: 'Volume',
+            icon: 'volume_up',
+            min: 0,
+            max: 1,
+            step: 0.05,
+            value: 1, // Default volume
+            action: (val: number) => this._sendMusicCommand('set_vol', val),
+          } as NavSliderItem,
+        ]
+      } as NavMenuItem,
     ],
     fullModeByDefault: true,
     showLabels: true,
@@ -538,6 +595,16 @@ export class MagicNavConfigService {
         }
         this._menuTreeService.createProjectFolder(trimmed);
       });
+  }
+
+  private _openAboutDialog(): void {
+    // TODO: implement about dialog
+  }
+
+  private _sendMusicCommand(action: string, value?: number): void {
+    this._http.post(`http://localhost:3876/music/command`, { action, value }).subscribe({
+      error: (err) => console.error('Failed to send music command', err),
+    });
   }
 
   private _openCreateTagFolder(): void {

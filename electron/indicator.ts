@@ -36,6 +36,7 @@ let _todayTasks: {
   title: string;
   timeEstimate: number;
   timeSpent: number;
+  timeSpentToday: number;
 }[] = [];
 let _isRunning: boolean = false;
 let _currentTaskId: string | null = null;
@@ -279,6 +280,11 @@ function initListeners(): void {
       isFocusModeEnabled: boolean,
       currentFocusSessionTime: number,
       focusModeMode: string,
+      breakModeData?: {
+        isInBreak: boolean;
+        pausedTask: any;
+        pausedWorkContextTitle: string | null;
+      },
     ) => {
       _isRunning = !!currentTask;
       _currentTaskId = currentTask ? currentTask.id : null;
@@ -297,6 +303,7 @@ function initListeners(): void {
         currentPomodoroSessionTime,
         isFocusModeEnabled || false,
         currentFocusSessionTime || 0,
+        breakModeData,
       );
 
       const isTrayShowCurrentTask = getIsTrayShowCurrentTask();

@@ -355,6 +355,9 @@ describe('LocalRestApiHandlerService', () => {
         state: 'running',
         elapsedMs: 5_000,
         remainingMs: 20_000,
+        remaining: 20,
+        duration: 25,
+        isStrict: false,
         startedAt: new Date(startedAt).toISOString(),
       });
       expect(data.session).toEqual({

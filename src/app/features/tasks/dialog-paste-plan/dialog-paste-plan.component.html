@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Sync Markdown Plan</h1>
+
+<mat-dialog-content>
+  <form (submit)="syncPlan()">
+    <mat-form-field
+      style="width: 100%; min-width: 400px;"
+      appearance="outline"
+    >
+      <mat-label>Paste your markdown list</mat-label>
+      <textarea
+        matInput
+        [(ngModel)]="pastedText"
+        name="pastedText"
+        rows="10"
+        cdkFocusInitial
+        style="font-family: monospace;"
+        placeholder="- [ ] Task 1&#10;- [x] Task 2"
+      ></textarea>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button
+    mat-button
+    type="button"
+    color="primary"
+    (click)="cancel()"
+  >
+    Cancel
+  </button>
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="syncPlan()"
+    [disabled]="isProcessing"
+  >
+    Sync Plan
+  </button>
+</mat-dialog-actions>

@@ -48,7 +48,18 @@ export const endFlowtimeSession = createAction(
 
 export const startBreak = createAction(
   '[FocusMode] Start Break',
-  props<{ duration?: number; isLongBreak?: boolean; pausedTaskId?: string | null }>(),
+  props<{ 
+    duration?: number; 
+    isLongBreak?: boolean; 
+    pausedTaskId?: string | null;
+    workContext?: {
+      activeId: string;
+      activeType: import('../../work-context/work-context.model').WorkContextType;
+      title: string;
+      taskTitle?: string;
+      dailyTimeWorked?: number;
+    } | null;
+  }>(),
 );
 export const skipBreak = createAction(
   '[FocusMode] Skip Break',
@@ -57,6 +68,10 @@ export const skipBreak = createAction(
 export const completeBreak = createAction(
   '[FocusMode] Complete Break',
   props<{ pausedTaskId?: string | null }>(),
+);
+export const setBreakMessageKey = createAction(
+  '[FocusMode] Set Break Message Key',
+  props<{ breakMessageKey: string | null }>(),
 );
 
 export const incrementCycle = createAction('[FocusMode] Next Cycle');

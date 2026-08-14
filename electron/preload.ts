@@ -207,6 +207,9 @@ const ea: ElectronAPI = {
     _send('REGISTER_GLOBAL_SHORTCUTS', keyboardCfg),
   showFullScreenBlocker: (args) => _send('FULL_SCREEN_BLOCKER', args),
 
+  focusModeSkipBreak: () => _send('FOCUS_MODE_SKIP_BREAK'),
+  onFocusModeSkipBreak: (cb) => ipcRenderer.on('FOCUS_MODE_SKIP_BREAK', toPayloadOnlyIpcListener(cb)),
+
   backupAppData: (appData) => _invoke('BACKUP', appData) as Promise<void>,
 
   updateCurrentTask: (
@@ -216,6 +219,7 @@ const ea: ElectronAPI = {
     isFocusModeEnabled?,
     currentFocusSessionTime?,
     focusModeMode?,
+    breakModeData?,
   ) =>
     _send(
       'CURRENT_TASK_UPDATED',
@@ -225,6 +229,7 @@ const ea: ElectronAPI = {
       isFocusModeEnabled,
       currentFocusSessionTime,
       focusModeMode,
+      breakModeData,
     ),
 
   updateTodayTasks: (tasks: any[]) => _send('TODAY_TASKS_UPDATED', tasks),
@@ -297,6 +302,8 @@ const ea: ElectronAPI = {
   getLocalRestApiToken: () => _invoke(IPC.LOCAL_REST_API_GET_TOKEN) as Promise<string>,
   regenerateLocalRestApiToken: () =>
     _invoke(IPC.LOCAL_REST_API_REGENERATE_TOKEN) as Promise<string>,
+  broadcastLocalRestApiState: (state: any) =>
+    _send(IPC.LOCAL_REST_API_BROADCAST_STATE, state),
 };
 
 // Expose ea to window for ipc-event.ts using contextBridge for context isolation

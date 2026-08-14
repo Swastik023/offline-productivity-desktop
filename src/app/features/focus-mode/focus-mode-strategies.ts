@@ -46,7 +46,7 @@ export class PomodoroStrategy implements FocusModeStrategy {
   }
 
   readonly shouldStartBreakAfterSession = true; // Always have breaks in Pomodoro
-  readonly shouldAutoStartNextSession = true; // Auto-continue after break
+  readonly shouldAutoStartNextSession = false; // User must manually start the next session
 }
 
 @Injectable({ providedIn: 'root' })

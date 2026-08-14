@@ -16,7 +16,19 @@ export type NavItem =
   | NavActionItem
   | NavTreeItem
   | NavMenuItem
-  | NavPluginItem;
+  | NavPluginItem
+  | NavSliderItem;
+
+export interface NavSliderItem extends NavBaseItem {
+  type: 'slider';
+  label: string;
+  icon: string;
+  value: number;
+  min: number;
+  max: number;
+  step: number;
+  action: (value: number) => void;
+}
 
 export interface NavBaseItem {
   id: string;

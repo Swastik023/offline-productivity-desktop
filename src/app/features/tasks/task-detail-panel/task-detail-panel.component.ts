@@ -94,6 +94,13 @@ import {
 } from '../add-subtask-input/add-subtask-input.component';
 import { findNextTaskAfterSubtree } from '../../../util/find-adjacent-focusable';
 import { TaskContextMenuComponent } from '../task-context-menu/task-context-menu.component';
+import { ProjectService } from '../../project/project.service';
+import { Project } from '../../project/project.model';
+import { DEFAULT_PROJECT_ICON } from '../../project/project.const';
+import { MenuTreeService } from '../../menu-tree/menu-tree.service';
+import { SelectOptionRowComponent } from '../../../ui/select-option-row/select-option-row.component';
+import { MatMenu, MatMenuContent, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'task-detail-panel',
@@ -127,8 +134,12 @@ import { TaskContextMenuComponent } from '../task-context-menu/task-context-menu
     MsToStringPipe,
     TranslatePipe,
     IssueIconPipe,
-    AddSubtaskInputComponent,
     TaskContextMenuComponent,
+    MatMenu,
+    MatMenuContent,
+    MatMenuItem,
+    MatMenuTrigger,
+    SelectOptionRowComponent,
   ],
 })
 export class TaskDetailPanelComponent implements OnInit, AfterViewInit, OnDestroy {
@@ -142,6 +153,8 @@ export class TaskDetailPanelComponent implements OnInit, AfterViewInit, OnDestro
   private _globalConfigService = inject(GlobalConfigService);
   private _issueService = inject(IssueService);
   private _jiraElectronBridge = inject(JiraElectronBridgeService);
+  private _projectService = inject(ProjectService);
+  private _menuTreeService = inject(MenuTreeService);
   private _taskRepeatCfgService = inject(TaskRepeatCfgService);
   private _matDialog = inject(MatDialog);
   private _store = inject(Store);
@@ -178,6 +191,7 @@ export class TaskDetailPanelComponent implements OnInit, AfterViewInit, OnDestro
   IS_TOUCH_PRIMARY = IS_TOUCH_PRIMARY;
   ShowSubTasksMode = HideSubTasksMode;
   T = T;
+  DEFAULT_PROJECT_ICON = DEFAULT_PROJECT_ICON;
   ICAL_TYPE = ICAL_TYPE;
   pasteImageHintKey = IS_MAC
     ? T.F.TASK.ADDITIONAL_INFO.PASTE_IMAGE_HINT_MAC
@@ -235,6 +249,49 @@ export class TaskDetailPanelComponent implements OnInit, AfterViewInit, OnDestro
     ),
     { initialValue: null },
   );
+
+  // Current project data
+  currentProjectData = toSignal(
+    this._task$.pipe(
+      map((task) => task.projectId),
+      distinctUntilChanged(),
+      switchMap((projectId) =>
+        projectId ? this._projectService.getByIdLive$(projectId) : of(null),
+      ),
+    ),
+    { initialValue: null },
+  );
+
+  // Lazy-loaded project list - only fetched when project menu opens
+  moveToProjectList = signal<Project[] | undefined>(undefined);
+  projectFolderMap = computed(() => this._menuTreeService.projectFolderMap());
+  private _loadedProjectListForProjectId: string | null | undefined;
+  private _moveToProjectListSub?: Subscription;
+
+  isProjectMenuLoaded = signal(false);
+
+  _loadProjectListIfNeeded(): void {
+    const t = this.task();
+    if (this._loadedProjectListForProjectId !== t.projectId || !this.moveToProjectList()) {
+      this._loadedProjectListForProjectId = t.projectId;
+      this._moveToProjectListSub?.unsubscribe();
+      this._moveToProjectListSub = this._projectService
+        .getProjectsWithoutId$(t.projectId || null)
+        .subscribe((projects) => this.moveToProjectList.set(projects));
+    }
+  }
+
+  moveTaskToProject(projectId: string): void {
+    if (projectId === this.task().projectId) {
+      return;
+    }
+    this.taskService.moveToProject(this.task(), projectId);
+  }
+
+  trackByProjectId(i: number, project: Project): string {
+    return project.id;
+  }
+
 
   // Repeat config label
   private _repeatCfg$ = this._task$.pipe(

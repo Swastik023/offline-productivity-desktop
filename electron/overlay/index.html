@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" style="width:100vw;height:100vh;margin:0;padding:0;overflow:hidden;max-width:100vw;">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=1920, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Premium LEARN WITH ME / Coding Stream Dashboard for OBS Studio" />
+    <title>LEARN WITH ME — Stream Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      /*
+       * OBS BROWSER SOURCE — CRITICAL VIEWPORT LOCK
+       * OBS Chromium renders at the Browser Source's configured width/height.
+       * These rules force the page to fill that entire canvas with no
+       * shrinkage, no max-width constraints, and no margin collapse.
+       */
+      html, body, #root, #overlay-root {
+        width: 100vw !important;
+        height: 100vh !important;
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+        min-height: 100vh !important;
+        max-height: 100vh !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+      }
+      /* Kill any Tailwind preflight container constraints */
+      .container { max-width: none !important; width: 100% !important; }
+    </style>
+    <script type="module" crossorigin src="./assets/index-CvAdnys5.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CUcyafdo.css">
+  </head>
+  <body style="margin:0;padding:0;overflow:hidden;background:#08090c;width:100vw;height:100vh;">
+    <div id="root"></div>
+  </body>
+</html>

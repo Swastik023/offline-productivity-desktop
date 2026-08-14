@@ -15,20 +15,36 @@
 
   <mat-menu #menuRef="matMenu">
     @for (child of item().children; track child.id) {
-      <button
-        mat-menu-item
-        (click)="onChildClick(child)"
-      >
-        @if (child['svgIcon']) {
-          <mat-icon
-            class="nav-icon"
-            [svgIcon]="child['svgIcon']"
-          ></mat-icon>
-        } @else {
-          <mat-icon class="nav-icon">{{ child.icon }}</mat-icon>
-        }
-        <span>{{ child.label | translate }}</span>
-      </button>
+      @if (child.type === 'slider') {
+        <div class="slider-wrapper" (click)="$event.stopPropagation()">
+          @if (child['svgIcon']) {
+            <mat-icon
+              class="nav-icon"
+              [svgIcon]="child['svgIcon']"
+            ></mat-icon>
+          } @else {
+            <mat-icon class="nav-icon">{{ child.icon }}</mat-icon>
+          }
+          <mat-slider [min]="child.min" [max]="child.max" [step]="child.step" discrete>
+            <input matSliderThumb [value]="child.value" (valueChange)="child.value = $event; child.action($event)">
+          </mat-slider>
+        </div>
+      } @else {
+        <button
+          mat-menu-item
+          (click)="onChildClick(child)"
+        >
+          @if (child['svgIcon']) {
+            <mat-icon
+              class="nav-icon"
+              [svgIcon]="child['svgIcon']"
+            ></mat-icon>
+          } @else {
+            <mat-icon class="nav-icon">{{ child.icon }}</mat-icon>
+          }
+          <span>{{ child.label | translate }}</span>
+        </button>
+      }
     }
   </mat-menu>
 </li>

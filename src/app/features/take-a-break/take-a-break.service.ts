@@ -31,6 +31,7 @@ import { idleDialogResult } from '../idle/store/idle.actions';
 import { playSound } from '../../util/play-sound';
 import { LOCAL_ACTIONS } from '../../util/local-actions.token';
 import { SnackService } from '../../core/snack/snack.service';
+import { TranslateService } from '@ngx-translate/core';
 
 const BREAK_TRIGGER_DURATION = 10 * 60 * 1000;
 const PING_UPDATE_BANNER_INTERVAL = 60 * 1000;
@@ -60,6 +61,7 @@ export class TakeABreakService {
   private _bannerService = inject(BannerService);
   private _uiHelperService = inject(UiHelperService);
   private _snackService = inject(SnackService);
+  private _translateService = inject(TranslateService);
 
   otherNoBreakTIme$ = new Subject<number>();
 
@@ -369,8 +371,126 @@ export class TakeABreakService {
   private _createMessage(duration: number, cfg: TakeABreakConfig): string | undefined {
     if (cfg && cfg.takeABreakMessage) {
       const durationStr = msToString(duration);
-      return cfg.takeABreakMessage.replace(/\$\{duration\}/gi, durationStr);
+      const baseMsg = cfg.takeABreakMessage.replace(/\$\{duration\}/gi, durationStr);
+      const ideaMsg = this._getRandomStretchlyIdea();
+      return `${baseMsg}\n\n💡 ${ideaMsg}`;
     }
     return undefined;
+  }
+
+  private _getRandomStretchlyIdea(): string {
+    const miniKeys = [
+      'aaa',
+      'aab',
+      'aac',
+      'aad',
+      'aae',
+      'aaf',
+      'aag',
+      'aah',
+      'aai',
+      'aaj',
+      'aak',
+      'aal',
+      'aam',
+      'aan',
+      'aao',
+      'aap',
+      'aaq',
+      'aar',
+      'aas',
+      'aat',
+      'aau',
+      'aav',
+      'aaw',
+      'aax',
+      'aay',
+      'aaz',
+      'aba',
+      'abb',
+      'abc',
+      'abd',
+      'abe',
+      'abf',
+      'abg',
+      'abh',
+      'abi',
+      'abj',
+      'abk',
+      'abl',
+      'abm',
+      'abn',
+      'abo',
+      'abp',
+      'abq',
+      'abr',
+      'abs',
+      'abt',
+      'abu',
+      'abv',
+      'abw',
+      'abx',
+      'aby',
+    ];
+    const longKeys = [
+      'aaa',
+      'aab',
+      'aac',
+      'aad',
+      'aae',
+      'aaf',
+      'aag',
+      'aah',
+      'aai',
+      'aaj',
+      'aak',
+      'aal',
+      'aam',
+      'aan',
+      'aao',
+      'aap',
+      'aaq',
+      'aar',
+      'aas',
+      'aat',
+      'aau',
+      'aav',
+      'aaw',
+      'aax',
+      'aay',
+      'aaz',
+      'aba',
+      'abb',
+      'abc',
+      'abd',
+      'abe',
+      'abf',
+      'abg',
+      'abh',
+      'abi',
+      'abj',
+    ];
+
+    const isLongBreak = Math.random() > 0.5; // 50/50 chance for mini vs long idea
+
+    if (isLongBreak) {
+      const randomKey = longKeys[Math.floor(Math.random() * longKeys.length)];
+      const idea = this._translateService.instant(
+        `F.FOCUS_MODE.LONG_BREAK_IDEAS.${randomKey}`,
+      );
+      if (idea && typeof idea === 'object') {
+        return `${idea.title}: ${idea.text}`;
+      }
+      return idea;
+    } else {
+      const randomKey = miniKeys[Math.floor(Math.random() * miniKeys.length)];
+      const idea = this._translateService.instant(
+        `F.FOCUS_MODE.MINI_BREAK_IDEAS.${randomKey}`,
+      );
+      if (idea && typeof idea === 'object') {
+        return idea.text;
+      }
+      return idea;
+    }
   }
 }

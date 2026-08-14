@@ -13,7 +13,7 @@ import { T } from '../../../t.const';
  * Shared task module for the timer screens (focus session + break). One of three
  * states:
  *  - `task` set → the task row: switch · editable title · read-only time · finish.
- *  - no task + `showRelaxMessage` → the break's "take a moment to relax" note.
+ *  - no task + `relaxMessageKey` → the break's "take a moment to relax" or stretchly idea.
  *  - no task + no relax message → the "select a task" CTA (the focus session's
  *    pre-task state).
  *
@@ -73,10 +73,21 @@ import { T } from '../../../t.const';
           </button>
         </div>
       </div>
-    } @else if (showRelaxMessage()) {
-      <p class="task-title break-message">
-        {{ T.F.FOCUS_MODE.BREAK_RELAX_MSG | translate }}
-      </p>
+    } @else if (relaxMessageKey()) {
+      <div class="task-title break-message">
+        @if (isLongBreakMessage(relaxMessageKey()!)) {
+          <!-- Long break message maps to an object with title and text -->
+          @if (relaxMessageKey()! | translate; as idea) {
+            <h3 class="break-message-title">{{ idea?.title }}</h3>
+            <p class="break-message-text">{{ idea?.text }}</p>
+          }
+        } @else {
+          <!-- Mini break message or default relax msg maps to a string -->
+          @if (relaxMessageKey()! | translate; as text) {
+            <p class="break-message-text">{{ text?.text || text }}</p>
+          }
+        }
+      </div>
     } @else {
       <button
         mat-fab
@@ -99,9 +110,13 @@ export class FocusModeTaskRowComponent {
 
   readonly task = input<Task | null>(null);
   readonly parentTitle = input<string | null>(null);
-  // When there is no task: true → the break's relax message, false → the
+  // When there is no task: string key → the break's relax message, null → the
   // "select a task" CTA (focus session).
-  readonly showRelaxMessage = input<boolean>(false);
+  readonly relaxMessageKey = input<string | null>(null);
+
+  isLongBreakMessage(key: string): boolean {
+    return key.includes('LONG_BREAK_IDEAS');
+  }
 
   readonly switchTask = output<void>();
   readonly finishTask = output<void>();

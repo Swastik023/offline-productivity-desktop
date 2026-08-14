@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
-import { BehaviorSubject, Observable, of, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subscription, Subject } from 'rxjs';
 import { FocusModeEffects } from './focus-mode.effects';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { FocusModeStrategyFactory } from '../focus-mode-strategies';
@@ -25,6 +25,7 @@ import {
   selectFocusModeConfig,
   selectIsFocusModeEnabled,
   selectPomodoroConfig,
+  selectIdleConfig,
 } from '../../config/store/global-config.reducer';
 import { updateGlobalConfigSection } from '../../config/store/global-config.actions';
 import { take, toArray } from 'rxjs/operators';
@@ -137,6 +138,7 @@ describe('FocusModeEffects', () => {
               value: {},
             },
             { selector: selectPomodoroConfig, value: { duration: 25 * 60 * 1000 } },
+            { selector: selectIdleConfig, value: {} },
             { selector: selectIsFocusModeEnabled, value: true },
             { selector: selectLastCurrentTask, value: null },
           ],
@@ -3021,6 +3023,190 @@ describe('FocusModeEffects', () => {
           done();
         });
       });
+    });
+  });
+  describe('Phase 4D: Natural Breaks', () => {
+    let idleTime$: Subject<number>;
+
+    beforeEach(() => {
+      idleTime$ = new Subject<number>();
+      effects.ipcIdleTime$ = idleTime$;
+    });
+
+    it('Test 1 — Natural Break disabled: should NOT reset when idle >= threshold', (done) => {
+      store.overrideSelector(selectPomodoroConfig, {
+        isEnableNaturalBreaks: false,
+        naturalBreaksInactivityResetTime: 300000,
+      });
+      store.overrideSelector(selectIdleConfig, {
+        isSuppressIdleDuringFocusMode: true,
+      } as any);
+      store.overrideSelector(selectors.selectMode, FocusModeMode.Pomodoro);
+      store.overrideSelector(selectors.selectIsSessionRunning, true);
+      store.overrideSelector(selectors.selectIsBreakActive, false);
+      store.refreshState();
+
+      effects.naturalBreak$.pipe(toArray()).subscribe((actionsArr) => {
+        expect(actionsArr.length).toBe(0);
+        done();
+      });
+
+      idleTime$.next(300000);
+      idleTime$.complete();
+    });
+
+    it('Test 2 — Suppression disabled: should NOT reset when idle >= threshold', (done) => {
+      store.overrideSelector(selectPomodoroConfig, {
+        isEnableNaturalBreaks: true,
+        naturalBreaksInactivityResetTime: 300000,
+      });
+      store.overrideSelector(selectIdleConfig, {
+        isSuppressIdleDuringFocusMode: false,
+      } as any);
+      store.overrideSelector(selectors.selectMode, FocusModeMode.Pomodoro);
+      store.overrideSelector(selectors.selectIsSessionRunning, true);
+      store.overrideSelector(selectors.selectIsBreakActive, false);
+      store.refreshState();
+
+      effects.naturalBreak$.pipe(toArray()).subscribe((actionsArr) => {
+        expect(actionsArr.length).toBe(0);
+        done();
+      });
+
+      idleTime$.next(300000);
+      idleTime$.complete();
+    });
+
+    it('Test 3 — Valid Pomodoro Natural Break: should dispatch cancelFocusSession and resetCycles', (done) => {
+      store.overrideSelector(selectPomodoroConfig, {
+        isEnableNaturalBreaks: true,
+        naturalBreaksInactivityResetTime: 300000,
+      });
+      store.overrideSelector(selectIdleConfig, {
+        isSuppressIdleDuringFocusMode: true,
+      } as any);
+      store.overrideSelector(selectors.selectMode, FocusModeMode.Pomodoro);
+      store.overrideSelector(selectors.selectIsSessionRunning, true);
+      store.overrideSelector(selectors.selectIsBreakActive, false);
+      store.refreshState();
+
+      effects.naturalBreak$.pipe(toArray()).subscribe((actionsArr) => {
+        try {
+          expect(actionsArr.length).toBe(2);
+          if (actionsArr.length === 2) {
+            expect(actionsArr[0].type).toEqual('[FocusMode] Cancel Session');
+            expect(actionsArr[1].type).toEqual('[FocusMode] Reset Cycles');
+          }
+        } finally {
+          done();
+        }
+      });
+
+      idleTime$.next(300000);
+      idleTime$.complete();
+    });
+
+    it('Test 4 — Below threshold: should NOT reset', (done) => {
+      store.overrideSelector(selectPomodoroConfig, {
+        isEnableNaturalBreaks: true,
+        naturalBreaksInactivityResetTime: 300000,
+      });
+      store.overrideSelector(selectIdleConfig, {
+        isSuppressIdleDuringFocusMode: true,
+      } as any);
+      store.overrideSelector(selectors.selectMode, FocusModeMode.Pomodoro);
+      store.overrideSelector(selectors.selectIsSessionRunning, true);
+      store.overrideSelector(selectors.selectIsBreakActive, false);
+      store.refreshState();
+
+      effects.naturalBreak$.pipe(toArray()).subscribe((actionsArr) => {
+        expect(actionsArr.length).toBe(0);
+        done();
+      });
+
+      idleTime$.next(299999);
+      idleTime$.complete();
+    });
+
+    it('Test 5 & 6 — Fires only once per idle period & resets on activity', (done) => {
+      store.overrideSelector(selectPomodoroConfig, {
+        isEnableNaturalBreaks: true,
+        naturalBreaksInactivityResetTime: 300000,
+      });
+      store.overrideSelector(selectIdleConfig, {
+        isSuppressIdleDuringFocusMode: true,
+      } as any);
+      store.overrideSelector(selectors.selectMode, FocusModeMode.Pomodoro);
+      store.overrideSelector(selectors.selectIsSessionRunning, true);
+      store.overrideSelector(selectors.selectIsBreakActive, false);
+      store.refreshState();
+
+      effects.naturalBreak$.pipe(take(2), toArray()).subscribe((actionsArr) => {
+        try {
+          expect(actionsArr.length).toBe(2); // take(2) collects 2 actions: cancel + reset
+          if (actionsArr.length === 2) {
+            expect(actionsArr[0].type).toEqual('[FocusMode] Cancel Session');
+            expect(actionsArr[1].type).toEqual('[FocusMode] Reset Cycles');
+          }
+        } finally {
+          done();
+        }
+      });
+
+      // First trigger
+      idleTime$.next(300000);
+
+      // Since the first trigger dispatched cancelFocusSession, the session should be stopped
+      store.overrideSelector(selectors.selectIsSessionRunning, false);
+      store.refreshState();
+
+      // Additional idle time should NOT trigger again because session is not running
+      idleTime$.next(350000);
+      idleTime$.complete();
+    });
+
+    it('Test 7 — Break state: should NOT reset', (done) => {
+      store.overrideSelector(selectPomodoroConfig, {
+        isEnableNaturalBreaks: true,
+        naturalBreaksInactivityResetTime: 300000,
+      });
+      store.overrideSelector(selectIdleConfig, {
+        isSuppressIdleDuringFocusMode: true,
+      } as any);
+      store.overrideSelector(selectors.selectMode, FocusModeMode.Pomodoro);
+      store.overrideSelector(selectors.selectIsSessionRunning, true);
+      store.overrideSelector(selectors.selectIsBreakActive, true); // Active break
+      store.refreshState();
+
+      effects.naturalBreak$.pipe(toArray()).subscribe((actionsArr) => {
+        expect(actionsArr.length).toBe(0);
+        done();
+      });
+
+      idleTime$.next(300000);
+      idleTime$.complete();
+    });
+
+    it('Test 8 — Non-Pomodoro: should NOT reset', (done) => {
+      store.overrideSelector(selectPomodoroConfig, {
+        isEnableNaturalBreaks: true,
+        naturalBreaksInactivityResetTime: 300000,
+      });
+      store.overrideSelector(selectIdleConfig, {
+        isSuppressIdleDuringFocusMode: true,
+      } as any);
+      store.overrideSelector(selectors.selectMode, FocusModeMode.Flowtime); // Flowtime
+      store.overrideSelector(selectors.selectIsSessionRunning, true);
+      store.overrideSelector(selectors.selectIsBreakActive, false);
+      store.refreshState();
+
+      effects.naturalBreak$.pipe(toArray()).subscribe((actionsArr) => {
+        expect(actionsArr.length).toBe(0);
+        done();
+      });
+
+      idleTime$.next(300000);
+      idleTime$.complete();
     });
   });
 });

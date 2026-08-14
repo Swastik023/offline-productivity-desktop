@@ -8,6 +8,15 @@ export interface TimerState {
   isLongBreak?: boolean;
 }
 
+// Work context snapshot for preserving project/context during breaks
+export interface PausedWorkContextSnapshot {
+  activeId: string;
+  activeType: import('../work-context/work-context.model').WorkContextType;
+  title: string;
+  taskTitle?: string;
+  dailyTimeWorked?: number;
+}
+
 export enum FocusMainUIState {
   Preparation = 'Preparation',
   Countdown = 'Countdown',
@@ -22,6 +31,10 @@ export enum FocusScreen {
   Main = 'Main',
   SessionDone = 'SessionDone',
   Break = 'Break',
+  // Entered when a Pomodoro break expires naturally. The timer is stopped and
+  // no new session starts. The user must explicitly click "Start Focus" to
+  // continue. This state persists across overlay close/reopen until the user acts.
+  WaitingForNextFocus = 'WaitingForNextFocus',
 }
 
 export enum FocusModeMode {
@@ -48,11 +61,17 @@ export interface FocusModeState {
   // Task tracking during breaks
   pausedTaskId: string | null;
 
+  // Work context preservation during breaks
+  pausedWorkContext: PausedWorkContextSnapshot | null;
+
   // Internal flag: tracks if break resume is in progress
   _isResumingBreak: boolean;
 
   // Internal flag: when true, tick reducer won't auto-stop work timer at duration
   _isOvertimeEnabled: boolean;
+
+  // Selected message key for the current break
+  breakMessageKey: string | null;
 }
 
 // Mode strategy interface

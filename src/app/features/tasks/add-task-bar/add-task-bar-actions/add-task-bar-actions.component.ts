@@ -19,6 +19,7 @@ import { TagService } from '../../../tag/tag.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DialogScheduleTaskComponent } from '../../../planner/dialog-schedule-task/dialog-schedule-task.component';
 import { DialogDeadlineComponent } from '../../dialog-deadline/dialog-deadline.component';
+import { DialogPastePlanComponent } from '../../dialog-paste-plan/dialog-paste-plan.component';
 import { AddTaskBarStateService } from '../add-task-bar-state.service';
 import { AddTaskBarParserService } from '../add-task-bar-parser.service';
 import { ESTIMATE_OPTIONS } from '../add-task-bar.const';
@@ -291,6 +292,14 @@ export class AddTaskBarActionsComponent {
           this.scheduleDialogOpenChange.emit(false);
         }
       });
+    });
+  }
+
+  openPastePlanDialog(): void {
+    this._matDialog.open(DialogPastePlanComponent, {
+      restoreFocus: true,
+    }).afterClosed().subscribe(() => {
+      this.refocus.emit();
     });
   }
 

@@ -132,6 +132,10 @@ export const DEFAULT_GLOBAL_CONFIG: GlobalConfigState = {
     breakDuration: 5 * minute,
     longerBreakDuration: 15 * minute,
     cyclesBeforeLongerBreak: 4,
+    isStrictShortBreak: false,
+    isStrictLongBreak: false,
+    isEnableNaturalBreaks: false,
+    naturalBreaksInactivityResetTime: 5 * minute,
   },
   keyboard: {
     globalShowHide: 'Ctrl+Shift+X',

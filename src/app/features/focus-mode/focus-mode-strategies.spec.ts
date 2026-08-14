@@ -144,7 +144,10 @@ describe('FocusModeStrategies', () => {
     describe('strategy properties', () => {
       it('should have correct boolean properties', () => {
         expect(strategy.shouldStartBreakAfterSession).toBe(true);
-        expect(strategy.shouldAutoStartNextSession).toBe(true);
+        // Pomodoro requires the user to manually start the next Focus session
+        // after a break. Auto-starting would bypass the WaitingForNextFocus
+        // state and could silently consume focus time while the user is away.
+        expect(strategy.shouldAutoStartNextSession).toBe(false);
       });
     });
   });

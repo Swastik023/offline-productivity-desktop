@@ -15,6 +15,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FocusModeMainComponent } from '../focus-mode-main/focus-mode-main.component';
 import { FocusModeSessionDoneComponent } from '../focus-mode-session-done/focus-mode-session-done.component';
 import { FocusModeBreakComponent } from '../focus-mode-break/focus-mode-break.component';
+import { FocusModeWaitingComponent } from '../focus-mode-waiting/focus-mode-waiting.component';
 import { FocusModeService } from '../focus-mode.service';
 import { FocusScreen } from '../focus-mode.model';
 import { isInputElement } from '../../../util/dom-element';
@@ -34,6 +35,7 @@ import { CdkTrapFocus } from '@angular/cdk/a11y';
     FocusModeMainComponent,
     FocusModeSessionDoneComponent,
     FocusModeBreakComponent,
+    FocusModeWaitingComponent,
     TranslatePipe,
     CdkTrapFocus,
   ],

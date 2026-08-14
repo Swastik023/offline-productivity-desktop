@@ -16,7 +16,7 @@ export const initFullScreenBlocker = (IS_DEV: boolean): void => {
       if (isFullScreenWindowOpen) {
         return;
       }
-      let isClosable = false;
+
       // This overlay loads a local file with no preload bridge, so it was
       // relying on Electron's secure defaults. Set the boundary explicitly and
       // assert it, so a future Electron default change can't silently open it.
@@ -28,11 +28,9 @@ export const initFullScreenBlocker = (IS_DEV: boolean): void => {
       assertSecureWebPreferences(webPreferences, 'full-screen-blocker');
       const win = new BrowserWindow({
         title: msg,
-        fullscreen: true,
-        alwaysOnTop: true,
         transparent: true,
-        skipTaskbar: true,
         frame: false,
+        fullscreen: true,
         webPreferences,
       });
       const randomImgUrl = takeABreakCfg.motivationalImgs?.length
@@ -41,9 +39,7 @@ export const initFullScreenBlocker = (IS_DEV: boolean): void => {
           ]
         : '';
 
-      win.setAlwaysOnTop(true, 'floating');
       win.setVisibleOnAllWorkspaces(true);
-      win.setFullScreenable(false);
       isFullScreenWindowOpen = true;
       const overlayUrl = pathToFileURL(
         join(
@@ -60,19 +56,14 @@ export const initFullScreenBlocker = (IS_DEV: boolean): void => {
           }`,
       );
       const closeTimeout = setTimeout(() => {
-        isClosable = true;
         win.close();
       }, takeABreakCfg.timedFullScreenBlockerDuration || 5000);
 
-      win.on('close', (evI) => {
-        if (isClosable) {
-          if (closeTimeout) {
-            clearTimeout(closeTimeout);
-          }
-          isFullScreenWindowOpen = false;
-        } else {
-          evI.preventDefault();
+      win.on('close', () => {
+        if (closeTimeout) {
+          clearTimeout(closeTimeout);
         }
+        isFullScreenWindowOpen = false;
       });
 
       win.on('closed', () => {

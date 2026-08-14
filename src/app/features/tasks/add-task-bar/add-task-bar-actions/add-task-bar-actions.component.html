@@ -4,6 +4,16 @@
   <ng-content></ng-content>
 
   <button
+    mat-button
+    class="action-btn"
+    title="Paste Plan from text"
+    (click)="openPastePlanDialog()"
+  >
+    <mat-icon>content_paste</mat-icon>
+    <span>Paste Plan</span>
+  </button>
+
+  <button
     #projectMenuTrigger
     mat-button
     class="action-btn"

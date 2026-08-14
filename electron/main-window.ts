@@ -163,7 +163,7 @@ export const createWindow = async ({
   // standard inset other native apps use (Notes, Mail, VS Code) instead of
   // crowding the top-left corner. Other platforms keep the existing logic.
   const titleBarStyle: BrowserWindowConstructorOptions['titleBarStyle'] = IS_MAC
-    ? 'hiddenInset'
+    ? 'hidden'
     : isUseCustomWindowTitleBar
       ? 'hidden'
       : 'default';
@@ -226,7 +226,7 @@ export const createWindow = async ({
     icon: ICONS_FOLDER + '/icon_256x256.png',
     // Wayland compatibility: disable transparent/frameless features that can cause issues
     transparent: false,
-    // frame: true,
+    frame: false,
   });
 
   // see: https://pratikpc.medium.com/bypassing-cors-with-electron-ab7eaf331605
@@ -380,6 +380,10 @@ export const createWindow = async ({
 
   // update prop
   mainWinModule.win = mainWin;
+
+  ipcMain.on(IPC.FOCUS_MODE_SKIP_BREAK, () => {
+    mainWin.webContents.send(IPC.FOCUS_MODE_SKIP_BREAK);
+  });
 
   // listen for app ready
   ipcMain.on(IPC.APP_READY, () => {
