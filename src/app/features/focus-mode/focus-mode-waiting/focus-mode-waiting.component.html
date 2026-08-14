@@ -18,17 +18,19 @@
     fmClock
     class="clock-display"
   >
-    <div class="message-wrapper">
-      <h2 class="title">{{ T.F.FOCUS_MODE.BREAK_FINISHED | translate }}</h2>
+    <div class="glass-card">
+      <div class="message-wrapper">
+        <h2 class="title">{{ T.F.FOCUS_MODE.BREAK_FINISHED | translate }}</h2>
 
-      @if (isPomodoro()) {
-        <div class="cycle-counter">
-          <mat-icon>repeat</mat-icon>
-          {{ T.F.FOCUS_MODE.POMODORO_CYCLE | translate: { cycle: displayedCycle() } }}
-        </div>
-      }
+        @if (isPomodoro()) {
+          <div class="cycle-counter">
+            <mat-icon>repeat</mat-icon>
+            {{ T.F.FOCUS_MODE.POMODORO_CYCLE | translate: { cycle: displayedCycle() } }}
+          </div>
+        }
 
-      <div class="subtitle">{{ T.F.FOCUS_MODE.WAITING_FOR_NEXT_FOCUS | translate }}</div>
+        <div class="subtitle">{{ T.F.FOCUS_MODE.WAITING_FOR_NEXT_FOCUS | translate }}</div>
+      </div>
     </div>
   </div>
 

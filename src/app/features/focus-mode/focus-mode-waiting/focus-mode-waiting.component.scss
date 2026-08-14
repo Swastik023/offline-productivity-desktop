@@ -3,6 +3,8 @@
 :host {
   position: absolute;
   inset: 0;
+  // Apply a subtle background tint directly to the host for this specific view
+  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
 }
 
 // ========== ROW 2: TASK NAME ==========
@@ -23,39 +25,75 @@
   justify-content: center;
 }
 
+.glass-card {
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 32px;
+  padding: 56px 80px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  }
+}
+
 .message-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--s2);
+  gap: 24px;
   text-align: center;
 }
 
 .title {
   margin: 0;
-  font-size: var(--s4);
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #fff;
   line-height: 1.2;
 }
 
 .subtitle {
   margin: 0;
-  color: var(--text-color-muted);
-  font-size: var(--s3);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.02em;
 }
 
 .cycle-counter {
   display: flex;
   align-items: center;
-  gap: var(--s-half);
-  color: var(--text-color-muted);
-  font-size: var(--s3);
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   line-height: 1;
 
   mat-icon {
-    font-size: var(--s3);
-    width: var(--s3);
-    height: var(--s3);
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
   }
 }
 
@@ -69,19 +107,39 @@
   .exit-btn {
     width: 56px !important;
     height: 56px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1) !important;
+      color: #fff !important;
+    }
 
     mat-icon {
-      font-size: 32px !important;
-      width: 32px !important;
-      height: 32px !important;
+      font-size: 28px !important;
+      width: 28px !important;
+      height: 28px !important;
     }
   }
 
   .start-focus-btn {
     height: 56px;
     border-radius: 28px;
-    padding: 0 24px;
-    font-size: 16px;
+    padding: 0 32px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    background: #10b981 !important;
+    color: #fff !important;
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #059669 !important;
+      box-shadow: 0 10px 30px -5px rgba(16, 185, 129, 0.6);
+      transform: translateY(-2px);
+    }
 
     mat-icon {
       margin-right: 8px;
