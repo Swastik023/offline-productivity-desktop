@@ -1,6 +1,6 @@
 import { computed, inject, Injectable, Signal } from '@angular/core';
 import { DateService } from '../../core/date/date.service';
-import { interval } from 'rxjs';
+import { interval, merge, of } from 'rxjs';
 import {
   ScheduleCalendarMapEntry,
   ScheduleDay,
@@ -23,7 +23,7 @@ import { CalendarIntegrationService } from '../calendar-integration/calendar-int
 import { HiddenCalendarProvidersService } from '../calendar-integration/hidden-calendar-providers.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TaskService } from '../tasks/task.service';
-import { startWith } from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
 import { parseDbDateStr } from '../../util/parse-db-date-str';
 
 @Injectable({
@@ -45,9 +45,13 @@ export class ScheduleService {
   private _calendarEvents = toSignal(this._calendarIntegrationService.calendarEvents$, {
     initialValue: [],
   });
-  scheduleRefreshTick = toSignal(interval(2 * 60 * 1000).pipe(startWith(0)), {
-    initialValue: 0,
-  });
+  scheduleRefreshTick = toSignal(
+    merge(
+      of(0),
+      interval(2 * 60 * 1000).pipe(filter(() => document.visibilityState === 'visible')),
+    ),
+    { initialValue: 0 },
+  );
 
   createScheduleDaysComputed(daysToShow: Signal<string[]>): Signal<ScheduleDay[]> {
     return computed(() => {

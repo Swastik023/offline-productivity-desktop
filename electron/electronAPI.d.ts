@@ -298,4 +298,5 @@ export interface ElectronAPI {
   getLocalRestApiToken(): Promise<string>;
   regenerateLocalRestApiToken(): Promise<string>;
   broadcastLocalRestApiState(state: any): void;
+  onSocketCount(listener: (count: number) => void): void;
 }

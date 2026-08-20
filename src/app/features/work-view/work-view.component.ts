@@ -29,6 +29,7 @@ import {
   from,
   fromEvent,
   interval,
+  merge,
   Observable,
   ReplaySubject,
   Subscription,
@@ -36,7 +37,7 @@ import {
   zip,
 } from 'rxjs';
 import { TaskWithSubTasks } from '../tasks/task.model';
-import { delay, filter, map, observeOn, startWith, switchMap } from 'rxjs/operators';
+import { delay, filter, map, observeOn, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { fadeAnimation } from '../../ui/animations/fade.ani';
 import { T } from '../../t.const';
@@ -230,9 +231,13 @@ export class WorkViewComponent implements OnInit, OnDestroy {
   // Re-evaluate the now/end-of-today window on a coarse tick so events drop out
   // of "Later Today" once they start, without waiting for the next calendar
   // poll (iCal polls up to every 2h). Mirrors ScheduleService.scheduleRefreshTick.
-  private _refreshTick = toSignal(interval(2 * 60 * 1000).pipe(startWith(0)), {
-    initialValue: 0,
-  });
+  private _refreshTick = toSignal(
+    merge(
+      of(0),
+      interval(2 * 60 * 1000).pipe(filter(() => document.visibilityState === 'visible')),
+    ),
+    { initialValue: 0 },
+  );
   laterTodayCalendarEvents = computed(() => {
     this._refreshTick();
     return getLaterTodayCalendarEvents(

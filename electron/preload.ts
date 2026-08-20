@@ -306,6 +306,11 @@ const ea: ElectronAPI = {
     _invoke(IPC.LOCAL_REST_API_REGENERATE_TOKEN) as Promise<string>,
   broadcastLocalRestApiState: (state: any) =>
     _send(IPC.LOCAL_REST_API_BROADCAST_STATE, state),
+  onSocketCount: (listener: (count: number) => void) => {
+    ipcRenderer.on(IPC.LOCAL_REST_API_SOCKET_COUNT, (_event, count: number) =>
+      listener(count),
+    );
+  },
 };
 
 // Expose ea to window for ipc-event.ts using contextBridge for context isolation

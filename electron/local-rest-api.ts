@@ -53,6 +53,14 @@ let isListening = false;
 let wss: WebSocketServer | null = null;
 let localMusicFolderPath: string | null = '/Users/swastik/Music/Study_Mixes';
 const activeSockets = new Set<WebSocket>();
+let _lastBroadcastJson = '';
+
+const notifyRendererOfSocketCount = (): void => {
+  const win = getWin();
+  if (win && !win.isDestroyed()) {
+    win.webContents.send(IPC.LOCAL_REST_API_SOCKET_COUNT, activeSockets.size);
+  }
+};
 
 const pendingRequests = new Map<
   string,
@@ -970,8 +978,10 @@ export const initLocalRestApi = (): void => {
 
   ipcMain.on(IPC.LOCAL_REST_API_RESPONSE, handleResponse);
   ipcMain.on(IPC.LOCAL_REST_API_BROADCAST_STATE, (_event, state) => {
-    if (!wss) return;
+    if (!wss || activeSockets.size === 0) return; // fast-exit: no connected clients
     const msg = JSON.stringify(state);
+    if (msg === _lastBroadcastJson) return; // fast-exit: payload unchanged
+    _lastBroadcastJson = msg;
     for (const client of activeSockets) {
       if (client.readyState === WebSocket.OPEN) {
         client.send(msg);
@@ -1015,14 +1025,16 @@ export const initLocalRestApi = (): void => {
       wss?.handleUpgrade(request, socket, head, (ws) => {
         console.log('[local-rest-api-music] New WebSocket client connected!');
         activeSockets.add(ws);
+        notifyRendererOfSocketCount();
         ws.on('close', () => {
           console.log('[local-rest-api-music] WebSocket client disconnected!');
           activeSockets.delete(ws);
+          notifyRendererOfSocketCount();
         });
 
         ws.on('message', (message) => {
           try {
-            const parsed = JSON.parse(message.toString());
+            JSON.parse(message.toString()); // validate JSON before relaying
             // Broadcast to ALL OTHER clients (except the one that sent it)
             for (const client of activeSockets) {
               if (client !== ws && client.readyState === 1 /* OPEN */) {
@@ -1060,9 +1072,11 @@ export const initLocalRestApi = (): void => {
     wss?.handleUpgrade(request, socket, head, (ws) => {
       console.log('[local-rest-api] New bridge WebSocket client connected!');
       activeSockets.add(ws);
+      notifyRendererOfSocketCount();
       ws.on('close', () => {
         console.log('[local-rest-api] Bridge WebSocket client disconnected!');
         activeSockets.delete(ws);
+        notifyRendererOfSocketCount();
       });
       // Ping clients occasionally to keep connections alive
       ws.on('pong', () => {
@@ -1147,7 +1161,8 @@ const stopServer = (): void => {
 };
 
 export const updateLocalRestApiConfig = (cfg: GlobalConfigState): void => {
-  localMusicFolderPath = cfg.misc.localMusicFolderPath || '/Users/swastik/Music/Study_Mixes';
+  localMusicFolderPath =
+    cfg.misc.localMusicFolderPath || '/Users/swastik/Music/Study_Mixes';
   const isForcedForDev = isForceEnabledForDev();
   const nextEnabled = isForcedForDev || !!cfg.misc.isLocalRestApiEnabled;
   isEnabledDesired = nextEnabled;

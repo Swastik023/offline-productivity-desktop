@@ -1,6 +1,15 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject, signal, DestroyRef } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { firstValueFrom } from 'rxjs';
+import {
+  firstValueFrom,
+  combineLatest,
+  from,
+  throttleTime,
+  asyncScheduler,
+  switchMap,
+} from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { filter } from 'rxjs/operators';
 import typia from 'typia';
 import { TaskService } from '../../features/tasks/task.service';
 import { Task, TaskWithSubTasks } from '../../features/tasks/task.model';
@@ -254,12 +263,14 @@ export class LocalRestApiHandlerService {
   private readonly _dateService = inject(DateService);
   private readonly _store = inject(Store);
   private readonly _globalConfigService = inject(GlobalConfigService);
+  private readonly _destroyRef = inject(DestroyRef);
   private _isInitialized = false;
   private _archiveCache: any = null;
   private _lastArchiveCacheTime = 0;
   private _cachedArchivedTodayStats: { completed: number; focusTimeMs: number } | null =
     null;
   private _isBroadcasting = false;
+  private _activeSocketCount = signal<number>(0);
 
   init(): void {
     if (this._isInitialized || !window.ea?.onLocalRestApiRequest) {
@@ -271,25 +282,45 @@ export class LocalRestApiHandlerService {
       void this._handleRequest(payload);
     });
 
-    if (window.ea.broadcastLocalRestApiState) {
-      const broadcastLoop = async (): Promise<void> => {
-        if (!this._isBroadcasting) {
-          this._isBroadcasting = true;
-          try {
-            const statePayload = await this._handleGetProductivityState('broadcast');
-            if (statePayload.body.ok) {
-              window.ea.broadcastLocalRestApiState(statePayload.body.data);
-            }
-          } catch (e) {
-            // eslint-disable-next-line no-console
-            console.error('Failed to broadcast REST API state', e);
-          } finally {
-            this._isBroadcasting = false;
-          }
-        }
-        setTimeout(broadcastLoop, 1000);
-      };
-      setTimeout(broadcastLoop, 1000);
+    this._startReactiveBroadcast();
+  }
+
+  private _startReactiveBroadcast(): void {
+    // Register for live socket-count updates from Electron so we can skip
+    // all computation when zero OBS/extension clients are connected.
+    if (window.ea.onSocketCount) {
+      window.ea.onSocketCount((count) => this._activeSocketCount.set(count));
+    }
+
+    combineLatest([
+      this._store.select(focusModeSelectors.selectTimer),
+      this._store.select(focusModeSelectors.selectMode),
+      this._taskService.currentTask$,
+      this._store.select(focusModeSelectors.selectCurrentCycle),
+      this._store.select(focusModeSelectors.selectIsWaitingForNextFocus),
+    ])
+      .pipe(
+        takeUntilDestroyed(this._destroyRef),
+        filter(() => this._activeSocketCount() > 0), // zero clients → skip everything
+        throttleTime(1000, asyncScheduler, { leading: false, trailing: true }),
+        switchMap(() => from(this._buildAndBroadcast())),
+      )
+      .subscribe();
+  }
+
+  private async _buildAndBroadcast(): Promise<void> {
+    if (this._isBroadcasting) return;
+    this._isBroadcasting = true;
+    try {
+      const statePayload = await this._handleGetProductivityState('broadcast');
+      if (statePayload.body.ok) {
+        window.ea.broadcastLocalRestApiState(statePayload.body.data);
+      }
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error('Failed to broadcast REST API state', e);
+    } finally {
+      this._isBroadcasting = false;
     }
   }
 
@@ -452,8 +483,10 @@ export class LocalRestApiHandlerService {
     const currentTaskTimeSpentMs =
       currentTask && isFiniteNumber(currentTask.timeSpent) ? currentTask.timeSpent : null;
     const currentTaskTimeSpentTodayMs =
-      currentTask && currentTask.timeSpentOnDay && isFiniteNumber(currentTask.timeSpentOnDay[this._dateService.todayStr()]) 
-        ? currentTask.timeSpentOnDay[this._dateService.todayStr()] 
+      currentTask &&
+      currentTask.timeSpentOnDay &&
+      isFiniteNumber(currentTask.timeSpentOnDay[this._dateService.todayStr()])
+        ? currentTask.timeSpentOnDay[this._dateService.todayStr()]
         : 0;
 
     const lastActiveTaskRaw = pausedTaskId
@@ -467,22 +500,27 @@ export class LocalRestApiHandlerService {
       .filter(
         (t) =>
           !t.parentId &&
-          (!t.isDone || (isFiniteNumber(t.doneOn) && this._dateService.isToday(t.doneOn))),
+          (!t.isDone ||
+            (isFiniteNumber(t.doneOn) && this._dateService.isToday(t.doneOn))),
       )
-      .map((t) => ({ 
-        id: t.id, 
-        title: t.title, 
-        isDone: t.isDone, 
+      .map((t) => ({
+        id: t.id,
+        title: t.title,
+        isDone: t.isDone,
         timeSpentMs: t.timeSpent,
-        timeSpentTodayMs: (t.timeSpentOnDay && isFiniteNumber(t.timeSpentOnDay[this._dateService.todayStr()])) 
-          ? t.timeSpentOnDay[this._dateService.todayStr()] 
-          : 0,
-        estimateMs: t.timeEstimate
+        timeSpentTodayMs:
+          t.timeSpentOnDay &&
+          isFiniteNumber(t.timeSpentOnDay[this._dateService.todayStr()])
+            ? t.timeSpentOnDay[this._dateService.todayStr()]
+            : 0,
+        estimateMs: t.timeEstimate,
       }));
 
     const totalEstimate = todayTasks.reduce((acc, t) => acc + (t.estimateMs || 0), 0);
-    const completedEstimate = todayTasks.filter(t => t.isDone).reduce((acc, t) => acc + (t.estimateMs || 0), 0);
-    const dailyProgress = totalEstimate > 0 ? (completedEstimate / totalEstimate) : null;
+    const completedEstimate = todayTasks
+      .filter((t) => t.isDone)
+      .reduce((acc, t) => acc + (t.estimateMs || 0), 0);
+    const dailyProgress = totalEstimate > 0 ? completedEstimate / totalEstimate : null;
 
     return createSuccessResponse(requestId, 200, {
       appStatus: getAppStatus(timer, currentTask),
@@ -538,7 +576,7 @@ export class LocalRestApiHandlerService {
       break: {
         state: isBreakActive ? 'active' : 'none',
         type: isBreakActive ? (timer.isLongBreak ? 'long' : 'micro') : null,
-        nextBreakInMs: (isPomodoro && !isBreakActive) ? remainingMs : null,
+        nextBreakInMs: isPomodoro && !isBreakActive ? remainingMs : null,
         breakRemainingMs: isBreakActive ? remainingMs : null,
       },
       today: {
