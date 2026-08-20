@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { createEffect, ofType } from '@ngrx/effects';
 import { LOCAL_ACTIONS } from '../../../util/local-actions.token';
 import { EMPTY, from, merge, Observable, timer } from 'rxjs';
-import { catchError, first, map, switchMap } from 'rxjs/operators';
+import { catchError, filter, first, map, switchMap } from 'rxjs/operators';
 import { IssueService } from '../issue.service';
 import { Task, TaskWithSubTasks } from '../../tasks/task.model';
 import { WorkContextService } from '../../work-context/work-context.service';
@@ -101,6 +101,7 @@ export class PollIssueUpdatesEffects {
       DELAY_BEFORE_ISSUE_POLLING,
       this._issueService.getPollInterval(provider.issueProviderKey),
     ).pipe(
+      filter(() => document.visibilityState === 'visible'),
       switchMap(() => this._getTasksForProvider(provider)),
       switchMap((issueTasks: Task[]) => {
         if (issueTasks.length === 0) {

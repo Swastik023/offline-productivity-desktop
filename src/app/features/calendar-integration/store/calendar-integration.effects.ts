@@ -1,7 +1,15 @@
 import { Injectable, inject } from '@angular/core';
 import { createEffect } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { distinctUntilChanged, first, map, skip, switchMap, tap } from 'rxjs/operators';
+import {
+  distinctUntilChanged,
+  filter,
+  first,
+  map,
+  skip,
+  switchMap,
+  tap,
+} from 'rxjs/operators';
 import { BehaviorSubject, EMPTY, forkJoin, timer } from 'rxjs';
 import { GlobalTrackingIntervalService } from '../../../core/global-tracking-interval/global-tracking-interval.service';
 import { BannerService } from '../../../core/banner/banner.service';
@@ -98,12 +106,14 @@ export class CalendarIntegrationEffects {
           return forkJoin(
             activatedProviders.map((calProvider) =>
               timer(0, getEffectiveCheckInterval(calProvider)).pipe(
+                filter(() => document.visibilityState === 'visible'),
                 // tap(() => Log.log('REQUEST CALENDAR', calProvider)),
                 switchMap(() =>
                   this._calendarIntegrationService.requestEvents$(calProvider),
                 ),
                 switchMap((allEventsToday) =>
                   timer(0, CHECK_TO_SHOW_INTERVAL).pipe(
+                    filter(() => document.visibilityState === 'visible'),
                     tap(async () => {
                       const isAutoImportAllowed =
                         calProvider.isAutoImportForCurrentDay &&

@@ -1,15 +1,8 @@
 import { Injectable, inject, signal, DestroyRef } from '@angular/core';
 import { Store } from '@ngrx/store';
-import {
-  firstValueFrom,
-  combineLatest,
-  from,
-  throttleTime,
-  asyncScheduler,
-  switchMap,
-} from 'rxjs';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { filter } from 'rxjs/operators';
+import { firstValueFrom, from, switchMap, interval, EMPTY } from 'rxjs';
+import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
+import { startWith } from 'rxjs/operators';
 import typia from 'typia';
 import { TaskService } from '../../features/tasks/task.service';
 import { Task, TaskWithSubTasks } from '../../features/tasks/task.model';
@@ -292,17 +285,10 @@ export class LocalRestApiHandlerService {
       window.ea.onSocketCount((count) => this._activeSocketCount.set(count));
     }
 
-    combineLatest([
-      this._store.select(focusModeSelectors.selectTimer),
-      this._store.select(focusModeSelectors.selectMode),
-      this._taskService.currentTask$,
-      this._store.select(focusModeSelectors.selectCurrentCycle),
-      this._store.select(focusModeSelectors.selectIsWaitingForNextFocus),
-    ])
+    toObservable(this._activeSocketCount)
       .pipe(
         takeUntilDestroyed(this._destroyRef),
-        filter(() => this._activeSocketCount() > 0), // zero clients → skip everything
-        throttleTime(1000, asyncScheduler, { leading: false, trailing: true }),
+        switchMap((count) => (count > 0 ? interval(1000).pipe(startWith(0)) : EMPTY)),
         switchMap(() => from(this._buildAndBroadcast())),
       )
       .subscribe();

@@ -12,7 +12,6 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
-import { HttpClient } from '@angular/common/http';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
@@ -22,6 +21,11 @@ import { FocusScreen } from '../../features/focus-mode/focus-mode.model';
 import { IS_ELECTRON } from '../../app.constants';
 import { FormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MusicEngineService } from '../../features/focus-mode/music-engine.service';
+import {
+  LOCAL_REST_API_HOST,
+  LOCAL_REST_API_PORT,
+} from '../../../../electron/shared-with-frontend/local-rest-api.model';
 
 @Component({
   selector: 'music-player-widget',
@@ -52,12 +56,9 @@ export class MusicPlayerWidgetComponent implements OnInit, OnDestroy {
   private readonly _store = inject(Store);
   private readonly _globalConfigService = inject(GlobalConfigService);
   private readonly _cd = inject(ChangeDetectorRef);
+  readonly musicEngine = inject(MusicEngineService);
 
-  isPlaying = signal<boolean>(false);
-  currentTrackName = signal<string>('No track selected');
-  volume = signal<number>(1);
   isExpanded = signal<boolean>(false);
-  trackList = signal<string[]>([]);
 
   // Settings
   musicFolder = signal<string | null>(null);
@@ -67,20 +68,26 @@ export class MusicPlayerWidgetComponent implements OnInit, OnDestroy {
   breakVolume = signal<number>(1);
 
   readonly IS_ELECTRON = IS_ELECTRON;
-  private ws: WebSocket | null = null;
-  private wsReconnectTimer: any;
   private _subs = new Subscription();
-  public currentChapter = signal<string>('');
-  public currentMetadata = signal<any>(null);
-  public thumbnailUrl = computed(() => {
-    const track = this.currentTrackName();
-    if (!track) return null;
-    return `http://127.0.0.1:3876/music/thumbnail?file=${encodeURIComponent(track)}`;
-  });
-  public currentTime = signal(0);
-  public duration = signal(0);
 
-  private readonly _http = inject(HttpClient);
+  // Signals delegated from MusicEngineService
+  readonly isPlaying = this.musicEngine.isPlaying;
+  readonly volume = this.musicEngine.volume;
+  readonly trackList = this.musicEngine.trackList;
+  readonly currentChapter = this.musicEngine.currentChapter;
+  readonly currentMetadata = this.musicEngine.metadata;
+  readonly currentTime = this.musicEngine.currentTime;
+  readonly duration = this.musicEngine.duration;
+
+  readonly currentTrackName = computed(() => {
+    return this.formatCleanName(this.musicEngine.currentTrack());
+  });
+
+  readonly thumbnailUrl = computed(() => {
+    const track = this.musicEngine.currentTrack();
+    if (!track) return null;
+    return `http://${LOCAL_REST_API_HOST}:${LOCAL_REST_API_PORT}/music/art?file=${encodeURIComponent(track)}`;
+  });
 
   formatCleanName(filename: string): string {
     if (!filename) return '';
@@ -91,14 +98,14 @@ export class MusicPlayerWidgetComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this._connectWebSocket();
-    this._fetchTrackList();
-
     // Subscribe to config changes
     this._subs.add(
       this._globalConfigService.misc$.subscribe((misc) => {
         this.musicFolder.set(misc.localMusicFolderPath || null);
-        this.shuffleMode.set(!!misc.musicShuffleMode);
+        const isShuffle = !!misc.musicShuffleMode;
+        this.shuffleMode.set(isShuffle);
+        this.musicEngine.setShuffle(isShuffle);
+
         this.enableModeVolume.set(!!misc.enableMusicModeVolume);
         this.focusVolume.set(misc.musicFocusVolume ?? 1);
         this.breakVolume.set(misc.musicBreakVolume ?? 1);
@@ -112,20 +119,15 @@ export class MusicPlayerWidgetComponent implements OnInit, OnDestroy {
         if (!this.enableModeVolume()) return;
 
         if (screen === FocusScreen.Main) {
-          this.sendCommand('set_vol', this.focusVolume());
+          this.musicEngine.setVolume(this.focusVolume());
         } else if (screen === FocusScreen.Break) {
-          this.sendCommand('set_vol', this.breakVolume());
+          this.musicEngine.setVolume(this.breakVolume());
         }
-        // WaitingForNextFocus does nothing
       }),
     );
   }
 
   ngOnDestroy(): void {
-    if (this.ws) {
-      this.ws.close();
-    }
-    clearTimeout(this.wsReconnectTimer);
     this._subs.unsubscribe();
   }
 
@@ -145,10 +147,7 @@ export class MusicPlayerWidgetComponent implements OnInit, OnDestroy {
       this._globalConfigService.updateSection('misc', {
         localMusicFolderPath: path[0],
       });
-      // Notify backend overlay
-      this.sendCommand('set_music_folder');
-      // Wait a tiny bit and refetch tracklist
-      setTimeout(() => this._fetchTrackList(), 500);
+      setTimeout(() => this.musicEngine.fetchTrackList(), 500);
     }
   }
 
@@ -157,7 +156,8 @@ export class MusicPlayerWidgetComponent implements OnInit, OnDestroy {
     this._globalConfigService.updateSection('misc', {
       musicShuffleMode: newVal,
     });
-    this.sendCommand('set_shuffle', newVal ? 1 : 0);
+    this.shuffleMode.set(newVal);
+    this.musicEngine.setShuffle(newVal);
   }
 
   toggleModeVolume(): void {
@@ -180,19 +180,19 @@ export class MusicPlayerWidgetComponent implements OnInit, OnDestroy {
   }
 
   playTrack(trackName: string): void {
-    this.sendCommand('set_track', trackName as any);
+    this.musicEngine.playTrackByName(trackName);
   }
 
   playChapter(startTime: number): void {
-    this.sendCommand('seek_time', startTime);
+    this.musicEngine.seek(startTime);
   }
 
   skipForward(): void {
-    this.sendCommand('skip_forward');
+    this.musicEngine.skipForward();
   }
 
   skipBackward(): void {
-    this.sendCommand('skip_backward');
+    this.musicEngine.skipBackward();
   }
 
   seekTo(event: MouseEvent, progressBar: HTMLElement): void {
@@ -200,7 +200,7 @@ export class MusicPlayerWidgetComponent implements OnInit, OnDestroy {
     const rect = progressBar.getBoundingClientRect();
     const clickX = event.clientX - rect.left;
     const percentage = Math.max(0, Math.min(1, clickX / rect.width));
-    this.sendCommand('seek_time', percentage * this.duration());
+    this.musicEngine.seek(percentage * this.duration());
   }
 
   formatTime(seconds: number): string {
@@ -208,83 +208,32 @@ export class MusicPlayerWidgetComponent implements OnInit, OnDestroy {
     const h = Math.floor(seconds / 3600);
     const m = Math.floor((seconds % 3600) / 60);
     const s = Math.floor(seconds % 60);
-    if (h > 0) return `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    if (h > 0)
+      return `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
     return `${m}:${s.toString().padStart(2, '0')}`;
   }
 
   refreshTracks(): void {
-  }
-
-  private _connectWebSocket(): void {
-    this.ws = new WebSocket('ws://localhost:3876/music/ws');
-    this.ws.onopen = () => {
-      // eslint-disable-next-line no-console
-      console.log('[MusicPlayerWidget] Connected to local music WS');
-      // Sync shuffle state on connect
-      if (this.shuffleMode()) {
-        this.sendCommand('set_shuffle', 1);
-      }
-    };
-    this.ws.onmessage = (event) => {
-      try {
-        const msg = JSON.parse(event.data);
-                if (msg.type === 'MUSIC_TIME') {
-          if (msg.currentTime !== undefined) this.currentTime.set(msg.currentTime);
-          if (msg.duration !== undefined) this.duration.set(msg.duration);
-          this._cd.detectChanges();
-          return;
-        }
-        if (msg.type === 'MUSIC_STATE') {
-          if (msg.currentTrack !== undefined) {
-            this.currentTrackName.set(this.formatCleanName(msg.currentTrack));
-          }
-          if (msg.currentChapter !== undefined) {
-            this.currentChapter.set(msg.currentChapter);
-          }
-          if (msg.metadata !== undefined) {
-            this.currentMetadata.set(msg.metadata);
-          }
-          if (msg.isPlaying !== undefined) this.isPlaying.set(msg.isPlaying);
-          if (msg.volume !== undefined) this.volume.set(msg.volume);
-          this._cd.detectChanges();
-        }
-      } catch (e) {}
-    };
-    this.ws.onclose = () => {
-      // eslint-disable-next-line no-console
-      console.log('[MusicPlayerWidget] WS disconnected. Reconnecting in 3s...');
-      this.wsReconnectTimer = setTimeout(() => this._connectWebSocket(), 3000);
-    };
-  }
-
-  private _fetchTrackList(): void {
-    this._http.get<{ files: string[] }>('http://localhost:3876/music/list').subscribe({
-      next: (res) => {
-        if (res.files) {
-          this.trackList.set(res.files);
-          if (res.files.length > 0 && this.currentTrackName() === 'No track selected') {
-            this.currentTrackName.set(this.formatCleanName(res.files[0]));
-          }
-          this._cd.detectChanges();
-        }
-      },
-      error: (
-        err, // eslint-disable-next-line no-console
-      ) => console.warn('[MusicPlayerWidget] Failed to fetch track list', err),
-    });
+    this.musicEngine.fetchTrackList();
   }
 
   sendCommand(action: string, value?: number | string): void {
     if (action === 'play_pause') {
-      this.isPlaying.set(!this.isPlaying());
+      this.musicEngine.togglePlay();
     } else if (action === 'set_vol' && typeof value === 'number') {
-      this.volume.set(value);
+      this.musicEngine.setVolume(value);
+    } else if (action === 'next') {
+      this.musicEngine.next();
+    } else if (action === 'prev') {
+      this.musicEngine.prev();
+    } else if (action === 'seek_time' && typeof value === 'number') {
+      this.musicEngine.seek(value);
+    } else if (action === 'set_track' && typeof value === 'string') {
+      this.musicEngine.playTrackByName(value);
+    } else if (action === 'skip_forward') {
+      this.musicEngine.skipForward();
+    } else if (action === 'skip_backward') {
+      this.musicEngine.skipBackward();
     }
-
-    this._http.post(`http://localhost:3876/music/command`, { action, value }).subscribe({
-      error: (err) =>
-        // eslint-disable-next-line no-console
-        console.error('[MusicPlayerWidget] Failed to send music command', err),
-    });
   }
 }
