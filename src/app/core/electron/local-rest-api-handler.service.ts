@@ -283,6 +283,8 @@ export class LocalRestApiHandlerService {
     // all computation when zero OBS/extension clients are connected.
     if (window.ea.onSocketCount) {
       window.ea.onSocketCount((count) => this._activeSocketCount.set(count));
+      // Fetch initial count to avoid race conditions when Angular boots after Electron
+      window.ea.requestSocketCount?.();
     }
 
     toObservable(this._activeSocketCount)

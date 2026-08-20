@@ -251,8 +251,6 @@ export interface ElectronAPI {
 
   showFullScreenBlocker(args: { msg?: string; takeABreakCfg: TakeABreakConfig }): void;
 
-
-
   focusModeSkipBreak(): void;
 
   onFocusModeSkipBreak(cb: () => void): void;
@@ -299,4 +297,5 @@ export interface ElectronAPI {
   regenerateLocalRestApiToken(): Promise<string>;
   broadcastLocalRestApiState(state: any): void;
   onSocketCount(listener: (count: number) => void): void;
+  requestSocketCount(): void;
 }

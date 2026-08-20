@@ -989,6 +989,10 @@ export const initLocalRestApi = (): void => {
     }
   });
 
+  ipcMain.on(IPC.LOCAL_REST_API_REQUEST_SOCKET_COUNT, () => {
+    notifyRendererOfSocketCount();
+  });
+
   // The renderer reads and regenerates the token over IPC; it is never stored
   // in the synced config. Both handlers throw when the token cannot be stored,
   // and only reconcile once it could — see startServerIfDesired().

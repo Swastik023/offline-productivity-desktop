@@ -210,7 +210,8 @@ const ea: ElectronAPI = {
   showFullScreenBlocker: (args) => _send('FULL_SCREEN_BLOCKER', args),
 
   focusModeSkipBreak: () => _send('FOCUS_MODE_SKIP_BREAK'),
-  onFocusModeSkipBreak: (cb) => ipcRenderer.on('FOCUS_MODE_SKIP_BREAK', toPayloadOnlyIpcListener(cb)),
+  onFocusModeSkipBreak: (cb) =>
+    ipcRenderer.on('FOCUS_MODE_SKIP_BREAK', toPayloadOnlyIpcListener(cb)),
 
   backupAppData: (appData) => _invoke('BACKUP', appData) as Promise<void>,
 
@@ -311,6 +312,7 @@ const ea: ElectronAPI = {
       listener(count),
     );
   },
+  requestSocketCount: () => _send(IPC.LOCAL_REST_API_REQUEST_SOCKET_COUNT),
 };
 
 // Expose ea to window for ipc-event.ts using contextBridge for context isolation
