@@ -1,0 +1,66 @@
+<div class="music-widget-wrapper" [class.is-expanded]="isExpanded()">
+  <!-- Collapsed State -->
+  @if (!isExpanded()) {
+    <div class="collapsed-view" (click)="toggleExpand()">
+      <mat-icon class="music-icon">music_note</mat-icon>
+      <span class="track-name">{{ musicService.trackDisplayName() }}</span>
+      <div class="mini-visualizer-collapsed">
+        @for (bar of musicService.visualizerData(); track $index) {
+          <div class="vis-bar" [style.height]="(bar / 255 * 100) + '%'"></div>
+        }
+      </div>
+    </div>
+  }
+
+  <!-- Expanded State -->
+  @if (isExpanded()) {
+    <div class="expanded-view">
+      <div class="header">
+        <div class="now-playing">
+          <mat-icon class="music-icon">music_note</mat-icon>
+          <span>NOW PLAYING</span>
+        </div>
+        <button mat-icon-button (click)="toggleExpand()" class="close-btn">
+          <mat-icon>expand_more</mat-icon>
+        </button>
+      </div>
+
+      <div class="track-info">
+        <div class="track-title">{{ musicService.trackDisplayName() }}</div>
+        <div class="track-artist">{{ musicService.trackArtistName() }}</div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" [style.width]="(musicService.currentTime() / (musicService.duration() || 1)) * 100 + '%'"></div>
+        </div>
+        <div class="time-label">{{ formatTime(musicService.currentTime()) }}</div>
+      </div>
+
+      <div class="controls-row">
+        <button mat-icon-button (click)="musicService.prev()">
+          <mat-icon>skip_previous</mat-icon>
+        </button>
+        <button mat-icon-button class="play-btn" (click)="musicService.togglePlay()">
+          <mat-icon>{{ musicService.isPlaying() ? 'pause' : 'play_arrow' }}</mat-icon>
+        </button>
+        <button mat-icon-button (click)="musicService.next()">
+          <mat-icon>skip_next</mat-icon>
+        </button>
+
+        <div class="volume-control">
+          <mat-icon>volume_up</mat-icon>
+          <input type="range" class="vol-slider" min="0" max="1" step="0.01" 
+                 [value]="musicService.volume()" 
+                 (input)="onVolumeChange($event)">
+        </div>
+      </div>
+
+      <div class="mini-visualizer">
+        @for (bar of musicService.visualizerData(); track $index) {
+          <div class="vis-bar" [style.height]="(bar / 255 * 100) + '%'"></div>
+        }
+      </div>
+    </div>
+  }
+</div>

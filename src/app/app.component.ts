@@ -305,6 +305,7 @@ export class AppComponent implements OnDestroy, AfterViewInit {
       .subscribe(() => {
         void this._noteStartupBannerService.showLastNoteIfNeeded();
         this._syncSafetyBannerService.showReminderIfNeeded();
+        this._syncSafetyBannerService.startOpLogBackpressureCheck();
         void this._superSyncEncryptionMigrationBannerService.showBannerIfNeeded();
       });
 

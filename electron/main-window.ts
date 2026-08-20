@@ -143,6 +143,8 @@ export const createWindow = async ({
     defaultHeight: 800,
   });
 
+  const wasFullScreen = mainWindowState.isFullScreen;
+
   const simpleStore = await loadSimpleStoreAll();
   const persistedIsUseCustomWindowTitleBar =
     simpleStore[SimpleStoreKey.IS_USE_CUSTOM_WINDOW_TITLE_BAR];
@@ -163,7 +165,7 @@ export const createWindow = async ({
   // standard inset other native apps use (Notes, Mail, VS Code) instead of
   // crowding the top-left corner. Other platforms keep the existing logic.
   const titleBarStyle: BrowserWindowConstructorOptions['titleBarStyle'] = IS_MAC
-    ? 'hidden'
+    ? 'hiddenInset'
     : isUseCustomWindowTitleBar
       ? 'hidden'
       : 'default';
@@ -226,7 +228,7 @@ export const createWindow = async ({
     icon: ICONS_FOLDER + '/icon_256x256.png',
     // Wayland compatibility: disable transparent/frameless features that can cause issues
     transparent: false,
-    frame: false,
+    // frame: true,
   });
 
   // see: https://pratikpc.medium.com/bypassing-cors-with-electron-ab7eaf331605
@@ -351,6 +353,10 @@ export const createWindow = async ({
   // show gracefully
   mainWin.once('ready-to-show', () => {
     mainWin.show();
+
+    if (IS_MAC && wasFullScreen) {
+      mainWin.setFullScreen(true);
+    }
 
     // Workaround for Windows phantom focus bug (electron#20464):
     // show() can silently fail to acquire keyboard focus after reboot.

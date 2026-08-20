@@ -26,14 +26,14 @@ export function showOrFocus(passedWin: BrowserWindow): void {
   const win = passedWin || getWin();
 
   // sometimes when starting a second instance we get here although we don't want to
-  if (!win) {
+  if (!win || win.isDestroyed()) {
     info(
-      'special case occurred when showOrFocus is called even though, this is a second instance of the app',
+      'special case occurred when showOrFocus is called even though, this is a second instance of the app, or window is destroyed',
     );
     return;
   }
 
-  if (win.isVisible()) {
+  if (win.isVisible() && !win.isMinimized()) {
     win.focus();
   } else {
     // restore explicitly - always call restore() before show()

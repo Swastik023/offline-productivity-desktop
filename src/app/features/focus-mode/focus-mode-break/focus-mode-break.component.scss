@@ -3,8 +3,7 @@
 :host {
   position: absolute;
   inset: 0;
-  // Match Stretchly screenshot background color exactly
-  background-color: #5a8d8b;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
 }

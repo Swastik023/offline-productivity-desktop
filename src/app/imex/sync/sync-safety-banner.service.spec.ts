@@ -10,6 +10,8 @@ import { OnboardingHintService } from '../../features/onboarding/onboarding-hint
 import { SyncConfig } from '../../features/config/global-config.model';
 import { SyncProviderId } from '../../op-log/sync-providers/provider.const';
 import { selectTaskFeatureState } from '../../features/tasks/store/task.selectors';
+import { OperationLogStoreService } from '../../op-log/persistence/operation-log-store.service';
+import { fakeAsync, tick } from '@angular/core/testing';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const NOW = 1_700_000_000_000;
@@ -25,6 +27,7 @@ describe('SyncSafetyBannerService', () => {
   let matDialog: jasmine.SpyObj<MatDialog>;
   let syncSpy: jasmine.Spy;
   let selectSignalSpy: jasmine.Spy;
+  let opLogStore: jasmine.SpyObj<OperationLogStoreService>;
   let lsStore: Record<string, string>;
   let taskIds: string[];
 
@@ -61,6 +64,12 @@ describe('SyncSafetyBannerService', () => {
       .createSpy('selectSignal')
       .and.callFake(() => () => ({ ids: taskIds }));
 
+    opLogStore = jasmine.createSpyObj<OperationLogStoreService>(
+      'OperationLogStoreService',
+      ['getUnsynced'],
+    );
+    opLogStore.getUnsynced.and.resolveTo([]);
+
     TestBed.configureTestingModule({
       providers: [
         SyncSafetyBannerService,
@@ -68,6 +77,7 @@ describe('SyncSafetyBannerService', () => {
         { provide: MatDialog, useValue: matDialog },
         { provide: GlobalConfigService, useValue: { sync: syncSpy } },
         { provide: Store, useValue: { selectSignal: selectSignalSpy } },
+        { provide: OperationLogStoreService, useValue: opLogStore },
       ],
     });
     service = TestBed.inject(SyncSafetyBannerService);
@@ -165,5 +175,77 @@ describe('SyncSafetyBannerService', () => {
     lastBanner().action!.fn();
     expect(lsStore[LS.SYNC_SAFETY_NUDGE_DISMISSED]).toBe('true');
     expect(openDialogSpy).toHaveBeenCalledTimes(1);
+  });
+
+  describe('startOpLogBackpressureCheck', () => {
+    const TEN_MINS = 10 * 60 * 1000;
+
+    // Create dummy operations to return from mock
+    const createOps = (count: number): any[] =>
+      Array.from({ length: count }, (_, i) => ({}) as any);
+
+    beforeEach(() => {
+      // Required because we're testing the backpressure check which only applies
+      // if sync is actually configured and enabled.
+      syncSpy.and.returnValue(CONFIGURED);
+      // Spy on dismiss as well
+      bannerService.dismiss = jasmine.createSpy('dismiss');
+    });
+
+    it('does not display warning when pending operations are below threshold', fakeAsync(() => {
+      opLogStore.getUnsynced.and.resolveTo(createOps(1999));
+      service.startOpLogBackpressureCheck();
+
+      tick(TEN_MINS);
+
+      expect(opLogStore.getUnsynced).toHaveBeenCalled();
+      expect(bannerService.open).not.toHaveBeenCalled();
+    }));
+
+    it('displays OpLog backpressure warning when pending operations exceed threshold', fakeAsync(() => {
+      opLogStore.getUnsynced.and.resolveTo(createOps(2001));
+      service.startOpLogBackpressureCheck();
+
+      tick(TEN_MINS);
+
+      expect(bannerService.open).toHaveBeenCalledTimes(1);
+      const banner = lastBanner();
+      expect(banner.id).toBe(BannerId.OpLogBackpressureWarning);
+      expect(banner.translateParams).toEqual({ count: 2001 });
+    }));
+
+    it('handles recovery scenario: warning appears then disappears after sync succeeds', fakeAsync(() => {
+      // 1. OFFLINE -> operations accumulate
+      opLogStore.getUnsynced.and.resolveTo(createOps(2500));
+      service.startOpLogBackpressureCheck();
+
+      tick(TEN_MINS);
+      expect(bannerService.open).toHaveBeenCalledTimes(1);
+      expect(lastBanner().id).toBe(BannerId.OpLogBackpressureWarning);
+
+      // 2. sync succeeds -> pending operation count decreases
+      opLogStore.getUnsynced.and.resolveTo(createOps(500));
+
+      tick(TEN_MINS);
+
+      // 3. warning disappears
+      expect(bannerService.dismiss).toHaveBeenCalledWith(
+        BannerId.OpLogBackpressureWarning,
+      );
+    }));
+
+    it('does not create multiple polling loops if start is called multiple times', fakeAsync(() => {
+      opLogStore.getUnsynced.and.resolveTo(createOps(2001));
+
+      // Call twice
+      service.startOpLogBackpressureCheck();
+      service.startOpLogBackpressureCheck();
+
+      tick(TEN_MINS);
+
+      // Should only trigger one getUnsynced call per 10m interval
+      expect(opLogStore.getUnsynced).toHaveBeenCalledTimes(1);
+      expect(bannerService.open).toHaveBeenCalledTimes(1);
+    }));
   });
 });

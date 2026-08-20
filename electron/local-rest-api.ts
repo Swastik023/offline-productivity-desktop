@@ -2,6 +2,7 @@ import { app, ipcMain } from 'electron';
 import { log, warn } from 'electron-log/main';
 import { createServer, IncomingMessage, Server, ServerResponse } from 'http';
 import { randomBytes, randomUUID, timingSafeEqual } from 'crypto';
+import { spawn } from 'child_process';
 import {
   chmodSync,
   closeSync,
@@ -36,6 +37,7 @@ import {
 
 const JSON_HEADERS = {
   /* eslint-disable-next-line @typescript-eslint/naming-convention */
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   'Content-Type': 'application/json; charset=utf-8',
 };
 
@@ -49,7 +51,7 @@ let isEnabled = false;
 let isEnabledDesired = false;
 let isListening = false;
 let wss: WebSocketServer | null = null;
-let localMusicFolderPath: string | null = null;
+let localMusicFolderPath: string | null = '/Users/swastik/Music/Study_Mixes';
 const activeSockets = new Set<WebSocket>();
 
 const pendingRequests = new Map<
@@ -327,6 +329,7 @@ const writeJson = (
   res.writeHead(status, {
     ...JSON_HEADERS,
     // eslint-disable-next-line @typescript-eslint/naming-convention
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     'Content-Length': Buffer.byteLength(responseJson),
     ...extraHeaders,
   });
@@ -505,10 +508,12 @@ const serveOverlayStaticFile = (pathname: string, res: ServerResponse): void => 
     const indexPath = join(__dirname, 'overlay-dist', 'index.html');
     if (existsSync(indexPath)) {
       const content = readFileSync(indexPath);
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
       res.end(content);
       return;
     }
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     res.end('Not Found');
     return;
@@ -519,21 +524,43 @@ const serveOverlayStaticFile = (pathname: string, res: ServerResponse): void => 
     let contentType = 'text/plain';
     const ext = extname(finalPath).toLowerCase();
     switch (ext) {
-      case '.html': contentType = 'text/html; charset=utf-8'; break;
-      case '.js': contentType = 'application/javascript; charset=utf-8'; break;
-      case '.css': contentType = 'text/css; charset=utf-8'; break;
-      case '.json': contentType = 'application/json; charset=utf-8'; break;
-      case '.png': contentType = 'image/png'; break;
-      case '.jpg': 
-      case '.jpeg': contentType = 'image/jpeg'; break;
-      case '.gif': contentType = 'image/gif'; break;
-      case '.svg': contentType = 'image/svg+xml'; break;
-      case '.ico': contentType = 'image/x-icon'; break;
-      case '.mp3': contentType = 'audio/mpeg'; break;
+      case '.html':
+        contentType = 'text/html; charset=utf-8';
+        break;
+      case '.js':
+        contentType = 'application/javascript; charset=utf-8';
+        break;
+      case '.css':
+        contentType = 'text/css; charset=utf-8';
+        break;
+      case '.json':
+        contentType = 'application/json; charset=utf-8';
+        break;
+      case '.png':
+        contentType = 'image/png';
+        break;
+      case '.jpg':
+      case '.jpeg':
+        contentType = 'image/jpeg';
+        break;
+      case '.gif':
+        contentType = 'image/gif';
+        break;
+      case '.svg':
+        contentType = 'image/svg+xml';
+        break;
+      case '.ico':
+        contentType = 'image/x-icon';
+        break;
+      case '.mp3':
+        contentType = 'audio/mpeg';
+        break;
     }
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     res.writeHead(200, { 'Content-Type': contentType });
     res.end(content);
   } catch (err) {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     res.writeHead(500, { 'Content-Type': 'text/plain' });
     res.end('Internal Server Error');
   }
@@ -566,18 +593,23 @@ const handleHttpRequest = async (
 
   // Handle local music player API
   if (requestUrl.pathname === '/music/list') {
-    console.log('[local-rest-api-music] GET /music/list requested. localMusicFolderPath:', localMusicFolderPath);
+    console.log(
+      '[local-rest-api-music] GET /music/list requested. localMusicFolderPath:',
+      localMusicFolderPath,
+    );
     if (!localMusicFolderPath) {
       res.writeHead(400, JSON_HEADERS);
       res.end(JSON.stringify({ ok: false, error: 'No music folder configured' }));
       return;
     }
     try {
-      const files = readdirSync(localMusicFolderPath).filter(file => {
+      const files = readdirSync(localMusicFolderPath).filter((file) => {
         const ext = extname(file).toLowerCase();
         return ['.mp3', '.wav', '.ogg'].includes(ext);
       });
-      console.log(`[local-rest-api-music] GET /music/list found ${files.length} valid audio files.`);
+      console.log(
+        `[local-rest-api-music] GET /music/list found ${files.length} valid audio files.`,
+      );
       res.writeHead(200, JSON_HEADERS);
       res.end(JSON.stringify({ ok: true, files }));
     } catch (e) {
@@ -588,16 +620,114 @@ const handleHttpRequest = async (
     return;
   }
 
-  if (requestUrl.pathname === '/music/stream') {
+  if (requestUrl.pathname === '/music/metadata') {
     const fileName = requestUrl.searchParams.get('file');
     if (!fileName || !localMusicFolderPath) {
+      res.writeHead(400, JSON_HEADERS);
+      res.end(JSON.stringify({ ok: false, error: 'Bad Request' }));
+      return;
+    }
+    const safeName = fileName.replace(/^[\.\/]+/, '');
+    const fullPath = join(localMusicFolderPath, safeName);
+
+    let output = '';
+    const ffprobe = spawn('ffprobe', [
+      '-v',
+      'quiet',
+      '-print_format',
+      'json',
+      '-show_chapters',
+      '-show_format',
+      fullPath,
+    ]);
+
+    ffprobe.stdout.on('data', (data) => {
+      output += data.toString();
+    });
+
+    ffprobe.on('close', (code) => {
+      if (code !== 0) {
+        res.writeHead(500, JSON_HEADERS);
+        res.end(JSON.stringify({ ok: false, error: 'ffprobe failed' }));
+        return;
+      }
+      try {
+        const parsed = JSON.parse(output);
+        const title = parsed.format?.tags?.title || fileName;
+        const chapters =
+          parsed.chapters?.map((ch: any) => ({
+            start: parseFloat(ch.start_time),
+            end: parseFloat(ch.end_time),
+            title: ch.tags?.title || 'Unknown',
+          })) || [];
+
+        res.writeHead(200, JSON_HEADERS);
+        res.end(JSON.stringify({ ok: true, title, chapters }));
+      } catch (e) {
+        res.writeHead(500, JSON_HEADERS);
+        res.end(JSON.stringify({ ok: false, error: 'Parse failed' }));
+      }
+    });
+
+    ffprobe.on('error', () => {
+      res.writeHead(500, JSON_HEADERS);
+      res.end(JSON.stringify({ ok: false, error: 'ffprobe not found' }));
+    });
+    return;
+  }
+
+  if (requestUrl.pathname === '/music/art') {
+    const fileName = requestUrl.searchParams.get('file');
+    if (!fileName || !localMusicFolderPath) {
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       res.writeHead(400, { 'Content-Type': 'text/plain' });
       res.end('Bad Request');
       return;
     }
     const safeName = fileName.replace(/^[\.\/]+/, '');
     const fullPath = join(localMusicFolderPath, safeName);
-    
+
+    res.writeHead(200, {
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      'Content-Type': 'image/jpeg',
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      'Cache-Control': 'public, max-age=86400',
+    });
+
+    const ffmpeg = spawn('ffmpeg', [
+      '-i',
+      fullPath,
+      '-an',
+      '-vcodec',
+      'copy',
+      '-f',
+      'image2pipe',
+      '-',
+    ]);
+
+    ffmpeg.stdout.pipe(res);
+
+    ffmpeg.on('error', () => {
+      // If error, just end response cleanly
+      if (!res.headersSent) {
+        res.writeHead(500);
+      }
+      res.end();
+    });
+    return;
+  }
+
+  if (requestUrl.pathname === '/music/stream') {
+    const fileName = requestUrl.searchParams.get('file');
+    if (!fileName || !localMusicFolderPath) {
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      res.writeHead(400, { 'Content-Type': 'text/plain' });
+      res.end('Bad Request');
+      return;
+    }
+    const safeName = fileName.replace(/^[\.\/]+/, '');
+    const fullPath = join(localMusicFolderPath, safeName);
+
     try {
       const stat = statSync(fullPath);
       const fileSize = stat.size;
@@ -607,25 +737,32 @@ const handleHttpRequest = async (
         const parts = range.replace(/bytes=/, '').split('-');
         const start = parseInt(parts[0], 10);
         const end = parts[1] ? parseInt(parts[1], 10) : fileSize - 1;
-        const chunksize = (end - start) + 1;
+        const chunksize = end - start + 1;
         const file = createReadStream(fullPath, { start, end });
         const head = {
+          // eslint-disable-next-line @typescript-eslint/naming-convention
           'Content-Range': `bytes ${start}-${end}/${fileSize}`,
+          // eslint-disable-next-line @typescript-eslint/naming-convention
           'Accept-Ranges': 'bytes',
+          // eslint-disable-next-line @typescript-eslint/naming-convention
           'Content-Length': chunksize,
+          // eslint-disable-next-line @typescript-eslint/naming-convention
           'Content-Type': 'audio/mpeg',
         };
         res.writeHead(206, head);
         file.pipe(res);
       } else {
         const head = {
+          // eslint-disable-next-line @typescript-eslint/naming-convention
           'Content-Length': fileSize,
+          // eslint-disable-next-line @typescript-eslint/naming-convention
           'Content-Type': 'audio/mpeg',
         };
         res.writeHead(200, head);
         createReadStream(fullPath).pipe(res);
       }
     } catch (e) {
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       res.writeHead(404, { 'Content-Type': 'text/plain' });
       res.end('Failed to stream file');
     }
@@ -638,29 +775,44 @@ const handleHttpRequest = async (
       body = await readJsonBody(req);
       console.log('[local-rest-api-music] POST /music/command received:', body);
     } catch (e) {
-      console.error('[local-rest-api-music] POST /music/command Error parsing JSON body:', e);
+      console.error(
+        '[local-rest-api-music] POST /music/command Error parsing JSON body:',
+        e,
+      );
       res.writeHead(400, JSON_HEADERS);
       res.end(JSON.stringify({ ok: false, error: 'Invalid body' }));
       return;
     }
-    
+
     if (wss) {
-      const msg = JSON.stringify({ type: 'MUSIC_COMMAND', action: body.action, value: body.value });
-      console.log(`[local-rest-api-music] Broadcasting to ${wss.clients.size} WebSocket clients:`, msg);
-      wss.clients.forEach(client => {
+      const msg = JSON.stringify({
+        type: 'MUSIC_COMMAND',
+        action: body.action,
+        value: body.value,
+      });
+      console.log(
+        `[local-rest-api-music] Broadcasting to ${wss.clients.size} WebSocket clients:`,
+        msg,
+      );
+      wss.clients.forEach((client) => {
         if (client.readyState === WebSocket.OPEN) {
           client.send(msg);
         }
       });
     } else {
-      console.warn('[local-rest-api-music] Warning: Received command but WebSocket server is NOT running!');
+      console.warn(
+        '[local-rest-api-music] Warning: Received command but WebSocket server is NOT running!',
+      );
     }
-    
+
     res.writeHead(200, {
       ...JSON_HEADERS,
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       'Access-Control-Allow-Origin': '*',
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type'
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      'Access-Control-Allow-Headers': 'Content-Type',
     });
     res.end(JSON.stringify({ ok: true }));
     return;
@@ -669,9 +821,12 @@ const handleHttpRequest = async (
   // Handle OPTIONS for CORS preflight
   if (requestUrl.pathname === '/music/command' && req.method === 'OPTIONS') {
     res.writeHead(204, {
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       'Access-Control-Allow-Origin': '*',
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type'
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      'Access-Control-Allow-Headers': 'Content-Type',
     });
     res.end();
     return;
@@ -855,7 +1010,7 @@ export const initLocalRestApi = (): void => {
 
   server.on('upgrade', (request, socket, head) => {
     const url = new URL(request.url ?? '/', `http://${LOCAL_REST_API_HOST}`);
-    
+
     if (url.pathname === '/music/ws') {
       wss?.handleUpgrade(request, socket, head, (ws) => {
         console.log('[local-rest-api-music] New WebSocket client connected!');
@@ -864,15 +1019,14 @@ export const initLocalRestApi = (): void => {
           console.log('[local-rest-api-music] WebSocket client disconnected!');
           activeSockets.delete(ws);
         });
-        
+
         ws.on('message', (message) => {
           try {
             const parsed = JSON.parse(message.toString());
             // Broadcast to ALL OTHER clients (except the one that sent it)
-            const payload = JSON.stringify({ type: 'MUSIC_COMMAND', action: parsed.action, value: parsed.value });
             for (const client of activeSockets) {
               if (client !== ws && client.readyState === 1 /* OPEN */) {
-                client.send(payload);
+                client.send(message.toString());
               }
             }
           } catch (e) {
@@ -993,7 +1147,7 @@ const stopServer = (): void => {
 };
 
 export const updateLocalRestApiConfig = (cfg: GlobalConfigState): void => {
-  localMusicFolderPath = cfg.misc.localMusicFolderPath || null;
+  localMusicFolderPath = cfg.misc.localMusicFolderPath || '/Users/swastik/Music/Study_Mixes';
   const isForcedForDev = isForceEnabledForDev();
   const nextEnabled = isForcedForDev || !!cfg.misc.isLocalRestApiEnabled;
   isEnabledDesired = nextEnabled;

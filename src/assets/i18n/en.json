@@ -12,6 +12,11 @@
       "LATER": "Later",
       "MSG": "SuperSync is end-to-end encrypted, but this account still syncs without a password. Set one to protect your data — it stays and is re-uploaded encrypted on the next sync."
     },
+    "B_OP_LOG_BACKPRESSURE": {
+      "DISMISS": "Dismiss",
+      "MSG": "Sync has been offline for a long time. Over {{count}} edits are stored locally. Please connect to the internet to back up your data and resolve this prolonged synchronization backlog.",
+      "SETTINGS": "Sync Settings"
+    },
     "B_SYNC_SAFETY": {
       "DISMISS": "Not now",
       "MSG": "You've been using Super Productivity for a while. Set up sync to back up your data and keep it safe across devices.",
@@ -3663,6 +3668,11 @@
       "L_MANUAL_BREAK_START": "Enable Pomodoro overtime (keep timer running until manually ended)",
       "L_PAUSE_TRACKING_DURING_BREAK": "Pause task tracking during breaks",
       "L_SHOW_PREPARATION_SCREEN": "Show preparation screen before each session (rocket countdown)",
+      "L_AUTO_MINIMIZE_ON_START": "Auto-minimize window when focus session starts",
+      "L_AUTO_FULL_SCREEN_ON_BREAK": "Auto-fullscreen window during breaks",
+      "L_MUSIC_VOLUME_FOCUS": "Music volume during focus sessions",
+      "L_MUSIC_VOLUME_BREAK": "Music volume during breaks",
+      "L_MUSIC_VOLUME_IDLE": "Music volume while idle",
       "TITLE": "Focus Mode"
     },
     "FOCUS_MODE_LOCAL": {

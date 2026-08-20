@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  HostBinding,
   inject,
   signal,
 } from '@angular/core';
@@ -25,6 +26,8 @@ import { TaskSharedActions } from '../../../root-store/meta/task-shared.actions'
 import { FocusModeLayoutComponent } from '../focus-mode-layout/focus-mode-layout.component';
 import { FocusModeTaskRowComponent } from '../focus-mode-task-row/focus-mode-task-row.component';
 import { FocusModeTaskSelectorComponent } from '../focus-mode-task-selector/focus-mode-task-selector.component';
+import { MusicWidgetComponent } from '../music-widget/music-widget.component';
+import { RANDOM_BG_IMAGE } from '../focus-mode-break/focus-mode-break.component';
 
 @Component({
   selector: 'focus-mode-waiting',
@@ -41,6 +44,7 @@ import { FocusModeTaskSelectorComponent } from '../focus-mode-task-selector/focu
     TranslatePipe,
     FocusModeTaskRowComponent,
     FocusModeTaskSelectorComponent,
+    MusicWidgetComponent,
   ],
 })
 export class FocusModeWaitingComponent {

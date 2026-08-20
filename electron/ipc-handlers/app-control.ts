@@ -60,6 +60,26 @@ export const initAppControlIpc = (): void => {
   ipcMain.on(IPC.TRANSFER_SETTINGS_TO_ELECTRON, updateSettings);
   ipcMain.on(IPC.UPDATE_SETTINGS, updateSettings);
 
+  ipcMain.on(IPC.MINIMIZE, () => {
+    const mainWin = getWin();
+    if (!mainWin) return;
+    
+    if (mainWin.isFullScreen()) {
+      mainWin.once('leave-full-screen', () => {
+        mainWin.minimize();
+      });
+      mainWin.setFullScreen(false);
+    } else {
+      mainWin.minimize();
+    }
+  });
+
+  ipcMain.on(IPC.SET_FULL_SCREEN, (ipcEvent, isFullScreen: boolean) => {
+    const mainWin = getWin();
+    if (!mainWin) return;
+    mainWin.setFullScreen(isFullScreen);
+  });
+
   ipcMain.on(IPC.SHOW_OR_FOCUS, () => {
     const mainWin = getWin();
     showOrFocus(mainWin);

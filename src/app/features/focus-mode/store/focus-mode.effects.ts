@@ -583,6 +583,51 @@ export class FocusModeEffects {
     { dispatch: false },
   );
 
+  autoMinimizeOnStart$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(actions.startFocusSession),
+        withLatestFrom(this.store.select(selectFocusModeConfig)),
+        tap(([_, config]) => {
+          if (IS_ELECTRON && config?.isAutoMinimizeOnFocusStart) {
+            // Delay slightly so rocket animation finishes and the transition is smooth
+            setTimeout(() => {
+              window.ea.minimize();
+            }, 1000);
+          }
+        }),
+      ),
+    { dispatch: false },
+  );
+
+  autoFullScreenOnBreakStart$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(actions.startBreak),
+        withLatestFrom(this.store.select(selectFocusModeConfig)),
+        tap(([_, config]) => {
+          if (IS_ELECTRON && config?.isAutoFullScreenOnBreak) {
+            window.ea.setFullScreen(true);
+          }
+        }),
+      ),
+    { dispatch: false },
+  );
+
+  autoFullScreenOnBreakEnd$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(actions.completeBreak, actions.skipBreak, actions.startFocusSession),
+        withLatestFrom(this.store.select(selectFocusModeConfig)),
+        tap(([_, config]) => {
+          if (IS_ELECTRON && config?.isAutoFullScreenOnBreak) {
+            window.ea.setFullScreen(false);
+          }
+        }),
+      ),
+    { dispatch: false },
+  );
+
   // Effect 4b: Don't let a Countdown session end silently. Countdown is the only
   // mode that auto-stops with no follow-up: Pomodoro transitions straight into a
   // break (its own surfaced screen) and Flowtime only ever stops on an explicit

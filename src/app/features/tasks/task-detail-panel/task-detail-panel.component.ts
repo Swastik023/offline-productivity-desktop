@@ -99,7 +99,12 @@ import { Project } from '../../project/project.model';
 import { DEFAULT_PROJECT_ICON } from '../../project/project.const';
 import { MenuTreeService } from '../../menu-tree/menu-tree.service';
 import { SelectOptionRowComponent } from '../../../ui/select-option-row/select-option-row.component';
-import { MatMenu, MatMenuContent, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
+import {
+  MatMenu,
+  MatMenuContent,
+  MatMenuItem,
+  MatMenuTrigger,
+} from '@angular/material/menu';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -115,6 +120,7 @@ import { Subscription } from 'rxjs';
     swirlAnimation,
   ],
   imports: [
+    AddSubtaskInputComponent,
     TaskTitleComponent,
     TaskDetailItemComponent,
     MatIcon,
@@ -272,7 +278,10 @@ export class TaskDetailPanelComponent implements OnInit, AfterViewInit, OnDestro
 
   _loadProjectListIfNeeded(): void {
     const t = this.task();
-    if (this._loadedProjectListForProjectId !== t.projectId || !this.moveToProjectList()) {
+    if (
+      this._loadedProjectListForProjectId !== t.projectId ||
+      !this.moveToProjectList()
+    ) {
       this._loadedProjectListForProjectId = t.projectId;
       this._moveToProjectListSub?.unsubscribe();
       this._moveToProjectListSub = this._projectService
@@ -291,7 +300,6 @@ export class TaskDetailPanelComponent implements OnInit, AfterViewInit, OnDestro
   trackByProjectId(i: number, project: Project): string {
     return project.id;
   }
-
 
   // Repeat config label
   private _repeatCfg$ = this._task$.pipe(

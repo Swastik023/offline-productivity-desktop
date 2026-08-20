@@ -68,6 +68,10 @@ export type MiscConfig = Readonly<{
   overlayIndicatorOpacity?: number; // Deprecated – moved to taskWidget.opacity
 
   localMusicFolderPath?: string | null;
+  musicShuffleMode?: boolean;
+  enableMusicModeVolume?: boolean;
+  musicFocusVolume?: number;
+  musicBreakVolume?: number;
 }>;
 
 export type TasksConfig = Readonly<{
@@ -299,6 +303,14 @@ export type FocusModeConfig = Readonly<{
    * default — the default start plays a quick inline rocket launch and begins.
    */
   isShowPreparation?: boolean;
+  /**
+   * Opt-in: when true, starting a focus session automatically minimizes the main window.
+   */
+  isAutoMinimizeOnFocusStart?: boolean;
+  /**
+   * Opt-in: when true, entering a break automatically maximizes the window to full screen.
+   */
+  isAutoFullScreenOnBreak?: boolean;
   focusModeSound?: 'off' | 'tick' | 'whiteNoise';
   /** @deprecated Use focusModeSound instead. Kept for backward-compat validation of old data. */
   isPlayTick?: boolean;
@@ -318,6 +330,9 @@ export type FocusModeConfig = Readonly<{
   isStartInBackground?: boolean;
   /** Note: Controls Pomodoro overtime only (keeps timer running until manually ended) */
   isManualBreakStart?: boolean;
+  musicVolumeFocus?: number;
+  musicVolumeBreak?: number;
+  musicVolumeIdle?: number;
 }>;
 
 export type TaskWidgetConfig = Readonly<{

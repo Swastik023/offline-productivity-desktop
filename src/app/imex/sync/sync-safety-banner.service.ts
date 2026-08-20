@@ -9,6 +9,10 @@ import { OnboardingHintService } from '../../features/onboarding/onboarding-hint
 import { selectTaskFeatureState } from '../../features/tasks/store/task.selectors';
 import { devError } from '../../util/dev-error';
 import { T } from '../../t.const';
+import { OperationLogStoreService } from '../../op-log/persistence/operation-log-store.service';
+import { interval } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { DestroyRef } from '@angular/core';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -34,8 +38,11 @@ export class SyncSafetyBannerService {
   private readonly _globalConfigService = inject(GlobalConfigService);
   private readonly _matDialog = inject(MatDialog);
   private readonly _store = inject(Store);
+  private readonly _opLogStore = inject(OperationLogStoreService);
+  private readonly _destroyRef = inject(DestroyRef);
 
   private readonly _taskState = this._store.selectSignal(selectTaskFeatureState);
+  private _isOpLogBackpressureCheckStarted = false;
 
   showReminderIfNeeded(): void {
     // Once-ever guard: already acted on / dismissed.
@@ -104,5 +111,51 @@ export class SyncSafetyBannerService {
     const { DialogSyncCfgComponent } =
       await import('./dialog-sync-cfg/dialog-sync-cfg.component');
     this._matDialog.open(DialogSyncCfgComponent);
+  }
+
+  startOpLogBackpressureCheck(): void {
+    if (this._isOpLogBackpressureCheckStarted) {
+      return;
+    }
+    this._isOpLogBackpressureCheckStarted = true;
+
+    // Check every 10 minutes for extreme backpressure in the local OpLog queue
+    interval(10 * 60 * 1000)
+      .pipe(takeUntilDestroyed(this._destroyRef))
+      .subscribe(async () => {
+        const sync = this._globalConfigService.sync();
+        if (!sync?.isEnabled || !sync.syncProvider) {
+          return;
+        }
+
+        try {
+          const unsynced = await this._opLogStore.getUnsynced();
+          if (unsynced.length > 2000) {
+            this._bannerService.open({
+              id: BannerId.OpLogBackpressureWarning,
+              msg: T.APP.B_OP_LOG_BACKPRESSURE.MSG,
+              translateParams: { count: unsynced.length },
+              ico: 'warning',
+              action: {
+                label: T.APP.B_OP_LOG_BACKPRESSURE.SETTINGS,
+                fn: () => {
+                  this._bannerService.dismiss(BannerId.OpLogBackpressureWarning);
+                  void this._openSyncCfgDialog().catch(devError);
+                },
+              },
+              action2: {
+                label: T.APP.B_OP_LOG_BACKPRESSURE.DISMISS,
+                fn: () => this._bannerService.dismiss(BannerId.OpLogBackpressureWarning),
+              },
+              isHideDismissBtn: true,
+            });
+          } else {
+            // Dismiss automatically if queue recovers
+            this._bannerService.dismiss(BannerId.OpLogBackpressureWarning);
+          }
+        } catch (e) {
+          devError(e);
+        }
+      });
   }
 }

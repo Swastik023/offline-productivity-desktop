@@ -49,7 +49,9 @@ let idleTimeHandler: IdleTimeHandler;
 
 export const startApp = (): void => {
   // Initialize protocol handling (registers second-instance listener for URL forwarding)
-  initializeProtocolHandling(IS_DEV, app, () => mainWin);
+  initializeProtocolHandling(IS_DEV, app, () =>
+    !mainWin || mainWin.isDestroyed() ? null : mainWin,
+  );
 
   // LOAD IPC STUFF
   initIpcInterfaces();
@@ -290,7 +292,7 @@ export const startApp = (): void => {
   appIN.on('activate', () => {
     // On OS X it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
-    if (mainWin === null) {
+    if (!mainWin || mainWin.isDestroyed()) {
       createMainWin();
     } else {
       showApp();
@@ -500,32 +502,39 @@ export const startApp = (): void => {
     });
   }
 
+  let isCreatingMainWin = false;
   // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
   async function createMainWin(): Promise<void> {
-    // Remove stale LevelDB LOCK files before the renderer opens IndexedDB.
-    // Orphaned locks from unclean session shutdowns block the backing store open.
-    await clearStaleLevelDbLocks(app.getPath('userData'));
+    if (isCreatingMainWin) return;
+    isCreatingMainWin = true;
+    try {
+      // Remove stale LevelDB LOCK files before the renderer opens IndexedDB.
+      // Orphaned locks from unclean session shutdowns block the backing store open.
+      await clearStaleLevelDbLocks(app.getPath('userData'));
 
-    mainWin = await createWindow({
-      app,
-      IS_DEV,
-      ICONS_FOLDER,
-      quitApp,
-      customUrl,
-    });
+      mainWin = await createWindow({
+        app,
+        IS_DEV,
+        ICONS_FOLDER,
+        quitApp,
+        customUrl,
+      });
 
-    initPluginOAuth(mainWin);
+      initPluginOAuth(mainWin);
 
-    // Process pending protocol URLs once the renderer has fully booted
-    // (signaled via IPC.APP_READY, which Angular init fires) rather than
-    // guessing with a fixed timer — cold-start boot time varies with
-    // machine load and OS disk caching, and a URL delivered before the
-    // renderer subscribes would otherwise race app startup.
-    const win = mainWin;
-    if (getIsAppReady()) {
-      processPendingProtocolUrls(win);
-    } else {
-      ipcMain.once(IPC.APP_READY, () => processPendingProtocolUrls(win));
+      // Process pending protocol URLs once the renderer has fully booted
+      // (signaled via IPC.APP_READY, which Angular init fires) rather than
+      // guessing with a fixed timer — cold-start boot time varies with
+      // machine load and OS disk caching, and a URL delivered before the
+      // renderer subscribes would otherwise race app startup.
+      const win = mainWin;
+      if (getIsAppReady()) {
+        processPendingProtocolUrls(win);
+      } else {
+        ipcMain.once(IPC.APP_READY, () => processPendingProtocolUrls(win));
+      }
+    } finally {
+      isCreatingMainWin = false;
     }
   }
 

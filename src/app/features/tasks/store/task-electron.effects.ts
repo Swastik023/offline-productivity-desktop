@@ -14,10 +14,10 @@ import {
 import { selectCurrentTask, selectTaskEntities } from './task.selectors';
 import { selectTodayTaskIds } from '../../work-context/store/work-context.selectors';
 import { GlobalConfigService } from '../../config/global-config.service';
-import { 
+import {
   selectIsOverlayShown,
   selectPausedTaskId,
-  selectPausedWorkContext 
+  selectPausedWorkContext,
 } from '../../focus-mode/store/focus-mode.selectors';
 import { TimeTrackingActions } from '../../time-tracking/store/time-tracking.actions';
 import { FocusModeService } from '../../focus-mode/focus-mode.service';
@@ -76,24 +76,34 @@ export class TaskElectronEffects {
           // Only take the first value and complete
           take(1),
         )
-        .subscribe(([current, isFocusModeEnabled, currentFocusSessionTime, isBreakActive, pausedTaskId, pausedWorkContext, taskEntities]) => {
-          const pausedTask = (pausedTaskId ? taskEntities[pausedTaskId] : null) ?? null;
-          const pausedWorkContextTitle = pausedWorkContext?.title || null;
-          
-          window.ea.updateCurrentTask(
+        .subscribe(
+          ([
             current,
-            false, // isPomodoroEnabled - legacy, always false
-            0, // currentPomodoroSessionTime - legacy, always 0
             isFocusModeEnabled,
             currentFocusSessionTime,
-            this._focusModeService.mode(),
-            {
-              isInBreak: isBreakActive,
-              pausedTask,
-              pausedWorkContextTitle,
-            },
-          );
-        });
+            isBreakActive,
+            pausedTaskId,
+            pausedWorkContext,
+            taskEntities,
+          ]) => {
+            const pausedTask = (pausedTaskId ? taskEntities[pausedTaskId] : null) ?? null;
+            const pausedWorkContextTitle = pausedWorkContext?.title || null;
+
+            window.ea.updateCurrentTask(
+              current,
+              false, // isPomodoroEnabled - legacy, always false
+              0, // currentPomodoroSessionTime - legacy, always 0
+              isFocusModeEnabled,
+              currentFocusSessionTime,
+              this._focusModeService.mode(),
+              {
+                isInBreak: isBreakActive,
+                pausedTask,
+                pausedWorkContextTitle,
+              },
+            );
+          },
+        );
     });
 
     window.ea.onSwitchTask((taskId) => {
@@ -150,31 +160,47 @@ export class TaskElectronEffects {
           this._store$.pipe(select(selectCurrentTask)),
           this._store$.pipe(select(selectIsOverlayShown)),
           this._focusModeService.currentSessionTime$.pipe(startWith(0)),
+          this._focusModeService.timeToGo$.pipe(startWith(0)),
           this._isBreakActive$,
           this._store$.pipe(select(selectPausedTaskId)),
           this._store$.pipe(select(selectPausedWorkContext)),
           this._store$.pipe(select(selectTaskEntities)),
         ),
-        tap(([action, current, isFocusModeEnabled, currentFocusSessionTime, isBreakActive, pausedTaskId, pausedWorkContext, taskEntities]) => {
-          // Get paused task information during breaks
-          const pausedTask = (pausedTaskId ? taskEntities[pausedTaskId] : null) ?? null;
-          const pausedWorkContextTitle = pausedWorkContext?.title || null;
-
-          window.ea.updateCurrentTask(
+        tap(
+          ([
+            action,
             current,
-            false, // isPomodoroEnabled - legacy, always false
-            0, // currentPomodoroSessionTime - legacy, always 0
             isFocusModeEnabled,
             currentFocusSessionTime,
-            this._focusModeService.mode(),
-            // Add break mode data
-            {
-              isInBreak: isBreakActive,
-              pausedTask,
-              pausedWorkContextTitle,
-            },
-          );
-        }),
+            timeToGo,
+            isBreakActive,
+            pausedTaskId,
+            pausedWorkContext,
+            taskEntities,
+          ]) => {
+            // Get paused task information during breaks
+            const pausedTask = (pausedTaskId ? taskEntities[pausedTaskId] : null) ?? null;
+            const pausedWorkContextTitle = pausedWorkContext?.title || null;
+
+            const isFlowtime = this._focusModeService.mode() === 'Flowtime';
+            const timeToPass = isFlowtime ? currentFocusSessionTime : timeToGo;
+
+            window.ea.updateCurrentTask(
+              current,
+              false, // isPomodoroEnabled - legacy, always false
+              0, // currentPomodoroSessionTime - legacy, always 0
+              isFocusModeEnabled,
+              timeToPass,
+              this._focusModeService.mode(),
+              // Add break mode data
+              {
+                isInBreak: isBreakActive,
+                pausedTask,
+                pausedWorkContextTitle,
+              },
+            );
+          },
+        ),
       ),
     { dispatch: false },
   );

@@ -354,47 +354,6 @@ export class MagicNavConfigService {
         tourClass: 'tour-settingsMenuBtn',
       },
 
-      // Music Menu
-      {
-        type: 'menu',
-        id: 'music-controls',
-        label: 'Music',
-        icon: 'music_note',
-        children: [
-          {
-            type: 'action',
-            id: 'music-play-pause',
-            label: 'Play / Pause',
-            icon: 'play_arrow',
-            action: () => this._sendMusicCommand('play_pause'),
-          },
-          {
-            type: 'action',
-            id: 'music-next',
-            label: 'Next Track',
-            icon: 'skip_next',
-            action: () => this._sendMusicCommand('next'),
-          },
-          {
-            type: 'action',
-            id: 'music-prev',
-            label: 'Prev Track',
-            icon: 'skip_previous',
-            action: () => this._sendMusicCommand('prev'),
-          },
-          {
-            type: 'slider',
-            id: 'music-volume',
-            label: 'Volume',
-            icon: 'volume_up',
-            min: 0,
-            max: 1,
-            step: 0.05,
-            value: 1, // Default volume
-            action: (val: number) => this._sendMusicCommand('set_vol', val),
-          } as NavSliderItem,
-        ]
-      } as NavMenuItem,
     ],
     fullModeByDefault: true,
     showLabels: true,

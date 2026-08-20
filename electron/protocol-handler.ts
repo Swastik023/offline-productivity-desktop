@@ -225,6 +225,8 @@ export const initializeProtocolHandling = (
     // so let that action manage visibility itself.
     if (mainWin && getProtocolAction(url) !== 'toggle-visibility') {
       showOrFocus(mainWin);
+    } else if (!mainWin) {
+      appInstance.emit('activate');
     }
 
     // Handle protocol url from second instance

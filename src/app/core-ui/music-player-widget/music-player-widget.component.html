@@ -1,0 +1,134 @@
+<div class="music-widget-container" [class.is-expanded]="isExpanded()">
+  <div class="ambient-background" *ngIf="isExpanded() && thumbnailUrl()" [style.backgroundImage]="'url(' + thumbnailUrl() + ')'"></div>
+  <div class="main-bar" (click)="toggleExpanded()" [attr.aria-expanded]="isExpanded()">
+    <div class="art-container">
+      <div class="art-placeholder" [class.playing]="isPlaying()">
+        <img *ngIf="thumbnailUrl()" [src]="thumbnailUrl()" class="art-image" alt="Thumbnail">
+        <mat-icon *ngIf="!thumbnailUrl()">music_note</mat-icon>
+      </div>
+    </div>
+    <div class="track-info">
+      <div class="track-title" [title]="currentChapter() || formatCleanName(currentTrackName())">
+        {{ currentChapter() || formatCleanName(currentTrackName()) }}
+      </div>
+      <div class="track-subtitle">{{ currentChapter() ? formatCleanName(currentTrackName()) : 'Local Player' }}</div>
+    </div>
+    
+    <div class="quick-controls" (click)="$event.stopPropagation()">
+      <button mat-icon-button (click)="sendCommand('play_pause')" aria-label="Play/Pause">
+        <mat-icon>{{ isPlaying() ? 'pause' : 'play_arrow' }}</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="expanded-controls" [@expandCollapse]="isExpanded() ? 'expanded' : 'collapsed'">
+
+    <div class="settings-section shuffle-section">
+      <div class="setting-label">Shuffle</div>
+      <mat-slide-toggle [ngModel]="shuffleMode()" (ngModelChange)="toggleShuffle()" color="primary"></mat-slide-toggle>
+    </div>
+
+    <div class="settings-section mode-volume-section">
+      <div class="setting-label">Focus/Break Volume</div>
+      <mat-slide-toggle [ngModel]="enableModeVolume()" (ngModelChange)="toggleModeVolume()" color="primary"></mat-slide-toggle>
+    </div>
+
+    <div class="volume-sliders" *ngIf="enableModeVolume()">
+      <div class="volume-row">
+        <mat-icon class="volume-icon" title="Focus Volume">center_focus_strong</mat-icon>
+        <mat-slider class="volume-slider" min="0" max="1" step="0.05" [discrete]="false">
+          <input matSliderThumb [value]="focusVolume()" (valueChange)="updateFocusVolume($event)">
+        </mat-slider>
+        <span class="vol-percentage">{{ (focusVolume() * 100) | number:'1.0-0' }}%</span>
+      </div>
+      <div class="volume-row">
+        <mat-icon class="volume-icon" title="Break Volume">free_breakfast</mat-icon>
+        <mat-slider class="volume-slider" min="0" max="1" step="0.05" [discrete]="false">
+          <input matSliderThumb [value]="breakVolume()" (valueChange)="updateBreakVolume($event)">
+        </mat-slider>
+        <span class="vol-percentage">{{ (breakVolume() * 100) | number:'1.0-0' }}%</span>
+      </div>
+    </div>
+
+    <div class="track-list-container" *ngIf="trackList().length > 0">
+      <div class="setting-label" style="display: flex; justify-content: space-between; align-items: center;">
+        Tracks
+        <button mat-icon-button (click)="refreshTracks()" aria-label="Refresh Tracks" title="Refresh Tracks" style="transform: scale(0.8);">
+          <mat-icon>refresh</mat-icon>
+        </button>
+      </div>
+      <div class="track-list">
+        <ng-container *ngFor="let track of trackList()">
+          <div class="track-item" 
+               [class.active]="currentTrackName() === formatCleanName(track)"
+               (click)="playTrack(track)">
+            <mat-icon *ngIf="currentTrackName() === formatCleanName(track)">play_arrow</mat-icon>
+            <span class="track-name" [title]="formatCleanName(track)">{{ formatCleanName(track) }}</span>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="chapter-list-container" *ngIf="currentMetadata()?.chapters?.length">
+      <div class="setting-label">Songs in this Mix</div>
+      <div class="track-list">
+        <ng-container *ngFor="let chapter of currentMetadata().chapters">
+          <div class="track-item" 
+               [class.active]="currentChapter() === chapter.title"
+               (click)="playChapter(chapter.start)">
+            <mat-icon *ngIf="currentChapter() === chapter.title">play_arrow</mat-icon>
+            <span class="track-name" [title]="chapter.title">{{ chapter.title }}</span>
+            <span class="chapter-time" style="font-size: 11px; opacity: 0.5; margin-left: 8px;">{{ formatTime(chapter.start) }}</span>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="player-controls-container">
+      <div class="progress-section">
+        <div class="progress-labels">
+          <span class="time-current">{{ formatTime(currentTime()) }}</span>
+          <span class="time-duration">{{ formatTime(duration()) }}</span>
+        </div>
+        <div class="progress-bar-container" #progressBar (click)="seekTo($event, progressBar)" [class.disabled]="!duration()">
+          <div class="progress-bar-fill" [style.width.%]="duration() ? (currentTime() / duration()) * 100 : 0"></div>
+          <div class="progress-chapter-markers" *ngIf="currentMetadata()?.chapters?.length && duration()">
+            <div class="chapter-marker" 
+                 *ngFor="let chapter of currentMetadata().chapters" 
+                 [style.left.%]="(chapter.start / duration()) * 100"
+                 [title]="chapter.title">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls-row primary-controls">
+        <button mat-icon-button (click)="sendCommand('prev')" aria-label="Previous Track/Chapter">
+          <mat-icon>skip_previous</mat-icon>
+        </button>
+        <button mat-icon-button (click)="skipBackward()" aria-label="Rewind 15s" title="-15s">
+          <mat-icon>replay_10</mat-icon>
+        </button>
+        
+        <button mat-fab class="play-btn" color="primary" (click)="sendCommand('play_pause')" aria-label="Play/Pause">
+          <mat-icon>{{ isPlaying() ? 'pause' : 'play_arrow' }}</mat-icon>
+        </button>
+
+        <button mat-icon-button (click)="skipForward()" aria-label="Forward 15s" title="+15s">
+          <mat-icon>forward_10</mat-icon>
+        </button>
+        <button mat-icon-button (click)="sendCommand('next')" aria-label="Next Track/Chapter">
+          <mat-icon>skip_next</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="controls-row volume-control">
+      <mat-icon class="volume-icon">volume_down</mat-icon>
+      <mat-slider class="volume-slider" min="0" max="1" step="0.05" [discrete]="false">
+        <input matSliderThumb [value]="volume()" (valueChange)="sendCommand('set_vol', $event)">
+      </mat-slider>
+      <mat-icon class="volume-icon">volume_up</mat-icon>
+    </div>
+  </div>
+</div>

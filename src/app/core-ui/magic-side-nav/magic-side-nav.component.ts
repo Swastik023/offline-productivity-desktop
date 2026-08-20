@@ -24,6 +24,7 @@ import { lsSetItem, readBoolLS, readNumberLSBounded } from '../../util/ls-util';
 import { getPointerPosition } from '../../util/get-pointer-position';
 import { MatMenuModule } from '@angular/material/menu';
 import { NavMatMenuComponent } from './nav-mat-menu/nav-mat-menu.component';
+import { MusicPlayerWidgetComponent } from '../music-player-widget/music-player-widget.component';
 import { TaskService } from '../../features/tasks/task.service';
 import { LayoutService } from '../layout/layout.service';
 import { magicSideNavAnimations } from './magic-side-nav.animations';
@@ -61,6 +62,7 @@ const INITIAL_ENTER_ANIMATION_DURATION_MS = 425;
     SwipeDirective,
     CdkTrapFocus,
     TranslatePipe,
+    MusicPlayerWidgetComponent,
   ],
   templateUrl: './magic-side-nav.component.html',
   styleUrl: './magic-side-nav.component.scss',

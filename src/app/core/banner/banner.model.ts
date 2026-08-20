@@ -20,6 +20,7 @@ export enum BannerId {
   SyncConflictsAutoResolved = 'SyncConflictsAutoResolved',
   UpdateAvailable = 'UpdateAvailable',
   UserProfilesRemoval = 'UserProfilesRemoval',
+  OpLogBackpressureWarning = 'OpLogBackpressureWarning',
 }
 
 export const BANNER_SORT_PRIO_MAP = {
@@ -45,6 +46,7 @@ export const BANNER_SORT_PRIO_MAP = {
   // shared priority it would win every tie (stable sort + earliest insertion)
   // and permanently mask Offline, UpdateAvailable and the sync-safety banners.
   [BannerId.UserProfilesRemoval]: -1,
+  [BannerId.OpLogBackpressureWarning]: 9, // Highest priority: critical data safety warning
 } as const;
 
 export interface BannerAction {

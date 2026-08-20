@@ -20,6 +20,17 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TaskService } from '../../tasks/task.service';
 import { GlobalConfigService } from '../../config/global-config.service';
+import { MusicWidgetComponent } from '../music-widget/music-widget.component';
+
+export const RANDOM_BG_IMAGE = `assets/pictures/${
+  [
+    '265C1B67-A368-42D8-B6C8-ABA938CD0D3D.png',
+    '8BE67E6A-E794-4D68-8042-3137B42897E3.png',
+    'il_1588xN.6523148784_315k.png',
+    'il_1588xN.6565940272_hzs4.png',
+    'il_1588xN.6699762555_t3bk.png',
+  ][Math.floor(Math.random() * 5)]
+}`;
 
 @Component({
   selector: 'focus-mode-break',
@@ -30,6 +41,7 @@ import { GlobalConfigService } from '../../config/global-config.service';
     MatTooltip,
     MatIcon,
     TranslatePipe,
+    MusicWidgetComponent,
   ],
   templateUrl: './focus-mode-break.component.html',
   styleUrl: './focus-mode-break.component.scss',

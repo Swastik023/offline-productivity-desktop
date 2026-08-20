@@ -457,7 +457,7 @@ export const updateTaskWidgetTask = (
   currentPomodoroSessionTime = pomodoroTime;
   isFocusModeEnabled = focusModeEnabled;
   currentFocusSessionTime = focusTime;
-  
+
   if (breakModeData) {
     isInBreakMode = breakModeData.isInBreak;
     pausedTask = breakModeData.pausedTask;
@@ -489,23 +489,37 @@ const updateTaskWidgetContent = (): void => {
     } else if (isFocusModeEnabled) {
       mode = 'focus';
       timeStr = formatTime(currentFocusSessionTime);
-    } else if (currentTask.timeEstimate) {
+    } else if (currentTask.timeSpent !== undefined) {
       mode = 'task';
-      const remainingTime = Math.max(currentTask.timeEstimate - currentTask.timeSpent, 0);
-      timeStr = formatTime(remainingTime);
-    } else if (currentTask.timeSpent) {
-      mode = 'task';
-      timeStr = formatTime(currentTask.timeSpent);
+      if (currentTask.timeEstimate && currentTask.timeEstimate > 0) {
+        let restOfTime = currentTask.timeEstimate - currentTask.timeSpent;
+        const prefix = restOfTime >= 0 ? '' : '+';
+        restOfTime = Math.abs(restOfTime);
+        timeStr = prefix + formatTime(restOfTime);
+      } else {
+        timeStr = formatTime(currentTask.timeSpent);
+      }
     }
   }
-  // NEW: Check for paused task during focus mode breaks
-  else if (isFocusModeEnabled && isInBreakMode && pausedTask && pausedTask.title) {
+  // NEW: Check for paused task during focus mode or pomodoro breaks
+  else if (
+    (isFocusModeEnabled || isPomodoroEnabled) &&
+    isInBreakMode &&
+    pausedTask &&
+    pausedTask.title
+  ) {
     title = pausedTask.title; // Show preserved task instead of "No active task"
     if (title.length > 40) {
       title = title.substring(0, 37) + '...';
     }
-    mode = 'focus';
-    timeStr = formatTime(currentFocusSessionTime);
+
+    if (isPomodoroEnabled) {
+      mode = 'pomodoro';
+      timeStr = formatTime(currentPomodoroSessionTime);
+    } else {
+      mode = 'focus';
+      timeStr = formatTime(currentFocusSessionTime);
+    }
   }
 
   taskWidgetWin.webContents.send('update-content', {

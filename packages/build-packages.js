@@ -213,13 +213,13 @@ async function buildPlugin(plugin) {
         }
         if (needsInstall) {
           log(`  Installing dependencies...`, colors.yellow);
-          await execAsync(`cd ${pluginPath} && npm install`);
+          await execAsync(`cd "${pluginPath}" && npm install`);
         }
       } catch {
         // No package.json, skip install
       }
 
-      await execAsync(`cd ${pluginPath} && ${plugin.buildCommand}`);
+      await execAsync(`cd "${pluginPath}" && ${plugin.buildCommand}`);
     }
 
     // Copy files to assets if not skipped

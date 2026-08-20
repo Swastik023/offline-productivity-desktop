@@ -218,6 +218,10 @@ export interface ElectronAPI {
 
   flashFrame(): void;
 
+  minimize(): void;
+
+  setFullScreen(isFullScreen: boolean): void;
+
   showOrFocus(): void;
 
   lockScreen(): void;

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, inject, OnDestroy } from '@angular/core';
 import { TaskService } from '../../tasks/task.service';
 import { Subject } from 'rxjs';
 import { GlobalConfigService } from '../../config/global-config.service';
@@ -14,7 +14,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { FocusModeMainComponent } from '../focus-mode-main/focus-mode-main.component';
 import { FocusModeSessionDoneComponent } from '../focus-mode-session-done/focus-mode-session-done.component';
-import { FocusModeBreakComponent } from '../focus-mode-break/focus-mode-break.component';
+import { FocusModeBreakComponent, RANDOM_BG_IMAGE } from '../focus-mode-break/focus-mode-break.component';
 import { FocusModeWaitingComponent } from '../focus-mode-waiting/focus-mode-waiting.component';
 import { FocusModeService } from '../focus-mode.service';
 import { FocusScreen } from '../focus-mode.model';
@@ -53,6 +53,12 @@ export class FocusModeOverlayComponent implements OnDestroy {
   isSessionRunning = this.focusModeService.isSessionRunning;
 
   T: typeof T = T;
+
+  @HostBinding('style.backgroundImage') get hostBg() {
+    return `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(${RANDOM_BG_IMAGE})`;
+  }
+  @HostBinding('style.backgroundSize') bgSize = 'cover';
+  @HostBinding('style.backgroundPosition') bgPos = 'center';
 
   private _onDestroy$ = new Subject<void>();
   isSessionPaused = this.focusModeService.isSessionPaused;
