@@ -16,7 +16,7 @@
     "esModuleInterop": true,
     "baseUrl": "..",
     "paths": {
-      "@super-productivity/plugin-api": ["packages/plugin-api/src/index.ts"],
+      "@chronoflow-desktop/plugin-api": ["packages/plugin-api/src/index.ts"],
       "@sp/shared-schema": ["packages/shared-schema/dist/index.d.ts"],
       "@sp/sync-core": ["packages/sync-core/dist/index.d.ts"],
       "@sp/sync-providers/dropbox": ["packages/sync-providers/dist/dropbox.d.ts"],

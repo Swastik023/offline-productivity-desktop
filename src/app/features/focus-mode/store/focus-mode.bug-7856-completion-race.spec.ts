@@ -1,6 +1,6 @@
 /**
  * Completion-race test for GitHub issue #7856 (companion to focus-mode.bug-7856.spec).
- * https://github.com/super-productivity/super-productivity/issues/7856
+ * https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7856
  *
  * The resume-tick fix (AndroidFocusModeEffects.resyncFocusTimerOnResume$) dispatches a
  * `tick()` on app resume. When a Pomodoro/Countdown session ran PAST its duration while

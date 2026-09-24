@@ -3,8 +3,8 @@ import {
   PluginAPI,
   TaskCompletePayload,
   TaskUpdatePayload,
-} from '@super-productivity/plugin-api';
-import type { PluginHooks } from '@super-productivity/plugin-api';
+} from '@chronoflow-desktop/plugin-api';
+import type { PluginHooks } from '@chronoflow-desktop/plugin-api';
 
 declare const plugin: PluginAPI;
 

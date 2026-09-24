@@ -187,7 +187,7 @@ Relevant files:
 
 Relevant files:
 
-- [`android/app/src/main/java/com/superproductivity/superproductivity/service/BackgroundSyncCredentialStore.kt`](../../android/app/src/main/java/com/superproductivity/superproductivity/service/BackgroundSyncCredentialStore.kt)
+- [`android/app/src/main/java/com/chronoflow/chronoflow/service/BackgroundSyncCredentialStore.kt`](../../android/app/src/main/java/com/chronoflow/chronoflow/service/BackgroundSyncCredentialStore.kt)
 - [`src/app/features/android/store/android-sync-bridge.effects.ts`](../../src/app/features/android/store/android-sync-bridge.effects.ts)
 - [`android/app/src/main/AndroidManifest.xml`](../../android/app/src/main/AndroidManifest.xml)
 
@@ -409,7 +409,7 @@ Deliberately minimal — the vault holds a handful of sub-kilobyte records, so
 it needs none of the DEK/manifest/epoch machinery of a general vault:
 
 - **Key:** `vaultKey = HKDF-SHA-256(syncE2EEKey, salt = per-vault random salt,
-info = 'super-productivity-portable-vault-v1')`. The salt is random,
+info = 'chronoflow-desktop-portable-vault-v1')`. The salt is random,
   minted at vault creation, and stored as plaintext metadata in the synced
   vault config record (salts are not secret). Never use the sync content
   key directly. If the E2EE input is a passphrase, it already passes through

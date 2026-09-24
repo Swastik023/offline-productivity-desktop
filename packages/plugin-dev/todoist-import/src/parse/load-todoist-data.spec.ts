@@ -1,4 +1,4 @@
-import { PluginAPI } from '@super-productivity/plugin-api';
+import { PluginAPI } from '@chronoflow-desktop/plugin-api';
 import { loadTodoistData } from './load-todoist-data';
 
 describe('loadTodoistData', () => {

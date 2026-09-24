@@ -1,7 +1,7 @@
 import { spToMd } from '../../sync/sp-to-md';
 import { LocalUserCfg } from '../../local-config';
 import * as fileUtils from '../../helper/file-utils';
-import { Task } from '@super-productivity/plugin-api';
+import { Task } from '@chronoflow-desktop/plugin-api';
 
 // Mock dependencies
 jest.mock('../../helper/file-utils');

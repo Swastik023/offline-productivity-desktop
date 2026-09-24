@@ -6,7 +6,7 @@
 
 import { generateTaskOperations } from '../../sync/generate-task-operations';
 import { ParsedTask } from '../../sync/markdown-parser';
-import { Task } from '@super-productivity/plugin-api';
+import { Task } from '@chronoflow-desktop/plugin-api';
 
 describe('Orphaned Subtask Fix - Issue #6021', () => {
   const projectId = 'test-project';

@@ -6,7 +6,7 @@ import {
 } from '../../utils/recurring-task-helpers';
 
 /**
- * Bug: https://github.com/super-productivity/super-productivity/issues/6856
+ * Bug: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/6856
  *
  * When a recurring task is created with a future start date, an active task
  * instance is immediately generated and placed in the Inbox on the same day

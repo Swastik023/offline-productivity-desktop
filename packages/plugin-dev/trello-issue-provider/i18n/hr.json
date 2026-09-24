@@ -19,5 +19,5 @@
     "ATTACHMENTS": "Privici",
     "DESCRIPTION": "Opis"
   },
-  "FORM_HELP": "<p>Configure Super Productivity to list and import cards from a Trello board in the task creation panel. Generate an API key and token at <a href=\"https://trello.com/power-ups/admin\">trello.com/power-ups/admin</a>, then load and select your board. See the <a href=\"https://developer.atlassian.com/cloud/trello/guides/rest-api/api-introduction/\">Trello REST API docs</a> for details.</p>"
+  "FORM_HELP": "<p>Configure ChronoFlow Desktop to list and import cards from a Trello board in the task creation panel. Generate an API key and token at <a href=\"https://trello.com/power-ups/admin\">trello.com/power-ups/admin</a>, then load and select your board. See the <a href=\"https://developer.atlassian.com/cloud/trello/guides/rest-api/api-introduction/\">Trello REST API docs</a> for details.</p>"
 }

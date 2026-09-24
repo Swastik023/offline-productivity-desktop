@@ -1,7 +1,7 @@
 {
   "name": "@sp/sync-providers",
   "version": "1.0.0",
-  "description": "Framework-agnostic sync provider contracts for Super Productivity sync",
+  "description": "Framework-agnostic sync provider contracts for ChronoFlow Desktop sync",
   "sideEffects": false,
   "exports": {
     "./dropbox": {

@@ -1,0 +1,4 @@
+- [ ] 🚀 HP Server Phase 00 Checkpoint & Phase 01 Start `+Coding` `#deepwork` `1h30m`
+- [ ] 📄 Send 2 High-Quality Job Applications `+Life` `#urgent` `1h`
+- [ ] 📚 Active Recall: Polity Chapters 1-3 `+GovExam` `#revision` `45m`
+- [ ] 🚶‍♂️ Evening Reset Walk & Planning `+Life` `#routine` `30m`

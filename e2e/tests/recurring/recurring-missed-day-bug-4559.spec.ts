@@ -2,9 +2,9 @@ import { expect, test } from '../../fixtures/test.fixture';
 import { openRecurDialog, saveRecurDialog } from '../../utils/recurring-task-helpers';
 
 /**
- * Bug: https://github.com/super-productivity/super-productivity/issues/4559
+ * Bug: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/4559
  *
- * Reported in v13.0.10: when the user did NOT open Super Productivity on the
+ * Reported in v13.0.10: when the user did NOT open ChronoFlow Desktop on the
  * scheduled day of a recurring task (e.g. the 1st of the month falls on a
  * weekend, or Monday is a public holiday), no instance for the missed day
  * was created when the app was reopened later that week. The recurring task

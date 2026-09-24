@@ -3,17 +3,17 @@
     "B_INSTALL": {
       "IGNORE": "Zanemari",
       "INSTALL": "Instaliraj",
-      "MSG": "Želiš instalirati Super Productivity kao PWA (Progressive Web App)?"
+      "MSG": "Želiš instalirati ChronoFlow Desktop kao PWA (Progressive Web App)?"
     },
     "B_OFFLINE": "Nemaš vezu s internetom. Sinkronizacija i dohvaćanje podataka od usluge za praćenje problema neće raditi.",
     "B_SYNC_SAFETY": {
       "DISMISS": "Ne sada",
-      "MSG": "Već neko vrijeme koristiš Super Productivity. Postavi sinkronizaciju kako bi sigurnosno kopirao svoje podatke i čuvao ih sigurnima na svim uređajima.",
+      "MSG": "Već neko vrijeme koristiš ChronoFlow Desktop. Postavi sinkronizaciju kako bi sigurnosno kopirao svoje podatke i čuvao ih sigurnima na svim uređajima.",
       "SETUP": "Postavi sinkronizaciju"
     },
     "B_UPDATE_AVAILABLE": {
       "DOWNLOAD": "Preuzmi",
-      "MSG": "Dostupna je nova verzija aplikacije Super Productivity ({{version}})."
+      "MSG": "Dostupna je nova verzija aplikacije ChronoFlow Desktop ({{version}})."
     },
     "CONTEXT_MENU": {
       "CHANGE_PROJECT_SETTINGS": "Promijeni postavke projekta",
@@ -46,7 +46,7 @@
   "CONFIRM": {
     "AUTO_FIX": "Izgleda da su podaci oštećeni (\"{{validityError}}\"). Želiš li pokušati automatski popraviti? Može doći do djelomičnog gubitka podataka.",
     "DELETE_SECTION": "Stvarno želiš izbrisati ovaj odjeljak? Zadaci u njemu će se premjestiti u popis zadataka.",
-    "RELOAD_AFTER_IDB_ERROR": "Greška baze podataka – aplikacija će se ponovo pokrenuti\n\nSuper Productivity ne može spremiti podatke! Uobičajeni razlozi su:\n• Nedovoljno memorije na disku (najčešće)\n• Aplikacija se aktualizira u pozadini\n• Linux Snap korisnici: pokreni 'snap set core experimental.refresh-app-awareness=true'\n\nNedavne promjene možda nisu spremljene. Oslobodi memoriju ako je nema dovoljno. Aplikacija će se ponovo pokrenuti nakon što zatvoriš ovaj prozor.",
+    "RELOAD_AFTER_IDB_ERROR": "Greška baze podataka – aplikacija će se ponovo pokrenuti\n\nChronoFlow Desktop ne može spremiti podatke! Uobičajeni razlozi su:\n• Nedovoljno memorije na disku (najčešće)\n• Aplikacija se aktualizira u pozadini\n• Linux Snap korisnici: pokreni 'snap set core experimental.refresh-app-awareness=true'\n\nNedavne promjene možda nisu spremljene. Oslobodi memoriju ako je nema dovoljno. Aplikacija će se ponovo pokrenuti nakon što zatvoriš ovaj prozor.",
     "RESTORE_FILE_BACKUP": "Izgleda da NEMA PODATAKA, ali postoji sigurnosna kopija na \"{{dir}}\". Želiš li obnoviti sa zadnjom sigurnosnom kopijom od {{from}}?",
     "RESTORE_FILE_BACKUP_ANDROID": "Izgleda da NEMA PODATAKA, ali postoji sigurnosna kopija. Želiš li je učitati?",
     "RESTORE_STRAY_BACKUP": "Tijekom zadnje sinkronizacije je možda došlo do greške. Želiš li obnoviti sa zadnjom sigurnosnom kopijom?",
@@ -82,13 +82,13 @@
   },
   "DONATE_PAGE": {
     "BUTTON_TEXT": "Doniraj putem GitHub Sponsors",
-    "INTRO_1": "Super Productivity financira isključivo zajednica. Bez praćenja, bez oglasa i bez prikupljanja podataka – tvoji zadaci ostaju na tvom uređaju.",
+    "INTRO_1": "ChronoFlow Desktop financira isključivo zajednica. Bez praćenja, bez oglasa i bez prikupljanja podataka – tvoji zadaci ostaju na tvom uređaju.",
     "INTRO_2": "Ako ti se sviđa ovaj pristup i želiš da projekt ostane živ i razvija se, dobrovoljna donacija je itekako dobrodošla."
   },
   "EXAMPLE_TASKS": {
     "LEARN_KEYBOARD_SHORTCUTS": {
       "TITLE": "Nauči tipkovničke prečace",
-      "NOTES": "Super Productivity je napravljen da se koristi tipkovnicom. Nauči prečace za brži rad.\n\n**Kako krenuti:**\n1. Otvori **izbornik u bočnoj traci**\n2. Idi na **Pomoć**\n3. Klikni **Vodič za navigaciju putem tipkovnice**"
+      "NOTES": "ChronoFlow Desktop je napravljen da se koristi tipkovnicom. Nauči prečace za brži rad.\n\n**Kako krenuti:**\n1. Otvori **izbornik u bočnoj traci**\n2. Idi na **Pomoć**\n3. Klikni **Vodič za navigaciju putem tipkovnice**"
     },
     "CREATE_PROJECT": {
       "TITLE": "Stvori svoj prvi projekt",
@@ -208,7 +208,7 @@
         "POLL_INTERVAL_MINUTES": "Interval provjere (minute)"
       },
       "FORM_SECTION": {
-        "HELP": "<p>Ovdje možeš podesiti Super Productivity da prikazuje nezavršene CalDAV zadatke za određeni projekt u ploči za stvaranje zadataka u dnevnom planiranju. Prikazat će se kao prijedlozi i imat će poveznicu na zadatak kao i dodatne informacije.</p> <p>Također možeš automatski dodati i sinkronizirati sve nezavršene zadatke u svoj backlog.</p><p>Da bi radilo za Nextcloud u web aplikaciji, možda trebaš dopustiti \"https://app.super-productivity.com\" u Nextcloud aplikaciji <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword<a>.</p>"
+        "HELP": "<p>Ovdje možeš podesiti ChronoFlow Desktop da prikazuje nezavršene CalDAV zadatke za određeni projekt u ploči za stvaranje zadataka u dnevnom planiranju. Prikazat će se kao prijedlozi i imat će poveznicu na zadatak kao i dodatne informacije.</p> <p>Također možeš automatski dodati i sinkronizirati sve nezavršene zadatke u svoj backlog.</p><p>Da bi radilo za Nextcloud u web aplikaciji, možda trebaš dopustiti \"https://app.chronoflow-desktop.com\" u Nextcloud aplikaciji <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword<a>.</p>"
       },
       "ISSUE_CONTENT": {
         "DESCRIPTION": "Opis",
@@ -285,7 +285,7 @@
       "FEEDBACK_PUBLIC": "Objavi na GitHub Discussions",
       "FEEDBACK_PUBLIC_DESC": "Drugi mogu vidjeti i odgovoriti",
       "FEEDBACK_TITLE": "Kako želiš pomoći?",
-      "TITLE": "Sviđa ti se Super Productivity?",
+      "TITLE": "Sviđa ti se ChronoFlow Desktop?",
       "TXT": "To je <strong>besplatan projekt otvorenog koda</strong> koji rade entuzijasti — bez praćenja, bez oglasa. Ocjena ili kratka poruka pomaže da ga otkrije više ljudi."
     },
     "DROPBOX": {
@@ -406,7 +406,7 @@
         "TOKEN": "Token za pristup"
       },
       "FORM_SECTION": {
-        "HELP": "<p>Ovdje možeš podesiti Super Productivity da prikazuje otvorene Gitea probleme za određeni repozitorij u ploči za stvaranje zadataka u dnevnom planiranju. Prikazat će se kao prijedlozi i imat će poveznicu na problem kao i dodatne informacije.</p> <p>Također možeš automatski dodati i uvesti sve otvorene probleme.</p><p>Za izbjegavanja ograničenja i dobivanja pristupa, unesi token za pristup.</p>"
+        "HELP": "<p>Ovdje možeš podesiti ChronoFlow Desktop da prikazuje otvorene Gitea probleme za određeni repozitorij u ploči za stvaranje zadataka u dnevnom planiranju. Prikazat će se kao prijedlozi i imat će poveznicu na problem kao i dodatne informacije.</p> <p>Također možeš automatski dodati i uvesti sve otvorene probleme.</p><p>Za izbjegavanja ograničenja i dobivanja pristupa, unesi token za pristup.</p>"
       },
       "ISSUE_CONTENT": {
         "ASSIGNEE": "Dodijeljeno",
@@ -434,7 +434,7 @@
         "FILTER_USER": "Filtriraj po korisničkom imenu",
         "GITLAB_BASE_URL": "Prilagođeni GitLab URL (opcionalno)",
         "PROJECT": "korisnik/projekt",
-        "PROJECT_HINT": "npr. super-productivity/super-productivity",
+        "PROJECT_HINT": "npr. chronoflow-desktop/chronoflow-desktop",
         "SCOPE": "Opseg",
         "SCOPE_ALL": "Sve",
         "SCOPE_ASSIGNED": "Dodijeljeno meni",
@@ -448,7 +448,7 @@
         "TOKEN": "Access token"
       },
       "FORM_SECTION": {
-        "HELP": "<p>Ovdje možeš postaviti Super Productivity da prikazuje otvorene GitLab zadatke (online ili self-hosted) za određeni projekt u ploči za stvaranje zadataka u dnevnom planiranju. Prikazat će se kao prijedlozi s poveznicom i dodatnim informacijama.</p><p>Također možeš automatski uvesti sve otvorene zadatke.</p>"
+        "HELP": "<p>Ovdje možeš postaviti ChronoFlow Desktop da prikazuje otvorene GitLab zadatke (online ili self-hosted) za određeni projekt u ploči za stvaranje zadataka u dnevnom planiranju. Prikazat će se kao prijedlozi s poveznicom i dodatnim informacijama.</p><p>Također možeš automatski uvesti sve otvorene zadatke.</p>"
       },
       "ISSUE_CONTENT": {
         "ASSIGNEE": "Dodijeljeno",
@@ -466,14 +466,14 @@
       }
     },
     "ISSUE": {
-      "CROSS_ORIGIN_BROWSER_WARNING": "Ova integracija vjerojatno neće raditi u tvom pregledniku. Preuzmi desktop ili Android verziju Super Productivity!",
+      "CROSS_ORIGIN_BROWSER_WARNING": "Ova integracija vjerojatno neće raditi u tvom pregledniku. Preuzmi desktop ili Android verziju ChronoFlow Desktop!",
       "DEFAULT": {
         "ISSUE_STR": "zadatak",
         "ISSUES_STR": "zadaci"
       },
       "DEFAULT_NOTE_LABEL": "Zadana bilješka za uvezene zadatke",
       "DEFAULT_PROJECT_DESCRIPTION": "Projekt dodijeljen zadacima stvorenim iz problema.",
-      "DEFAULT_PROJECT_LABEL": "Zadani Super Productivity projekt",
+      "DEFAULT_PROJECT_LABEL": "Zadani ChronoFlow Desktop projekt",
       "DEFAULT_TAGS_LABEL": "Zadane oznake za uvezene zadatke",
       "FORM": {
         "AUTO_ADD_TO_BACKLOG": "Automatski uvezi u zadani projekt (treba postavljen projekt)",
@@ -627,7 +627,7 @@
         "TITLE": "Jira: Pošalji dnevnik rada"
       },
       "FORM_ADV": {
-        "AUTO_ADD_BACKLOG_JQL_QUERY": "JQL za automatski uvoz problema u Super Productivity",
+        "AUTO_ADD_BACKLOG_JQL_QUERY": "JQL za automatski uvoz problema u ChronoFlow Desktop",
         "IS_ADD_WORKLOG_ON_SUB_TASK_DONE": "Otvori dijalog za dnevnik rada kada završiš podzadatak",
         "IS_CHECK_TO_RE_ASSIGN_TICKET_ON_TASK_START": "Provjeri je li zadatak dodijeljen tebi kad ga pokreneš",
         "IS_WORKLOG_ENABLED": "Otvori dijalog za dnevnik rada kada završiš zadatak",
@@ -685,7 +685,7 @@
       },
       "S": {
         "ADDED_WORKLOG_FOR": "Jira: Dodan je dnevnik rada za {{issueKey}}",
-        "EXTENSION_NOT_LOADED": "Super Productivity ekstenzija nije učitana. Probaj reload stranice",
+        "EXTENSION_NOT_LOADED": "ChronoFlow Desktop ekstenzija nije učitana. Probaj reload stranice",
         "INSUFFICIENT_SETTINGS": "Nedovoljno postavki za Jira",
         "INVALID_RESPONSE": "Jira: Neispravan odgovor",
         "NO_AUTO_IMPORT_JQL": "Jira: Nema JQL queryja za automatski uvoz",
@@ -909,7 +909,7 @@
         "TOKEN": "Token za pristup"
       },
       "FORM_SECTION": {
-        "HELP": "<p>Ovdje možeš podesiti Super Productivity da prikazuje otvorene OpenProject zadatke. Napomena: za web verziju možda trebaš podesiti CORS na serveru da dozvoli pristup s app.super-productivity.com</p>"
+        "HELP": "<p>Ovdje možeš podesiti ChronoFlow Desktop da prikazuje otvorene OpenProject zadatke. Napomena: za web verziju možda trebaš podesiti CORS na serveru da dozvoli pristup s app.chronoflow-desktop.com</p>"
       },
       "ISSUE_CONTENT": {
         "ASSIGNEE": "Dodijeljeni",
@@ -1098,7 +1098,7 @@
         "SCOPE_CREATED": "Stvoreno od mene"
       },
       "FORM_SECTION": {
-        "HELP": "<p>Ovdje možeš podesiti Super Productivity da prikazuje otvorene Redmine probleme (online ili vlastiti hosting) za određeni projekt u ploči za stvaranje zadataka u dnevnom planiranju. Prikazat će se kao prijedlozi s poveznicom i dodatnim informacijama.</p><p>Također možeš automatski uvesti sve otvorene probleme.</p>",
+        "HELP": "<p>Ovdje možeš podesiti ChronoFlow Desktop da prikazuje otvorene Redmine probleme (online ili vlastiti hosting) za određeni projekt u ploči za stvaranje zadataka u dnevnom planiranju. Prikazat će se kao prijedlozi s poveznicom i dodatnim informacijama.</p><p>Također možeš automatski uvesti sve otvorene probleme.</p>",
         "TITLE": "Redmine"
       },
       "ISSUE_CONTENT": {
@@ -1529,8 +1529,8 @@
         },
         "TITLE": "Sinkronizacija",
         "WEB_DAV": {
-          "CORS_INFO": "<strong>Kako omogućiti rad u web pregledniku:</strong> Aplikaciji Super Productivity moraš dozvoliti slanje CORS zahtjeva prema tvom serveru. Za Nextcloud, jedan od načina je dozvoliti \"https://app.super-productivity.com\" putem aplikacije <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword</a>. Za više informacija pogledaj <a href='https://github.com/nextcloud/server/issues/3131'>ovu GitHub raspravu</a>.",
-          "D_SYNC_FOLDER_PATH": "Relativna putanja WebDAV servera gdje će se spremati datoteke za sinkronizaciju (npr. '/super-productivity' ili '/'). Ovo NIJE interna putanja direktorija na tvom serveru.",
+          "CORS_INFO": "<strong>Kako omogućiti rad u web pregledniku:</strong> Aplikaciji ChronoFlow Desktop moraš dozvoliti slanje CORS zahtjeva prema tvom serveru. Za Nextcloud, jedan od načina je dozvoliti \"https://app.chronoflow-desktop.com\" putem aplikacije <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword</a>. Za više informacija pogledaj <a href='https://github.com/nextcloud/server/issues/3131'>ovu GitHub raspravu</a>.",
+          "D_SYNC_FOLDER_PATH": "Relativna putanja WebDAV servera gdje će se spremati datoteke za sinkronizaciju (npr. '/chronoflow-desktop' ili '/'). Ovo NIJE interna putanja direktorija na tvom serveru.",
           "INFO": "<strong>Upozorenje:</strong> Generička WebDAV sinkronizacija dostupna je <strong>bez podrške i \"kakva jest\"</strong>. Ako koristiš Nextcloud, preporučuje se korištenje opcije za Nextcloud sinkronizaciju.",
           "L_BASE_URL": "Osnovni URL",
           "L_PASSWORD": "Lozinka",
@@ -1545,14 +1545,14 @@
         "L_USE_SPLIT_SYNC_FILES": "Surgical sync (eksperimentalno) – Brža sinkronizacija pomoću podijeljenog rasporeda datoteka ops/snapshot. Nakon uključivanja to moraju uključiti i svi uređaji koji sinkroniziraju ovu mapu.",
         "ONEDRIVE": {
           "CLIENT_ID_DESCRIPTION": "ID aplikacije (klijenta) iz tvoje registracije aplikacije Microsoft Entra",
-          "INFO_TEXT": "Microsoft 365 autentifikacija koristi OAuth. Najprije ispuni klijenta i tenanta, a zatim se autentificiraj. <strong>Koristiš vlastitu registraciju aplikacije Entra?</strong> U aplikaciji za računala registriraj URI za preusmjeravanje <code>superproductivity://oauth-callback/onedrive</code> pod „Mobile and desktop applications“, uključi „Allow public client flows“ i dodijeli delegirano dopuštenje <code>Files.ReadWrite.AppFolder</code>. Pogledaj <a href=\"https://github.com/super-productivity/super-productivity/wiki/2.09-Configure-Sync-Backend\" target=\"_blank\" rel=\"noopener\">upute za postavljanje OneDrivea</a>.",
+          "INFO_TEXT": "Microsoft 365 autentifikacija koristi OAuth. Najprije ispuni klijenta i tenanta, a zatim se autentificiraj. <strong>Koristiš vlastitu registraciju aplikacije Entra?</strong> U aplikaciji za računala registriraj URI za preusmjeravanje <code>chronoflow://oauth-callback/onedrive</code> pod „Mobile and desktop applications“, uključi „Allow public client flows“ i dodijeli delegirano dopuštenje <code>Files.ReadWrite.AppFolder</code>. Pogledaj <a href=\"https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.09-Configure-Sync-Backend\" target=\"_blank\" rel=\"noopener\">upute za postavljanje OneDrivea</a>.",
           "L_CLIENT_ID": "ID aplikacije (klijenta)",
           "L_SYNC_FOLDER_PATH": "Putanja mape za sinkronizaciju",
           "L_TENANT_ID": "ID tenanta",
           "L_USE_CUSTOM_APP": "Koristi moju registraciju aplikacije Microsoft Entra",
           "OFFICIAL_MODE_INFO": "Koristi se ugrađena Microsoft 365 prijava za ovu aplikaciju. Prebaci se na prilagođeni modus samo ako trebaš vlastitu registraciju aplikacije Entra.",
           "PLATFORM_INFO": "OneDrive sinkronizacija dostupna je samo u aplikacijama za računala i mobilne uređaje, a ne u verziji za preglednik.",
-          "SYNC_FOLDER_PATH_DESCRIPTION": "Spremljeno u tvojoj OneDrive mapi aplikacije (npr. super-productivity)",
+          "SYNC_FOLDER_PATH_DESCRIPTION": "Spremljeno u tvojoj OneDrive mapi aplikacije (npr. chronoflow-desktop)",
           "TENANT_ID_DESCRIPTION": "Koristi 'common' za prijavu s više tenanata",
           "USE_CUSTOM_APP_DESCRIPTION": "Uključi ovo ako želiš unijeti vlastiti ID aplikacije (klijenta)"
         },
@@ -1584,11 +1584,11 @@
         "ERROR_PAYLOAD_TOO_LARGE": "Greška sinkronizacije: tvoji podaci su preveliki za prijenos.\n\nTo se događa kada imaš puno arhiviranih zadataka. Podaci NISU sinkronizirani!\n\nKontaktiraj podršku za pomoć.",
         "ERROR_PERMISSION": "Pristup datoteci odbijen. Provjeri dozvole datotečnog sustava.",
         "ERROR_PERMISSION_FLATPAK": "Pristup datotekama je odbijen. Dodijeli dozvole putem Flatseal-a ili koristi putanju unutar ~/.var/app/",
-        "ERROR_PERMISSION_SNAP": "Pristup datotekama je odbijen. Pokreni 'snap connect super-productivity:home' ili koristi putanju unutar ~/snap/super-productivity/common/",
+        "ERROR_PERMISSION_SNAP": "Pristup datotekama je odbijen. Pokreni 'snap connect chronoflow-desktop:home' ili koristi putanju unutar ~/snap/chronoflow-desktop/common/",
         "ERROR_REMOTE_FILE_CORRUPTED": "Udaljeni podaci sinkronizacije nisu čitljivi (možda su skraćeni ili oštećeni). Tvoji lokalni podaci su sigurni. Udaljene podatke možeš prepisati sa svojim lokalnim podacima.",
         "ERROR_REMOTE_FILE_EMPTY": "Udaljena datoteka sinkronizacije je prazna. To se može dogoditi nakon prekinute sinkronizacije. Želiš li prepisati udaljene podatke s lokalnim podacima?",
         "ERROR_REMOTE_FILE_LOCKED": "Udaljena datoteka sinkronizacije je zaključana od strane servera. To se može riješiti pri sljedećem pokušaju sinkronizacije.",
-        "ERROR_SYNC_VERSION_MISMATCH": "Udaljeni podaci sinkronizacije koriste nekompatibilnu verziju formata. Provjeri da svi uređaji koriste istu Super Productivity verziju.",
+        "ERROR_SYNC_VERSION_MISMATCH": "Udaljeni podaci sinkronizacije koriste nekompatibilnu verziju formata. Provjeri da svi uređaji koriste istu ChronoFlow Desktop verziju.",
         "WARN_CLIENT_ID_REGENERATED": "ID uređaja za sinkronizaciju nije bio valjan i ponovo je generiran. Pri sljedećoj sinkronizaciji može doći do konflikta.",
         "ERROR_UNABLE_TO_READ_REMOTE_DATA": "Greška tijekom sinkronizacije. Nije moguće pročitati udaljene podatke. Možda si uključio/la šifriranje, a lokalna lozinka se ne podudara?",
         "FINISH_DAY_SYNC_ERROR": "Greška sinkronizacije pri završetku dana. Pokušaj ponovo.",
@@ -2333,11 +2333,11 @@
     "EXPORT_DATA": "Izvoz podataka",
     "IMPORT_FROM_FILE": "Uvezi iz datoteke",
     "IMPORT_FROM_URL": "Uvezi s URL-a",
-    "IMPORT_FROM_URL_DIALOG_DESCRIPTION": "Unesi puni URL JSON datoteke Super Productivity sigurnosne kopije za uvoz.",
+    "IMPORT_FROM_URL_DIALOG_DESCRIPTION": "Unesi puni URL JSON datoteke ChronoFlow Desktop sigurnosne kopije za uvoz.",
     "IMPORT_FROM_URL_DIALOG_TITLE": "Uvezi s URL-a",
     "OPEN_IMPORT_FROM_URL_DIALOG": "Uvezi s URL-a",
     "PRIVACY_EXPORT": "Izvezi podatke (anonimizirane)",
-    "PRIVACY_EXPORT_DESCRIPTION": "Izvezi anonimizirane podatke (za slanje na adresu contact@super-productivity.com za ispravljanje grešaka)",
+    "PRIVACY_EXPORT_DESCRIPTION": "Izvezi anonimizirane podatke (za slanje na adresu contact@chronoflow-desktop.com za ispravljanje grešaka)",
     "S_BACKUP_DOWNLOADED": "Sigurnosna kopija je preuzeta u mapu Android dokumenata",
     "S_ERR_IMPORT_FAILED": "Uvoz podataka nije uspio",
     "S_ERR_INVALID_DATA": "Uvoz nije uspio: Neispravan JSON",
@@ -2367,7 +2367,7 @@
     "EDIT": "Uredi",
     "ENABLED": "Omogućeno",
     "EXAMPLE_VAL": "npr. 32m",
-    "EXTENSION_INFO": "<a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/super-productivity/ljkbjodfmekklcoibdnhahlaalhihmlb\">Preuzmi Chrome proširenje</a> za komunikaciju s Jira API-jem i praćenje neaktivnosti. Napomena: ne radi na mobilnim uređajima. <strong>Bez proširenja funkcije neće raditi!</strong>",
+    "EXTENSION_INFO": "<a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/chronoflow-desktop/ljkbjodfmekklcoibdnhahlaalhihmlb\">Preuzmi Chrome proširenje</a> za komunikaciju s Jira API-jem i praćenje neaktivnosti. Napomena: ne radi na mobilnim uređajima. <strong>Bez proširenja funkcije neće raditi!</strong>",
     "HIDE": "Sakrij",
     "ICON_INP_DESCRIPTION": "Svi UTF-8 emotikoni su također podržani!",
     "INBOX_PROJECT_TITLE": "Ulazni pretinac",
@@ -2435,12 +2435,12 @@
     },
     "CALENDARS": {
       "AUTO_IMPORT_FOR_CURRENT_DAY": "Automatski uvezi događaje kao zadatke za tekući dan",
-      "BROWSER_WARNING": "Zbog cross-origin ograničenja <b>ovo vjerojatno NEĆE raditi u Super Productivity web pregledniku.<br /> Preuzmi <a href=\"https://super-productivity.com/download/\">desktop verziju</a> za korištenje ove funkcije!</b>",
+      "BROWSER_WARNING": "Zbog cross-origin ograničenja <b>ovo vjerojatno NEĆE raditi u ChronoFlow Desktop web pregledniku.<br /> Preuzmi <a href=\"https://chronoflow-desktop.com/download/\">desktop verziju</a> za korištenje ove funkcije!</b>",
       "CAL_COLOR": "Boja kalendara",
       "CAL_PATH": "URL iCal izvora",
       "CHECK_UPDATES": "Provjeri udaljena aktualiziranja svakih X",
       "DISABLE_FOR_WEB_APP": "Isključi kada se koristi web aplikacija",
-      "HELP": "Možeš integrirati kalendare kako bi bio podsjećen i dodao ih kao zadatke u Super Productivity. Integracija koristi iCal format. Za rad, tvoji kalendari moraju biti dostupni putem interneta ili datotečnog sustava.",
+      "HELP": "Možeš integrirati kalendare kako bi bio podsjećen i dodao ih kao zadatke u ChronoFlow Desktop. Integracija koristi iCal format. Za rad, tvoji kalendari moraju biti dostupni putem interneta ili datotečnog sustava.",
       "REFERENCE_CALENDAR": "Referentni kalendar (samo prikaz, bez stvaranja zadataka)",
       "SHOW_BANNER_THRESHOLD": "Prikaži obavijest X prije događaja (ostavi prazno za deaktivirano)",
       "FILTER_EXCLUDE_REGEX": "Isključi događaje koji odgovaraju regularnom izrazu (opcionalno)",
@@ -2523,7 +2523,7 @@
       "EXPAND_SUB_TASKS": "Proširi podzadatke",
       "GLOBAL_ADD_NOTE": "Dodaj novu bilješku",
       "GLOBAL_ADD_TASK": "Dodaj novi zadatak",
-      "GLOBAL_SHOW_HIDE": "Prikaži/sakrij Super Productivity",
+      "GLOBAL_SHOW_HIDE": "Prikaži/sakrij ChronoFlow Desktop",
       "GLOBAL_TOGGLE_TASK_START": "Pokreni/pauziraj praćenje zadatka za posljednji aktivni zadatak",
       "GO_TO_DAILY_AGENDA": "Idi na dnevni plan",
       "GO_TO_FOCUS_MODE": "Uđi u modus fokusa",
@@ -2686,7 +2686,7 @@
       "DEFAULT_TASK_REMIND_OPTION": "Zadana opcija podsjetnika pri stvaranju zadatka",
       "DISABLE_REMINDERS": "Deaktiviraj sve podsjetnike",
       "DUE_DATE_NOTIFICATION_HOUR": "Sat za prikaz obavijesti o rokovima (0-23)",
-      "HELP": "<p><strong>Važno:</strong> Podsjetnici koriste <strong>lokalne obavijesti</strong>, a ne push obavijesti. To znači da aplikacija mora biti barem jednom otvorena na vašem uređaju kako bi se podsjetnici mogli planirati. Podsjetnici postavljeni na drugom uređaju pojavit će se tek nakon što se aplikacija sinkronizira na ciljanom uređaju.</p><p>Na <strong>iOS</strong>-u, provjer jesu li obavijesti omogućene za Super Productivity u postavkama uređaja pod 'Postavke' > 'Obavijesti'.</p>",
+      "HELP": "<p><strong>Važno:</strong> Podsjetnici koriste <strong>lokalne obavijesti</strong>, a ne push obavijesti. To znači da aplikacija mora biti barem jednom otvorena na vašem uređaju kako bi se podsjetnici mogli planirati. Podsjetnici postavljeni na drugom uređaju pojavit će se tek nakon što se aplikacija sinkronizira na ciljanom uređaju.</p><p>Na <strong>iOS</strong>-u, provjer jesu li obavijesti omogućene za ChronoFlow Desktop u postavkama uređaja pod 'Postavke' > 'Obavijesti'.</p>",
       "IS_COUNTDOWN_BANNER_ENABLED": "Prikaži odbrojavanje prije nego što podsjetnik bude aktivan",
       "IS_FOCUS_WINDOW": "Fokusiraj prozor aplikacije kada se podsjetnik aktivira",
       "NOTIFY_ON_DUE_DATE": "Prikaži obavijesti za zadatke s rokom za danas",
@@ -2907,7 +2907,7 @@
     }
   },
   "MIGRATE": {
-    "C_DOWNLOAD_BACKUP": "Želiš li preuzeti sigurnosnu kopiju svojih starijih podataka (može se koristiti sa starijim verzijama Super Productivity)?",
+    "C_DOWNLOAD_BACKUP": "Želiš li preuzeti sigurnosnu kopiju svojih starijih podataka (može se koristiti sa starijim verzijama ChronoFlow Desktop)?",
     "DETECTED_LEGACY": "Otkriveni stari podaci. Mi ćemo ih migrirati za vas!",
     "DIALOG_MESSAGE": "Aktualiziramo način spremanja tvojih podataka radi bolje pouzdanosti sinkronizacije. Sigurnosna kopija će se automatski preuzeti.",
     "DIALOG_TITLE": "Migracija tvojih podataka",
@@ -2925,7 +2925,7 @@
     "TASK_MARKED_DONE": "Zadatak je označen kao završen"
   },
   "ONBOARDING": {
-    "TITLE": "Kako želiš koristiti Super Productivity?",
+    "TITLE": "Kako želiš koristiti ChronoFlow Desktop?",
     "SUBTITLE": "Odaberi postavku koja odgovara tvom tijeku rada. Ovo možeš promijeniti kasnije u postavkama.",
     "PRIVACY_HINT": "Tvoji podaci ostaju sigurno spremljeni na tvom uređaju. Ništa se ne šalje na server.",
     "PRESETS": {
@@ -2953,7 +2953,7 @@
       "OR_PRESS": "ili pritisni",
       "SKIP_ARIA": "Zanemari upute"
     },
-    "SYNC_CTA": "Već koristiš Super Productivity na drugom uređaju?",
+    "SYNC_CTA": "Već koristiš ChronoFlow Desktop na drugom uređaju?",
     "SYNC_CTA_LINK": "Postavi sinkronizaciju"
   },
   "PDS": {

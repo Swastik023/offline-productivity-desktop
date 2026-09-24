@@ -28,7 +28,7 @@ describe('createFullStateOpTypeHelpers', () => {
     expect(helpers.isFullStateOpType('CRT')).toBe(false);
   });
 
-  it('does not hard-code Super Productivity full-state op names', () => {
+  it('does not hard-code ChronoFlow Desktop full-state op names', () => {
     const helpers = createFullStateOpTypeHelpers(['HOST_FULL_REPLACE'] as const);
 
     expect(helpers.FULL_STATE_OP_TYPES.has('HOST_FULL_REPLACE')).toBe(true);

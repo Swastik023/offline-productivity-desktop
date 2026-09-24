@@ -59,7 +59,7 @@ import { IssueLog } from '../../../core/log';
 import { PluginIssueProviderRegistryService } from '../../../plugins/issue-provider/plugin-issue-provider-registry.service';
 import { PluginBridgeService } from '../../../plugins/plugin-bridge.service';
 import { PluginHttpService } from '../../../plugins/issue-provider/plugin-http.service';
-import { OAuthFlowConfig, PluginSyncDirection } from '@super-productivity/plugin-api';
+import { OAuthFlowConfig, PluginSyncDirection } from '@chronoflow-desktop/plugin-api';
 import { applyPluginOAuthOverrides } from './plugin-oauth-config-overrides.util';
 import { IS_NATIVE_PLATFORM } from '../../../util/is-native-platform';
 // Trello is now a plugin — board selection is a dynamic `loadOptions` select field

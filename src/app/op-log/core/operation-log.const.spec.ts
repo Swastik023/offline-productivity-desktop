@@ -10,7 +10,7 @@ describe('IndexedDB open retry configuration', () => {
   // session-restart LOCK contention on Linux desktop environments
   // (especially Flatpak), where logout/login with autostart can leave
   // the old session's LevelDB lock held for 5-15+ seconds.
-  // See: https://github.com/super-productivity/super-productivity/issues/7191
+  // See: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7191
   const MINIMUM_LOCK_RETRY_WINDOW_MS = 20_000;
 
   it('lock-related retry window is at least 20 seconds', () => {

@@ -24,7 +24,7 @@ x-logging-app: &app-logging
 
 services:
   supersync:
-    image: ${SUPERSYNC_IMAGE:-ghcr.io/super-productivity/supersync:latest}
+    image: ${SUPERSYNC_IMAGE:-ghcr.io/chronoflow-desktop/supersync:latest}
     container_name: supersync-server
     restart: unless-stopped
     environment:
@@ -43,7 +43,7 @@ services:
       - MIGRATE_RECOVERY_RUNTIME=compose
       - JWT_SECRET=${JWT_SECRET}
       - PUBLIC_URL=${PUBLIC_URL:-http://localhost:1900}
-      - CORS_ORIGINS=${CORS_ORIGINS:-https://app.super-productivity.com}
+      - CORS_ORIGINS=${CORS_ORIGINS:-https://app.chronoflow-desktop.com}
       - SMTP_HOST=${SMTP_HOST:-}
       - SMTP_PORT=${SMTP_PORT:-587}
       - SMTP_SECURE=${SMTP_SECURE:-false}

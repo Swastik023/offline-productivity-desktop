@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { RuleRegistry } from './rule-registry';
-import { PluginAPI } from '@super-productivity/plugin-api';
+import { PluginAPI } from '@chronoflow-desktop/plugin-api';
 import { AutomationRule } from '../types';
 
 describe('RuleRegistry', () => {

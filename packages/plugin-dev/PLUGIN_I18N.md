@@ -1,6 +1,6 @@
 # Plugin Internationalization (i18n) Guide
 
-This guide explains how to add multi-language support to your Super Productivity plugins.
+This guide explains how to add multi-language support to your ChronoFlow Desktop plugins.
 
 ## Quick Start
 
@@ -90,7 +90,7 @@ my-plugin/
 
 The `i18n/` folder must sit at the root of the plugin ZIP, next to `manifest.json`.
 
-**Language codes must match one of Super Productivity's own codes, lowercase**
+**Language codes must match one of ChronoFlow Desktop's own codes, lowercase**
 (`en`, `de`, `pt-br`, `zh-tw`, …) — `pt-BR` is not the same as `pt-br` and is ignored.
 
 **Save translation files as UTF-8.** JSON is required to be UTF-8, and a file saved in a
@@ -278,7 +278,7 @@ api.registerHook('languageChange', ({ newLanguage }) => {
 
 ## Supported Languages
 
-Super Productivity supports these language codes:
+ChronoFlow Desktop supports these language codes:
 
 | Code    | Language              |
 | ------- | --------------------- |
@@ -611,7 +611,7 @@ const label = api.translate('LABELS.SAVE_TASK');
 ### 1. Test All Languages
 
 ```javascript
-// Switch languages in Super Productivity settings
+// Switch languages in ChronoFlow Desktop settings
 // Verify your plugin displays correct translations
 ```
 

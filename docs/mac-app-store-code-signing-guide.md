@@ -36,7 +36,7 @@ Do not add a copied certificate name or fingerprint to electron-builder config.
 2. In the
    [Apple Developer profile portal](https://developer.apple.com/account/resources/profiles/list),
    create a **Mac App Store Connect** distribution profile for
-   `com.super-productivity.app`.
+   `com.chronoflow-desktop.app`.
 3. Select the current Apple Distribution certificate shown by the portal. Do
    not select a superseded legacy Mac App Distribution certificate merely
    because it has a familiar owner name.
@@ -113,7 +113,7 @@ Distribution identity from `security find-identity`.
 
    ```bash
    codesign -dv --verbose=4 \
-     ".tmp/app-builds/mas-universal/Super Productivity.app"
+     ".tmp/app-builds/mas-universal/ChronoFlow Desktop.app"
    pkgutil --check-signature \
      .tmp/app-builds/mas-universal/super*.pkg
    ```

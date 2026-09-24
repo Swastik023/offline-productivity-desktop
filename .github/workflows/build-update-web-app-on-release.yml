@@ -6,7 +6,7 @@ on:
     inputs: {}
 
 jobs:
-  upload-to-app-super-productivity:
+  upload-to-app-chronoflow-desktop:
     runs-on: ubuntu-latest
     if: '!github.event.release.prerelease'
     env:

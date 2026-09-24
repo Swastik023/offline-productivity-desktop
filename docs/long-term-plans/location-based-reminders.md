@@ -4,7 +4,7 @@
 >
 > **Owner:** Unassigned.
 >
-> **Tracking:** [GitHub issue #5336](https://github.com/super-productivity/super-productivity/issues/5336).
+> **Tracking:** [GitHub issue #5336](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/5336).
 >
 > **Last verified:** 2026-07-29.
 >

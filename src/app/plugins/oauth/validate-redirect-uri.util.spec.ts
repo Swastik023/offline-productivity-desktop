@@ -88,7 +88,7 @@ describe('validateOAuthRedirectUri', () => {
 
     it('should reject custom scheme override', () => {
       expect(() =>
-        validateOAuthRedirectUri('com.super-productivity.app:/cb', nativePlatform),
+        validateOAuthRedirectUri('com.chronoflow-desktop.app:/cb', nativePlatform),
       ).toThrowError(/override is not supported on native/);
     });
 

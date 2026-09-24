@@ -1,5 +1,5 @@
 appId: superProductivity
-productName: Super Productivity
+productName: ChronoFlow Desktop
 artifactName: ${name}-${arch}.${ext}
 
 files:
@@ -74,20 +74,20 @@ portable:
   artifactName: ${name}-${arch}.${ext}
 appx:
   applicationId: SuperProductivity
-  displayName: Super Productivity
+  displayName: ChronoFlow Desktop
   publisherDisplayName: johannesjo
   publisher: CN=___-___
   identityName: ___johannesjo.SuperProductivity
 
 linux:
   # Fix for issue #5259: Set executable name without spaces for snap compatibility
-  executableName: superproductivity
+  executableName: chronoflow
   category: Office;ProjectManagement
   mimeTypes:
-    - x-scheme-handler/superproductivity
+    - x-scheme-handler/chronoflow
   desktop:
     entry:
-      StartupWMClass: superproductivity
+      StartupWMClass: chronoflow
   target:
     - AppImage
     - deb
@@ -101,7 +101,7 @@ rpm:
   fpm: ['--rpm-rpmbuild-define=_build_id_links none']
 # leads to Error: Please specify executable name as linux.executableName instead of linux.desktop.Exec
 #  desktop:
-#    Name: Super Productivity
+#    Name: ChronoFlow Desktop
 #    Comment: A todo list and time tracking app
 #    Exec: superProductivity
 #    Terminal: false
@@ -127,7 +127,7 @@ snap:
   confinement: strict
   environment:
     # Fix for issue #4920: Isolate fontconfig cache to prevent GTK dialog rendering issues
-    # https://github.com/super-productivity/super-productivity/issues/4920
+    # https://github.com/chronoflow-desktop/chronoflow-desktop/issues/4920
     FC_CACHEDIR: $SNAP_USER_DATA/.cache/fontconfig
     # Fix for issue #7298: tray icon renders as three dots on Ubuntu 24.04+ snap.
     # Chromium's StatusIconLinuxDbus writes the tray PNG to TMPDIR and sends
@@ -148,7 +148,7 @@ snap:
     - system-observe
     - login-session-observe
     # Fix for issue #6031: Add filesystem access for local file sync
-    # https://github.com/super-productivity/super-productivity/issues/6031
+    # https://github.com/chronoflow-desktop/chronoflow-desktop/issues/6031
     - removable-media # Allows sync to external drives/USB storage
     # Override electron-builder's hardcoded gnome-3-28-1804 content snap (core20 era)
     # with gnome-42-2204 (core22 era) for up-to-date Mesa drivers and GSettings schemas.
@@ -183,7 +183,7 @@ flatpak:
     - --env=ELECTRON_TRASH=gio
 
 mac:
-  appId: com.super-productivity.app
+  appId: com.chronoflow-desktop.app
   icon: build/icon.icns
   type: distribution
   category: public.app-category.productivity

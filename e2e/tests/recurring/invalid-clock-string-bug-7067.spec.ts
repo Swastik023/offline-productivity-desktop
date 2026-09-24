@@ -6,7 +6,7 @@ import {
 } from '../../utils/recurring-task-helpers';
 
 /**
- * Bug: https://github.com/super-productivity/super-productivity/issues/7067
+ * Bug: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7067
  *
  * An invalid `startTime` on a TaskRepeatCfg (e.g. from sync/import/migration)
  * causes `getDateTimeFromClockString()` to throw "Invalid clock string" at

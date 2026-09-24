@@ -1,11 +1,11 @@
-# @super-productivity/plugin-api
+# @chronoflow-desktop/plugin-api
 
-Official TypeScript definitions for developing [Super Productivity](https://github.com/super-productivity/super-productivity) plugins.
+Official TypeScript definitions for developing [ChronoFlow Desktop](https://github.com/chronoflow-desktop/chronoflow-desktop) plugins.
 
 ## Installation
 
 ```bash
-npm install @super-productivity/plugin-api
+npm install @chronoflow-desktop/plugin-api
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ import type {
   PluginAPI,
   PluginManifest,
   PluginHooks,
-} from '@super-productivity/plugin-api';
+} from '@chronoflow-desktop/plugin-api';
 
 // Your plugin code with full type support
 PluginAPI.registerHook(PluginHooks.TASK_COMPLETE, (taskData) => {
@@ -61,7 +61,7 @@ PluginAPI.registerShortcut({
   "manifestVersion": 1,
   "version": "1.0.0",
   "minSupVersion": "13.0.0",
-  "description": "An awesome plugin for Super Productivity",
+  "description": "An awesome plugin for ChronoFlow Desktop",
   "hooks": ["taskComplete", "taskUpdate"],
   "permissions": ["showSnack", "getTasks", "addTask", "showIndexHtmlAsView"],
   "iFrame": true,
@@ -182,8 +182,8 @@ const state = await PluginAPI.getAppState();
 
 ## License
 
-MIT - See the main Super Productivity repository for details.
+MIT - See the main ChronoFlow Desktop repository for details.
 
 ## Contributing
 
-Please contribute to the main [Super Productivity repository](https://github.com/super-productivity/super-productivity).
+Please contribute to the main [ChronoFlow Desktop repository](https://github.com/chronoflow-desktop/chronoflow-desktop).

@@ -5,7 +5,7 @@
   "manifestVersion": 1,
   "minSupVersion": "13.0.0",
   "description": "Azure DevOps issue provider plugin",
-  "author": "Super Productivity",
+  "author": "ChronoFlow Desktop",
   "type": "issueProvider",
   "icon": "icon.svg",
   "iFrame": false,

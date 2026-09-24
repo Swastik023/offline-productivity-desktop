@@ -1,4 +1,4 @@
-// LWW helper instance for Super Productivity. The lib at @sp/sync-core exposes
+// LWW helper instance for ChronoFlow Desktop. The lib at @sp/sync-core exposes
 // a factory; the app supplies its own entity-type list (ENTITY_TYPES) so the lib
 // stays domain-agnostic.
 

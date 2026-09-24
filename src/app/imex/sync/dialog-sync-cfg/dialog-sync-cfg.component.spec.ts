@@ -784,7 +784,7 @@ describe('DialogSyncCfgComponent', () => {
         loginName: 'alice@example.com',
         userName: 'alice',
         password: 'app-password',
-        syncFolderPath: 'super-productivity',
+        syncFolderPath: 'chronoflow-desktop',
       });
 
       expect(testWebDavConnection).toHaveBeenCalledOnceWith(
@@ -792,7 +792,7 @@ describe('DialogSyncCfgComponent', () => {
           baseUrl: 'https://cloud.example.com/remote.php/dav/files/alice/',
           userName: 'alice@example.com',
           password: 'app-password',
-          syncFolderPath: 'super-productivity',
+          syncFolderPath: 'chronoflow-desktop',
         }),
         // The Nextcloud-specific 404 hint message — surfaced only when the
         // base-root probe 404s (auth ok, wrong DAV user id). See issue #7617.
@@ -805,7 +805,7 @@ describe('DialogSyncCfgComponent', () => {
         baseUrl: 'https://cloud.example.com/remote.php/dav/files/alice/',
         userName: 'alice',
         password: 'app-password',
-        syncFolderPath: 'super-productivity',
+        syncFolderPath: 'chronoflow-desktop',
       } as any;
 
       // 404: auth succeeded but the DAV path /files/<userName>/ is wrong.
@@ -954,7 +954,7 @@ describe('DialogSyncCfgComponent', () => {
     const storedCfg = {
       clientId: 'cid',
       tenantId: 'common',
-      syncFolderPath: 'Super Productivity',
+      syncFolderPath: 'ChronoFlow Desktop',
       accessToken: 'at',
       refreshToken: 'rt',
       tokenExpiresAt: 1,

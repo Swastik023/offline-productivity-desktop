@@ -3,7 +3,7 @@
 **The one thing to understand before writing any effect, reducer, or bulk
 dispatch that touches synced state.**
 
-Super Productivity syncs by replaying an operation log. Almost every sync
+ChronoFlow Desktop syncs by replaying an operation log. Almost every sync
 correctness rule you will hit is a facet of a **single invariant**:
 
 > ## Each replay-atomic transition (normally one persistent action) = exactly one operation. Replayed and remote operations must never re-trigger effects.

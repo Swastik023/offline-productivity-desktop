@@ -7,7 +7,7 @@ import {
 } from '../../utils/recurring-task-helpers';
 
 /**
- * Bug: https://github.com/super-productivity/super-productivity/issues/6860
+ * Bug: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/6860
  *
  * When setting a date in the recurring task configuration, the value always
  * reverts to 01/01/1970 (Unix epoch). The root cause was that

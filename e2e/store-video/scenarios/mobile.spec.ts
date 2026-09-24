@@ -1,5 +1,5 @@
 /**
- * Mobile-touch reel — four-beat choreography demonstrating Super Productivity
+ * Mobile-touch reel — four-beat choreography demonstrating ChronoFlow Desktop
  * on a phone. The fixture enables `hasTouch` and `isMobile` for this variant
  * so the context dispatches real touch events; each beat uses
  * `page.touchscreen.tap()` and the fixture's tap-ripple init script spawns a
@@ -144,11 +144,11 @@ test.describe('@video mobile reel', () => {
       {
         logo: {
           src: '/assets/icons/sp.svg',
-          alt: 'Super Productivity',
+          alt: 'ChronoFlow Desktop',
           monochrome: true,
         },
         title: 'Take it anywhere.',
-        subtitle: 'superproductivity.com',
+        subtitle: 'chronoflow.com',
         stats: [
           { template: '{n} ★ on Google Play', to: 4.8, decimals: 1 },
           'iOS · Android · Web · Desktop',

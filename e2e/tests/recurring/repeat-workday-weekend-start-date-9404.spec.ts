@@ -3,7 +3,7 @@ import { expect, test } from '../../fixtures/test.fixture';
 import { ensureGlobalAddTaskBarOpen } from '../../utils/element-helpers';
 
 /**
- * Bug: https://github.com/super-productivity/super-productivity/pull/9404
+ * Bug: https://github.com/chronoflow-desktop/chronoflow-desktop/pull/9404
  *
  * A `MONDAY_TO_FRIDAY` schedule has no weekend occurrence, so a weekend due
  * date names a day the recurrence never lands on. The add bar let the two be

@@ -5,7 +5,7 @@ import {
 } from '../work-context/work-context.model';
 import { EntityState } from '@ngrx/entity';
 // Import the unified Project type from plugin-api
-import { Project as PluginProject } from '@super-productivity/plugin-api';
+import { Project as PluginProject } from '@chronoflow-desktop/plugin-api';
 
 export type RoundTimeOption = '5M' | 'QUARTER' | 'HALF' | 'HOUR' | null | undefined;
 

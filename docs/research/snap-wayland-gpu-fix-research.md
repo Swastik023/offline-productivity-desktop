@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-A subset of Super Productivity Snap users hit a GPU initialization failure on
+A subset of ChronoFlow Desktop Snap users hit a GPU initialization failure on
 launch where the app either (a) shows a tray icon with no window, (b)
 segfaults, or (c) launches but floods logs with GL errors. The likely root
 cause is Mesa ABI drift between Electron's bundled libgbm/Mesa stack and the
@@ -42,7 +42,7 @@ timing (see Section 9).**
 - Trigger: Mesa shipped by `gnome-42-2204`'s `core22-mesa-backports` PPA does
   not reliably match the Mesa/libgbm ABI expectations of recent Electron
   Chromium builds.
-- **Timing note:** Issue #5672 was filed 2025-12-06 on Super Productivity
+- **Timing note:** Issue #5672 was filed 2025-12-06 on ChronoFlow Desktop
   16.5.2, which pinned **Electron 39.2.5** (verified via the tagged
   `package.json`). SP subsequently **downgraded to Electron 37.10.3 at
   v17.0.0 (2026-01-23)** and held that version until bumping to 41.2.0 on
@@ -213,7 +213,7 @@ matches the empirical breakage pattern.
 ### Why not Option 2 (disable-GPU default)
 
 Disabling GPU entirely makes sense for apps where stability dominates over
-compositing quality. Super Productivity is a productivity app — it benefits
+compositing quality. ChronoFlow Desktop is a productivity app — it benefits
 from GPU compositing, and forcing `--disable-gpu` on ~95% of Snap users is a
 worse UX than forcing X11.
 
@@ -273,7 +273,7 @@ including comments). No `electron-builder.yaml` changes required
 
 ## 12. Update 2026-04-19 — PR #7273 (GPU startup guard)
 
-**Follow-up to issue [#7270](https://github.com/super-productivity/super-productivity/issues/7270).** Filed
+**Follow-up to issue [#7270](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7270).** Filed
 against v18.2.2, which shipped **before** the Snap+Wayland widening from
 PR #7266. **Timeline correction (verified 2026-04-19):** PR #7266 was
 merged to master but is **NOT** in the v18.2.3 tag
@@ -287,8 +287,8 @@ next with #7266 included). This changes PR #7273's positioning: not a
 first released recovery path for confined-Linux users until #7266 ships.
 
 **Empirical confirmation (2026-04-19):** issue 7270's reporter
-([GoZilla192](https://github.com/super-productivity/super-productivity/issues/7270#issuecomment-...))
-verified that `superproductivity --ozone-platform=x11` resolves their
+([GoZilla192](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7270#issuecomment-...))
+verified that `chronoflow --ozone-platform=x11` resolves their
 launch failure on Ubuntu 22.04 / 18.2.2-snap. Direct evidence that the
 Mesa ABI-drift diagnosis is correct and #7266's X11 widening is the
 right primary fix. As a result, **PR #7273 was initially closed** in
@@ -348,7 +348,7 @@ driver load path**, which is the ABI-drift source on confined Snap.
 "no GPU process at all" — Chromium may still run a GPU process in
 SwiftShader or DisplayCompositor mode (see §13.1§1). But those modes
 don't dlopen Mesa DRI drivers, which is what matters for this bug.
-Trade-off: software rendering only. For Super Productivity (mostly DOM
+Trade-off: software rendering only. For ChronoFlow Desktop (mostly DOM
 and text, little WebGL), the perf loss is negligible; for a broken user
 it's strictly better than a non-launching window.
 
@@ -888,7 +888,7 @@ grepped) or explicitly rejected where agents disagreed.
   > 5 minutes — suggests systemd shutdown SIGKILL, not a fast GPU
   > crash).
 - **First-install `mkdirSync` is load-bearing**: on first-ever Snap
-  install, `$SNAP_USER_COMMON/.config/superproductivity` does not
+  install, `$SNAP_USER_COMMON/.config/chronoflow` does not
   exist. Electron's `app.setPath('userData', …)` does NOT create the
   directory. The PR's `fs.mkdirSync(userDataPath, {recursive: true})`
   on line 80 is what makes first launch work. Worth a
@@ -1038,13 +1038,13 @@ mechanically-wrong code comment. None are blockers.
 
 Two post-release field reports on the Snap+Wayland X11 widening shipped
 in **v18.2.4** (PR #7266). First reporter
-[DerEchteKoschi](https://github.com/super-productivity/super-productivity/issues/7270#issuecomment-4279998170)
+[DerEchteKoschi](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7270#issuecomment-4279998170)
 labels their install as `18.2.3`, but the attached log contains the
 `"Snap: forcing X11 (wayland=true, gnomePlatformMissing=false, ..."`
 string which **only exists in v18.2.4** (verified via
 `git show v18.2.3:electron/start-app.ts` vs `v18.2.4`). Treat this as a
 **v18.2.4 report**. Second reporter
-[nekufa](https://github.com/super-productivity/super-productivity/issues/7270#issuecomment-4280307166)
+[nekufa](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7270#issuecomment-4280307166)
 is on snap revision 3482 (`latest/edge`, v18.2.4) — the same log string
 confirms the guard is active.
 
@@ -1098,7 +1098,7 @@ not found (required by dbus-send)`** — bundled libdbus in the
 8. App eventually quits without ever showing a window.
 
 **nekufa-specific caveat:** the user's CLI invocation was
-`superproductivity --ozon-platform=x11` (typo: missing `e`). Per
+`chronoflow --ozon-platform=x11` (typo: missing `e`). Per
 `electron/start-app.ts:73-75`, `hasOzoneOverride` only matches
 `--ozone-platform`, so the programmatic `appendSwitch` still ran. The
 log therefore reflects the **default/programmatic path**, not a CLI
@@ -1150,7 +1150,7 @@ not a long-term aspiration.
 
 ### Open question — CLI flag vs programmatic `appendSwitch`
 
-DerEchteKoschi states `superproductivity --ozone-platform=x11` launches
+DerEchteKoschi states `chronoflow --ozone-platform=x11` launches
 successfully (n=1; nekufa's CLI attempt used the `--ozon-platform`
 typo and so doesn't count toward this question either way). Per the
 code at `electron/start-app.ts:73-77`, passing that flag on the CLI
@@ -1380,12 +1380,12 @@ precondition now documented on the JSDoc (S2 applied).
 ### Trigger
 
 Two post-v18.2.5 reports on issue
-[#7270](https://github.com/super-productivity/super-productivity/issues/7270)
+[#7270](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7270)
 escalated §16's open question from "probably a reporting artifact" to
 "the defining signal." Summary of the new evidence:
 
 **DerEchteKoschi,
-[v18.2.5 second launch](https://github.com/super-productivity/super-productivity/issues/7270#issuecomment-4284670304)
+[v18.2.5 second launch](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7270#issuecomment-4284670304)
 (2026-04-20, Ubuntu 24.04 + Intel Arrow Lake):**
 
 - The Snap+Wayland guard fires (`Snap: forcing X11 (wayland=true, ...)`
@@ -1399,11 +1399,11 @@ escalated §16's open question from "probably a reporting artifact" to
   `markGpuStartupSuccess()` cleared the marker on the **first** launch
   despite the user never seeing a window. The second launch therefore
   enters with no marker and no recovery.
-- `superproductivity --ozone-platform=x11` (CLI flag) continues to work
+- `chronoflow --ozone-platform=x11` (CLI flag) continues to work
   on the same machine, unchanged.
 
 **nekufa,
-[v18.2.5](https://github.com/super-productivity/super-productivity/issues/7270#issuecomment-4287191809)
+[v18.2.5](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7270#issuecomment-4287191809)
 (2026-04-21, Ubuntu 25.10 + AMD Raphael):**
 
 - Confirms `--disable-gpu` became optional in v18.2.5 (PR #7273 shipped).
@@ -1460,7 +1460,7 @@ cannot carry the Snap+Wayland tail on its own.
 
 ### The fix: afterPack argv wrapper
 
-Mechanism: rename the main Electron binary to `superproductivity-bin`
+Mechanism: rename the main Electron binary to `chronoflow-bin`
 during the build (`tools/afterPack.js`) and install a shell wrapper
 at the original name (`build/linux/snap-wrapper.sh`). The wrapper
 decides whether to inject `--ozone-platform=x11` into argv based on
@@ -1479,7 +1479,7 @@ Four properties:
    Electron or Chromium starts. No ambiguity about when Ozone reads
    the CommandLine.
 2. **Conditional on _our_ Snap + Wayland.** The gate requires
-   `$SNAP_NAME = "superproductivity"`, not just `$SNAP` set — this
+   `$SNAP_NAME = "chronoflow"`, not just `$SNAP` set — this
    protects `.deb`/`.rpm` installs launched via `xdg-open` from a
    sibling snap (where `$SNAP` leaks into the child env). X11
    sessions pass through untouched. Non-Snap Linux targets pass
@@ -1540,10 +1540,10 @@ known-bounded cost.
 | Risk                                                                                                                                                                                                                        | Mitigation                                                                                                                                                                                                         |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Snap refresh / update path: snapd expects a specific `command:` target in `snap.yaml`. Renaming breaks if snapd verifies ELF magic.                                                                                         | snapd's `snap pack` / `snap run` treats the `command:` entry as a file path; no ELF verification. Confirmed by Signal and Mattermost snaps running the same pattern for years.                                     |
-| User invoked via `/usr/bin/superproductivity` symlink (deb/rpm install) resolves `$0` to `/usr/bin/...` and `dirname` misses `superproductivity-bin`.                                                                       | Wrapper calls `readlink -f "$0"` to resolve through symlinks before deriving `BIN_DIR`. Available in GNU coreutils and BusyBox — guaranteed on every Linux target.                                                 |
+| User invoked via `/usr/bin/chronoflow` symlink (deb/rpm install) resolves `$0` to `/usr/bin/...` and `dirname` misses `chronoflow-bin`.                                                                       | Wrapper calls `readlink -f "$0"` to resolve through symlinks before deriving `BIN_DIR`. Available in GNU coreutils and BusyBox — guaranteed on every Linux target.                                                 |
 | Forces XWayland on Snap users whose Wayland currently works (and who lose fractional scaling, per-monitor HiDPI, native IME).                                                                                               | Accepted trade-off: the Snap runtime is core22 / gnome-42-2204 and cannot reliably support native Wayland on post-core22 Mesa hosts. The Wayland-native experience is migrating to the core24 + gpu-2404 target.   |
 | Chromium duplicate-`--ozone-platform` resolution is not documented as last-wins.                                                                                                                                            | Empirically last-wins in all tested Chromium versions; the programmatic guard redundantly sets the same value, so the duplication is value-identical and the order doesn't matter. Re-verify after Electron bumps. |
-| afterPack hook silently fails in CI and no one notices until a user reports.                                                                                                                                                | Hook logs `[afterPack] Installed argv wrapper: ...` on success. Add a CI smoke assertion: after `npm run dist -- -l`, fail if `superproductivity-bin` is not present in the linux appOutDir.                       |
+| afterPack hook silently fails in CI and no one notices until a user reports.                                                                                                                                                | Hook logs `[afterPack] Installed argv wrapper: ...` on success. Add a CI smoke assertion: after `npm run dist -- -l`, fail if `chronoflow-bin` is not present in the linux appOutDir.                       |
 | A future electron-builder version changes `afterPack` semantics (e.g., fires per-target instead of per-platform) and double-invokes the hook.                                                                               | Hook is idempotent: it checks for the renamed `-bin` before renaming and short-circuits if already installed.                                                                                                      |
 | First-install wrapper permission stripped by snapd squashfs packaging.                                                                                                                                                      | `fs.chmod(0o755)` on both wrapper and renamed binary. snapd preserves the `+x` bit during squashfs construction.                                                                                                   |
 | The hypothetical root cause (Chromium Ozone reads argv-seeded CommandLine before appendSwitch) is not source-cited. If the real mechanism is different, the wrapper still works but for a reason we don't fully understand. | The fix is empirically validated by the field data (n≥3 reports, CLI flag works) even without a pinned Chromium source ref. Source trace can follow; it doesn't block shipping.                                    |
@@ -1562,11 +1562,11 @@ Static:
 Runtime (pending, before shipping):
 
 1. `npm run dist -- -l snap` — confirm the resulting
-   `.tmp/app-builds/linux-unpacked/superproductivity` is the shell
+   `.tmp/app-builds/linux-unpacked/chronoflow` is the shell
    wrapper (check first 2 bytes are `#!`) and
-   `superproductivity-bin` is the ELF.
+   `chronoflow-bin` is the ELF.
 2. Install the snap on an Ubuntu 24.04 Wayland host and confirm
-   `ps aux | grep superproductivity` shows `--ozone-platform=x11`
+   `ps aux | grep chronoflow` shows `--ozone-platform=x11`
    in argv (not just from `app.commandLine.appendSwitch`).
 3. Ask DerEchteKoschi and nekufa to validate against a pre-release
    build before cutting 18.2.6.
@@ -1645,7 +1645,7 @@ Does not change the conclusion: the wrapper is structurally correct.
   (~90%). n=3 reports CLI-flag-works; the wrapper places the flag
   in the same position.
 - **That the wrapper has no adverse effect on non-Snap Linux
-  targets:** high (~95%). Gated on `$SNAP_NAME = superproductivity`
+  targets:** high (~95%). Gated on `$SNAP_NAME = chronoflow`
   and Wayland; passthrough branches tested locally (including the
   sibling-snap bleed-through scenario).
 - **That electron-builder's afterPack path is stable across the
@@ -1661,7 +1661,7 @@ Does not change the conclusion: the wrapper is structurally correct.
 
 ### Actionable follow-ups
 
-1. Add CI smoke check that `superproductivity-bin` exists in the
+1. Add CI smoke check that `chronoflow-bin` exists in the
    linux-unpacked output — guards against silent afterPack
    regressions.
 2. After two release cycles of field confirmation, consider
@@ -1681,9 +1681,9 @@ Does not change the conclusion: the wrapper is structurally correct.
 - [electron-builder#9452](https://github.com/electron-userland/electron-builder/issues/9452) — **strongest external reference.** "Snap package of Electron ≥ 38 crashes at startup under GNOME on Wayland"; maintainer engagement; `--ozone-platform=x11` confirmed working
 - [electron-builder#4587](https://github.com/electron-userland/electron-builder/issues/4587) — `snap.executableArgs` silently ignored for snap builds (why mechanism #3 in Section 6 is unusable)
 - [electron/electron#48298](https://github.com/electron/electron/issues/48298) / [PR #48301](https://github.com/electron/electron/pull/48301) — Electron 38.0.0/38.1.0 Wayland auto-detection regression, fixed in 38.2.0
-- [super-productivity#7270](https://github.com/super-productivity/super-productivity/issues/7270) — Snap launch failure on Ubuntu 22.04 / v18.2.2 (no logs); triggered this follow-up
-- [super-productivity#7270 (DerEchteKoschi)](https://github.com/super-productivity/super-productivity/issues/7270#issuecomment-4279998170) — First post-v18.2.4 field report: Ubuntu 24.04 + Intel Arrow Lake-P; §16 primary data
-- [super-productivity#7270 (nekufa)](https://github.com/super-productivity/super-productivity/issues/7270#issuecomment-4280307166) — Second post-v18.2.4 field report: Ubuntu 25.10 + AMD Raphael; §16 corroborating data (vendor- and arch-independent)
+- [chronoflow-desktop#7270](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7270) — Snap launch failure on Ubuntu 22.04 / v18.2.2 (no logs); triggered this follow-up
+- [chronoflow-desktop#7270 (DerEchteKoschi)](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7270#issuecomment-4279998170) — First post-v18.2.4 field report: Ubuntu 24.04 + Intel Arrow Lake-P; §16 primary data
+- [chronoflow-desktop#7270 (nekufa)](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7270#issuecomment-4280307166) — Second post-v18.2.4 field report: Ubuntu 25.10 + AMD Raphael; §16 corroborating data (vendor- and arch-independent)
 - [Mesa commit 21ce1ca8 — alternate-GBM-backend discovery](https://cgit.freedesktop.org/mesa/mesa/commit/?id=21ce1ca846698527093b0f8b95a57c550f984ab1) — origin of the `{driver}_gbm.so` lookup that produces the `dri_gbm.so` error string; §17.1 R1
 - [NixOS Discourse 61015 — pre-24.3 libgbm ABI instability](https://discourse.nixos.org/t/mesa-loader-failed-to-find-dri-gdm-so/61015) — evidence that mixing pre-/post-24.3 Mesa libgbm crashes; §17.1 R1
 - [Canonical: mesa-core22 / mesa-2404 call for testing](https://discourse.ubuntu.com/t/call-for-testing-mesa-core22-mesa-2404-nvidia-support-ubuntu-frame-vnc-authentication-ubuntu-frame-osk-themes/54754) — confirms mesa-core22 ships Mesa 23.2.1; §17.1 R1
@@ -1702,7 +1702,7 @@ Does not change the conclusion: the wrapper is structurally correct.
 - [electron-userland/electron-builder#8548 — core22/core24 support](https://github.com/electron-userland/electron-builder/issues/8548) — why electron-builder's snap generator blocks an easy core24 move; §17.3 R4
 - [flathub/md.obsidian.Obsidian `obsidian.sh`](https://github.com/flathub/md.obsidian.Obsidian/blob/master/obsidian.sh) — peer app's proactive env-sniff approach (no crash-loop marker); §17.3 R3
 - [canonical/gpu-snap `gpu-2404-wrapper`](https://github.com/canonical/gpu-snap/blob/main/bin/gpu-2404-wrapper) — Canonical's own wrapper lacks crash detection; §17.3 R3
-- [super-productivity#7273](https://github.com/super-productivity/super-productivity/pull/7273) — GPU startup guard (orthogonal defense, analyzed in Sections 12–13)
+- [chronoflow-desktop#7273](https://github.com/chronoflow-desktop/chronoflow-desktop/pull/7273) — GPU startup guard (orthogonal defense, analyzed in Sections 12–13)
 - [Chromium `content/browser/gpu/fallback.md`](https://chromium.googlesource.com/chromium/src/+/60b3c74b7f2ca17a28907fb0b40d9dabeaa48326/content/browser/gpu/fallback.md) — documents `HARDWARE_VULKAN → HARDWARE_GL → SWIFTSHADER → DISPLAY_COMPOSITOR` fallback stack; why `--disable-gpu` alone doesn't eliminate the GPU process
 - [Chromium SwiftShader docs](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/gpu/swiftshader.md) — JIT CPU rasterizer, no DRI
 - [chromium-discuss — GPU process still runs with --disable-gpu](https://groups.google.com/a/chromium.org/g/chromium-discuss/c/IIQeveVRLVE)
@@ -1726,5 +1726,5 @@ Does not change the conclusion: the wrapper is structurally correct.
 - [snapcrafters/signal-desktop](https://github.com/snapcrafters/signal-desktop) — community Signal snap (`snapctl get enable-gpu` toggle)
 - [snapcrafters/mattermost-desktop](https://github.com/snapcrafters/mattermost-desktop) — community Mattermost snap (glxinfo + jq config patching)
 - [flathub/md.obsidian.Obsidian `obsidian.sh`](https://github.com/flathub/md.obsidian.Obsidian/blob/master/obsidian.sh) — Flatpak wrapper with compositor+GPU probe
-- SP issue [#5672](https://github.com/super-productivity/super-productivity/issues/5672) — user reports (filed 2025-12-06 on SP 16.5.2, which pinned Electron 39.2.5 per the tagged `package.json`)
+- SP issue [#5672](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/5672) — user reports (filed 2025-12-06 on SP 16.5.2, which pinned Electron 39.2.5 per the tagged `package.json`)
 - SP `electron/start-app.ts` — existing Snap guard widened by PR #7264

@@ -6,7 +6,7 @@ import { PlainspaceCfg } from './plainspace.model';
 import { PlainspaceApiService } from './plainspace-api.service';
 
 /**
- * Field mappings between Super Productivity and Plainspace:
+ * Field mappings between ChronoFlow Desktop and Plainspace:
  * - `isDone` → `done`
  * - `title` → `title`
  * - `dueWithTime` → `scheduledAt`

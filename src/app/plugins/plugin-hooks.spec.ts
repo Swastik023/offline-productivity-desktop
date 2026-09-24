@@ -1,4 +1,4 @@
-import { PluginHooks } from '@super-productivity/plugin-api';
+import { PluginHooks } from '@chronoflow-desktop/plugin-api';
 import { PluginHooksService } from './plugin-hooks';
 import { PluginLog } from '../core/log';
 

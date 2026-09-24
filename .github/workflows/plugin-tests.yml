@@ -110,7 +110,7 @@ jobs:
       # tolerates the drift without altering the lockfile on disk.
       - name: Install root dependencies
         run: npm i
-      # Plugins consume @super-productivity/plugin-api and vite-plugin via file:
+      # Plugins consume @chronoflow-desktop/plugin-api and vite-plugin via file:
       # references that resolve to dist/. Build those before running plugin tests.
       - name: Build shared packages
         run: npm run build:packages

@@ -9,7 +9,7 @@ import {
   BatchOperation,
   BatchTaskCreate,
   BatchTaskUpdate,
-} from '@super-productivity/plugin-api';
+} from '@chronoflow-desktop/plugin-api';
 import { createBaseState, createMockTask } from './test-utils';
 import { Log } from '../../../core/log';
 

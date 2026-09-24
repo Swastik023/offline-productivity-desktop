@@ -7,7 +7,7 @@ import {
 } from '../../utils/recurring-task-helpers';
 
 /**
- * Bug: https://github.com/super-productivity/super-productivity/issues/7423
+ * Bug: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7423
  *
  * When a recurring task already has lastTaskCreationDay set (because
  * updateTaskAfterMakingItRepeatable$ stamped it on initial save), and the

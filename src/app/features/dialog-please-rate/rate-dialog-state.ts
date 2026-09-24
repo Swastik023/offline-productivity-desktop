@@ -38,20 +38,20 @@ export const ERROR_SUPPRESSION_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
 // wall-clock floor of ~this many days. Afterwards the normal cadence resumes.
 export const FEEDBACK_SUPPRESSION_STARTS = 90;
 
-export const MAINTAINER_EMAIL = 'contact@super-productivity.com';
+export const MAINTAINER_EMAIL = 'contact@chronoflow-desktop.com';
 const PLAY_STORE_URL =
-  'https://play.google.com/store/apps/details?id=com.superproductivity.superproductivity';
+  'https://play.google.com/store/apps/details?id=com.chronoflow.chronoflow';
 const APP_STORE_URL = 'https://apps.apple.com/app/id1482572463';
 const HOW_TO_RATE_URL =
-  'https://github.com/super-productivity/super-productivity/blob/master/docs/how-to-rate.md';
+  'https://github.com/chronoflow-desktop/chronoflow-desktop/blob/master/docs/how-to-rate.md';
 // Web/Electron have no app store to rank in; a GitHub star is the equivalent
 // social-proof/discovery signal for the desktop distribution, so that's the CTA
 // there instead of the near-zero-conversion "how to rate" doc.
-const GITHUB_REPO_URL = 'https://github.com/super-productivity/super-productivity';
+const GITHUB_REPO_URL = 'https://github.com/chronoflow-desktop/chronoflow-desktop';
 export const DISCUSSIONS_URL =
-  'https://github.com/super-productivity/super-productivity/discussions/new';
+  'https://github.com/chronoflow-desktop/chronoflow-desktop/discussions/new';
 export const CONTRIBUTING_URL =
-  'https://github.com/super-productivity/super-productivity/blob/master/CONTRIBUTING.md';
+  'https://github.com/chronoflow-desktop/chronoflow-desktop/blob/master/CONTRIBUTING.md';
 
 export interface RateDialogState {
   lastShownAppStartDay: number;
@@ -202,7 +202,7 @@ const getPlatformLabel = (): string => {
 };
 
 export const buildFeedbackMailto = (): string => {
-  const subject = 'Super Productivity feedback';
+  const subject = 'ChronoFlow Desktop feedback';
   const body = `What I'd like to share:\n\n\n---\nApp version: ${getAppVersionStr()}\nPlatform: ${getPlatformLabel()}`;
   return `mailto:${MAINTAINER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 };

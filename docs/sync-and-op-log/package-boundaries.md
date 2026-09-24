@@ -33,7 +33,7 @@ Rules:
   `@sp/shared-schema`.
 - The app may import both packages and is responsible for Angular dependency
   injection, NgRx, Electron/Capacitor bridges, config UI, OAuth routing, and
-  Super Productivity-specific model wiring.
+  ChronoFlow Desktop-specific model wiring.
 - `packages/shared-schema` owns schema contracts and validators shared between
   app and server. It has no dependency on `@sp/sync-core`.
 - `packages/super-sync-server` depends on both `@sp/shared-schema` (HTTP contract
@@ -85,7 +85,7 @@ app-side against the provider contracts instead of widening the package surface.
   hydration windows, archive side effects, provider factories, OAuth callbacks,
   config dialogs, and platform bridge implementations.
 
-`packages/shared-schema` owns Super Productivity schema contracts and validators
+`packages/shared-schema` owns ChronoFlow Desktop schema contracts and validators
 that are shared between app and server. In this boundary it should stay
 SP-coupled and should not become a dependency of `@sp/sync-core` or
 `@sp/sync-providers`.

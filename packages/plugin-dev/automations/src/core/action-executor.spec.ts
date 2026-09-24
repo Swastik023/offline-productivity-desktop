@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { ActionExecutor } from './action-executor';
-import { PluginAPI } from '@super-productivity/plugin-api';
+import { PluginAPI } from '@chronoflow-desktop/plugin-api';
 import { AutomationRegistry } from './registry';
 import { Action, TaskEvent } from '../types';
 import { DataCache } from './data-cache';

@@ -550,7 +550,7 @@ export class RemoteOpsProcessingService {
           msg: T.F.SYNC.S.VERSION_TOO_OLD,
           actionStr: T.PS.UPDATE_APP,
           actionFn: () =>
-            window.open('https://super-productivity.com/download', '_blank'),
+            window.open('https://chronoflow-desktop.com/download', '_blank'),
         });
       }
     }

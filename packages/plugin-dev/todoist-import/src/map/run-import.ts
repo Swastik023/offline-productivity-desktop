@@ -1,4 +1,4 @@
-import { BatchOperation, PluginAPI, Task } from '@super-productivity/plugin-api';
+import { BatchOperation, PluginAPI, Task } from '@chronoflow-desktop/plugin-api';
 import { ImportPlan, ProjectImportPlan } from './plan-import';
 
 /** SP's virtual Today tag — must never land in task.tagIds (sync rule #5). */

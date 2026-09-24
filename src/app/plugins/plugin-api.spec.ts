@@ -7,7 +7,7 @@ import {
   DialogCfg,
   DialogResult,
   NotifyCfg,
-} from '@super-productivity/plugin-api';
+} from '@chronoflow-desktop/plugin-api';
 
 describe('PluginAPI', () => {
   let pluginAPI: PluginAPI;

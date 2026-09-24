@@ -1,5 +1,5 @@
 /**
- * Local ESLint rules for Super Productivity.
+ * Local ESLint rules for ChronoFlow Desktop.
  *
  * These rules are loaded by eslint-plugin-local-rules.
  * Usage in .eslintrc.json:

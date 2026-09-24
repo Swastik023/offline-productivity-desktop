@@ -5,7 +5,7 @@ import { cssSelectors } from '../../constants/selectors';
 const { GLOBAL_ERROR_ALERT, ROUTE_WRAPPER } = cssSelectors;
 
 /**
- * Bug: https://github.com/super-productivity/super-productivity/issues/7854
+ * Bug: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7854
  *
  * The app fetches its translation file at runtime via ngx-translate's
  * TranslateHttpLoader (`GET ./assets/i18n/<lang>.json`). When that request

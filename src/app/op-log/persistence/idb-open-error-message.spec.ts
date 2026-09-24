@@ -97,7 +97,7 @@ describe('buildIdbOpenErrorMessage', () => {
     // match (e.g. just 'flatpak update') passes with a wrong id, and a wrong id
     // makes the single command we hand a locked-out user fail. Sources of truth
     // are the store links in README.md; they differ from the mac/Capacitor
-    // appId `com.super-productivity.app`, which is what a careless grep finds.
+    // appId `com.chronoflow-desktop.app`, which is what a careless grep finds.
     //
     // The sudo asymmetry is deliberate and verified against polkit policy:
     // snapd's io.snapcraft.snapd.manage is `auth_admin_keep` (bare command dies
@@ -109,7 +109,7 @@ describe('buildIdbOpenErrorMessage', () => {
         ctx({ channel: 'linux-snap' }),
       );
 
-      expect(msg).toContain('sudo snap refresh superproductivity');
+      expect(msg).toContain('sudo snap refresh chronoflow');
     });
 
     it('points Flatpak users at flatpak update with the real Flathub id', () => {
@@ -119,7 +119,7 @@ describe('buildIdbOpenErrorMessage', () => {
       );
 
       expect(msg).toContain('flatpak update com.super_productivity.SuperProductivity');
-      expect(msg).not.toContain('com.super-productivity.app');
+      expect(msg).not.toContain('com.chronoflow-desktop.app');
       expect(msg).not.toContain('sudo flatpak');
     });
 
@@ -154,7 +154,7 @@ describe('buildIdbOpenErrorMessage', () => {
 
       expect(msg).toBe(
         'Database Error - Cannot Load Data\n\n' +
-          'Super Productivity cannot open its database. This may be caused by:\n\n' +
+          'ChronoFlow Desktop cannot open its database. This may be caused by:\n\n' +
           '- Low disk space\n' +
           '- Temporary file lock (try closing other tabs)\n' +
           '- Storage corruption\n\n' +

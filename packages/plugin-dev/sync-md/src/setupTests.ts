@@ -1,5 +1,5 @@
 // Jest setup file
-import { PluginAPI } from '@super-productivity/plugin-api';
+import { PluginAPI } from '@chronoflow-desktop/plugin-api';
 
 // Create a mock PluginAPI
 const mockPluginAPI: PluginAPI = {

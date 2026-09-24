@@ -6,15 +6,15 @@
       http-equiv="Content-Security-Policy"
       content="default-src 'none'; script-src 'unsafe-inline'"
     />
-    <title>Redirecting to Super Productivity…</title>
+    <title>Redirecting to ChronoFlow Desktop…</title>
   </head>
   <body>
-    <p>Redirecting to Super Productivity…</p>
+    <p>Redirecting to ChronoFlow Desktop…</p>
     <script>
       (function () {
         var params = new URLSearchParams(window.location.search);
         var query = params.toString();
-        var deepLink = 'com.super-productivity.app://plugin-oauth-callback';
+        var deepLink = 'com.chronoflow-desktop.app://plugin-oauth-callback';
         if (query) {
           deepLink += '?' + query;
         }

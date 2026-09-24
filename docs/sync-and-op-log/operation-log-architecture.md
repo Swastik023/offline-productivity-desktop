@@ -439,7 +439,7 @@ rather than translating this summary into recovery code.
 
 ## A.7 Schema Migrations
 
-When Super Productivity's data model changes (new fields, renamed properties, restructured entities), schema migrations ensure existing data remains usable after app updates.
+When ChronoFlow Desktop's data model changes (new fields, renamed properties, restructured entities), schema migrations ensure existing data remains usable after app updates.
 
 > **Current Status (2026-07):** `CURRENT_SCHEMA_VERSION = 4`. Three migrations exist: v1→v2 (misc-to-tasks-settings split, a real payload transformation) and two no-op semantic barriers — v2→v3 (replacement-mode LWW envelopes) and v3→v4 (marked project delete-wins). The barriers change no stored shapes; they gate conflict semantics for receivers that understand them. Read the [A.7.11 Bump Policy](#bump-policy--a-bump-does-not-protect-the-released-fleet) before adding version 5.
 

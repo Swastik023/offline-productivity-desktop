@@ -1,6 +1,6 @@
 import { generateTaskOperations } from './generate-task-operations';
 import { ParsedTask } from './markdown-parser';
-import { Task } from '@super-productivity/plugin-api';
+import { Task } from '@chronoflow-desktop/plugin-api';
 
 describe('generateTaskOperations', () => {
   describe('when parent task gains new subtasks', () => {

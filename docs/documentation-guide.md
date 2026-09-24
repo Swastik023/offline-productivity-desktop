@@ -1,10 +1,10 @@
 # Documentation Guide
 
-Rules and conventions for keeping Super Productivity's documentation in sync with the code.
+Rules and conventions for keeping ChronoFlow Desktop's documentation in sync with the code.
 
 ## Why this matters
 
-The `docs/wiki/` directory is the manually curated, human-focused wiki that ships to the [GitHub Wiki](https://github.com/super-productivity/super-productivity/wiki) via CI. It is intentionally separate from the auto-generated [DeepWiki](https://deepwiki.com/super-productivity/super-productivity), which describes code mechanics. The wiki is what users read for context, intent, and how features fit together.
+The `docs/wiki/` directory is the manually curated, human-focused wiki that ships to the [GitHub Wiki](https://github.com/chronoflow-desktop/chronoflow-desktop/wiki) via CI. It is intentionally separate from the auto-generated [DeepWiki](https://deepwiki.com/chronoflow-desktop/chronoflow-desktop), which describes code mechanics. The wiki is what users read for context, intent, and how features fit together.
 
 ## When to update the wiki
 

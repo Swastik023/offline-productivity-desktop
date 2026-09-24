@@ -3,7 +3,7 @@ import { type Page } from '@playwright/test';
 import { openRecurDialog, saveRecurDialog } from '../../utils/recurring-task-helpers';
 
 /**
- * Bug: https://github.com/super-productivity/super-productivity/issues/8025
+ * Bug: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/8025
  *
  * In the CUSTOM recurring config, switching the "Recur cycle" away from Weekly
  * (to Month/Year) and back to Weekly leaves the weekday checkboxes rendered but

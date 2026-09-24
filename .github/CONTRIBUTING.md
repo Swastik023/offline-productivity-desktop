@@ -1,5 +1,5 @@
 # Thank you for considering to contribute!
-I love Super Productivity. It's my favorite side project and I use it every day to plan my tasks and to track my time. I need your help!
+I love ChronoFlow Desktop. It's my favorite side project and I use it every day to plan my tasks and to track my time. I need your help!
 
 ## Things that would help
 
@@ -23,9 +23,9 @@ I am not a designer. So there is probably a lot not to like. It would be absolut
 ### Translations
 * See our [translation guide](../docs/TRANSLATING.md) for how to contribute translations
 
-### Documentation/[Wiki](https://github.com/super-productivity/super-productivity/wiki)
+### Documentation/[Wiki](https://github.com/chronoflow-desktop/chronoflow-desktop/wiki)
 * Flagging outdated or incorrect documentation (or correcting via Pull Requests) is greatly appreciated.
-* Creating [guides and workflow examples](https://github.com/super-productivity/super-productivity/wiki/1.00-Quickstarts) with short videos or screenshots would be welcomed.
+* Creating [guides and workflow examples](https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/1.00-Quickstarts) with short videos or screenshots would be welcomed.
 
 ## Commit Message Format
 

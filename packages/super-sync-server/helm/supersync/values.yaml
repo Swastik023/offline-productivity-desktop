@@ -4,7 +4,7 @@ replicaCount: 1
 
 image:
   # -- SuperSync container image repository
-  repository: ghcr.io/super-productivity/supersync
+  repository: ghcr.io/chronoflow-desktop/supersync
   # -- Image pull policy
   pullPolicy: IfNotPresent
   # -- Image tag to deploy. Defaults to "latest" because CI publishes only `latest`
@@ -42,7 +42,7 @@ supersync:
   publicUrl: ""
   cors:
     # -- Comma-separated list of allowed CORS origins
-    origins: "https://app.super-productivity.com"
+    origins: "https://app.chronoflow-desktop.com"
   cleanup:
     # -- Max old operation ids selected/deleted for one user in a cleanup pass.
     oldOpsDeleteBatchSize: 5000

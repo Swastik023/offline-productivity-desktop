@@ -526,7 +526,7 @@
           "baseUrl": null,
           "userName": null,
           "password": null,
-          "syncFolderPath": "super-productivity"
+          "syncFolderPath": "chronoflow-desktop"
         },
         "localFileSync": { "syncFolderPath": "" }
       }

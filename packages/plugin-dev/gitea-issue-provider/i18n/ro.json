@@ -18,5 +18,5 @@
     "LABELS": "Etichete",
     "DESCRIPTION": "Descriere"
   },
-  "FORM_HELP": "<p>Aici poți configura Super Productivity pentru a lista problemele deschise pe Gitea pentru un repository specific în panoul de creare a sarcinilor în modul de planificare zilnic. Acestea vor fi listate ca sugestii și vor conține o legătură către problemă și mai multe informații despre acesta.</p> <p>În plus, poți adăuga și importa automat toate problemele deschise.</p><p>Pentru a fenta limitele de utilizare și acces, poți folosi un jeton de acces."
+  "FORM_HELP": "<p>Aici poți configura ChronoFlow Desktop pentru a lista problemele deschise pe Gitea pentru un repository specific în panoul de creare a sarcinilor în modul de planificare zilnic. Acestea vor fi listate ca sugestii și vor conține o legătură către problemă și mai multe informații despre acesta.</p> <p>În plus, poți adăuga și importa automat toate problemele deschise.</p><p>Pentru a fenta limitele de utilizare și acces, poți folosi un jeton de acces."
 }

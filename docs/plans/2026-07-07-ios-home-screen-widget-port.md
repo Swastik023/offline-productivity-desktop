@@ -44,13 +44,13 @@ redesign.
 ### 1. Xcode project + signing (the friction half — no logic)
 
 - New WidgetKit extension target `SupWidget`, bundle ID
-  `com.super-productivity.app.widget`, **deployment target iOS 17.0** while the app
+  `com.chronoflow-desktop.app.widget`, **deployment target iOS 17.0** while the app
   stays at 16.0. Rationale: interactive widgets (`Button(intent:)`/AppIntents) are
   17+; shipping a look-but-don't-touch fallback for 16 means a second code path and
   a worse widget — below 17 the widget is simply unavailable, the app is unaffected.
   Revisit only if 16.x adoption data says otherwise.
 - App Groups capability on **both** targets, group ID
-  `group.com.super-productivity.app`.
+  `group.com.chronoflow-desktop.app`.
 - Apple developer portal: register the extension App ID, enable the App Group on
   both App IDs, regenerate both provisioning profiles.
 - CI (`.github/workflows/build-ios.yml`): signing uses a single manually-managed
@@ -133,7 +133,7 @@ No `getWidgetTaskQueue` equivalent — share-intent handling is out of scope.
 
 ## Open decisions (settle before implementing)
 
-1. App Group ID string — proposed `group.com.super-productivity.app`; hard to
+1. App Group ID string — proposed `group.com.chronoflow-desktop.app`; hard to
    change after ship (stale data stranded in the old container), pick once.
 2. Whether the TS rename (`features/android/android-widget.*` → `features/widget/`)
    lands as a preparatory refactor PR or inside the feature PR. Preparatory is

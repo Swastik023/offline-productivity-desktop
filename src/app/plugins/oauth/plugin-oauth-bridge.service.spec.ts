@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { Subject } from 'rxjs';
-import type { OAuthFlowConfig } from '@super-productivity/plugin-api';
+import type { OAuthFlowConfig } from '@chronoflow-desktop/plugin-api';
 import { PluginOAuthBridgeService } from './plugin-oauth-bridge.service';
 import { deleteOAuthTokens, loadOAuthTokens } from './plugin-oauth-token-store';
 import { PluginOAuthService } from './plugin-oauth.service';
@@ -60,7 +60,7 @@ describe('PluginOAuthBridgeService', () => {
 
   it('strips a desktop loopback redirectUri on the web flow and falls through to the host callback default', async () => {
     spyOn(window, 'open').and.returnValue({} as Window);
-    const webCallback = 'https://app.super-productivity.com/assets/oauth-callback.html';
+    const webCallback = 'https://app.chronoflow-desktop.com/assets/oauth-callback.html';
     oauthService.prepareRedirectUri.and.resolveTo(webCallback);
     oauthService.buildAuthUrl.and.resolveTo({
       url: 'https://accounts.google.com/o/oauth2/v2/auth',
@@ -105,7 +105,7 @@ describe('PluginOAuthBridgeService', () => {
   it('persists oauth tokens in the local token store after a successful flow', async () => {
     spyOn(window, 'open').and.returnValue({} as Window);
     oauthService.prepareRedirectUri.and.resolveTo(
-      'https://app.super-productivity.com/assets/oauth-callback.html',
+      'https://app.chronoflow-desktop.com/assets/oauth-callback.html',
     );
     oauthService.buildAuthUrl.and.resolveTo({
       url: 'https://accounts.google.com/o/oauth2/v2/auth',
@@ -132,7 +132,7 @@ describe('PluginOAuthBridgeService', () => {
   it('uses a public web client id without carrying the desktop client secret', async () => {
     spyOn(window, 'open').and.returnValue({} as Window);
     oauthService.prepareRedirectUri.and.resolveTo(
-      'https://app.super-productivity.com/assets/oauth-callback.html',
+      'https://app.chronoflow-desktop.com/assets/oauth-callback.html',
     );
     oauthService.buildAuthUrl.and.resolveTo({
       url: 'https://accounts.google.com/o/oauth2/v2/auth',
@@ -168,7 +168,7 @@ describe('PluginOAuthBridgeService', () => {
     spyOn(window, 'open').and.returnValue({} as Window);
     const warnSpy = spyOn(PluginLog, 'warn');
     oauthService.prepareRedirectUri.and.resolveTo(
-      'https://app.super-productivity.com/assets/oauth-callback.html',
+      'https://app.chronoflow-desktop.com/assets/oauth-callback.html',
     );
     oauthService.buildAuthUrl.and.resolveTo({
       url: 'https://accounts.google.com/o/oauth2/v2/auth',

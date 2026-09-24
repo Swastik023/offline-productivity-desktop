@@ -19,7 +19,7 @@
  * reconnect (its stale whole-blob write is LWW-dominated by the keyed entries).
  */
 
-import type { PluginAPI } from '@super-productivity/plugin-api';
+import type { PluginAPI } from '@chronoflow-desktop/plugin-api';
 
 const META_KEY = 'meta';
 const MIGRATION_STAMP_KEY = '__meta__';

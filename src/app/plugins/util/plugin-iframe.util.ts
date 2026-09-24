@@ -1,6 +1,6 @@
 import { PluginBridgeService } from '../plugin-bridge.service';
 import { PluginBaseCfg, PluginManifest } from '../plugin-api.model';
-import { PluginHooks, PluginIframeMessageType } from '@super-productivity/plugin-api';
+import { PluginHooks, PluginIframeMessageType } from '@chronoflow-desktop/plugin-api';
 import { PluginLog } from '../../core/log';
 import { PLUGIN_UI_KIT_CSS } from './plugin-ui-kit.css';
 

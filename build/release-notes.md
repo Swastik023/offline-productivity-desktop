@@ -1,4 +1,4 @@
-For all current downloads, package links, and platform-specific notes: [check the wiki](https://github.com/super-productivity/super-productivity/wiki/2.01-Downloads-and-Install).
+For all current downloads, package links, and platform-specific notes: [check the wiki](https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.01-Downloads-and-Install).
 
 ### Fixes
 

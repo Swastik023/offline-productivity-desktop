@@ -18,5 +18,5 @@
     "LABELS": "Nhãn",
     "DESCRIPTION": "Mô tả"
   },
-  "FORM_HELP": "<p>Tại đây bạn có thể cấu hình Super Productivity để liệt kê các sự cố Gitea mở cho một kho lưu trữ cụ thể trong bảng tạo công việc ở chế độ xem lên kế hoạch hàng ngày. Chúng sẽ được liệt kê làm gợi ý và cung cấp liên kết đến sự cố cũng như thêm thông tin về nó.</p><p>Ngoài ra, bạn có thể tự động thêm và nhập tất cả sự cố mở.</p><p>Để vượt qua giới hạn sử dụng và truy cập, bạn có thể cung cấp token truy cập."
+  "FORM_HELP": "<p>Tại đây bạn có thể cấu hình ChronoFlow Desktop để liệt kê các sự cố Gitea mở cho một kho lưu trữ cụ thể trong bảng tạo công việc ở chế độ xem lên kế hoạch hàng ngày. Chúng sẽ được liệt kê làm gợi ý và cung cấp liên kết đến sự cố cũng như thêm thông tin về nó.</p><p>Ngoài ra, bạn có thể tự động thêm và nhập tất cả sự cố mở.</p><p>Để vượt qua giới hạn sử dụng và truy cập, bạn có thể cung cấp token truy cập."
 }

@@ -7,7 +7,7 @@ import { installDevErrorDialogHandler } from './runtime-errors';
  * Legacy Migration E2E Test Helpers
  *
  * These helpers facilitate testing scenarios where clients have migrated
- * from the old Super Productivity format (pre-operation-log) and then sync.
+ * from the old ChronoFlow Desktop format (pre-operation-log) and then sync.
  */
 
 /**

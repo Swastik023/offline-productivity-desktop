@@ -39,8 +39,8 @@ const DATA_CHANGE_BACKUP_DEBOUNCE = 30 * 1000;
 const ANDROID_DB_KEY = 'backup';
 // Previous-generation slot for the two-generation ring (#7901).
 const ANDROID_DB_KEY_PREV = 'backup_prev';
-const IOS_BACKUP_FILENAME = 'super-productivity-backup.json';
-const IOS_BACKUP_PREV_FILENAME = 'super-productivity-backup.prev.json';
+const IOS_BACKUP_FILENAME = 'chronoflow-desktop-backup.json';
+const IOS_BACKUP_PREV_FILENAME = 'chronoflow-desktop-backup.prev.json';
 
 // A3 (#7925) near-empty write-time overwrite guard thresholds. Starting point
 // — revisit once A1 telemetry shows what a real post-eviction boot looks like.

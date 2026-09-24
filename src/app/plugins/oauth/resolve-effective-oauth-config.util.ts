@@ -1,4 +1,4 @@
-import { OAuthFlowConfig } from '@super-productivity/plugin-api';
+import { OAuthFlowConfig } from '@chronoflow-desktop/plugin-api';
 
 export interface OAuthPlatform {
   isElectron: boolean;

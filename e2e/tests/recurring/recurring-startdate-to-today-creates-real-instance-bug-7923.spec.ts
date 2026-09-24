@@ -8,7 +8,7 @@ import {
 } from '../../utils/recurring-task-helpers';
 
 /**
- * Bug: https://github.com/super-productivity/super-productivity/issues/7923
+ * Bug: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7923
  *
  * When the user:
  *   1. Creates a recurring (daily) task with a future startDate

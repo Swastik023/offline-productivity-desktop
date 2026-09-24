@@ -239,7 +239,7 @@ async function refreshToken() {
   const confirmed = confirm(
     'Are you sure you want to REVOKE your current token?\n\n' +
       'This will disconnect ALL devices using this account. ' +
-      'You will need to copy the new token and paste it into Super Productivity on every device.\n\n' +
+      'You will need to copy the new token and paste it into ChronoFlow Desktop on every device.\n\n' +
       'Note: If you just need to see your token again, simply log in again — ' +
       'this does NOT revoke existing tokens.',
   );
@@ -298,7 +298,7 @@ async function deleteAccount() {
     'Are you sure you want to DELETE your account?\n\n' +
       'This will PERMANENTLY delete your account and ALL synced data. ' +
       'This action cannot be undone.\n\n' +
-      'Your local data in Super Productivity will NOT be affected.',
+      'Your local data in ChronoFlow Desktop will NOT be affected.',
   );
 
   if (!confirmed) return;
@@ -345,7 +345,7 @@ async function resetAccount() {
   const confirmed = confirm(
     'Are you sure you want to RESET your account?\n\n' +
       'This will delete ALL synced data from the server, but your account will remain active.\n\n' +
-      'Your local data in Super Productivity will NOT be affected.\n' +
+      'Your local data in ChronoFlow Desktop will NOT be affected.\n' +
       'You can sync again after resetting.',
   );
 

@@ -143,7 +143,7 @@ jobs:
         uses: r0adkll/upload-google-play@e738b9dd8f2476ea806d921b64aacd24f34515a5 # v1.1.5
         with:
           serviceAccountJsonPlainText: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON }}
-          packageName: com.superproductivity.superproductivity
+          packageName: com.chronoflow.chronoflow
           releaseFiles: android/app/build/outputs/apk/play/release/*.apk
           releaseName: 'dev ${{ steps.devvc.outputs.code }} (${{ steps.devvc.outputs.sha }})'
           tracks: internal
@@ -191,7 +191,7 @@ jobs:
         uses: r0adkll/upload-google-play@e738b9dd8f2476ea806d921b64aacd24f34515a5 # v1.1.5
         with:
           serviceAccountJsonPlainText: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON }}
-          packageName: com.superproductivity.superproductivity
+          packageName: com.chronoflow.chronoflow
           releaseFiles: android/app/build/outputs/apk/play/release/*.apk
           tracks: internal
           status: completed

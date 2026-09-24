@@ -14,12 +14,12 @@
     },
     "B_SYNC_SAFETY": {
       "DISMISS": "Şimdi değil",
-      "MSG": "Super Productivity'yi bir süredir kullanıyorsunuz. Verilerinizi yedeklemek ve tüm cihazlarınızda güvende tutmak için senkronizasyonu ayarlayın.",
+      "MSG": "ChronoFlow Desktop'yi bir süredir kullanıyorsunuz. Verilerinizi yedeklemek ve tüm cihazlarınızda güvende tutmak için senkronizasyonu ayarlayın.",
       "SETUP": "Senkronizasyonu ayarla"
     },
     "B_UPDATE_AVAILABLE": {
       "DOWNLOAD": "İndir",
-      "MSG": "Super Productivity'nin yeni bir sürümü mevcut ({{version}})."
+      "MSG": "ChronoFlow Desktop'nin yeni bir sürümü mevcut ({{version}})."
     },
     "CONTEXT_MENU": {
       "CHANGE_PROJECT_SETTINGS": "Proje Ayarlarını Değiştir",
@@ -81,13 +81,13 @@
   },
   "DONATE_PAGE": {
     "BUTTON_TEXT": "Github Sponsorları ile Bağış Yapın",
-    "INTRO_1": "Super Productivity tamamen topluluk tarafından finanse edilmektedir. Takip, reklam veya veri toplama yoktur — görevleriniz cihazınızda kalır.",
+    "INTRO_1": "ChronoFlow Desktop tamamen topluluk tarafından finanse edilmektedir. Takip, reklam veya veri toplama yoktur — görevleriniz cihazınızda kalır.",
     "INTRO_2": "Bu yaklaşımı değerli buluyorsanız ve projenin sağlıklı ve gelişen kalmasını istiyorsanız, gönüllü bir bağış büyük takdirle karşılanır."
   },
   "EXAMPLE_TASKS": {
     "LEARN_KEYBOARD_SHORTCUTS": {
       "TITLE": "Klavye kısayollarını öğrenin",
-      "NOTES": "Super Productivity klavye ile kullanılmak üzere tasarlanmıştır. Daha hızlı çalışmak için kısayolları öğrenin.\n\n**Nasıl başlanır:**\n1. **Kenar çubuğu menüsünü** açın\n2. **Yardım** bölümüne gidin\n3. **Klavye Gezinti Turu**'na tıklayın"
+      "NOTES": "ChronoFlow Desktop klavye ile kullanılmak üzere tasarlanmıştır. Daha hızlı çalışmak için kısayolları öğrenin.\n\n**Nasıl başlanır:**\n1. **Kenar çubuğu menüsünü** açın\n2. **Yardım** bölümüne gidin\n3. **Klavye Gezinti Turu**'na tıklayın"
     },
     "CREATE_PROJECT": {
       "TITLE": "İlk projenizi oluşturun",
@@ -290,7 +290,7 @@
       "FEEDBACK_PUBLIC": "GitHub Discussions'a yaz",
       "FEEDBACK_PUBLIC_DESC": "Başkaları görebilir ve yanıtlayabilir",
       "FEEDBACK_TITLE": "Nasıl yardım etmek istersin?",
-      "TITLE": "Super Productivity'yi beğeniyor musun?",
+      "TITLE": "ChronoFlow Desktop'yi beğeniyor musun?",
       "TXT": "Bu, meraklılar tarafından yapılmış <strong>ücretsiz ve açık kaynaklı</strong> bir projedir — takip yok, reklam yok. Bir puan veya kısa bir mesaj, daha fazla kişinin uygulamayı bulmasına yardımcı olur."
     },
     "DROPBOX": {
@@ -469,14 +469,14 @@
       }
     },
     "ISSUE": {
-      "CROSS_ORIGIN_BROWSER_WARNING": "Bu entegrasyon muhtemelen tarayıcınızda çalışmayacaktır. Lütfen Super Productivity'nin Masaüstü veya Android sürümünü indirin!",
+      "CROSS_ORIGIN_BROWSER_WARNING": "Bu entegrasyon muhtemelen tarayıcınızda çalışmayacaktır. Lütfen ChronoFlow Desktop'nin Masaüstü veya Android sürümünü indirin!",
       "DEFAULT": {
         "ISSUE_STR": "Sorun",
         "ISSUES_STR": "Sorunlar"
       },
       "DEFAULT_NOTE_LABEL": "İçe aktarılan görevler için varsayılan not",
       "DEFAULT_PROJECT_DESCRIPTION": "Sorunlardan oluşturulan görevlere atanan proje.",
-      "DEFAULT_PROJECT_LABEL": "Varsayılan Super Productivity Projesi",
+      "DEFAULT_PROJECT_LABEL": "Varsayılan ChronoFlow Desktop Projesi",
       "DEFAULT_TAGS_LABEL": "İçe aktarılan görevler için varsayılan etiketler",
       "FORM": {
         "AUTO_ADD_TO_BACKLOG": "Varsayılan projeye otomatik aktar (varsayılan proje gerektirir)",
@@ -581,7 +581,7 @@
     },
     "JIRA": {
       "BANNER": {
-        "BLOCK_ACCESS_MSG": "Jira: Api'nin kapatılmasını önlemek için erişim Super Productivity tarafından engellendi. Muhtemelen jira ayarlarınızı kontrol etmelisiniz!",
+        "BLOCK_ACCESS_MSG": "Jira: Api'nin kapatılmasını önlemek için erişim ChronoFlow Desktop tarafından engellendi. Muhtemelen jira ayarlarınızı kontrol etmelisiniz!",
         "BLOCK_ACCESS_UNBLOCK": "Engeli kaldır"
       },
       "CFG_CMP": {
@@ -912,7 +912,7 @@
         "TOKEN": "Erişim Jetonu"
       },
       "FORM_SECTION": {
-        "HELP": "<p>Burada SuperProductivity'yi açık OpenProject iş paketlerini listeleyecek şekilde yapılandırabilirsiniz. Lütfen bunun tarayıcıda çalışması için, app.super-productivity.com adresinden erişime izin vermek üzere OpenProject sunucunuz için CORS'u yapılandırmanız gerektiğini unutmayın</p>"
+        "HELP": "<p>Burada SuperProductivity'yi açık OpenProject iş paketlerini listeleyecek şekilde yapılandırabilirsiniz. Lütfen bunun tarayıcıda çalışması için, app.chronoflow-desktop.com adresinden erişime izin vermek üzere OpenProject sunucunuz için CORS'u yapılandırmanız gerektiğini unutmayın</p>"
       },
       "ISSUE_CONTENT": {
         "ASSIGNEE": "Atanan",
@@ -1577,14 +1577,14 @@
           "L_USE_CUSTOM_APP": "Kendi Microsoft Entra uygulama kaydımı kullan",
           "OFFICIAL_MODE_INFO": "Bu uygulama için yerleşik Microsoft 365 oturum açma özelliği kullanılıyor. Yalnızca kendi Entra uygulama kaydınıza ihtiyacınız varsa özel moda geçin.",
           "PLATFORM_INFO": "OneDrive eşitleme yalnızca masaüstü ve mobil uygulamalarda kullanılabilir, tarayıcı sürümünde değil.",
-          "SYNC_FOLDER_PATH_DESCRIPTION": "OneDrive Uygulama Klasörünüzde saklanır (örn. super-productivity)",
+          "SYNC_FOLDER_PATH_DESCRIPTION": "OneDrive Uygulama Klasörünüzde saklanır (örn. chronoflow-desktop)",
           "TENANT_ID_DESCRIPTION": "Çok kiracılı oturum açma için 'common' kullanın",
           "USE_CUSTOM_APP_DESCRIPTION": "Kendi Uygulama (İstemci) Kimliğinizi sağlamak istiyorsanız bunu etkinleştirin"
         },
         "TITLE": "Senkronize et",
         "WEB_DAV": {
-          "CORS_INFO": "<strong>Tarayıcıda çalışmasını sağlamak:</strong> Bunun tarayıcıda çalışmasını sağlamak için Nextcloud örneğiniz için CORS isteklerine yönelik Süper Üretkenliği beyaz listeye almanız gerekir. Bunun olumsuz güvenlik etkileri olabilir! Lütfen <a href='https://github.com/nextcloud/server/issues/3131'>daha fazla bilgi için bu konuya bakın</a>. Bunun mobil cihazlarda çalışmasını sağlamanın bir yolu, nextcloud uygulaması <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword aracılığıyla \"https://app.super-productivity.com\" adresini beyaz listeye eklemektir. <a>. Kullanım riski size aittir!</p>",
-          "D_SYNC_FOLDER_PATH": "Senkronizasyon dosyalarının depolanacağı WebDAV sunucu köküne göreli yol (örneğin '/super-productivity' veya '/'). Bu, sunucunuzun dahili dizin yolu DEĞİLDİR.",
+          "CORS_INFO": "<strong>Tarayıcıda çalışmasını sağlamak:</strong> Bunun tarayıcıda çalışmasını sağlamak için Nextcloud örneğiniz için CORS isteklerine yönelik Süper Üretkenliği beyaz listeye almanız gerekir. Bunun olumsuz güvenlik etkileri olabilir! Lütfen <a href='https://github.com/nextcloud/server/issues/3131'>daha fazla bilgi için bu konuya bakın</a>. Bunun mobil cihazlarda çalışmasını sağlamanın bir yolu, nextcloud uygulaması <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword aracılığıyla \"https://app.chronoflow-desktop.com\" adresini beyaz listeye eklemektir. <a>. Kullanım riski size aittir!</p>",
+          "D_SYNC_FOLDER_PATH": "Senkronizasyon dosyalarının depolanacağı WebDAV sunucu köküne göreli yol (örneğin '/chronoflow-desktop' veya '/'). Bu, sunucunuzun dahili dizin yolu DEĞİLDİR.",
           "INFO": "WebDAV uygulamaları ne yazık ki çılgınca farklılık gösteriyor. Süper Verimliliğin Nextcloud ile iyi çalıştığı biliniyor, <strong> ancak sağlayıcınızla çalışmayabilir</strong>.",
           "L_BASE_URL": "Temel URL",
           "L_PASSWORD": "Parola",
@@ -1623,11 +1623,11 @@
         "ERROR_PAYLOAD_TOO_LARGE": "Senkronizasyon Hatası: Verileriniz yüklenmek için çok büyük.\n\nBu, çok fazla arşivlenmiş göreviniz olduğunda olur. Verileriniz SENKRONİZE EDİLMEDİ.\n\nYardım için desteğe başvurun.",
         "ERROR_PERMISSION": "Dosya erişimi reddedildi. Flatpak/Snap kullanıyorsanız, Flatseal aracılığıyla dosya sistemi izni verin veya ~/.var/app/ içinde bir yol kullanın",
         "ERROR_PERMISSION_FLATPAK": "Dosya erişimi reddedildi. Flatseal aracılığıyla dosya sistemi izni verin veya ~/.var/app/ içinde bir yol kullanın",
-        "ERROR_PERMISSION_SNAP": "Dosya erişimi reddedildi. 'snap connect super-productivity:home' çalıştırın veya ~/snap/super-productivity/common/ içinde bir yol kullanın",
+        "ERROR_PERMISSION_SNAP": "Dosya erişimi reddedildi. 'snap connect chronoflow-desktop:home' çalıştırın veya ~/snap/chronoflow-desktop/common/ içinde bir yol kullanın",
         "ERROR_REMOTE_FILE_CORRUPTED": "Uzak senkronizasyon verileri okunamıyor (büyük olasılıkla kesilmiş veya bozulmuş). Yerel verileriniz güvende. Uzak verilerin üzerine yerel verilerinizle yazabilirsiniz.",
         "ERROR_REMOTE_FILE_EMPTY": "Uzak eşitleme dosyası boş. Bu, kesintiye uğramış bir eşitlemeden sonra olabilir. Uzaktaki verilerin üzerine yerel verileriniz yazılsın mı?",
         "ERROR_REMOTE_FILE_LOCKED": "Uzak eşitleme dosyası sunucu tarafından kilitli. Bu durum bir sonraki eşitleme denemesinde çözülebilir.",
-        "ERROR_SYNC_VERSION_MISMATCH": "Uzak senkronizasyon verileri uyumsuz bir format sürümü kullanıyor. Tüm cihazların aynı Super Productivity sürümünü çalıştırdığından emin olun.",
+        "ERROR_SYNC_VERSION_MISMATCH": "Uzak senkronizasyon verileri uyumsuz bir format sürümü kullanıyor. Tüm cihazların aynı ChronoFlow Desktop sürümünü çalıştırdığından emin olun.",
         "WARN_CLIENT_ID_REGENERATED": "Senkronizasyon cihaz kimliği geçersizdi ve yeniden oluşturuldu. Bir sonraki senkronizasyonda bir senkronizasyon çakışması oluşabilir.",
         "ERROR_UNABLE_TO_READ_REMOTE_DATA": "Senkronize ederken hata. Uzak veri okunamıyor. Belki şifrelemeyi etkinleştirdiniz ve yerel parolanız uzak veriyi şifrelemek için kullanılanla eşleşmiyor?",
         "FINISH_DAY_SYNC_ERROR": "Gün sonu sırasında senkronizasyon hatası. Lütfen tekrar deneyin.",
@@ -2300,11 +2300,11 @@
     "IMPORT_FROM_FILE": "Dosyadan içe aktar",
     "IMPORT_FROM_TODOIST": "Todoist'ten aktar",
     "IMPORT_FROM_URL": "URL'den İçe Aktar",
-    "IMPORT_FROM_URL_DIALOG_DESCRIPTION": "Lütfen içe aktarmak istediğiniz Super Productivity yedek JSON dosyasının tam URL'sini girin.",
+    "IMPORT_FROM_URL_DIALOG_DESCRIPTION": "Lütfen içe aktarmak istediğiniz ChronoFlow Desktop yedek JSON dosyasının tam URL'sini girin.",
     "IMPORT_FROM_URL_DIALOG_TITLE": "URL'den İçe Aktar",
     "OPEN_IMPORT_FROM_URL_DIALOG": "URL'den İçe Aktar",
     "PRIVACY_EXPORT": "Verileri Dışa Aktar (Anonimleştirilmiş)",
-    "PRIVACY_EXPORT_DESCRIPTION": "Anonimleştirilmiş verileri dışa aktarın (hata ayıklama için contact@super-productivity.com adresine göndermek üzere)",
+    "PRIVACY_EXPORT_DESCRIPTION": "Anonimleştirilmiş verileri dışa aktarın (hata ayıklama için contact@chronoflow-desktop.com adresine göndermek üzere)",
     "S_BACKUP_DOWNLOADED": "Android belgeler klasörüne indirilen yedekleme",
     "S_ERR_IMPORT_FAILED": "Verileri içeri aktarma başarısız oldu",
     "S_ERR_INVALID_DATA": "İçe aktarma başarısız oldu: Geçersiz JSON",
@@ -2334,7 +2334,7 @@
     "EDIT": "Düzenle",
     "ENABLED": "Etkin",
     "EXAMPLE_VAL": "Düzenlemek için tıkla",
-    "EXTENSION_INFO": "Jira Api ve Boş Vakit Takibi ile iletişime izin vermek için lütfen <a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/super-productivity/ljkbjodfmekklcoibdnhahlaalhihmlb\"> chrome uzantısını</a> indirin. Bunun mobil cihazlar için işe yaramadığını unutmayın.",
+    "EXTENSION_INFO": "Jira Api ve Boş Vakit Takibi ile iletişime izin vermek için lütfen <a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/chronoflow-desktop/ljkbjodfmekklcoibdnhahlaalhihmlb\"> chrome uzantısını</a> indirin. Bunun mobil cihazlar için işe yaramadığını unutmayın.",
     "HIDE": "Gizle",
     "ICON_INP_DESCRIPTION": "Tüm utf-8 emojileri de destekleniyor!",
     "INBOX_PROJECT_TITLE": "Gelen kutusu",
@@ -2401,7 +2401,7 @@
     },
     "CALENDARS": {
       "AUTO_IMPORT_FOR_CURRENT_DAY": "Bugün için olan etkinlikleri görev olarak otomatik içe aktar",
-      "BROWSER_WARNING": "Çapraz kaynak kısıtlamaları nedeniyle <b>bu muhtemelen Super Productivity'nin Tarayıcı sürümüyle ÇALIŞMAYACAKTIR.<br /> Bu özelliği kullanmak için lütfen <a href=\"https://super-productivity.com/download/\">masaüstü sürümünü indirin</a>!</b>",
+      "BROWSER_WARNING": "Çapraz kaynak kısıtlamaları nedeniyle <b>bu muhtemelen ChronoFlow Desktop'nin Tarayıcı sürümüyle ÇALIŞMAYACAKTIR.<br /> Bu özelliği kullanmak için lütfen <a href=\"https://chronoflow-desktop.com/download/\">masaüstü sürümünü indirin</a>!</b>",
       "CAL_COLOR": "Takvim rengi",
       "CAL_PATH": "iCal kaynağının URL'si",
       "CHECK_UPDATES": "Her X'te bir uzaktan güncellemeleri kontrol edin",
@@ -2411,7 +2411,7 @@
       "FILTER_INCLUDE_REGEX": "Regex ile eşleşen etkinlikleri dahil et (isteğe bağlı)",
       "FILTER_INCLUDE_REGEX_DESCRIPTION": "Yalnızca başlığı bu düzenli ifadeyle eşleşen etkinlikler gösterilecektir. Tüm etkinlikleri dahil etmek için boş bırakın. Örnek: toplantı|standup",
       "INVALID_REGEX": "Geçersiz düzenli ifade",
-      "HELP": "Hatırlatılacak takvimleri entegre edebilir ve bunları Super Productivity içinde görev olarak ekleyebilirsiniz. Entegrasyon iCal biçimini kullanarak çalışır. Bunun çalışması için takvimlerinizin internet üzerinden veya dosya sistemi aracılığıyla erişilebilir olması gerekir.",
+      "HELP": "Hatırlatılacak takvimleri entegre edebilir ve bunları ChronoFlow Desktop içinde görev olarak ekleyebilirsiniz. Entegrasyon iCal biçimini kullanarak çalışır. Bunun çalışması için takvimlerinizin internet üzerinden veya dosya sistemi aracılığıyla erişilebilir olması gerekir.",
       "REFERENCE_CALENDAR": "Referans takvim (yalnızca görüntüleme, görev oluşturmaz)",
       "SHOW_BANNER_THRESHOLD": "Etkinlikten önce bir bildirim X göster (devre dışı bırakmak için boş bırak)"
     },
@@ -2654,7 +2654,7 @@
       "DEFAULT_TASK_REMIND_OPTION": "Görev oluştururken varsayılan hatırlatma seçeneği",
       "DISABLE_REMINDERS": "Tüm hatırlatıcıları devre dışı bırak",
       "DUE_DATE_NOTIFICATION_HOUR": "Son tarih bildirimlerinin gösterileceği saat (0-23)",
-      "HELP": "<p><strong>Önemli:</strong> Hatırlatıcılar push bildirimleri değil, <strong>yerel bildirimler</strong> kullanır. Bu, hatırlatıcıların planlanabilmesi için uygulamanın cihazınızda en az bir kez açılmış olması gerektiği anlamına gelir. Başka bir cihazda ayarlanan hatırlatıcılar, yalnızca uygulama hedef cihazda senkronize olduktan sonra görünecektir.</p><p><strong>iOS</strong>'ta, 'Ayarlar' > 'Bildirimler' altında Super Productivity için bildirimlerin etkinleştirildiğinden emin olun.</p>",
+      "HELP": "<p><strong>Önemli:</strong> Hatırlatıcılar push bildirimleri değil, <strong>yerel bildirimler</strong> kullanır. Bu, hatırlatıcıların planlanabilmesi için uygulamanın cihazınızda en az bir kez açılmış olması gerektiği anlamına gelir. Başka bir cihazda ayarlanan hatırlatıcılar, yalnızca uygulama hedef cihazda senkronize olduktan sonra görünecektir.</p><p><strong>iOS</strong>'ta, 'Ayarlar' > 'Bildirimler' altında ChronoFlow Desktop için bildirimlerin etkinleştirildiğinden emin olun.</p>",
       "IS_COUNTDOWN_BANNER_ENABLED": "Hatırlatıcıların son teslim tarihinden önce geri sayım afişini göster",
       "IS_FOCUS_WINDOW": "Hatırlatıcı tetiklendiğinde uygulama penceresine odaklan",
       "NOTIFY_ON_DUE_DATE": "Bugün son tarihi olan görevler için bildirim göster",
@@ -2877,10 +2877,10 @@
     "TASK_MARKED_DONE": "Görev tamamlandı olarak işaretlendi"
   },
   "ONBOARDING": {
-    "TITLE": "Super Productivity'yi nasıl kullanmak istiyorsunuz?",
+    "TITLE": "ChronoFlow Desktop'yi nasıl kullanmak istiyorsunuz?",
     "SUBTITLE": "Çalışma tarzınıza uygun bir kurulum seçin. Bunu daha sonra Ayarlar'dan istediğiniz zaman değiştirebilirsiniz.",
     "PRIVACY_HINT": "Verileriniz cihazınızda güvenle kalır. Sunucuya hiçbir şey gönderilmez.",
-    "SYNC_CTA": "Başka bir cihazda zaten Super Productivity mi kullanıyorsunuz?",
+    "SYNC_CTA": "Başka bir cihazda zaten ChronoFlow Desktop mi kullanıyorsunuz?",
     "SYNC_CTA_LINK": "Eşitlemeyi ayarla",
     "PRESETS": {
       "SIMPLE_TODO": {

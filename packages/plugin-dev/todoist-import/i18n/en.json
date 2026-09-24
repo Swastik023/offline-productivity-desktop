@@ -9,7 +9,7 @@
   "TOKEN": {
     "LABEL": "Todoist API token",
     "PLACEHOLDER": "Paste your Todoist API token",
-    "INTRO": "Brings your active Todoist projects, tasks, sub-tasks, labels and due dates into Super Productivity. The import only adds data — nothing in Super Productivity is changed or removed.",
+    "INTRO": "Brings your active Todoist projects, tasks, sub-tasks, labels and due dates into ChronoFlow Desktop. The import only adds data — nothing in ChronoFlow Desktop is changed or removed.",
     "HELP": "Find the token in Todoist under Settings → Integrations → Developer. It is sent only to api.todoist.com and never stored.",
     "REQUIRED": "Please paste your Todoist API token first.",
     "LOADING": "Loading your Todoist data…",

@@ -9,7 +9,7 @@ import {
  * Regression guard: a TIMED daily repeat task must get its new-day instance
  * created after a COLD REOPEN across a day boundary.
  *
- * Context: investigated under https://github.com/super-productivity/super-productivity/issues/7951
+ * Context: investigated under https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7951
  * — a user reported that, with sync off, a timed daily task's instance was not
  * created after closing the app, advancing the OS clock a day, and reopening.
  * It did NOT reproduce in web (this test passes), so the reporter's bug is

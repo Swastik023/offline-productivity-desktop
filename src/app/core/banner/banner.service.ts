@@ -42,7 +42,7 @@ export class BannerService {
     // FOR DEBUGGING
     // this.open({
     //   id: BannerId.JiraUnblock,
-    //   msg: 'Jira: To prevent shut out from api, access has been blocked by Super Productivity. You probably should check your jira settings!',
+    //   msg: 'Jira: To prevent shut out from api, access has been blocked by ChronoFlow Desktop. You probably should check your jira settings!',
     //   svgIco: 'jira',
     //   action: {
     //     label: 'Unblock',
@@ -85,7 +85,7 @@ export class BannerService {
     //     action: {
     //       label: 'Report',
     //       fn: () =>
-    //         window.open('https://github.com/super-productivity/super-productivity/issues/new'),
+    //         window.open('https://github.com/chronoflow-desktop/chronoflow-desktop/issues/new'),
     //     },
     //     action2: {
     //       label: 'Reload App',

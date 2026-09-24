@@ -11,7 +11,7 @@ import {
 } from './actions';
 import { AutomationContext } from './definitions';
 import { TaskEvent } from '../types';
-import { PluginAPI } from '@super-productivity/plugin-api';
+import { PluginAPI } from '@chronoflow-desktop/plugin-api';
 import { DataCache } from './data-cache';
 
 describe('Actions', () => {

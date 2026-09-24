@@ -7,7 +7,7 @@ import {
   SYNC_DEBOUNCE_MS,
   SYNC_DEBOUNCE_MS_MD_TO_SP,
 } from '../config.const';
-import { PluginHooks } from '@super-productivity/plugin-api';
+import { PluginHooks } from '@chronoflow-desktop/plugin-api';
 import { LocalUserCfg } from '../local-config';
 import { logSyncVerification, verifySyncState } from './verify-sync';
 import { log } from '../../shared/logger';

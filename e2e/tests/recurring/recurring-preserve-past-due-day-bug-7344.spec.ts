@@ -3,7 +3,7 @@ import { openRecurDialog, saveRecurDialog } from '../../utils/recurring-task-hel
 import { waitForStatePersistence } from '../../utils/waits';
 
 /**
- * Bug: https://github.com/super-productivity/super-productivity/issues/7344
+ * Bug: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7344
  *
  * When an existing task with a PAST dueDay is converted into a YEARLY
  * recurring task (dialog's default startDate = task.dueDay), the task's

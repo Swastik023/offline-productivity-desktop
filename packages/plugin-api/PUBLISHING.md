@@ -1,8 +1,8 @@
-# Publishing @super-productivity/plugin-api
+# Publishing @chronoflow-desktop/plugin-api
 
 ## Overview
 
-This package provides TypeScript definitions for Super Productivity plugin development. It's published to npm as `@super-productivity/plugin-api`.
+This package provides TypeScript definitions for ChronoFlow Desktop plugin development. It's published to npm as `@chronoflow-desktop/plugin-api`.
 
 ## Publishing Process
 
@@ -61,7 +61,7 @@ The main project should import types from this package:
 // import { PluginManifest } from './plugin-api.model';
 
 // Use the npm package:
-import type { PluginManifest } from '@super-productivity/plugin-api';
+import type { PluginManifest } from '@chronoflow-desktop/plugin-api';
 ```
 
 ## Package Structure

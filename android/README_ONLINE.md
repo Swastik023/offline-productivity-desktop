@@ -1,6 +1,6 @@
 # Online-Only Mode (Compatibility Mode) Configuration
 
-**Online-Only Mode (Compatibility Mode)** allows the Super Productivity Android app to connect to the production server, a local development server, or a self-hosted server. This mode requires an internet connection and is compatible with various server setups.
+**Online-Only Mode (Compatibility Mode)** allows the ChronoFlow Desktop Android app to connect to the production server, a local development server, or a self-hosted server. This mode requires an internet connection and is compatible with various server setups.
 
 **Note**: While Online-Only Mode offers connectivity to production, local development, or self-hosted servers, it is highly recommended to use the latest **Connectivity-Free Mode** for a more stable and reliable experience. Connectivity-Free Mode allows you to use the app without an internet connection, ensuring uninterrupted productivity, enhanced privacy, and reduced latency.
 
@@ -32,7 +32,7 @@ To enable Online-Only Mode, set the `LAUNCH_MODE` to `1` or `0` in the `app_conf
 2. **Use Production URL**
 
    - **Condition**: Applicable when `LAUNCH_MODE` is set to `1`, or set to `0` and the user has upgraded from a previous version.
-   - **Default**: `https://app.super-productivity.com`
+   - **Default**: `https://app.chronoflow-desktop.com`
    - **Configuration**: Ensure `ONLINE_SERVICE_IS_LOCAL` is set to `false`.
 
    ```properties

@@ -13,7 +13,7 @@ import {
   BatchTaskDelete,
   BatchTaskReorder,
   BatchTaskUpdate,
-} from '@super-productivity/plugin-api';
+} from '@chronoflow-desktop/plugin-api';
 import { Log } from '../../../core/log';
 import { validateAndFixDataConsistencyAfterBatchUpdate } from './validate-and-fix-data-consistency-after-batch-update';
 

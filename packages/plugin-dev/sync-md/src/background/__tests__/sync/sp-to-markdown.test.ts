@@ -1,5 +1,5 @@
 import { convertTasksToMarkdown, formatTask } from '../../sync/sp-to-md';
-import { Task } from '@super-productivity/plugin-api';
+import { Task } from '@chronoflow-desktop/plugin-api';
 
 describe('convertTasksToMarkdown', () => {
   it('should convert simple tasks', () => {

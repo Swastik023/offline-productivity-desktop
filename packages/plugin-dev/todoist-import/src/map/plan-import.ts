@@ -1,4 +1,4 @@
-import { BatchOperation } from '@super-productivity/plugin-api';
+import { BatchOperation } from '@chronoflow-desktop/plugin-api';
 import { TodoistImportModel, TodoistTask } from '../parse/normalized-model';
 
 /**
@@ -23,7 +23,7 @@ const PRIORITY_TAG_BY_API_VALUE: Record<number, string> = {
 
 /**
  * Opt-in alternative to the p1–p3 tags: map Todoist's single priority axis onto
- * Super Productivity's built-in Eisenhower-matrix tags. The two tags are reused
+ * ChronoFlow Desktop's built-in Eisenhower-matrix tags. The two tags are reused
  * by title (`ensureTags` matches case-insensitively), so imported tasks land in
  * the existing `EM_URGENT`/`EM_IMPORTANT` quadrants instead of spawning new
  * tags. Collapsing one axis onto the 2-D matrix is inherently opinionated; this

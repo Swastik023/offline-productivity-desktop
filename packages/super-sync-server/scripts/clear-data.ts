@@ -68,13 +68,13 @@ async function main() {
     // Clear file-based storage directories
     const fileBasedDirs = [
       path.join(config.dataDir, 'storage'),
-      path.join(config.dataDir, 'super-productivity'),
+      path.join(config.dataDir, 'chronoflow-desktop'),
     ];
 
     // Also check for any user-named directories at the root of dataDir
     try {
       if (fs.existsSync(config.dataDir)) {
-        const systemFiles = ['database.sqlite', 'storage', 'super-productivity'];
+        const systemFiles = ['database.sqlite', 'storage', 'chronoflow-desktop'];
         const entries = fs.readdirSync(config.dataDir, { withFileTypes: true });
         for (const entry of entries) {
           if (entry.isDirectory() && !systemFiles.includes(entry.name)) {
@@ -133,8 +133,8 @@ async function main() {
       path.join(config.dataDir, 'storage', `user-${user.id}`),
       path.join(config.dataDir, target),
       path.join(config.dataDir, emailLocalPart),
-      path.join(config.dataDir, 'super-productivity', target),
-      path.join(config.dataDir, 'super-productivity', emailLocalPart),
+      path.join(config.dataDir, 'chronoflow-desktop', target),
+      path.join(config.dataDir, 'chronoflow-desktop', emailLocalPart),
     ];
 
     for (const dir of userFileDirs) {

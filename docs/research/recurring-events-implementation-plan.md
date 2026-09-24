@@ -358,7 +358,7 @@ Reference for "what users expect" (verified SP column as of 2026-06; the
 remaining ❌ are the genuine targets — end conditions). Consolidated from the
 former `recurring-events-gap-analysis.md` / `recurring-events-industry-standards.md`.
 
-| Feature              | Google Calendar | Todoist | Things 3 | TickTick | Super Productivity |
+| Feature              | Google Calendar | Todoist | Things 3 | TickTick | ChronoFlow Desktop |
 | -------------------- | --------------- | ------- | -------- | -------- | ------------------ |
 | Basic (D/W/M/Y)      | ✅              | ✅      | ✅       | ✅       | ✅                 |
 | Every N interval     | ✅              | ✅      | ✅       | ✅       | ✅                 |

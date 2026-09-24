@@ -1,6 +1,6 @@
 # Connectivity-Free Mode Configuration
 
-**Connectivity-Free Mode** allows you to use the Super Productivity Android app without an internet connection. This mode is recommended for users who prefer local usage.
+**Connectivity-Free Mode** allows you to use the ChronoFlow Desktop Android app without an internet connection. This mode is recommended for users who prefer local usage.
 
 ## Setting Launch Mode to Connectivity-Free
 
@@ -10,22 +10,22 @@ For users performing a **new installation**, setting `LAUNCH_MODE` to `2` ensure
 
 **Important**: If you set `LAUNCH_MODE` to `0`, the app will use the default behavior, which may attempt to read from SharedPreferences and connect to online services if available. To maintain a purely offline experience, always set `LAUNCH_MODE` to `2` for new installations.
 
-## Building and Running super-productivity-android Locally
+## Building and Running chronoflow-desktop-android Locally
 
 ### 1. Clone the Repository
 
-To set up the project, clone the `super-productivity` repository instead of directly cloning the `super-productivity-android` repository. This ensures that all submodules, including the Android project, are properly initialized.
+To set up the project, clone the `chronoflow-desktop` repository instead of directly cloning the `chronoflow-desktop-android` repository. This ensures that all submodules, including the Android project, are properly initialized.
 
 ```bash
-git clone https://github.com/super-productivity/super-productivity.git
-cd super-productivity
+git clone https://github.com/chronoflow-desktop/chronoflow-desktop.git
+cd chronoflow-desktop
 git submodule init
 git submodule update
 ```
 
 ### 2. Compile the Node.js Project
 
-Ensure you have Node.js and npm installed. Navigate to the root directory of the `super-productivity` project and install the necessary dependencies.
+Ensure you have Node.js and npm installed. Navigate to the root directory of the `chronoflow-desktop` project and install the necessary dependencies.
 
 ```bash
 npm install

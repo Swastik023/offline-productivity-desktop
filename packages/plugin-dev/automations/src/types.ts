@@ -1,4 +1,4 @@
-import { Task } from '@super-productivity/plugin-api';
+import { Task } from '@chronoflow-desktop/plugin-api';
 
 export type AutomationTriggerType =
   | 'taskCompleted'

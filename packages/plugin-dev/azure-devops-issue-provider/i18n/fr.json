@@ -19,5 +19,5 @@
     "PRIORITY": "Priorité",
     "DESCRIPTION": "Description"
   },
-  "FORM_HELP": "<p>Here you can configure Super Productivity to list Azure DevOps work items for a project in the task creation panel. They are shown as suggestions and link back to the work item.</p><p>In addition, you can automatically import open work items. Provide a Personal Access Token with work-item read access.</p>"
+  "FORM_HELP": "<p>Here you can configure ChronoFlow Desktop to list Azure DevOps work items for a project in the task creation panel. They are shown as suggestions and link back to the work item.</p><p>In addition, you can automatically import open work items. Provide a Personal Access Token with work-item read access.</p>"
 }

@@ -1,6 +1,6 @@
-# Super Productivity Plugin Development Guide
+# ChronoFlow Desktop Plugin Development Guide
 
-This is a comprehensive documentation of the Super Productivity Plugin System. This guide covers everything you need to know about creating plugins for Super Productivity.
+This is a comprehensive documentation of the ChronoFlow Desktop Plugin System. This guide covers everything you need to know about creating plugins for ChronoFlow Desktop.
 
 These docs might not always be perfectly up to date. You find the latest typescript interfaces here:
 [types.ts](../packages/plugin-api/src/types.ts)
@@ -52,7 +52,7 @@ iframe plugin can ship only `manifest.json` and `index.html` when the manifest s
   "id": "hello-world",
   "name": "Hello World Plugin",
   "version": "1.0.0",
-  "description": "My first Super Productivity plugin",
+  "description": "My first ChronoFlow Desktop plugin",
   "manifestVersion": 1,
   "minSupVersion": "14.0.0",
   "hooks": [],
@@ -161,7 +161,7 @@ boundary from the host app.
 - You want to display charts, forms, or complex interfaces
 
 Iframe-only plugins do not need a `plugin.js` file if all plugin behavior lives inside
-`index.html`. Super Productivity automatically adds the default menu or side-panel entry
+`index.html`. ChronoFlow Desktop automatically adds the default menu or side-panel entry
 from the manifest when the plugin is loaded.
 
 **Important:** Iframe plugins are served through `srcdoc` and receive a filtered
@@ -609,7 +609,7 @@ registered via `registerConfigHandler`, or a side panel) and store it with
 
 - **Lazy load resources**: Don't load everything on plugin initialization
 - **Be responsive with using resources**: Avoid heavy operations and don't save excessive amounts of data.
-- **Keep it lightweight**: Super Productivity is not the only app on the users system and your plugin is not the only plugin.
+- **Keep it lightweight**: ChronoFlow Desktop is not the only app on the users system and your plugin is not the only plugin.
 
 ### 2. User Experience
 
@@ -630,7 +630,7 @@ desktop app after the user allows the desktop permission prompt.
 Both built-in and uploaded (community) plugins may request `nodeExecution`. The grant is
 issued by the Electron **main** process after a native consent dialog and is bound to the
 plugin id. For uploaded plugins the app cannot verify the manifest, so the dialog flags
-the plugin as unverified third-party code with full machine access that Super Productivity
+the plugin as unverified third-party code with full machine access that ChronoFlow Desktop
 cannot sandbox, and defaults to **Deny** — only allow plugins whose source you trust. If
 the user denies, the plugin returns to a disabled state; enabling it again reopens the
 prompt.
@@ -863,7 +863,7 @@ async function testAPI() {
 
 ## Resources
 
-- **Plugin API Types**: [@super-productivity/plugin-api](https://www.npmjs.com/package/@super-productivity/plugin-api)
+- **Plugin API Types**: [@chronoflow-desktop/plugin-api](https://www.npmjs.com/package/@chronoflow-desktop/plugin-api)
 - **Plugin Boilerplate**: [boilerplate-solid-js](../packages/plugin-dev/boilerplate-solid-js)
 - **Example Plugins**: [plugin-dev](../packages/plugin-dev)
 - **Community Plugins**:
@@ -883,7 +883,7 @@ Happy plugin development! 🚀
 
 ### Tips
 
-- Don't test on your real world data! Use a test instance! (you can use https://test-app.super-productivity.com/ if you don't know how get one)
+- Don't test on your real world data! Use a test instance! (you can use https://test-app.chronoflow-desktop.com/ if you don't know how get one)
 - Be as specific as possible
 - Outline what APIs your plugin should use
 - Test for errors (`Ctrl+Shift+i` opens the console) and iterate until it works. Don't expect that everything works on your first try.
@@ -892,9 +892,9 @@ Happy plugin development! 🚀
 ### Example
 
 ```md
-Can you you write me a plugin for Super Productivity that plays a beep sound every time i click on a header button (You need to add a header button via PluginAPI.registerHeaderButton).
+Can you you write me a plugin for ChronoFlow Desktop that plays a beep sound every time i click on a header button (You need to add a header button via PluginAPI.registerHeaderButton).
 
-Here are the docs: https://github.com/super-productivity/super-productivity/blob/master/docs/plugin-development.md
+Here are the docs: https://github.com/chronoflow-desktop/chronoflow-desktop/blob/master/docs/plugin-development.md
 
 Don't use any PluginAPI methods that are not listed in the guide.
 

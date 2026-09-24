@@ -1,7 +1,7 @@
 /**
  * Contract for the `widget_data` KeyValStore blob consumed by the native Android
  * home screen widget. The native reader is
- * `android/app/src/main/java/com/superproductivity/superproductivity/widget/WidgetData.kt`
+ * `android/app/src/main/java/com/chronoflow/chronoflow/widget/WidgetData.kt`
  * — keep both ends in sync. Bump `v` on breaking changes; the native side renders
  * unknown versions as an empty widget instead of mis-parsing them.
  *

@@ -36,7 +36,7 @@ const MAX_APP_URI_LOOKUP_LENGTH = 100_000;
 /**
  * Handles `create-task`/`complete-task` actions coming from an external URL
  * scheme trigger (an iOS Shortcut's "Open URLs" action, or the equivalent
- * `superproductivity://` desktop protocol action) — one code path for both
+ * `chronoflow://` desktop protocol action) — one code path for both
  * Electron (via IPC) and Capacitor/iOS (via the pending-action ReplaySubject
  * populated in `main.ts`, since a cold launch happens before Angular's DI or
  * this service exist).

@@ -25,7 +25,7 @@ const BUILT_IN_PLUGIN_ID_RE = /^[a-z0-9][a-z0-9-]*$/;
 // An uploaded (community) plugin id is attacker-controlled and used both as a grant Map
 // key and as the consent dialog's trust anchor ("Plugin ID: ..."), and as a path segment
 // in getBuiltInManifestPath(). It is NOT held to the strict built-in kebab rule —
-// community ids may use dots/uppercase, e.g. `super-productivity-mcp` — but it must be a
+// community ids may use dots/uppercase, e.g. `chronoflow-desktop-mcp` — but it must be a
 // single safe ASCII token. We use an allowlist rather than a denylist on purpose: the
 // allowlist rejects control/zero-width/bidi/homoglyph characters that could spoof the
 // dialog, whitespace that could inject extra dialog lines, the ':' persistence delimiter,
@@ -457,7 +457,7 @@ class PluginNodeExecutor {
         `Name (self-declared, unverified): ${name}`,
         `Version (self-declared): ${version}`,
         '',
-        'This is a third-party plugin. Super Productivity cannot verify its identity and cannot sandbox it.',
+        'This is a third-party plugin. ChronoFlow Desktop cannot verify its identity and cannot sandbox it.',
         'If you allow it, the plugin can run any program with full access to your files and system.',
         'Your choice is remembered on this device until you disable, remove, or re-upload this plugin.',
         '',
@@ -658,7 +658,7 @@ class PluginNodeExecutor {
 
       // Run the script with our own binary in node mode (ELECTRON_RUN_AS_NODE is set
       // below). In packaged builds the executable name doesn't contain "electron"
-      // (e.g. "Super Productivity"), and the stripped child env has no PATH, so
+      // (e.g. "ChronoFlow Desktop"), and the stripped child env has no PATH, so
       // falling back to spawn('node') fails with ENOENT unless node happens to live
       // in /usr/bin. process.execPath works in every mode: dev (Electron from
       // node_modules), packaged apps, and plain node (tests).

@@ -1,5 +1,5 @@
 {
-  "name": "@super-productivity/caldav-calendar-provider",
+  "name": "@chronoflow-desktop/caldav-calendar-provider",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -15,7 +15,7 @@
     "vitest": "^4.1.0"
   },
   "dependencies": {
-    "@super-productivity/plugin-api": "file:../../plugin-api",
+    "@chronoflow-desktop/plugin-api": "file:../../plugin-api",
     "ical.js": "^2.2.1"
   }
 }

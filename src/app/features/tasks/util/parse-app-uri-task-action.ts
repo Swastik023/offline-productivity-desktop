@@ -13,7 +13,7 @@ export interface AppUriCompleteTaskAction {
 export type AppUriTaskAction = AppUriAddTaskAction | AppUriCompleteTaskAction;
 
 /**
- * Parses the `com.super-productivity.app://create-task?title=...` and
+ * Parses the `com.chronoflow-desktop.app://create-task?title=...` and
  * `.../complete-task?title=...` custom URL scheme actions (used by iOS
  * Shortcuts' "Open URLs" action). `create-task` (not `add-task`) matches the
  * desktop Electron protocol action name — desktop's own `add-task` action

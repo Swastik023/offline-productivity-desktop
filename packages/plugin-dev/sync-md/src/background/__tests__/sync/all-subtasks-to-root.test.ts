@@ -1,6 +1,6 @@
 import { parseMarkdown } from '../../sync/markdown-parser';
 import { generateTaskOperations } from '../../sync/generate-task-operations';
-import { Task, BatchTaskUpdate } from '@super-productivity/plugin-api';
+import { Task, BatchTaskUpdate } from '@chronoflow-desktop/plugin-api';
 
 describe('All Subtasks Converted to Root Level', () => {
   // Helper to create mock task

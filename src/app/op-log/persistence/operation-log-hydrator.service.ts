@@ -1100,7 +1100,7 @@ export class OperationLogHydratorService {
    * Provides platform-specific guidance for "backing store" errors.
    * Also logs full error details to console for debugging.
    *
-   * @see https://github.com/johannesjo/super-productivity/issues/6255
+   * @see https://github.com/johannesjo/chronoflow-desktop/issues/6255
    */
   private _showIndexedDBOpenError(error: IndexedDBOpenError): void {
     // Log full error details to console for debugging (can be copied by users).

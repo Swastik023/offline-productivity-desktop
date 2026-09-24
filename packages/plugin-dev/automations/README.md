@@ -1,11 +1,11 @@
-# Solid.js Boilerplate Plugin for Super Productivity
+# Solid.js Boilerplate Plugin for ChronoFlow Desktop
 
-A modern, TypeScript-based boilerplate for creating Super Productivity plugins using Solid.js.
+A modern, TypeScript-based boilerplate for creating ChronoFlow Desktop plugins using Solid.js.
 
 ## Features
 
 - 🚀 **Solid.js** - Fast, reactive UI framework
-- 📘 **TypeScript** - Full type safety with Super Productivity Plugin API
+- 📘 **TypeScript** - Full type safety with ChronoFlow Desktop Plugin API
 - 🎨 **Modern UI** - Clean, responsive design with dark mode support
 - 🔧 **Vite** - Lightning-fast development and build tooling
 - 📦 **Ready to Use** - Complete setup with examples for all plugin features
@@ -16,7 +16,7 @@ A modern, TypeScript-based boilerplate for creating Super Productivity plugins u
 
 - Node.js 16+
 - npm or yarn
-- Super Productivity 8.0.0+
+- ChronoFlow Desktop 8.0.0+
 
 ### Installation
 
@@ -87,7 +87,7 @@ This will:
 2. Inline all CSS and JavaScript assets into the HTML file
 3. Create a ZIP file for distribution
 
-**Note**: The `deploy` command is necessary for any plugin with HTML UI because Super Productivity loads plugin HTML as data URLs, which cannot access external files. The inline-assets script ensures all assets are embedded directly in the HTML.
+**Note**: The `deploy` command is necessary for any plugin with HTML UI because ChronoFlow Desktop loads plugin HTML as data URLs, which cannot access external files. The inline-assets script ensures all assets are embedded directly in the HTML.
 
 ## Project Structure
 
@@ -121,7 +121,7 @@ dist/               # Build output (gitignored)
 The plugin API is exposed through the global `plugin` object in `plugin.ts`:
 
 ```typescript
-import { PluginInterface } from '@super-productivity/plugin-api';
+import { PluginInterface } from '@chronoflow-desktop/plugin-api';
 
 declare const plugin: PluginInterface;
 ```
@@ -252,7 +252,7 @@ Modify `src/app/App.css` to customize the appearance.
 
 ## Best Practices
 
-1. **Type Safety**: Always use TypeScript types from `@super-productivity/plugin-api`
+1. **Type Safety**: Always use TypeScript types from `@chronoflow-desktop/plugin-api`
 2. **Error Handling**: Wrap async operations in try-catch blocks
 3. **Performance**: Use Solid.js signals and effects efficiently
 4. **Security**: Never expose sensitive data or operations
@@ -262,8 +262,8 @@ Modify `src/app/App.css` to customize the appearance.
 
 1. Build the plugin: `npm run build`
 2. Package it: `npm run package`
-3. Upload the ZIP file to Super Productivity:
-   - Open Super Productivity
+3. Upload the ZIP file to ChronoFlow Desktop:
+   - Open ChronoFlow Desktop
    - Go to Settings → Plugins
    - Click "Upload Plugin"
    - Select your ZIP file
@@ -274,12 +274,12 @@ Modify `src/app/App.css` to customize the appearance.
 
 - Check browser console for errors
 - Verify `manifest.json` is valid JSON
-- Ensure `minSupVersion` matches your Super Productivity version
+- Ensure `minSupVersion` matches your ChronoFlow Desktop version
 
 ### API calls failing
 
 - Check if you have required permissions in `manifest.json`
-- Verify Super Productivity is running the correct version
+- Verify ChronoFlow Desktop is running the correct version
 - Look for error messages in the console
 
 ### Build errors
@@ -290,10 +290,10 @@ Modify `src/app/App.css` to customize the appearance.
 
 ## Resources
 
-- [Super Productivity Plugin API Documentation](https://github.com/super-productivity/super-productivity)
+- [ChronoFlow Desktop Plugin API Documentation](https://github.com/chronoflow-desktop/chronoflow-desktop)
 - [Solid.js Documentation](https://www.solidjs.com/docs/latest)
 - [Vite Documentation](https://vitejs.dev/)
 
 ## License
 
-This boilerplate is provided as-is for creating Super Productivity plugins. Feel free to modify and distribute your plugins as you see fit.
+This boilerplate is provided as-is for creating ChronoFlow Desktop plugins. Feel free to modify and distribute your plugins as you see fit.

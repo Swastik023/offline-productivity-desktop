@@ -43,7 +43,7 @@ export class UnsplashService {
   private _http = inject(HttpClient);
 
   private readonly API_URL = 'https://api.unsplash.com';
-  // Register your app at https://unsplash.com/developers?utm_source=super-productivity&utm_medium=referral&utm_campaign=api-credit for a free Access Key (50 req/hour)
+  // Register your app at https://unsplash.com/developers?utm_source=chronoflow-desktop&utm_medium=referral&utm_campaign=api-credit for a free Access Key (50 req/hour)
   // The Access Key is used with "Client-ID" prefix in the Authorization header
   private readonly ACCESS_KEY = getEnvOptional('UNSPLASH_KEY');
 
@@ -58,7 +58,7 @@ export class UnsplashService {
 
     if (!this.ACCESS_KEY) {
       Log.warn(
-        'No Unsplash Access Key configured. Register at https://unsplash.com/developers?utm_source=super-productivity&utm_medium=referral&utm_campaign=api-credit',
+        'No Unsplash Access Key configured. Register at https://unsplash.com/developers?utm_source=chronoflow-desktop&utm_medium=referral&utm_campaign=api-credit',
       );
       return of({ results: [], total: 0, total_pages: 0 });
     }
@@ -113,7 +113,7 @@ export class UnsplashService {
     if (!url) return url;
 
     const separator = url.includes('?') ? '&' : '?';
-    return `${url}${separator}utm_source=super-productivity&utm_medium=referral&utm_campaign=api-credit`;
+    return `${url}${separator}utm_source=chronoflow-desktop&utm_medium=referral&utm_campaign=api-credit`;
   }
 
   /**

@@ -1,9 +1,9 @@
 import { parseMarkdownWithHeader } from './markdown-parser';
 import { generateTaskOperations } from './generate-task-operations';
-// import { Task } from '@super-productivity/plugin-api';
+// import { Task } from '@chronoflow-desktop/plugin-api';
 
 /**
- * Replicate markdown content to Super Productivity tasks
+ * Replicate markdown content to ChronoFlow Desktop tasks
  * Uses the new generateTaskOperations function for proper bidirectional sync
  */
 export const mdToSp = async (

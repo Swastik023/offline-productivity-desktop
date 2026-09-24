@@ -151,7 +151,7 @@ describe('BrowserTitleService', () => {
         0,
       );
 
-      expect(result).toBe('Super Productivity');
+      expect(result).toBe('ChronoFlow Desktop');
     });
 
     it('should show remaining time when running', () => {
@@ -298,7 +298,7 @@ describe('BrowserTitleService', () => {
 
       TestBed.flushEffects();
 
-      expect(titleService.setTitle).toHaveBeenCalledWith('Super Productivity');
+      expect(titleService.setTitle).toHaveBeenCalledWith('ChronoFlow Desktop');
     });
   });
 });

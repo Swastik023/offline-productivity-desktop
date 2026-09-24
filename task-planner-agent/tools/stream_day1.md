@@ -1,0 +1,9 @@
+- [ ] 🔴 STREAM 1: Surveying the Bedrock (Phase 00) `+Stream` `#live` `1h`
+  - [ ] 🖥️ Run lscpu & Document Cores `15m`
+  - [ ] 💾 Run free -h (Available vs Cached) `15m`
+  - [ ] 💥 MESSED UP TASK: Trigger the OOM Reaper `30m`
+- [ ] 🔴 STREAM 2: The Corporate Tower (Phase 01) `+Stream` `#live` `1h30m`
+  - [ ] 🏢 Explore the FHS Directory Tree `30m`
+  - [ ] 👮 Introduce the Kernel Bouncer (Syscalls) `30m`
+  - [ ] 💥 MESSED UP TASK: The Zombie Process Apocalypse `30m`
+- [ ] 🗣️ Live Q&A and Stream Wrap-up `+Stream` `#wrapup` `30m`

@@ -4,7 +4,7 @@ import type {
   PluginHttp,
   PluginIssue,
   PluginSearchResult,
-} from '@super-productivity/plugin-api';
+} from '@chronoflow-desktop/plugin-api';
 
 declare const PluginAPI: {
   registerIssueProvider(definition: IssueProviderPluginDefinition): void;
@@ -112,7 +112,7 @@ const isAuthOrNotFoundError = (err: unknown): boolean => {
 // GitHub's search API requires parentheses percent-encoded, but
 // encodeURIComponent leaves them intact (they're unreserved per RFC 3986).
 // Unencoded parens cause HTTP 422 on queries like "(author:@me OR assignee:@me)".
-// See https://github.com/super-productivity/super-productivity/issues/4913
+// See https://github.com/chronoflow-desktop/chronoflow-desktop/issues/4913
 const encodeGithubQuery = (query: string): string =>
   encodeURIComponent(query).replace(/\(/g, '%28').replace(/\)/g, '%29');
 
@@ -134,7 +134,7 @@ PluginAPI.registerIssueProvider({
       key: 'tokenHelp',
       type: 'link',
       label: t('CFG.HOW_TO_GET_TOKEN'),
-      url: 'https://github.com/super-productivity/super-productivity/blob/master/docs/github-access-token-instructions.md',
+      url: 'https://github.com/chronoflow-desktop/chronoflow-desktop/blob/master/docs/github-access-token-instructions.md',
     },
     {
       key: 'apiBaseUrl',

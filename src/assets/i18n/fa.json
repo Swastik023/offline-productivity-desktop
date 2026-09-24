@@ -14,12 +14,12 @@
     },
     "B_SYNC_SAFETY": {
       "DISMISS": "اکنون نه",
-      "MSG": "مدتی است که از Super Productivity استفاده می‌کنید. همگام‌سازی را تنظیم کنید تا از داده‌های خود نسخه پشتیبان تهیه کرده و آن‌ها را در همه دستگاه‌ها ایمن نگه دارید.",
+      "MSG": "مدتی است که از ChronoFlow Desktop استفاده می‌کنید. همگام‌سازی را تنظیم کنید تا از داده‌های خود نسخه پشتیبان تهیه کرده و آن‌ها را در همه دستگاه‌ها ایمن نگه دارید.",
       "SETUP": "تنظیم همگام‌سازی"
     },
     "B_UPDATE_AVAILABLE": {
       "DOWNLOAD": "بارگیری",
-      "MSG": "نسخه جدیدی از Super Productivity موجود است ({{version}})."
+      "MSG": "نسخه جدیدی از ChronoFlow Desktop موجود است ({{version}})."
     },
     "CONTEXT_MENU": {
       "CHANGE_BACKGROUND": "تغییر پیش زمینه",
@@ -84,7 +84,7 @@
   "EXAMPLE_TASKS": {
     "LEARN_KEYBOARD_SHORTCUTS": {
       "TITLE": "میانبرهای صفحه‌کلید را یاد بگیرید",
-      "NOTES": "Super Productivity برای استفاده با صفحه‌کلید طراحی شده است. میانبرها را یاد بگیرید تا سریع‌تر کار کنید.\n\n**چگونه شروع کنیم:**\n1. **منوی کناری** را باز کنید\n2. به **راهنما** بروید\n3. روی **تور ناوبری صفحه‌کلید** کلیک کنید"
+      "NOTES": "ChronoFlow Desktop برای استفاده با صفحه‌کلید طراحی شده است. میانبرها را یاد بگیرید تا سریع‌تر کار کنید.\n\n**چگونه شروع کنیم:**\n1. **منوی کناری** را باز کنید\n2. به **راهنما** بروید\n3. روی **تور ناوبری صفحه‌کلید** کلیک کنید"
     },
     "CREATE_PROJECT": {
       "TITLE": "اولین پروژه خود را بسازید",
@@ -282,7 +282,7 @@
       "FEEDBACK_PUBLIC": "ارسال در GitHub Discussions",
       "FEEDBACK_PUBLIC_DESC": "دیگران می‌بینند و پاسخ می‌دهند",
       "FEEDBACK_TITLE": "چگونه دوست دارید کمک کنید؟",
-      "TITLE": "از Super Productivity لذت می‌برید؟",
+      "TITLE": "از ChronoFlow Desktop لذت می‌برید؟",
       "TXT": "این یک پروژه <strong>رایگان و متن‌باز</strong> ساخته‌شده توسط علاقه‌مندان است — بدون ردیابی، بدون تبلیغات. یک امتیاز یا پیام کوتاه کمک می‌کند افراد بیشتری آن را پیدا کنند."
     },
     "DROPBOX": {
@@ -464,7 +464,7 @@
       }
     },
     "ISSUE": {
-      "CROSS_ORIGIN_BROWSER_WARNING": "این ادغام احتمالاً در مرورگر شما کار نخواهد کرد. لطفا نسخه دسکتاپ یا اندروید Super Productivity را دانلود کنید!",
+      "CROSS_ORIGIN_BROWSER_WARNING": "این ادغام احتمالاً در مرورگر شما کار نخواهد کرد. لطفا نسخه دسکتاپ یا اندروید ChronoFlow Desktop را دانلود کنید!",
       "DEFAULT": {
         "ISSUE_STR": "موضوع",
         "ISSUES_STR": "مسائل"
@@ -683,7 +683,7 @@
       },
       "S": {
         "ADDED_WORKLOG_FOR": "Jira: Added worklog for {{issueKey}}",
-        "EXTENSION_NOT_LOADED": "Super Productivity Extension not loaded. Reloading the page might help",
+        "EXTENSION_NOT_LOADED": "ChronoFlow Desktop Extension not loaded. Reloading the page might help",
         "INSUFFICIENT_SETTINGS": "Insufficient Settings provided for Jira",
         "INVALID_RESPONSE": "جیرا: پاسخ حاوی اطلاعات نامعتبر بود",
         "NO_AUTO_IMPORT_JQL": "جیرا: هیچگونه جستجوی جستجو برای واردات خودکار تعریف نشده است",
@@ -879,7 +879,7 @@
         "TOKEN": "نشانه دسترسی"
       },
       "FORM_SECTION": {
-        "HELP": "<p>در اینجا می توانید SuperProductivity را برای لیست بسته های کاری OpenProject باز شده پیکربندی کنید. لطفاً توجه داشته باشید که برای کارکردن در مرورگر ، احتمالاً باید CORS را برای سرور OpenProject خود پیکربندی کنید ، تا از app.super-productivity.com اجازه دسترسی داشته باشید</p>"
+        "HELP": "<p>در اینجا می توانید SuperProductivity را برای لیست بسته های کاری OpenProject باز شده پیکربندی کنید. لطفاً توجه داشته باشید که برای کارکردن در مرورگر ، احتمالاً باید CORS را برای سرور OpenProject خود پیکربندی کنید ، تا از app.chronoflow-desktop.com اجازه دسترسی داشته باشید</p>"
       },
       "ISSUE_CONTENT": {
         "ASSIGNEE": "اختصاص دهنده",
@@ -1334,7 +1334,7 @@
         "TITLE": "همگام سازی",
         "WEB_DAV": {
           "CORS_INFO": "<strong>آزمایشی !!</strong> برای انجام این کار باید CORS را برای نمونه Nextcloud خود غیرفعال یا محدود کنید ، که این امر می تواند پیامدهای امنیتی منفی داشته باشد! لطفاً برای اطلاعات بیشتر <a href='https://github.com/nextcloud/server/issues/3131'>به این بخش مراجعه کنید</a> . با مسئولیت خود استفاده کنید!",
-          "INFO": "متأسفانه پیاده سازی های WebDAV بسیار متفاوت هستند. Super Productivity به خوبی با Nextcloud کار می کند، <strong>اما ممکن است با ارائه دهنده شما کار نکند</strong>.",
+          "INFO": "متأسفانه پیاده سازی های WebDAV بسیار متفاوت هستند. ChronoFlow Desktop به خوبی با Nextcloud کار می کند، <strong>اما ممکن است با ارائه دهنده شما کار نکند</strong>.",
           "L_BASE_URL": "آدرس پایگاه",
           "L_PASSWORD": "کلمه عبور",
           "L_SYNC_FOLDER_PATH": "همگام سازی مسیر پوشه",
@@ -1496,14 +1496,14 @@
         },
         "ONEDRIVE": {
           "CLIENT_ID_DESCRIPTION": "شناسهٔ برنامه (کلاینت) از ثبت برنامهٔ Microsoft Entra شما",
-          "INFO_TEXT": "احراز هویت Microsoft 365 از OAuth استفاده می‌کند. ابتدا مشخصات کلاینت و مستأجر را وارد کنید، سپس احراز هویت کنید. <strong>از ثبت برنامهٔ Entra خودتان استفاده می‌کنید؟</strong> در نسخهٔ دسکتاپ، URI تغییر مسیر <code>superproductivity://oauth-callback/onedrive</code> را زیر \"Mobile and desktop applications\" ثبت کنید، گزینهٔ \"Allow public client flows\" را فعال کنید و مجوز تفویض‌شدهٔ <code>Files.ReadWrite.AppFolder</code> را بدهید. <a href=\"https://github.com/super-productivity/super-productivity/wiki/2.09-Configure-Sync-Backend\" target=\"_blank\" rel=\"noopener\">راهنمای راه‌اندازی OneDrive</a> را ببینید.",
+          "INFO_TEXT": "احراز هویت Microsoft 365 از OAuth استفاده می‌کند. ابتدا مشخصات کلاینت و مستأجر را وارد کنید، سپس احراز هویت کنید. <strong>از ثبت برنامهٔ Entra خودتان استفاده می‌کنید؟</strong> در نسخهٔ دسکتاپ، URI تغییر مسیر <code>chronoflow://oauth-callback/onedrive</code> را زیر \"Mobile and desktop applications\" ثبت کنید، گزینهٔ \"Allow public client flows\" را فعال کنید و مجوز تفویض‌شدهٔ <code>Files.ReadWrite.AppFolder</code> را بدهید. <a href=\"https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.09-Configure-Sync-Backend\" target=\"_blank\" rel=\"noopener\">راهنمای راه‌اندازی OneDrive</a> را ببینید.",
           "L_CLIENT_ID": "شناسهٔ برنامه (کلاینت)",
           "L_SYNC_FOLDER_PATH": "مسیر پوشهٔ همگام‌سازی",
           "L_TENANT_ID": "شناسهٔ مستأجر",
           "L_USE_CUSTOM_APP": "استفاده از ثبت برنامهٔ Microsoft Entra خودم",
           "OFFICIAL_MODE_INFO": "برای این برنامه از ورود داخلی Microsoft 365 استفاده می‌شود. تنها در صورتی به حالت سفارشی بروید که به ثبت برنامهٔ Entra خودتان نیاز دارید.",
           "PLATFORM_INFO": "همگام‌سازی OneDrive فقط در برنامه‌های دسکتاپ و موبایل در دسترس است، نه در نسخهٔ مرورگر.",
-          "SYNC_FOLDER_PATH_DESCRIPTION": "در پوشهٔ برنامهٔ OneDrive شما ذخیره می‌شود (برای نمونه super-productivity)",
+          "SYNC_FOLDER_PATH_DESCRIPTION": "در پوشهٔ برنامهٔ OneDrive شما ذخیره می‌شود (برای نمونه chronoflow-desktop)",
           "TENANT_ID_DESCRIPTION": "برای ورود چندمستأجری از 'common' استفاده کنید",
           "USE_CUSTOM_APP_DESCRIPTION": "اگر می‌خواهید شناسهٔ برنامه (کلاینت) خودتان را وارد کنید، این گزینه را فعال کنید"
         }
@@ -1545,7 +1545,7 @@
         "ERROR_REMOTE_FILE_CORRUPTED": "داده‌های همگام‌سازی راه دور خواندنی نیستند (ممکن است ناقص یا خراب شده باشند). داده‌های محلی شما ایمن‌اند. می‌توانید داده‌های راه دور را با داده‌های محلی خود بازنویسی کنید.",
         "ERROR_REMOTE_FILE_EMPTY": "فایل همگام‌سازی راه دور خالی است. این وضعیت ممکن است پس از قطع شدن همگام‌سازی رخ دهد. داده‌های راه دور با داده‌های محلی شما بازنویسی شوند؟",
         "ERROR_REMOTE_FILE_LOCKED": "فایل همگام‌سازی راه دور توسط سرور قفل شده است. ممکن است در تلاش بعدی همگام‌سازی برطرف شود.",
-        "ERROR_SYNC_VERSION_MISMATCH": "داده‌های همگام‌سازی راه دور از نسخهٔ قالب ناسازگاری استفاده می‌کنند. مطمئن شوید همهٔ دستگاه‌ها نسخهٔ یکسانی از Super Productivity را اجرا می‌کنند.",
+        "ERROR_SYNC_VERSION_MISMATCH": "داده‌های همگام‌سازی راه دور از نسخهٔ قالب ناسازگاری استفاده می‌کنند. مطمئن شوید همهٔ دستگاه‌ها نسخهٔ یکسانی از ChronoFlow Desktop را اجرا می‌کنند.",
         "ERROR_UNABLE_TO_READ_REMOTE_DATA": "خواندن داده‌های راه دور امکان‌پذیر نیست",
         "FINISH_DAY_SYNC_ERROR": "خطا در همگام‌سازی پایان روز",
         "FORCE_UPLOAD_FAILED": "بازنویسی داده‌های سرور ناموفق بود. تغییرات محلی شما همچنان در دسترس‌اند.",
@@ -2348,11 +2348,11 @@
     "IMPORT_FROM_FILE": "وارد کردن از فایل",
     "IMPORT_FROM_TODOIST": "وارد کردن از Todoist",
     "IMPORT_FROM_URL": "وارد کردن از URL",
-    "IMPORT_FROM_URL_DIALOG_DESCRIPTION": "لطفاً نشانی کامل فایل پشتیبان JSON از Super Productivity را که می‌خواهید وارد کنید، وارد نمایید.",
+    "IMPORT_FROM_URL_DIALOG_DESCRIPTION": "لطفاً نشانی کامل فایل پشتیبان JSON از ChronoFlow Desktop را که می‌خواهید وارد کنید، وارد نمایید.",
     "IMPORT_FROM_URL_DIALOG_TITLE": "وارد کردن از URL",
     "OPEN_IMPORT_FROM_URL_DIALOG": "وارد کردن از URL",
     "PRIVACY_EXPORT": "صادر کردن داده ها (ناشناس)",
-    "PRIVACY_EXPORT_DESCRIPTION": "صادر کردن داده های ناشناس (برای ارسال به contact@super-productivity.com برای اشکال زدایی)",
+    "PRIVACY_EXPORT_DESCRIPTION": "صادر کردن داده های ناشناس (برای ارسال به contact@chronoflow-desktop.com برای اشکال زدایی)",
     "S_BACKUP_DOWNLOADED": "پشتیبان گیری در پوشه اسناد اندروید دانلود شده است",
     "S_ERR_IMPORT_FAILED": "وارد کردن داده ها انجام نشد",
     "S_ERR_INVALID_DATA": "وارد کردن انجام نشد: JSON نامعتبر",
@@ -2379,7 +2379,7 @@
     "EDIT": "ویرایش",
     "ENABLED": "فعال شده است",
     "EXAMPLE_VAL": "برای ویرایش کلیک کنید",
-    "EXTENSION_INFO": "لطفا برای ارتباط با جیرا و مدیریت زمان <a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/super-productivity/ljkbjodfmekklcoibdnhahlaalhihmlb\"> افزونه گوگل کروم</a> را دانلود کنید. توجه این افزونه برای نسخه موبایل کروم کار نمی کند.",
+    "EXTENSION_INFO": "لطفا برای ارتباط با جیرا و مدیریت زمان <a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/chronoflow-desktop/ljkbjodfmekklcoibdnhahlaalhihmlb\"> افزونه گوگل کروم</a> را دانلود کنید. توجه این افزونه برای نسخه موبایل کروم کار نمی کند.",
     "HIDE": "پنهان کردن",
     "ICON_INP_DESCRIPTION": "تمام ایموجی های utf-8 نیز پشتیبانی می شوند!",
     "INBOX_PROJECT_TITLE": "صندوق پستی",
@@ -2428,7 +2428,7 @@
     },
     "CALENDARS": {
       "AUTO_IMPORT_FOR_CURRENT_DAY": "وارد کردن خودکار رویدادها به‌عنوان وظیفه برای روز جاری",
-      "BROWSER_WARNING": "به دلیل محدودیت‌های متقاطع <b>این احتمالاً با نسخه مرورگر Super Productivity کار نخواهد کرد.<br /> لطفاً برای استفاده از این ویژگی <a href=\"https://super-productivity.com/download/\">نسخه دسکتاپ</a> را دانلود کنید!</b>",
+      "BROWSER_WARNING": "به دلیل محدودیت‌های متقاطع <b>این احتمالاً با نسخه مرورگر ChronoFlow Desktop کار نخواهد کرد.<br /> لطفاً برای استفاده از این ویژگی <a href=\"https://chronoflow-desktop.com/download/\">نسخه دسکتاپ</a> را دانلود کنید!</b>",
       "CAL_COLOR": "رنگ تقویم",
       "CAL_PATH": "آدرس منبع iCal",
       "CHECK_UPDATES": "هر X به‌روزرسانی‌های راه دور را بررسی کنید",
@@ -2437,7 +2437,7 @@
       "FILTER_EXCLUDE_REGEX_DESCRIPTION": "رویدادهایی که عنوانشان با این عبارت منظم منطبق باشد پنهان می‌شوند. این فیلتر پس از فیلتر نمایش اعمال می‌شود. نمونه: Lunch|Daily|Blocker",
       "FILTER_INCLUDE_REGEX": "نمایش رویدادهای منطبق با عبارت منظم (اختیاری)",
       "FILTER_INCLUDE_REGEX_DESCRIPTION": "فقط رویدادهایی نمایش داده می‌شوند که عنوانشان با این عبارت منظم منطبق باشد. برای نمایش همهٔ رویدادها خالی بگذارید. نمونه: meeting|standup",
-      "HELP": "می‌توانید تقویم‌ها را برای یادآوری ادغام کنید و آن‌ها را به‌عنوان وظایف در Super Productivity اضافه کنید. ادغام با استفاده از قالب iCal کار می کند. برای این کار، تقویم شما باید از طریق اینترنت یا از طریق سیستم فایل قابل دسترسی باشد.",
+      "HELP": "می‌توانید تقویم‌ها را برای یادآوری ادغام کنید و آن‌ها را به‌عنوان وظایف در ChronoFlow Desktop اضافه کنید. ادغام با استفاده از قالب iCal کار می کند. برای این کار، تقویم شما باید از طریق اینترنت یا از طریق سیستم فایل قابل دسترسی باشد.",
       "INVALID_REGEX": "عبارت منظم نامعتبر است",
       "REFERENCE_CALENDAR": "تقویم مرجع (فقط نمایش، بدون ایجاد وظیفه)",
       "SHOW_BANNER_THRESHOLD": "نمایش یک اعلان X قبل از رویداد (خالی برای غیرفعال)"
@@ -2923,7 +2923,7 @@
     "TOGGLE_SHOW_BOOKMARKS": "نمایش/مخفی کردن نشانک‌ها"
   },
   "MIGRATE": {
-    "C_DOWNLOAD_BACKUP": "آیا می خواهید یک نسخه پشتیبان از داده های قدیمی خود دانلود کنید (می توانید با نسخه های قدیمی Super Productivity استفاده کنید)؟",
+    "C_DOWNLOAD_BACKUP": "آیا می خواهید یک نسخه پشتیبان از داده های قدیمی خود دانلود کنید (می توانید با نسخه های قدیمی ChronoFlow Desktop استفاده کنید)؟",
     "DETECTED_LEGACY": "داده های قدیمی شناسایی شده ما آن را برای شما مهاجرت خواهیم کرد!",
     "E_MIGRATION_FAILED": "مهاجرت ناموفق بود! با خطا:",
     "E_RESTART_FAILED": "راه اندازی مجدد خودکار انجام نشد. لطفا برنامه را به صورت دستی مجددا راه اندازی کنید!",
@@ -2936,10 +2936,10 @@
     "STATUS_PREPARING": "آماده‌سازی..."
   },
   "ONBOARDING": {
-    "TITLE": "چگونه می‌خواهید از Super Productivity استفاده کنید؟",
+    "TITLE": "چگونه می‌خواهید از ChronoFlow Desktop استفاده کنید؟",
     "SUBTITLE": "تنظیماتی متناسب با روش کاری خود انتخاب کنید. هر زمان بخواهید می‌توانید این را در تنظیمات تغییر دهید.",
     "PRIVACY_HINT": "داده‌های شما به‌صورت امن روی دستگاه شما باقی می‌مانند. هیچ چیزی به سرور ارسال نمی‌شود.",
-    "SYNC_CTA": "از Super Productivity روی دستگاه دیگری استفاده می‌کنید؟",
+    "SYNC_CTA": "از ChronoFlow Desktop روی دستگاه دیگری استفاده می‌کنید؟",
     "SYNC_CTA_LINK": "راه‌اندازی همگام‌سازی",
     "PRESETS": {
       "SIMPLE_TODO": {
@@ -3258,7 +3258,7 @@
   },
   "DONATE_PAGE": {
     "BUTTON_TEXT": "کمک مالی از طریق GitHub Sponsors",
-    "INTRO_1": "Super Productivity کاملاً توسط جامعه تأمین مالی می‌شود. هیچ ردیابی، تبلیغات یا جمع‌آوری داده‌ای وجود ندارد — وظایف شما روی دستگاهتان باقی می‌مانند.",
+    "INTRO_1": "ChronoFlow Desktop کاملاً توسط جامعه تأمین مالی می‌شود. هیچ ردیابی، تبلیغات یا جمع‌آوری داده‌ای وجود ندارد — وظایف شما روی دستگاهتان باقی می‌مانند.",
     "INTRO_2": "اگر برای این رویکرد ارزش قائل هستید و می‌خواهید پروژه سالم و در حال تکامل باقی بماند، کمک مالی داوطلبانه بسیار قدردانی می‌شود."
   },
   "GLOBAL": {

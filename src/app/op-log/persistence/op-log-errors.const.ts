@@ -15,7 +15,7 @@
 /**
  * Error thrown when attempting to append a duplicate operation to the log.
  * Usually indicates a race condition where multiple syncs tried to write the same ops.
- * @see https://github.com/johannesjo/super-productivity/issues/6213
+ * @see https://github.com/johannesjo/chronoflow-desktop/issues/6213
  */
 export const DUPLICATE_OPERATION_ERROR_MSG =
   '[OpLogStore] Duplicate operation detected (likely race condition). See #6213.';
@@ -42,7 +42,7 @@ export const ARCHIVE_STORE_NOT_INITIALIZED =
 
 /**
  * Error thrown when IndexedDB fails to open after all retry attempts.
- * @see https://github.com/johannesjo/super-productivity/issues/6255
+ * @see https://github.com/johannesjo/chronoflow-desktop/issues/6255
  */
 export const IDB_OPEN_ERROR_MSG =
   '[OpLogStore] Failed to open IndexedDB after multiple retries. See #6255.';
@@ -58,7 +58,7 @@ export const IDB_OPEN_ERROR_MSG =
  * Correcting only the `Log.err` prefixes would leave the false claim in the
  * copy most likely to be read.
  *
- * @see https://github.com/super-productivity/super-productivity/issues/9187
+ * @see https://github.com/chronoflow-desktop/chronoflow-desktop/issues/9187
  */
 export const IDB_OPEN_VERSION_BARRIER_MSG =
   'Failed to open IndexedDB: rejected by the downgrade barrier, further retries skipped. See #9187.';
@@ -92,7 +92,7 @@ export const IDB_BACKING_STORE_PATTERN = 'backing store';
  * `instanceof Error`, and IndexedDB failures surface as `DOMException`s.
  * Mirrors the pattern in `isConnectionClosingError` below.
  *
- * @see https://github.com/super-productivity/super-productivity/issues/7191
+ * @see https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7191
  */
 export const isLockRelatedIdbOpenError = (err: unknown): boolean => {
   if (err instanceof DOMException || err instanceof Error) {
@@ -131,7 +131,7 @@ export const isLockRelatedIdbOpenError = (err: unknown): boolean => {
  * wrapper instead, or the caller silently falls back to the generic
  * clear-your-storage dialog.
  *
- * @see https://github.com/super-productivity/super-productivity/issues/9187
+ * @see https://github.com/chronoflow-desktop/chronoflow-desktop/issues/9187
  */
 export const isIdbVersionError = (err: unknown): boolean =>
   (err instanceof DOMException || err instanceof Error) && err.name === 'VersionError';
@@ -148,7 +148,7 @@ export const isIdbVersionError = (err: unknown): boolean =>
  * references stale, causing all subsequent operations to fail with:
  *   "Failed to execute 'transaction' on 'IDBDatabase': The database connection is closing."
  *
- * @see https://github.com/johannesjo/super-productivity/issues/6643
+ * @see https://github.com/johannesjo/chronoflow-desktop/issues/6643
  */
 export const isConnectionClosingError = (e: unknown): boolean => {
   if (e instanceof DOMException) {

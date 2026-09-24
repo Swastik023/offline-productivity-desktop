@@ -5,7 +5,7 @@ import {
 } from '../work-context/work-context.model';
 
 // Import the unified Tag type from plugin-api
-import { Tag as PluginTag } from '@super-productivity/plugin-api';
+import { Tag as PluginTag } from '@chronoflow-desktop/plugin-api';
 
 // Omit conflicting properties from PluginTag when extending
 export interface TagCopy

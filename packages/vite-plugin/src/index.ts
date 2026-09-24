@@ -22,7 +22,7 @@ export const superProductivityPlugin = (
   const { inlineAssets = true, copyTo } = options;
 
   return {
-    name: 'super-productivity-plugin',
+    name: 'chronoflow-desktop-plugin',
     config: () => {
       return {
         build: {

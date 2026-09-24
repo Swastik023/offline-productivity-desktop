@@ -1,6 +1,6 @@
 import { parseMarkdown } from '../../sync/markdown-parser';
 import { generateTaskOperations } from '../../sync/generate-task-operations';
-import { Task, BatchTaskUpdate } from '@super-productivity/plugin-api';
+import { Task, BatchTaskUpdate } from '@chronoflow-desktop/plugin-api';
 
 describe('Parent Change Cleanup', () => {
   // Helper to create mock task

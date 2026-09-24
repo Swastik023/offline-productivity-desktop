@@ -225,7 +225,7 @@ for (const electronPlatformName of ['darwin', 'mas']) {
     const appOutDir = mkdtempSync(join(tmpdir(), 'sp-mac-icon-test-'));
     const resourcesDir = join(
       appOutDir,
-      'Super Productivity.app',
+      'ChronoFlow Desktop.app',
       'Contents',
       'Resources',
     );
@@ -237,7 +237,7 @@ for (const electronPlatformName of ['darwin', 'mas']) {
       afterPack({
         electronPlatformName,
         appOutDir,
-        packager: { appInfo: { productFilename: 'Super Productivity' } },
+        packager: { appInfo: { productFilename: 'ChronoFlow Desktop' } },
       }),
     );
   });
@@ -252,7 +252,7 @@ test('afterPack rejects a packaged macOS icon that differs from the source', asy
   packagedIcon.writeUInt32BE(9, sourceIcon.length + 4);
 
   const appOutDir = mkdtempSync(join(tmpdir(), 'sp-mac-icon-test-'));
-  const resourcesDir = join(appOutDir, 'Super Productivity.app', 'Contents', 'Resources');
+  const resourcesDir = join(appOutDir, 'ChronoFlow Desktop.app', 'Contents', 'Resources');
   mkdirSync(resourcesDir, { recursive: true });
   writeFileSync(join(resourcesDir, 'icon.icns'), packagedIcon);
   t.after(() => rmSync(appOutDir, { recursive: true, force: true }));
@@ -262,7 +262,7 @@ test('afterPack rejects a packaged macOS icon that differs from the source', asy
       afterPack({
         electronPlatformName: 'darwin',
         appOutDir,
-        packager: { appInfo: { productFilename: 'Super Productivity' } },
+        packager: { appInfo: { productFilename: 'ChronoFlow Desktop' } },
       }),
     /does not match/,
   );

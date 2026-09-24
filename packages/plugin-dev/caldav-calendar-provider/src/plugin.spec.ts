@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeAll, beforeEach, afterEach, vi } from 'vitest';
-import type { IssueProviderPluginDefinition } from '@super-productivity/plugin-api';
+import type { IssueProviderPluginDefinition } from '@chronoflow-desktop/plugin-api';
 
 let definition: IssueProviderPluginDefinition;
 

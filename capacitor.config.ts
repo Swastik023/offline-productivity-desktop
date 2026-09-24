@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.super-productivity.app',
-  appName: 'Super Productivity',
+  appId: 'com.chronoflow-desktop.app',
+  appName: 'ChronoFlow Desktop',
   webDir: 'dist/browser',
   plugins: {
     CapacitorHttp: {

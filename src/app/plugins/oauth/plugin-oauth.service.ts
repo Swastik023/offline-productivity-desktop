@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { firstValueFrom, Subject } from 'rxjs';
-import { OAuthFlowConfig, OAuthTokenResult } from '@super-productivity/plugin-api';
+import { OAuthFlowConfig, OAuthTokenResult } from '@chronoflow-desktop/plugin-api';
 import { generateCodeChallenge, generateCodeVerifier } from '@sp/sync-providers/pkce';
 import { PluginOAuthTokens } from './plugin-oauth.model';
 import { IS_ELECTRON } from '../../app.constants';
@@ -59,8 +59,8 @@ export class PluginOAuthService {
       // Android: applicationId from build.gradle
       // iOS: bundle ID (matches Capacitor appId)
       return IS_ANDROID_NATIVE
-        ? 'com.superproductivity.superproductivity:/plugin-oauth-callback'
-        : 'com.super-productivity.app:/plugin-oauth-callback';
+        ? 'com.chronoflow.chronoflow:/plugin-oauth-callback'
+        : 'com.chronoflow-desktop.app:/plugin-oauth-callback';
     }
     return `${window.location.origin}${WEB_OAUTH_CALLBACK_PATH}`;
   }

@@ -3,17 +3,17 @@
     "B_INSTALL": {
       "IGNORE": "Ignoruj",
       "INSTALL": "Zainstaluj",
-      "MSG": "Czy chcesz zinstalować Super Productivity jako aplikację PWA?"
+      "MSG": "Czy chcesz zinstalować ChronoFlow Desktop jako aplikację PWA?"
     },
     "B_OFFLINE": "Zostałeś odłączony od internetu. Synchronizacja nie będzie działać.",
     "B_SYNC_SAFETY": {
       "DISMISS": "Nie teraz",
-      "MSG": "Używasz Super Productivity już od jakiegoś czasu. Skonfiguruj synchronizację, aby utworzyć kopię zapasową danych i zapewnić im bezpieczeństwo na wszystkich urządzeniach.",
+      "MSG": "Używasz ChronoFlow Desktop już od jakiegoś czasu. Skonfiguruj synchronizację, aby utworzyć kopię zapasową danych i zapewnić im bezpieczeństwo na wszystkich urządzeniach.",
       "SETUP": "Skonfiguruj synchronizację"
     },
     "B_UPDATE_AVAILABLE": {
       "DOWNLOAD": "Pobierz",
-      "MSG": "Dostępna jest nowa wersja Super Productivity ({{version}})."
+      "MSG": "Dostępna jest nowa wersja ChronoFlow Desktop ({{version}})."
     },
     "CONTEXT_MENU": {
       "CHANGE_PROJECT_SETTINGS": "Zmień ustawienia Projektu",
@@ -74,13 +74,13 @@
   },
   "DONATE_PAGE": {
     "BUTTON_TEXT": "Wesprzyj przez GitHub Sponsors",
-    "INTRO_1": "Super Productivity jest finansowany w całości przez społeczność. Nie ma śledzenia, reklam ani zbierania danych — Twoje zadania pozostają na Twoim urządzeniu.",
+    "INTRO_1": "ChronoFlow Desktop jest finansowany w całości przez społeczność. Nie ma śledzenia, reklam ani zbierania danych — Twoje zadania pozostają na Twoim urządzeniu.",
     "INTRO_2": "Jeśli cenisz takie podejście i chcesz, aby projekt był utrzymywany w dobrej kondycji i się rozwijał, dobrowolna darowizna jest bardzo mile widziana."
   },
   "EXAMPLE_TASKS": {
     "LEARN_KEYBOARD_SHORTCUTS": {
       "TITLE": "Poznaj skróty klawiaturowe",
-      "NOTES": "Super Productivity jest zaprojektowane do obsługi za pomocą klawiatury. Poznaj skróty, aby pracować szybciej.\n\n**Jak zacząć:**\n1. Otwórz **menu boczne**\n2. Przejdź do **Pomoc**\n3. Kliknij **Przewodnik po nawigacji klawiaturowej**"
+      "NOTES": "ChronoFlow Desktop jest zaprojektowane do obsługi za pomocą klawiatury. Poznaj skróty, aby pracować szybciej.\n\n**Jak zacząć:**\n1. Otwórz **menu boczne**\n2. Przejdź do **Pomoc**\n3. Kliknij **Przewodnik po nawigacji klawiaturowej**"
     },
     "CREATE_PROJECT": {
       "TITLE": "Utwórz swój pierwszy projekt",
@@ -200,7 +200,7 @@
         "POLL_INTERVAL_MINUTES": "Interwał odpytywania (minuty)"
       },
       "FORM_SECTION": {
-        "HELP": "<p>Tutaj możesz skonfigurować Super Productivity tak, aby w panelu tworzenia zadań w widoku planowania dziennego wyświetlał listę niewykonanych zadań CalDav dla wybranego projektu. Będą one pokazywane jako sugestie i będą zawierały link do zadania oraz dodatkowe informacje.</p><p>Możesz też automatycznie dodać i synchronizować wszystkie niewykonane zadania do zaległości.</p>"
+        "HELP": "<p>Tutaj możesz skonfigurować ChronoFlow Desktop tak, aby w panelu tworzenia zadań w widoku planowania dziennego wyświetlał listę niewykonanych zadań CalDav dla wybranego projektu. Będą one pokazywane jako sugestie i będą zawierały link do zadania oraz dodatkowe informacje.</p><p>Możesz też automatycznie dodać i synchronizować wszystkie niewykonane zadania do zaległości.</p>"
       },
       "ISSUE_CONTENT": {
         "DESCRIPTION": "Opis",
@@ -277,7 +277,7 @@
       "FEEDBACK_PUBLIC": "Opublikuj w GitHub Discussions",
       "FEEDBACK_PUBLIC_DESC": "Inni mogą zobaczyć i odpowiedzieć",
       "FEEDBACK_TITLE": "Jak chcesz pomóc?",
-      "TITLE": "Podoba Ci się Super Productivity?",
+      "TITLE": "Podoba Ci się ChronoFlow Desktop?",
       "TXT": "To <strong>darmowy projekt open source</strong> tworzony przez pasjonatów — bez śledzenia, bez reklam. Ocena lub krótka wiadomość pomaga większej liczbie osób go znaleźć."
     },
     "DROPBOX": {
@@ -441,7 +441,7 @@
         "TOKEN": "Token dostępu"
       },
       "FORM_SECTION": {
-        "HELP": "<p>Tutaj możesz skonfigurować Super Productivity tak, aby wyświetlał otwarte zgłoszenia GitLab (zarówno wersji online, jak i instancji hostowanej samodzielnie) dla wybranego projektu w panelu tworzenia zadań w widoku planowania dziennego. Będą one pokazywane jako sugestie i będą zawierały link do zgłoszenia oraz dodatkowe informacje.</p><p>Możesz też automatycznie dodawać i synchronizować wszystkie otwarte zgłoszenia do zaległości.</p>"
+        "HELP": "<p>Tutaj możesz skonfigurować ChronoFlow Desktop tak, aby wyświetlał otwarte zgłoszenia GitLab (zarówno wersji online, jak i instancji hostowanej samodzielnie) dla wybranego projektu w panelu tworzenia zadań w widoku planowania dziennego. Będą one pokazywane jako sugestie i będą zawierały link do zgłoszenia oraz dodatkowe informacje.</p><p>Możesz też automatycznie dodawać i synchronizować wszystkie otwarte zgłoszenia do zaległości.</p>"
       },
       "ISSUE_CONTENT": {
         "ASSIGNEE": "Przypisany",
@@ -459,7 +459,7 @@
       }
     },
     "ISSUE": {
-      "CROSS_ORIGIN_BROWSER_WARNING": "Ta integracja prawdopodobnie nie będzie działać w Twojej przeglądarce. Pobierz wersję Super Productivity na komputer lub Androida!",
+      "CROSS_ORIGIN_BROWSER_WARNING": "Ta integracja prawdopodobnie nie będzie działać w Twojej przeglądarce. Pobierz wersję ChronoFlow Desktop na komputer lub Androida!",
       "DEFAULT": {
         "ISSUE_STR": "zgłoszenie",
         "ISSUES_STR": "zgłoszenia"
@@ -571,7 +571,7 @@
     },
     "JIRA": {
       "BANNER": {
-        "BLOCK_ACCESS_MSG": "Jira: aby zapobiec zablokowaniu dostępu przez API, Super Productivity tymczasowo zablokowało połączenia. Sprawdź ustawienia Jiry!",
+        "BLOCK_ACCESS_MSG": "Jira: aby zapobiec zablokowaniu dostępu przez API, ChronoFlow Desktop tymczasowo zablokowało połączenia. Sprawdź ustawienia Jiry!",
         "BLOCK_ACCESS_UNBLOCK": "Odblokuj"
       },
       "CFG_CMP": {
@@ -678,7 +678,7 @@
       },
       "S": {
         "ADDED_WORKLOG_FOR": "Jira: Dodano wpis czasu pracy dla {{issueKey}}",
-        "EXTENSION_NOT_LOADED": "Rozszerzenie Super Productivity nie jest załadowane. Ponowne wczytanie strony może pomóc.",
+        "EXTENSION_NOT_LOADED": "Rozszerzenie ChronoFlow Desktop nie jest załadowane. Ponowne wczytanie strony może pomóc.",
         "INSUFFICIENT_SETTINGS": "Podano niepełne ustawienia dla Jiry",
         "INVALID_RESPONSE": "Jira: Odpowiedź zawierała nieprawidłowe dane",
         "NO_AUTO_IMPORT_JQL": "Jira: nie zdefiniowano zapytania wyszukiwania dla auto-importu",
@@ -902,7 +902,7 @@
         "TOKEN": "Token dostępu"
       },
       "FORM_SECTION": {
-        "HELP": "<p>Tutaj można skonfigurować SuperProductivity do wyświetlania listy otwartych pakietów roboczych OpenProject. Należy pamiętać, że aby to działało w przeglądarce, należy prawdopodobnie skonfigurować CORS dla serwera OpenProject, aby umożliwić dostęp z app.super-productivity.com</p>"
+        "HELP": "<p>Tutaj można skonfigurować SuperProductivity do wyświetlania listy otwartych pakietów roboczych OpenProject. Należy pamiętać, że aby to działało w przeglądarce, należy prawdopodobnie skonfigurować CORS dla serwera OpenProject, aby umożliwić dostęp z app.chronoflow-desktop.com</p>"
       },
       "ISSUE_CONTENT": {
         "ASSIGNEE": "Osoba przypisana",
@@ -1509,11 +1509,11 @@
         },
         "TITLE": "Synchronizacja",
         "WEB_DAV": {
-          "CONDITIONAL_HEADER_WARNING_MSG": "Twój serwer WebDAV nie obsługuje nagłówków warunkowych (If-Unmodified-Since). Oznacza to, że Super Productivity nie może wykryć jednoczesnych zmian z innych urządzeń podczas przesyłania.<br><br>Synchronizacja będzie nadal działać, ale istnieje niewielkie ryzyko konfliktów danych, jeśli jednocześnie wprowadzasz zmiany na wielu urządzeniach.",
+          "CONDITIONAL_HEADER_WARNING_MSG": "Twój serwer WebDAV nie obsługuje nagłówków warunkowych (If-Unmodified-Since). Oznacza to, że ChronoFlow Desktop nie może wykryć jednoczesnych zmian z innych urządzeń podczas przesyłania.<br><br>Synchronizacja będzie nadal działać, ale istnieje niewielkie ryzyko konfliktów danych, jeśli jednocześnie wprowadzasz zmiany na wielu urządzeniach.",
           "CONDITIONAL_HEADER_WARNING_TITLE": "Zmniejszone bezpieczeństwo synchronizacji",
-          "CORS_INFO": "<strong>Making it work on MOBILE and in the browser:</strong> To make this work for mobile or the browser you need to whitelist Super Productivity for CORS requests for your Nextcloud instance. This can have negative security implications! Please <a href='https://github.com/nextcloud/server/issues/3131'>refer to this thread for more information</a>. One approach to make this work on mobile is whitelisting \"https://app.super-productivity.com\" via the nextcloud app <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword<a>. Use at your own risk!</p>",
-          "D_SYNC_FOLDER_PATH": "Ścieżka względem katalogu głównego serwera WebDAV, gdzie będą przechowywane pliki synchronizacji (np. ' /super-productivity' lub ' /'). To NIE jest wewnętrzna ścieżka katalogu Twojego serwera.",
-          "INFO": "Implementacje WebDAV różnią się niestety znacznie. Super Productivity jest znane z dobrej współpracy z Nextcloud, <strong>ale może nie działać z Twoim dostawcą</strong>.",
+          "CORS_INFO": "<strong>Making it work on MOBILE and in the browser:</strong> To make this work for mobile or the browser you need to whitelist ChronoFlow Desktop for CORS requests for your Nextcloud instance. This can have negative security implications! Please <a href='https://github.com/nextcloud/server/issues/3131'>refer to this thread for more information</a>. One approach to make this work on mobile is whitelisting \"https://app.chronoflow-desktop.com\" via the nextcloud app <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword<a>. Use at your own risk!</p>",
+          "D_SYNC_FOLDER_PATH": "Ścieżka względem katalogu głównego serwera WebDAV, gdzie będą przechowywane pliki synchronizacji (np. ' /chronoflow-desktop' lub ' /'). To NIE jest wewnętrzna ścieżka katalogu Twojego serwera.",
+          "INFO": "Implementacje WebDAV różnią się niestety znacznie. ChronoFlow Desktop jest znane z dobrej współpracy z Nextcloud, <strong>ale może nie działać z Twoim dostawcą</strong>.",
           "L_BASE_URL": "Adres bazowy URL",
           "L_PASSWORD": "Hasło",
           "L_SYNC_FOLDER_PATH": "Ścieżka folderu synchronizacji",
@@ -1543,14 +1543,14 @@
         "L_USE_SPLIT_SYNC_FILES": "Surgical sync (eksperymentalne) – szybsza synchronizacja dzięki podzielonemu układowi plików ops/snapshot. Po włączeniu tej opcji trzeba ją również włączyć na wszystkich urządzeniach synchronizujących ten folder.",
         "ONEDRIVE": {
           "CLIENT_ID_DESCRIPTION": "Identyfikator aplikacji (klienta) z rejestracji aplikacji Microsoft Entra",
-          "INFO_TEXT": "Uwierzytelnianie Microsoft 365 korzysta z OAuth. Najpierw wprowadź identyfikatory klienta i dzierżawy, a następnie się uwierzytelnij. <strong>Korzystasz z własnej rejestracji aplikacji Entra?</strong> W wersji komputerowej zarejestruj identyfikator URI przekierowania <code>superproductivity://oauth-callback/onedrive</code> w sekcji „Mobile and desktop applications”, włącz „Allow public client flows” i przyznaj delegowane uprawnienie <code>Files.ReadWrite.AppFolder</code>. Zobacz <a href=\"https://github.com/super-productivity/super-productivity/wiki/2.09-Configure-Sync-Backend\" target=\"_blank\" rel=\"noopener\">instrukcję konfiguracji OneDrive</a>.",
+          "INFO_TEXT": "Uwierzytelnianie Microsoft 365 korzysta z OAuth. Najpierw wprowadź identyfikatory klienta i dzierżawy, a następnie się uwierzytelnij. <strong>Korzystasz z własnej rejestracji aplikacji Entra?</strong> W wersji komputerowej zarejestruj identyfikator URI przekierowania <code>chronoflow://oauth-callback/onedrive</code> w sekcji „Mobile and desktop applications”, włącz „Allow public client flows” i przyznaj delegowane uprawnienie <code>Files.ReadWrite.AppFolder</code>. Zobacz <a href=\"https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.09-Configure-Sync-Backend\" target=\"_blank\" rel=\"noopener\">instrukcję konfiguracji OneDrive</a>.",
           "L_CLIENT_ID": "Identyfikator aplikacji (klienta)",
           "L_SYNC_FOLDER_PATH": "Ścieżka folderu synchronizacji",
           "L_TENANT_ID": "Identyfikator dzierżawy",
           "L_USE_CUSTOM_APP": "Użyj własnej rejestracji aplikacji Microsoft Entra",
           "OFFICIAL_MODE_INFO": "Używane jest wbudowane logowanie Microsoft 365 dla tej aplikacji. Przełącz na tryb niestandardowy tylko wtedy, gdy potrzebujesz własnej rejestracji aplikacji Entra.",
           "PLATFORM_INFO": "Synchronizacja OneDrive jest dostępna tylko w aplikacjach komputerowych i mobilnych, a nie w wersji przeglądarkowej.",
-          "SYNC_FOLDER_PATH_DESCRIPTION": "Przechowywane w folderze aplikacji OneDrive (np. super-productivity)",
+          "SYNC_FOLDER_PATH_DESCRIPTION": "Przechowywane w folderze aplikacji OneDrive (np. chronoflow-desktop)",
           "TENANT_ID_DESCRIPTION": "Użyj wartości 'common' do logowania w wielu dzierżawach",
           "USE_CUSTOM_APP_DESCRIPTION": "Włącz, jeśli chcesz podać własny identyfikator aplikacji (klienta)"
         }
@@ -1581,7 +1581,7 @@
         "ERROR_PAYLOAD_TOO_LARGE": "Błąd synchronizacji: Twoje dane są zbyt duże, aby je przesłać.\n\nTo się zdarza, gdy masz wiele zarchiwizowanych zadań. Twoje dane NIE zostały zsynchronizowane!\n\nSkontaktuj się z pomocą techniczną.",
         "ERROR_PERMISSION": "Dostęp do pliku zabroniony. Proszę sprawdzić uprawnienia systemu plików.",
         "ERROR_PERMISSION_FLATPAK": "Dostęp do pliku zabroniony. Przyznaj uprawnienia do systemu plików za pomocą Flatseal lub użyj ścieżki wewnątrz ~\\/var\\/app\\/",
-        "ERROR_PERMISSION_SNAP": "Dostęp do pliku zabroniony. Uruchom 'snap connect super-productivity:home' lub użyj ścieżki wewnątrz ~\\/snap\\/super-productivity\\/common\\/",
+        "ERROR_PERMISSION_SNAP": "Dostęp do pliku zabroniony. Uruchom 'snap connect chronoflow-desktop:home' lub użyj ścieżki wewnątrz ~\\/snap\\/chronoflow-desktop\\/common\\/",
         "ERROR_UNABLE_TO_READ_REMOTE_DATA": "Błąd podczas synchronizacji. Nie można odczytać danych zdalnych. Być może włączyłeś szyfrowanie, a lokalne hasło nie odpowiada temu, którego użyto do zaszyfrowania danych zdalnych?",
         "FINISH_DAY_SYNC_ERROR": "Błąd synchronizacji podczas kończenia dnia. Spróbuj ponownie.",
         "FRESH_CLIENT_SYNC_CANCELLED": "Początkowa synchronizacja anulowana. Dane zdalne nie zostały zastosowane.",
@@ -1626,7 +1626,7 @@
         "ERROR_REMOTE_FILE_CORRUPTED": "Zdalne dane synchronizacji są nieczytelne (mogły zostać obcięte lub uszkodzone). Dane lokalne są bezpieczne. Możesz zastąpić dane zdalne danymi lokalnymi.",
         "ERROR_REMOTE_FILE_EMPTY": "Zdalny plik synchronizacji jest pusty. Może się tak zdarzyć po przerwanej synchronizacji. Zastąpić dane zdalne danymi lokalnymi?",
         "ERROR_REMOTE_FILE_LOCKED": "Zdalny plik synchronizacji jest zablokowany przez serwer. Może to zostać rozwiązane przy kolejnej próbie synchronizacji.",
-        "ERROR_SYNC_VERSION_MISMATCH": "Zdalne dane synchronizacji używają niezgodnej wersji formatu. Upewnij się, że na wszystkich urządzeniach działa ta sama wersja Super Productivity.",
+        "ERROR_SYNC_VERSION_MISMATCH": "Zdalne dane synchronizacji używają niezgodnej wersji formatu. Upewnij się, że na wszystkich urządzeniach działa ta sama wersja ChronoFlow Desktop.",
         "WARN_CLIENT_ID_REGENERATED": "Identyfikator urządzenia synchronizacji był nieprawidłowy i został wygenerowany ponownie. Przy następnej synchronizacji może wystąpić konflikt.",
         "LEGACY_FORMAT_DETECTED": "Niezgodność formatu synchronizacji: zdalna pamięć została ostatnio zapisana przez starszą wersję aplikacji (v16.x lub wcześniejszą), która używa innego formatu synchronizacji. Zaktualizuj wszystkie urządzenia do tej samej wersji aplikacji. „Wymuś nadpisanie” odblokowuje to urządzenie, zapisując nowy format obok plików starszego typu; używaj tego tylko wtedy, gdy żadne starsze urządzenie nie będzie już synchronizować się z tym zdalnym miejscem, w przeciwnym razie po cichu rozjadą się z tym urządzeniem.",
         "AUTH_SERVICE_UNAVAILABLE": "Usługa uwierzytelniania jest tymczasowo niedostępna (HTTP {{status}}). Spróbuj ponownie.",
@@ -2330,11 +2330,11 @@
     "EXPORT_DATA": "Eksportuj dane",
     "IMPORT_FROM_FILE": "Importuj z pliku",
     "IMPORT_FROM_URL": "Importuj z URL",
-    "IMPORT_FROM_URL_DIALOG_DESCRIPTION": "Wprowadź pełny URL pliku kopii zapasowej JSON Super Productivity, który chcesz zaimportować.",
+    "IMPORT_FROM_URL_DIALOG_DESCRIPTION": "Wprowadź pełny URL pliku kopii zapasowej JSON ChronoFlow Desktop, który chcesz zaimportować.",
     "IMPORT_FROM_URL_DIALOG_TITLE": "Importuj z URL",
     "OPEN_IMPORT_FROM_URL_DIALOG": "Importuj z URL",
     "PRIVACY_EXPORT": "Eksportuj dane (anonimowe)",
-    "PRIVACY_EXPORT_DESCRIPTION": "Eksport anonimowych danych (do wysłania na adres contact@super-productivity.com w celu debugowania)",
+    "PRIVACY_EXPORT_DESCRIPTION": "Eksport anonimowych danych (do wysłania na adres contact@chronoflow-desktop.com w celu debugowania)",
     "S_BACKUP_DOWNLOADED": "Kopia zapasowa pobrana do folderu dokumentów Androida",
     "S_ERR_IMPORT_FAILED": "Importowanie danych nie powiodło się",
     "S_ERR_INVALID_DATA": "Nieprawidłowe dane w pliku",
@@ -2364,7 +2364,7 @@
     "EDIT": "Edytuj",
     "ENABLED": "Włączone",
     "EXAMPLE_VAL": "np. 32m",
-    "EXTENSION_INFO": "Proszę <a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/super-productivity/ljkbjodfmekklcoibdnhahlaalhihmlb\">pobrać rozszerzenie Chrome</a> w celu umożliwienia komunikacji z API Jiry i zarządzania czasem bezczynności. Należy wspomnieć, że urządzenia mobilne nie są w tej chwili wspierane.<strong>Bez tego rozszerzenia, te funkcje nie będą działały!</strong>",
+    "EXTENSION_INFO": "Proszę <a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/chronoflow-desktop/ljkbjodfmekklcoibdnhahlaalhihmlb\">pobrać rozszerzenie Chrome</a> w celu umożliwienia komunikacji z API Jiry i zarządzania czasem bezczynności. Należy wspomnieć, że urządzenia mobilne nie są w tej chwili wspierane.<strong>Bez tego rozszerzenia, te funkcje nie będą działały!</strong>",
     "HIDE": "Ukryj",
     "ICON_INP_DESCRIPTION": "Obsługiwane są również wszystkie emotikony utf-8!",
     "INBOX_PROJECT_TITLE": "Skrzynka odbiorcza",
@@ -2430,10 +2430,10 @@
       "S_RESTORE_SUCCESS": "Pomyślnie przywrócono kopię zapasową."
     },
     "CALENDARS": {
-      "BROWSER_WARNING": "Ze względu na ograniczenia dotyczące różnych źródeł <b>prawdopodobnie NIE będzie to działać z wersją Super Productivity na przeglądarkę.<br /> Prosimy <a href=\"https://super-productivity.com/download/\">o pobranie wersji desktopowej</a> , aby korzystać z tej funkcji!</b>",
+      "BROWSER_WARNING": "Ze względu na ograniczenia dotyczące różnych źródeł <b>prawdopodobnie NIE będzie to działać z wersją ChronoFlow Desktop na przeglądarkę.<br /> Prosimy <a href=\"https://chronoflow-desktop.com/download/\">o pobranie wersji desktopowej</a> , aby korzystać z tej funkcji!</b>",
       "CAL_PATH": "Adres URL źródła iCal",
       "CHECK_UPDATES": "Sprawdzanie zdalnych aktualizacji co X",
-      "HELP": "Możesz zintegrować kalendarze, aby otrzymywać przypomnienia i dodawać je jako zadania w Super Productivity. Integracja działa przy użyciu formatu iCal. Aby to zadziałało, kalendarze muszą być dostępne przez Internet lub za pośrednictwem systemu plików.",
+      "HELP": "Możesz zintegrować kalendarze, aby otrzymywać przypomnienia i dodawać je jako zadania w ChronoFlow Desktop. Integracja działa przy użyciu formatu iCal. Aby to zadziałało, kalendarze muszą być dostępne przez Internet lub za pośrednictwem systemu plików.",
       "SHOW_BANNER_THRESHOLD": "Pokaż powiadomienie X przed zdarzeniem (puste dla wyłączonego)",
       "AUTO_IMPORT_FOR_CURRENT_DAY": "Automatycznie importuj wydarzenia jako zadania dla bieżącego dnia",
       "CAL_COLOR": "Kolor kalendarza",
@@ -2522,7 +2522,7 @@
       "EXPAND_SUB_TASKS": "Rozszerz podzadania",
       "GLOBAL_ADD_NOTE": "Dodaj nową notatkę",
       "GLOBAL_ADD_TASK": "Dodaj nowe zadanie",
-      "GLOBAL_SHOW_HIDE": "Pokaż/ukryj Super Productivity",
+      "GLOBAL_SHOW_HIDE": "Pokaż/ukryj ChronoFlow Desktop",
       "GLOBAL_TOGGLE_TASK_START": "Przełącz śledzenie czasu dla ostatniego aktywnego zadania",
       "GO_TO_DAILY_AGENDA": "Przejdź do agendy",
       "GO_TO_FOCUS_MODE": "Przejdź do trybu skupienia",
@@ -2685,7 +2685,7 @@
       "DEFAULT_TASK_REMIND_OPTION": "Domyślna opcja przypomnienia wybrana podczas tworzenia zadań",
       "DISABLE_REMINDERS": "Wyłącz wszystkie przypomnienia",
       "DUE_DATE_NOTIFICATION_HOUR": "Godzina wyświetlania powiadomień o terminach (0-23)",
-      "HELP": "<p><strong>Ważne:</strong> Przypomnienia używają <strong>powiadomień lokalnych</strong>, nie powiadomień push. Oznacza to, że aplikacja musi być otwarta przynajmniej raz na urządzeniu, aby przypomnienia zostały zaplanowane. Przypomnienia ustawione na innym urządzeniu pojawią się dopiero po synchronizacji aplikacji na docelowym urządzeniu.</p><p>Na <strong>iOS</strong> upewnij się, że powiadomienia są włączone dla Super Productivity w ustawieniach urządzenia w sekcji 'Ustawienia' > 'Powiadomienia'.</p>",
+      "HELP": "<p><strong>Ważne:</strong> Przypomnienia używają <strong>powiadomień lokalnych</strong>, nie powiadomień push. Oznacza to, że aplikacja musi być otwarta przynajmniej raz na urządzeniu, aby przypomnienia zostały zaplanowane. Przypomnienia ustawione na innym urządzeniu pojawią się dopiero po synchronizacji aplikacji na docelowym urządzeniu.</p><p>Na <strong>iOS</strong> upewnij się, że powiadomienia są włączone dla ChronoFlow Desktop w ustawieniach urządzenia w sekcji 'Ustawienia' > 'Powiadomienia'.</p>",
       "IS_COUNTDOWN_BANNER_ENABLED": "Wyświetlanie banera odliczającego przed upływem terminu przypomnienia",
       "IS_FOCUS_WINDOW": "Skieruj okno aplikacji na pierwszy plan po wyzwoleniu przypomnienia",
       "NOTIFY_ON_DUE_DATE": "Pokaż powiadomienia o zadaniach zaplanowanych na dziś",
@@ -2906,7 +2906,7 @@
     "ARCHIVED_PROJECTS": "Zarchiwizowane projekty"
   },
   "MIGRATE": {
-    "C_DOWNLOAD_BACKUP": "Czy chcesz pobrać kopię zapasową starszych danych (może być używana ze starszymi wersjami Super Productivity)?",
+    "C_DOWNLOAD_BACKUP": "Czy chcesz pobrać kopię zapasową starszych danych (może być używana ze starszymi wersjami ChronoFlow Desktop)?",
     "DETECTED_LEGACY": "Wykryto starsze dane. Przeniesiemy go za Ciebie!",
     "DIALOG_MESSAGE": "Aktualizujemy sposób przechowywania danych w celu poprawy niezawodności synchronizacji. Kopia zapasowa zostanie pobrana automatycznie.",
     "DIALOG_TITLE": "Migracja danych",
@@ -2924,7 +2924,7 @@
     "TASK_MARKED_DONE": "Zadanie oznaczone jako wykonane"
   },
   "ONBOARDING": {
-    "TITLE": "Jak chcesz używać Super Productivity?",
+    "TITLE": "Jak chcesz używać ChronoFlow Desktop?",
     "SUBTITLE": "Wybierz konfigurację pasującą do Twojego stylu pracy. Zawsze możesz to zmienić później w Ustawieniach.",
     "PRIVACY_HINT": "Twoje dane pozostają bezpiecznie na Twoim urządzeniu. Nic nie jest wysyłane na serwer.",
     "PRESETS": {
@@ -2952,7 +2952,7 @@
       "OR_PRESS": "lub naciśnij",
       "SKIP_ARIA": "Zamknij wskazówkę"
     },
-    "SYNC_CTA": "Używasz już Super Productivity na innym urządzeniu?",
+    "SYNC_CTA": "Używasz już ChronoFlow Desktop na innym urządzeniu?",
     "SYNC_CTA_LINK": "Skonfiguruj synchronizację"
   },
   "PDS": {

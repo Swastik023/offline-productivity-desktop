@@ -1,5 +1,5 @@
 /**
- * localStorage utility functions for Super Productivity
+ * localStorage utility functions for ChronoFlow Desktop
  */
 
 /**

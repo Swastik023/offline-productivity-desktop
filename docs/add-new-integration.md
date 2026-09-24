@@ -49,7 +49,7 @@ Minimal manifest:
   "version": "1.0.0",
   "manifestVersion": 1,
   "minSupVersion": "18.0.0",
-  "description": "Connects Example issues to Super Productivity",
+  "description": "Connects Example issues to ChronoFlow Desktop",
   "type": "issueProvider",
   "icon": "icon.svg",
   "iFrame": false,
@@ -82,7 +82,7 @@ import type {
   PluginHttp,
   PluginIssue,
   PluginSearchResult,
-} from '@super-productivity/plugin-api';
+} from '@chronoflow-desktop/plugin-api';
 
 declare const PluginAPI: {
   registerIssueProvider(definition: IssueProviderPluginDefinition): void;
@@ -193,7 +193,7 @@ const token = await PluginAPI.getSecret('api-token');
 await PluginAPI.deleteSecret('api-token');
 ```
 
-These values are per-device and excluded from Super Productivity sync, exports,
+These values are per-device and excluded from ChronoFlow Desktop sync, exports,
 and backups. They are currently unencrypted at rest, so this is an isolation
 boundary, not hardware-backed secure storage. Users must enter the secret again
 on each device.

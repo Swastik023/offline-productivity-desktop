@@ -1,4 +1,4 @@
-import { PluginAPI as PluginApiType, Project } from '@super-productivity/plugin-api';
+import { PluginAPI as PluginApiType, Project } from '@chronoflow-desktop/plugin-api';
 import { parseSyncResponse, ParseStrings } from '../parse/from-api';
 import { loadTodoistData } from '../parse/load-todoist-data';
 import { TodoistImportModel } from '../parse/normalized-model';

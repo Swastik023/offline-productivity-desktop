@@ -1,8 +1,8 @@
 # SuperSync Server
 
-A custom, high-performance synchronization server for Super Productivity.
+A custom, high-performance synchronization server for ChronoFlow Desktop.
 
-> **Note:** This server implements a custom operation-based synchronization protocol (Event Sourcing), **not** WebDAV. It is designed specifically for the Super Productivity client's efficient sync requirements.
+> **Note:** This server implements a custom operation-based synchronization protocol (Event Sourcing), **not** WebDAV. It is designed specifically for the ChronoFlow Desktop client's efficient sync requirements.
 
 > **Related Documentation:**
 >
@@ -226,7 +226,7 @@ All configuration is done via environment variables.
 | `DATABASE_URL`                          | -                                    | PostgreSQL connection string (e.g. `postgresql://user:pass@localhost:5432/db`)                                                                 |
 | `JWT_SECRET`                            | -                                    | **Required.** Secret for signing JWTs (min 32 chars)                                                                                           |
 | `PUBLIC_URL`                            | -                                    | **Required.** Public URL used for email links (e.g. `https://sync.example.com`)                                                                |
-| `CORS_ORIGINS`                          | `https://app.super-productivity.com` | Allowed CORS origins. `*` allows any origin — never do this in production, CORS runs with `credentials: true`.                                 |
+| `CORS_ORIGINS`                          | `https://app.chronoflow-desktop.com` | Allowed CORS origins. `*` allows any origin — never do this in production, CORS runs with `credentials: true`.                                 |
 | `SMTP_HOST`                             | -                                    | SMTP Server for emails                                                                                                                         |
 | `WEBAUTHN_RP_ID`                        | `localhost`                          | **Required for passkeys.** Your domain, without protocol or port. Passkeys bind to this — changing it invalidates every registered credential. |
 | `WEBAUTHN_ORIGIN`                       | `http://localhost:1900`              | **Required for passkeys.** Where users reach the auth UI, with protocol.                                                                       |
@@ -327,7 +327,7 @@ GET /api/sync/status
 
 ## Client Configuration
 
-In Super Productivity, configure the Custom Sync provider with:
+In ChronoFlow Desktop, configure the Custom Sync provider with:
 
 - **Base URL**: `https://sync.your-domain.com` (or your deployed URL)
 - **Auth Token**: JWT token from login

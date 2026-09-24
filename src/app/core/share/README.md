@@ -1,6 +1,6 @@
 # Share Component
 
-Multi-platform share functionality for Super Productivity.
+Multi-platform share functionality for ChronoFlow Desktop.
 
 ## Overview
 
@@ -245,4 +245,4 @@ When adding new share targets:
 
 ## License
 
-Part of Super Productivity - see main project LICENSE.
+Part of ChronoFlow Desktop - see main project LICENSE.

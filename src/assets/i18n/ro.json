@@ -3,7 +3,7 @@
     "B_INSTALL": {
       "IGNORE": "Ignoră",
       "INSTALL": "Instalează",
-      "MSG": "Vrei să instalezi Super Productivity ca PWA (Progressive Web App)?"
+      "MSG": "Vrei să instalezi ChronoFlow Desktop ca PWA (Progressive Web App)?"
     },
     "B_OFFLINE": "Ești deconectat de la internet. Sincronizarea și solicitarea datelor furnizorului de probleme nu vor funcționa.",
     "B_SUPER_SYNC_ENCRYPTION": {
@@ -14,12 +14,12 @@
     },
     "B_SYNC_SAFETY": {
       "DISMISS": "Nu acum",
-      "MSG": "Folosești Super Productivity de ceva timp. Configurează sincronizarea pentru a face o copie de rezervă a datelor tale și a le păstra în siguranță pe toate dispozitivele.",
+      "MSG": "Folosești ChronoFlow Desktop de ceva timp. Configurează sincronizarea pentru a face o copie de rezervă a datelor tale și a le păstra în siguranță pe toate dispozitivele.",
       "SETUP": "Configurează sincronizarea"
     },
     "B_UPDATE_AVAILABLE": {
       "DOWNLOAD": "Descarcă",
-      "MSG": "O nouă versiune de Super Productivity este disponibilă ({{version}})."
+      "MSG": "O nouă versiune de ChronoFlow Desktop este disponibilă ({{version}})."
     },
     "CONTEXT_MENU": {
       "CHANGE_PROJECT_SETTINGS": "Schimbă setările proiectului",
@@ -45,7 +45,7 @@
   },
   "CONFIRM": {
     "DELETE_SECTION": "Ești sigur că vrei să ștergi această secțiune? Sarcinile din ea vor fi mutate în lista de sarcini.",
-    "RELOAD_AFTER_IDB_ERROR": "Eroare bază de date - Aplicația se va reporni\n\nSuper Productivity nu poate salva datele! Acest lucru este de obiecei cauzat de:\n• Spațiu insuficient pe disc (cel mai frecvent)\n• Actualizare de aplicație în fundal\n• Pentru utilizatorii variantei Snap pe Linux: rulează 'snap set core experimental.refresh-app-awareness=true'\n\nSchimbările tale recente ar putea să nu fie salvate. Te rog eliberează spațiu pe disc dacă nu este suficient disponibil. Aplicația se va reporni după ce închizi acest dialog.",
+    "RELOAD_AFTER_IDB_ERROR": "Eroare bază de date - Aplicația se va reporni\n\nChronoFlow Desktop nu poate salva datele! Acest lucru este de obiecei cauzat de:\n• Spațiu insuficient pe disc (cel mai frecvent)\n• Actualizare de aplicație în fundal\n• Pentru utilizatorii variantei Snap pe Linux: rulează 'snap set core experimental.refresh-app-awareness=true'\n\nSchimbările tale recente ar putea să nu fie salvate. Te rog eliberează spațiu pe disc dacă nu este suficient disponibil. Aplicația se va reporni după ce închizi acest dialog.",
     "RESTORE_FILE_BACKUP": "Se pare că NU există DATE, dar există backup-uri disponibile la \"{{dir}}\". Vrei să restaurezi ultimul backup din {{from}}?",
     "RESTORE_FILE_BACKUP_ANDROID": "Se pare că NU există DATE, dar există un backup disponibil. Vrei să îl restaurezi?",
     "RESTORE_FILE_BACKUP_MOBILE": "Nu au fost găsite date pe acest dispozitiv, dar este disponibil un backup pentru restaurare (tasks: {{tasks}}, projects: {{projects}}). Restaurezi?",
@@ -81,13 +81,13 @@
   },
   "DONATE_PAGE": {
     "BUTTON_TEXT": "Donează prin Sponsori GitHub",
-    "INTRO_1": "Super Productivity este finanțat în întregime de comunitatea. Nu există urmărire, nici reclame, nici colectare de date — sarcinile rămân pe dispozitivul tău.",
+    "INTRO_1": "ChronoFlow Desktop este finanțat în întregime de comunitatea. Nu există urmărire, nici reclame, nici colectare de date — sarcinile rămân pe dispozitivul tău.",
     "INTRO_2": "Dacă apreciezi această abordare și vrei să păstrezi proiectul sănătos și în evoluție, o donație voluntară este apreciată."
   },
   "EXAMPLE_TASKS": {
     "LEARN_KEYBOARD_SHORTCUTS": {
       "TITLE": "Învață scurtăturile de tastatură",
-      "NOTES": "Super Productivity este conceput pentru a fi folosit cu tastatura. Învață scurtăturile pentru a lucra mai rapid.\n\n**Cum să începi:**\n1. Deschide **meniul lateral**\n2. Mergi la **Ajutor**\n3. Apasă pe **Tur de navigare cu tastatura**"
+      "NOTES": "ChronoFlow Desktop este conceput pentru a fi folosit cu tastatura. Învață scurtăturile pentru a lucra mai rapid.\n\n**Cum să începi:**\n1. Deschide **meniul lateral**\n2. Mergi la **Ajutor**\n3. Apasă pe **Tur de navigare cu tastatura**"
     },
     "CREATE_PROJECT": {
       "TITLE": "Creează primul tău proiect",
@@ -213,7 +213,7 @@
         "TWO_WAY_SYNC_TITLE": "Direcție sincronizare titlu"
       },
       "FORM_SECTION": {
-        "HELP": "<p>De aici poți configura Super Productivity pentru a lista sarcinile CalDAV nefinalizate pentru un anumit proiect în panoul de creare a sarcinilor din vizualizarea planificării zilnice. Acestea vor fi listate ca sugestii și vor oferi o legătură către sarcină, precum și mai multe informații despre aceasta.</p><p>În plus, poți adăuga automat și sincroniza toate sarcinile nefinalizate în lista ta de sarcini restante.</p><p>Pentru a funcționa cu Nextcloud în aplicația web, este posibil să fie nevoie să oferi permisiune pentru \"https://app.super-productivity.com\" în aplicația Nextcloud <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword<a>.</p>"
+        "HELP": "<p>De aici poți configura ChronoFlow Desktop pentru a lista sarcinile CalDAV nefinalizate pentru un anumit proiect în panoul de creare a sarcinilor din vizualizarea planificării zilnice. Acestea vor fi listate ca sugestii și vor oferi o legătură către sarcină, precum și mai multe informații despre aceasta.</p><p>În plus, poți adăuga automat și sincroniza toate sarcinile nefinalizate în lista ta de sarcini restante.</p><p>Pentru a funcționa cu Nextcloud în aplicația web, este posibil să fie nevoie să oferi permisiune pentru \"https://app.chronoflow-desktop.com\" în aplicația Nextcloud <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword<a>.</p>"
       },
       "ISSUE_CONTENT": {
         "DESCRIPTION": "Descriere",
@@ -290,7 +290,7 @@
       "FEEDBACK_PUBLIC": "Postează pe GitHub Discussions",
       "FEEDBACK_PUBLIC_DESC": "Alții pot vedea și răspunde",
       "FEEDBACK_TITLE": "Cum vrei să ajuți?",
-      "TITLE": "Îți place Super Productivity?",
+      "TITLE": "Îți place ChronoFlow Desktop?",
       "TXT": "Este un proiect <strong>gratuit și open-source</strong> realizat de pasionați — fără urmărire, fără reclame. O notă sau un mesaj scurt ajută mai mulți oameni să-l descopere."
     },
     "DROPBOX": {
@@ -409,7 +409,7 @@
         "TOKEN": "Jeton de acces"
       },
       "FORM_SECTION": {
-        "HELP": "<p>Aici poți configura Super Productivity pentru a lista problemele deschise pe Gitea pentru un repository specific în panoul de creare a sarcinilor în modul de planificare zilnic. Acestea vor fi listate ca sugestii și vor conține o legătură către problemă și mai multe informații despre acesta.</p> <p>În plus, poți adăuga și importa automat toate problemele deschise.</p><p>Pentru a fenta limitele de utilizare și acces, poți folosi un jeton de acces."
+        "HELP": "<p>Aici poți configura ChronoFlow Desktop pentru a lista problemele deschise pe Gitea pentru un repository specific în panoul de creare a sarcinilor în modul de planificare zilnic. Acestea vor fi listate ca sugestii și vor conține o legătură către problemă și mai multe informații despre acesta.</p> <p>În plus, poți adăuga și importa automat toate problemele deschise.</p><p>Pentru a fenta limitele de utilizare și acces, poți folosi un jeton de acces."
       },
       "ISSUE_CONTENT": {
         "ASSIGNEE": "Asignat lui",
@@ -437,7 +437,7 @@
         "FILTER_USER": "Filtrează după numele de utilizator",
         "GITLAB_BASE_URL": "URL de bază personalizat GitLab (opțional)",
         "PROJECT": "nume utilizator/proiect",
-        "PROJECT_HINT": "d.e. super-productivity/super-productivity",
+        "PROJECT_HINT": "d.e. chronoflow-desktop/chronoflow-desktop",
         "SCOPE": "Domeniu de aplicare",
         "SCOPE_ALL": "Toate",
         "SCOPE_ASSIGNED": "Atribuite mie",
@@ -451,7 +451,7 @@
         "TOKEN": "Jeton de acces"
       },
       "FORM_SECTION": {
-        "HELP": "<p>De aici poți configura Super Productivity pentru a lista problemele deschise pe GitLab (fie că este versiunea online sau o instanță self-hosted) pentru un proiect specific în panoul de creare a sarcinilor în modul de planificare zilnic. Acestea vor fi listate ca sugestii și vor conține o legătură către problemă și mai multe informații despre acesta.</p> <p>În plus, poți importa automat toate problemele deschise.</p>"
+        "HELP": "<p>De aici poți configura ChronoFlow Desktop pentru a lista problemele deschise pe GitLab (fie că este versiunea online sau o instanță self-hosted) pentru un proiect specific în panoul de creare a sarcinilor în modul de planificare zilnic. Acestea vor fi listate ca sugestii și vor conține o legătură către problemă și mai multe informații despre acesta.</p> <p>În plus, poți importa automat toate problemele deschise.</p>"
       },
       "ISSUE_CONTENT": {
         "ASSIGNEE": "Asignat lui",
@@ -469,14 +469,14 @@
       }
     },
     "ISSUE": {
-      "CROSS_ORIGIN_BROWSER_WARNING": "Această integrare probabil nu va funcționa în navigatorul tău web. Te rugăm să descarci versiunea desktop sau Android a Super Productivity!",
+      "CROSS_ORIGIN_BROWSER_WARNING": "Această integrare probabil nu va funcționa în navigatorul tău web. Te rugăm să descarci versiunea desktop sau Android a ChronoFlow Desktop!",
       "DEFAULT": {
         "ISSUE_STR": "problemă",
         "ISSUES_STR": "probleme"
       },
       "DEFAULT_NOTE_LABEL": "Notița implicită pentru sarcini importate",
       "DEFAULT_PROJECT_DESCRIPTION": "Proiectul pentru sarcini create din probleme.",
-      "DEFAULT_PROJECT_LABEL": "Proiectul implicit pentru Super Productivity",
+      "DEFAULT_PROJECT_LABEL": "Proiectul implicit pentru ChronoFlow Desktop",
       "DEFAULT_TAGS_LABEL": "Etichete implicite pentru sarcini importate",
       "FORM": {
         "AUTO_ADD_TO_BACKLOG": "Import automat în proiectul implicit (necesită proiect implicit)",
@@ -581,7 +581,7 @@
     },
     "JIRA": {
       "BANNER": {
-        "BLOCK_ACCESS_MSG": "Jira: Pentru a preveni blocarea API-ului, accesul a fost blocat de Super Productivity. Probabil ar trebui să verifici setările Jira!",
+        "BLOCK_ACCESS_MSG": "Jira: Pentru a preveni blocarea API-ului, accesul a fost blocat de ChronoFlow Desktop. Probabil ar trebui să verifici setările Jira!",
         "BLOCK_ACCESS_UNBLOCK": "Deblochează"
       },
       "CFG_CMP": {
@@ -630,7 +630,7 @@
         "TITLE": "Jira: Trimite jurnal lucru"
       },
       "FORM_ADV": {
-        "AUTO_ADD_BACKLOG_JQL_QUERY": "JQL folosit pentru importul automat al problemelor în Super Productivity",
+        "AUTO_ADD_BACKLOG_JQL_QUERY": "JQL folosit pentru importul automat al problemelor în ChronoFlow Desktop",
         "IS_ADD_WORKLOG_ON_SUB_TASK_DONE": "Deschide dialogul pentru a trimite worklog la Jira când subtask-ul este finalizat",
         "IS_CHECK_TO_RE_ASSIGN_TICKET_ON_TASK_START": "Verifică dacă problema la care lucrezi este atribuită utilizatorului curent",
         "IS_WORKLOG_ENABLED": "Deschide dialogul pentru a trimite worklog la Jira când sarcina este finalizată",
@@ -688,7 +688,7 @@
       },
       "S": {
         "ADDED_WORKLOG_FOR": "Jira: Worklog adăugat pentru {{issueKey}}",
-        "EXTENSION_NOT_LOADED": "Extensia Super Productivity nu este încărcată. Reîncărcarea paginii poate ajuta",
+        "EXTENSION_NOT_LOADED": "Extensia ChronoFlow Desktop nu este încărcată. Reîncărcarea paginii poate ajuta",
         "INSUFFICIENT_SETTINGS": "Setări insuficiente furnizate pentru Jira",
         "INVALID_RESPONSE": "Jira: Răspunsul a conținut date invalide",
         "NO_AUTO_IMPORT_JQL": "Jira: Nu este definită o interogare de căutare pentru importul automat",
@@ -912,7 +912,7 @@
         "TOKEN": "Token de acces"
       },
       "FORM_SECTION": {
-        "HELP": "<p>Aici poți configura Super Productivity să listeze pachetele de lucru OpenProject deschise. Reține că pentru a funcționa în versiunea web, probabil trebuie să configurezi CORS pe serverul OpenProject pentru a permite accesul de la app.super-productivity.com</p>"
+        "HELP": "<p>Aici poți configura ChronoFlow Desktop să listeze pachetele de lucru OpenProject deschise. Reține că pentru a funcționa în versiunea web, probabil trebuie să configurezi CORS pe serverul OpenProject pentru a permite accesul de la app.chronoflow-desktop.com</p>"
       },
       "ISSUE_CONTENT": {
         "ASSIGNEE": "Responsabil",
@@ -1096,7 +1096,7 @@
         "SCOPE_CREATED": "Create de mine"
       },
       "FORM_SECTION": {
-        "HELP": "<p>Aici poți configura Super Productivity să listeze probleme Redmine deschise (fie versiunea online, fie o instanță self-hosted) pentru un proiect specific în panoul de creare a sarcinilor din vizualizarea de planificare zilnică. Vor fi listate ca sugestii și vor oferi un link către problemă, precum și informații suplimentare despre aceasta.</p><p>În plus, poți importa automat toate problemele deschise.</p>",
+        "HELP": "<p>Aici poți configura ChronoFlow Desktop să listeze probleme Redmine deschise (fie versiunea online, fie o instanță self-hosted) pentru un proiect specific în panoul de creare a sarcinilor din vizualizarea de planificare zilnică. Vor fi listate ca sugestii și vor oferi un link către problemă, precum și informații suplimentare despre aceasta.</p><p>În plus, poți importa automat toate problemele deschise.</p>",
         "TITLE": "Secțiune"
       },
       "ISSUE_CONTENT": {
@@ -1578,14 +1578,14 @@
           "L_USE_CUSTOM_APP": "Folosește propria înregistrare de aplicație Microsoft Entra",
           "OFFICIAL_MODE_INFO": "Se folosește autentificarea integrată Microsoft 365 pentru această aplicație. Treci la modul personalizat doar dacă ai nevoie de propria înregistrare de aplicație Entra.",
           "PLATFORM_INFO": "Sincronizarea OneDrive este disponibilă doar în aplicațiile desktop și mobile, nu și în versiunea din browser.",
-          "SYNC_FOLDER_PATH_DESCRIPTION": "Stocat în dosarul de aplicație OneDrive (de ex. super-productivity)",
+          "SYNC_FOLDER_PATH_DESCRIPTION": "Stocat în dosarul de aplicație OneDrive (de ex. chronoflow-desktop)",
           "TENANT_ID_DESCRIPTION": "Folosește 'common' pentru autentificarea multi-chiriaș",
           "USE_CUSTOM_APP_DESCRIPTION": "Activează această opțiune dacă vrei să furnezi propriul tău ID de Aplicație (Client)"
         },
         "TITLE": "Sincronizare",
         "WEB_DAV": {
-          "CORS_INFO": "<strong>Ca să funcționeze în browser:</strong> Trebuie să permiți Super Productivity să facă cereri CORS către serverul tău. Pentru Nextcloud, o abordare este să permiți \"https://app.super-productivity.com\" prin aplicația <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword</a>. Consultă <a href='https://github.com/nextcloud/server/issues/3131'>această discuție GitHub</a> pentru mai multe informații.",
-          "D_SYNC_FOLDER_PATH": "Calea relativă la rădăcina serverului WebDAV unde vor fi stocate fișierele de sincronizare (de ex. '/super-productivity' sau '/'). Aceasta NU este calea internă a directorului serverului tău.",
+          "CORS_INFO": "<strong>Ca să funcționeze în browser:</strong> Trebuie să permiți ChronoFlow Desktop să facă cereri CORS către serverul tău. Pentru Nextcloud, o abordare este să permiți \"https://app.chronoflow-desktop.com\" prin aplicația <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword</a>. Consultă <a href='https://github.com/nextcloud/server/issues/3131'>această discuție GitHub</a> pentru mai multe informații.",
+          "D_SYNC_FOLDER_PATH": "Calea relativă la rădăcina serverului WebDAV unde vor fi stocate fișierele de sincronizare (de ex. '/chronoflow-desktop' sau '/'). Aceasta NU este calea internă a directorului serverului tău.",
           "INFO": "<strong>Avertisment:</strong> Sincronizarea generică WebDAV este oferită <strong>așa cum este, fără suport</strong>. Dacă folosești Nextcloud, te rog folosește opțiunea de sincronizare Nextcloud în schimb.",
           "L_BASE_URL": "URL de bază",
           "L_PASSWORD": "Parolă",
@@ -1624,11 +1624,11 @@
         "ERROR_PAYLOAD_TOO_LARGE": "Eroare sincronizare: Datele tale sunt prea mari pentru a fi încărcate.\n\nAcest lucru se întâmplă când ai multe sarcini arhivate. Datele tale NU au fost sincronizate!\n\nTe rog să contactezi suportul pentru asistență.",
         "ERROR_PERMISSION": "Acces refuzat la fișier. Te rog să verifici permisiunile sistemului de fișiere.",
         "ERROR_PERMISSION_FLATPAK": "Acces refuzat la fișier. Acordă permisiunea de sistem via Flatseal sau folosește un path din ~/.var/app/",
-        "ERROR_PERMISSION_SNAP": "Acces refuzat la fișier. Rulează 'snap connect super-productivity:home' sau folosește un path din ~/snap/super-productivity/common/",
+        "ERROR_PERMISSION_SNAP": "Acces refuzat la fișier. Rulează 'snap connect chronoflow-desktop:home' sau folosește un path din ~/snap/chronoflow-desktop/common/",
         "ERROR_REMOTE_FILE_CORRUPTED": "Datele de sincronizare de la distanță sunt ilizibile (posibil trunchiate sau corupte). Datele tale locale sunt în siguranță. Poți suprascrie datele de la distanță cu datele tale locale.",
         "ERROR_REMOTE_FILE_EMPTY": "Fișierul de sincronizare remote este gol. Acest lucru poate întâmpla după o sincronizare întreruptă. Suprascrie remote cu datele tale locale?",
         "ERROR_REMOTE_FILE_LOCKED": "Fișierul de sincronizare remote este blocat de server. Acest lucru poate fi rezolvat la următoarea încercare de sincronizare.",
-        "ERROR_SYNC_VERSION_MISMATCH": "Datele de sincronizare de la distanță folosesc o versiune de format incompatibilă. Asigură-te că toate dispozitivele rulează aceeași versiune de Super Productivity.",
+        "ERROR_SYNC_VERSION_MISMATCH": "Datele de sincronizare de la distanță folosesc o versiune de format incompatibilă. Asigură-te că toate dispozitivele rulează aceeași versiune de ChronoFlow Desktop.",
         "WARN_CLIENT_ID_REGENERATED": "ID-ul dispozitivului de sincronizare era invalid și a fost regenerat. O problemă de sincronizare poate apărea la următoarea sincronizare.",
         "ERROR_UNABLE_TO_READ_REMOTE_DATA": "Eroare în timpul sincronizării. Nu se pot citi datele de la distanță. Poate că ai activat criptarea și parola locală nu se potrivește cu cea folosită pentru criptarea datelor de la distanță?",
         "FINISH_DAY_SYNC_ERROR": "Eroare de sincronizare la finalizarea zilei. Te rog să încerci din nou.",
@@ -2304,11 +2304,11 @@
     "IMPORT_FROM_FILE": "Importă din fișier",
     "IMPORT_FROM_TODOIST": "Importă din Todoist",
     "IMPORT_FROM_URL": "Importă din URL",
-    "IMPORT_FROM_URL_DIALOG_DESCRIPTION": "Te rog să introduci URL-ul complet al fișierului de backup JSON al Super Productivity pentru import.",
+    "IMPORT_FROM_URL_DIALOG_DESCRIPTION": "Te rog să introduci URL-ul complet al fișierului de backup JSON al ChronoFlow Desktop pentru import.",
     "IMPORT_FROM_URL_DIALOG_TITLE": "Importă din URL",
     "OPEN_IMPORT_FROM_URL_DIALOG": "Importă din URL",
     "PRIVACY_EXPORT": "Exportă date (anonimizate)",
-    "PRIVACY_EXPORT_DESCRIPTION": "Exportă date anonimizate (pentru trimitere la contact@super-productivity.com pentru depanare)",
+    "PRIVACY_EXPORT_DESCRIPTION": "Exportă date anonimizate (pentru trimitere la contact@chronoflow-desktop.com pentru depanare)",
     "S_BACKUP_DOWNLOADED": "Backup descărcat în folderul de documente Android",
     "S_ERR_IMPORT_FAILED": "Importarea datelor a eșuat",
     "S_ERR_INVALID_DATA": "Importarea a eșuat: JSON invalid",
@@ -2338,7 +2338,7 @@
     "EDIT": "Editează",
     "ENABLED": "Activat",
     "EXAMPLE_VAL": "d.e. 32m",
-    "EXTENSION_INFO": "Te rog <a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/super-productivity/ljkbjodfmekklcoibdnhahlaalhihmlb\"> descarcă extensia Chrome</a> pentru a permite comunicarea cu API-ul Jira și tratarea timpului mort. Acest lucru nu funcționează pe mobil. <strong>Fără extensie, aceste funcții nu vor funcționa!</strong>",
+    "EXTENSION_INFO": "Te rog <a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/chronoflow-desktop/ljkbjodfmekklcoibdnhahlaalhihmlb\"> descarcă extensia Chrome</a> pentru a permite comunicarea cu API-ul Jira și tratarea timpului mort. Acest lucru nu funcționează pe mobil. <strong>Fără extensie, aceste funcții nu vor funcționa!</strong>",
     "HIDE": "Ascunde",
     "ICON_INP_DESCRIPTION": "Toate emoji-urile UTF-8 sunt de asemenea suportate!",
     "INBOX_PROJECT_TITLE": "Intrări",
@@ -2405,7 +2405,7 @@
     },
     "CALENDARS": {
       "AUTO_IMPORT_FOR_CURRENT_DAY": "Importă automat evenimentele ca sarcini pentru ziua curentă",
-      "BROWSER_WARNING": "Din cauza restricțiilor cross-origin <b>acest lucru va fi probabil NEFUNCȚIONAL cu versiunea browser a Super Productivity.<br /> Te rog <a href=\"https://super-productivity.com/download/\">descarcă versiunea desktop</a> pentru a utiliza această funcție!</b>",
+      "BROWSER_WARNING": "Din cauza restricțiilor cross-origin <b>acest lucru va fi probabil NEFUNCȚIONAL cu versiunea browser a ChronoFlow Desktop.<br /> Te rog <a href=\"https://chronoflow-desktop.com/download/\">descarcă versiunea desktop</a> pentru a utiliza această funcție!</b>",
       "CAL_COLOR": "Culoarea calendarului",
       "CAL_PATH": "URL-ul sursei iCal",
       "CHECK_UPDATES": "Verifică actualizările la distanță la fiecare X",
@@ -2415,7 +2415,7 @@
       "FILTER_INCLUDE_REGEX": "Include evenimentele care se potrivesc cu expresia regulată (opțional)",
       "FILTER_INCLUDE_REGEX_DESCRIPTION": "Doar evenimentele al căror titlu se potrivește cu această expresie regulată vor fi afișate. Lasă gol pentru a include toate evenimentele. Exemplu: întâlnire|standup",
       "INVALID_REGEX": "Expresie regulată invalidă",
-      "HELP": "Poți integra calendare pentru a fi amintit și le poți adăuga ca sarcini în Super Productivity. Integrarea funcționează prin utilizarea formatului iCal. Pentru ca aceasta să funcționeze, calendarele trebuie să fie accesibile fie prin internet, fie prin sistemul de fișiere.",
+      "HELP": "Poți integra calendare pentru a fi amintit și le poți adăuga ca sarcini în ChronoFlow Desktop. Integrarea funcționează prin utilizarea formatului iCal. Pentru ca aceasta să funcționeze, calendarele trebuie să fie accesibile fie prin internet, fie prin sistemul de fișiere.",
       "REFERENCE_CALENDAR": "Calendar de referință (doar afișare, fără creare de sarcini)",
       "SHOW_BANNER_THRESHOLD": "Afișează o notificare X minute înainte de eveniment (lasă gol pentru dezactivat)"
     },
@@ -2498,7 +2498,7 @@
       "EXPAND_SUB_TASKS": "Extinde sub-sarcinile",
       "GLOBAL_ADD_NOTE": "Adaugă o notiță nouă",
       "GLOBAL_ADD_TASK": "Adaugă o sarcină nouă",
-      "GLOBAL_SHOW_HIDE": "Arată/Ascunde Super Productivity",
+      "GLOBAL_SHOW_HIDE": "Arată/Ascunde ChronoFlow Desktop",
       "GLOBAL_TOGGLE_TASK_START": "Comută urmărirea timpului pentru ultima sarcină activă",
       "GLOBAL_TOGGLE_TASK_WIDGET": "Afișează/Ascunde widgetul de sarcini",
       "GO_TO_DAILY_AGENDA": "Mergi la agendă",
@@ -2659,7 +2659,7 @@
       "DEFAULT_TASK_REMIND_OPTION": "Opțiunea implicită de memento selectată la crearea sarcinilor",
       "DISABLE_REMINDERS": "Dezactivează toate mementourile",
       "DUE_DATE_NOTIFICATION_HOUR": "Ora de afișare a notificărilor de termen (0-23)",
-      "HELP": "<p><strong>Important:</strong> Mementourile folosesc <strong>notificări locale</strong>, nu notificări push. Aceasta înseamnă că aplicația trebuie să fi fost deschisă cel puțin o dată pe dispozitiv pentru ca mementourile să fie programate. Mementourile setate pe alt dispozitiv vor apărea doar după sincronizarea aplicației pe dispozitivul țintă.</p><p>Pe <strong>iOS</strong>, asigurați-vă că notificările sunt activate pentru Super Productivity în setările dispozitivului la \"Setări\" > \"Notificări\".</p>",
+      "HELP": "<p><strong>Important:</strong> Mementourile folosesc <strong>notificări locale</strong>, nu notificări push. Aceasta înseamnă că aplicația trebuie să fi fost deschisă cel puțin o dată pe dispozitiv pentru ca mementourile să fie programate. Mementourile setate pe alt dispozitiv vor apărea doar după sincronizarea aplicației pe dispozitivul țintă.</p><p>Pe <strong>iOS</strong>, asigurați-vă că notificările sunt activate pentru ChronoFlow Desktop în setările dispozitivului la \"Setări\" > \"Notificări\".</p>",
       "IS_COUNTDOWN_BANNER_ENABLED": "Afișează banner de numărătoare inversă înainte ca mementourile să fie scadente",
       "IS_FOCUS_WINDOW": "Focalizează pe fereastra aplicației când se activează mementoul",
       "NOTIFY_ON_DUE_DATE": "Afișează notificări pentru sarcinile cu termen azi",
@@ -2865,7 +2865,7 @@
     "ARCHIVED_PROJECTS": "Proiecte arhivate"
   },
   "MIGRATE": {
-    "C_DOWNLOAD_BACKUP": "Vrei să descarci o copie de rezervă a datelor tale moștenite (poate fi folosită cu versiunile mai vechi ale Super Productivity)?",
+    "C_DOWNLOAD_BACKUP": "Vrei să descarci o copie de rezervă a datelor tale moștenite (poate fi folosită cu versiunile mai vechi ale ChronoFlow Desktop)?",
     "DETECTED_LEGACY": "Au fost detectate date moștenite. Vom migra datele pentru tine!",
     "DIALOG_MESSAGE": "Actualizăm modul în care datele sunt stocate pentru o sincronizare mai bună. Un backup al datelor va fi descărcat automat.",
     "DIALOG_TITLE": "Se migrează datele tale",
@@ -2883,10 +2883,10 @@
     "TASK_MARKED_DONE": "Sarcină marcată ca finalizată"
   },
   "ONBOARDING": {
-    "TITLE": "Cum vrei să folosești Super Productivity?",
+    "TITLE": "Cum vrei să folosești ChronoFlow Desktop?",
     "SUBTITLE": "Alege o configurare potrivită stilului tău de lucru. Poți schimba oricând mai târziu în Setări.",
     "PRIVACY_HINT": "Datele tale rămân în siguranță pe dispozitivul tău. Nimic nu este trimis la un server.",
-    "SYNC_CTA": "Deja utilizezi Super Productivity pe un alt dispozitiv?",
+    "SYNC_CTA": "Deja utilizezi ChronoFlow Desktop pe un alt dispozitiv?",
     "SYNC_CTA_LINK": "Configurează sincronizarea",
     "PRESETS": {
       "SIMPLE_TODO": {
@@ -2969,7 +2969,7 @@
       "OPEN_LINK": "Deschide Plainspace",
       "STEP_1": "Deschide Plainspace și alege unul dintre spațiile tale (sau creează unul nou).",
       "STEP_2": "Deschide panoul Persoane, apoi extinde Avansat → Jetoane API.",
-      "STEP_3": "Denumește un jeton (d.e. \"Super Productivity\") și creează-l.",
+      "STEP_3": "Denumește un jeton (d.e. \"ChronoFlow Desktop\") și creează-l.",
       "STEP_4": "Copiază jetonul și lipește-l mai jos.",
       "TITLE": "Conectează-te la Plainspace",
       "TOKEN_HELP": "Creează un jeton API în Plainspace, apoi lipește-l mai jos.",

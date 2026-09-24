@@ -1,6 +1,6 @@
 /**
  * Normalized intermediate shape between the Todoist sync payload and the
- * Super Productivity import plan. Everything lossy is flagged per task so the
+ * ChronoFlow Desktop import plan. Everything lossy is flagged per task so the
  * preview/summary UI can honestly report what will be / was dropped.
  */
 

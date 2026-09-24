@@ -20,7 +20,7 @@ import {
   type PMNode,
   type TaskLookup,
 } from './doc-transform';
-import type { ActiveWorkContext, Task } from '@super-productivity/plugin-api';
+import type { ActiveWorkContext, Task } from '@chronoflow-desktop/plugin-api';
 
 /* -------------------------------------------------------------------------- */
 /* Fixtures                                                                    */

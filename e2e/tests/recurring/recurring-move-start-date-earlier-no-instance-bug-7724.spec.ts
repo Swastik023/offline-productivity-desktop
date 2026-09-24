@@ -8,7 +8,7 @@ import {
 } from '../../utils/recurring-task-helpers';
 
 /**
- * Bug: https://github.com/super-productivity/super-productivity/issues/7724
+ * Bug: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7724
  *
  * Sibling of #7423. A recurring config carries `lastTaskCreationDay` — a
  * watermark that the planner's projection logic treats as a hard lower bound:

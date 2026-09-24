@@ -147,13 +147,13 @@ Set up cron jobs on the Docker host:
 crontab -e
 
 # Daily usage snapshot at 2 AM
-0 2 * * * cd /path/to/super-productivity/packages/super-sync-server && ./scripts/docker-monitor.sh usage >> /var/log/supersync-daily.log 2>&1
+0 2 * * * cd /path/to/chronoflow-desktop/packages/super-sync-server && ./scripts/docker-monitor.sh usage >> /var/log/supersync-daily.log 2>&1
 
 # Weekly full report every Sunday at 3 AM
-0 3 * * 0 cd /path/to/super-productivity/packages/super-sync-server && ./scripts/docker-monitor.sh monitor-all --save
+0 3 * * 0 cd /path/to/chronoflow-desktop/packages/super-sync-server && ./scripts/docker-monitor.sh monitor-all --save
 
 # Hourly rapid-fire detection
-0 * * * * cd /path/to/super-productivity/packages/super-sync-server && ./scripts/docker-monitor.sh analyze rapid-fire >> /var/log/supersync-rapid-fire.log 2>&1
+0 * * * * cd /path/to/chronoflow-desktop/packages/super-sync-server && ./scripts/docker-monitor.sh analyze rapid-fire >> /var/log/supersync-rapid-fire.log 2>&1
 ```
 
 ## Recommended Investigation Workflow

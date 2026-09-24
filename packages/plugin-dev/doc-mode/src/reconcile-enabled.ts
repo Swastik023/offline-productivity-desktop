@@ -6,7 +6,7 @@
  * which both call `PluginAPI` directly and are unmockable in node).
  */
 
-import type { PluginAPI } from '@super-productivity/plugin-api';
+import type { PluginAPI } from '@chronoflow-desktop/plugin-api';
 import { loadEnabledCtxIds } from './persistence';
 
 /**

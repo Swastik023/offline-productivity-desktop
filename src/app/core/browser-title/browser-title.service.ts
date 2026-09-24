@@ -14,7 +14,7 @@ export class BrowserTitleService {
   private _focusModeService = inject(FocusModeService);
   private _translateService = inject(TranslateService);
 
-  private readonly _baseTitle = 'Super Productivity';
+  private readonly _baseTitle = 'ChronoFlow Desktop';
 
   constructor() {
     effect(() => {

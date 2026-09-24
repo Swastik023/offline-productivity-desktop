@@ -1,7 +1,7 @@
 {
-  "name": "@super-productivity/super-sync-server",
+  "name": "@chronoflow-desktop/super-sync-server",
   "version": "1.0.0",
-  "description": "SuperSync server for Super Productivity",
+  "description": "SuperSync server for ChronoFlow Desktop",
   "main": "dist/src/index.js",
   "scripts": {
     "build": "tsc",

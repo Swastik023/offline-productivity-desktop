@@ -70,7 +70,7 @@ describe('Security Fixes', () => {
       // name only the stable app origin. The Cloudflare preview wildcard that used to be
       // here granted credentialed cross-origin access to our preview infrastructure from
       // every server we do not run; it now belongs in our own deployment's CORS_ORIGINS.
-      expect(config.cors.allowedOrigins).toEqual(['https://app.super-productivity.com']);
+      expect(config.cors.allowedOrigins).toEqual(['https://app.chronoflow-desktop.com']);
     });
   });
 

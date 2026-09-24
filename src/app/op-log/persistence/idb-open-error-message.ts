@@ -25,13 +25,13 @@ const originalMessageOf = (error: IndexedDBOpenError): string =>
  */
 const UNIVERSAL_RECOVERY_STEPS =
   '1. Close this window.\n' +
-  '2. Start the newest version of Super Productivity you have installed. If this ' +
+  '2. Start the newest version of ChronoFlow Desktop you have installed. If this ' +
   'keeps happening, you likely have a second, older copy: an outdated shortcut, ' +
   'a portable executable, or an old install folder.\n' +
   '3. If you cannot find it, update the way you installed it — your app store, ' +
-  'package manager, or https://super-productivity.com\n' +
+  'package manager, or https://chronoflow-desktop.com\n' +
   '4. If you run it in a browser: reload with Ctrl+Shift+R (Cmd+Shift+R on Mac) ' +
-  'and close any other tabs running Super Productivity.\n\n';
+  'and close any other tabs running ChronoFlow Desktop.\n\n';
 
 /**
  * The downgrade barrier rejected an intact database: `DB_VERSION` 8-10 exist
@@ -52,12 +52,12 @@ const UNIVERSAL_RECOVERY_STEPS =
  * unknown or future channel must inherit safe text at RUNTIME, which matters
  * more here than a compile error would.
  *
- * Package identifiers per the store links in README.md — snapcraft.io/superproductivity
+ * Package identifiers per the store links in README.md — snapcraft.io/chronoflow
  * and flathub.org/apps/com.super_productivity.SuperProductivity. They differ from
- * both the top-level `appId` and the mac/Capacitor `com.super-productivity.app`;
+ * both the top-level `appId` and the mac/Capacitor `com.chronoflow-desktop.app`;
  * a wrong id here makes the one command we give the user fail outright.
  *
- * @see https://github.com/super-productivity/super-productivity/issues/9187
+ * @see https://github.com/chronoflow-desktop/chronoflow-desktop/issues/9187
  */
 const versionErrorRecoverySteps = (channel: DistChannel): string => {
   switch (channel) {
@@ -74,7 +74,7 @@ const versionErrorRecoverySteps = (channel: DistChannel): string => {
       // `auth_admin_keep`, so the bare command dies with "access denied".
       return (
         '1. Close this window.\n' +
-        '2. Update to the newest version: sudo snap refresh superproductivity\n' +
+        '2. Update to the newest version: sudo snap refresh chronoflow\n' +
         '3. If you ran `snap revert` recently, that is what caused this.\n\n'
       );
     default:
@@ -87,7 +87,7 @@ const buildVersionErrorMessage = (
   ctx: IdbOpenErrorContext,
 ): string =>
   'Cannot Open Data - This Version Is Too Old\n\n' +
-  `You are running Super Productivity ${ctx.appVersion}, but your data was ` +
+  `You are running ChronoFlow Desktop ${ctx.appVersion}, but your data was ` +
   'last used by a newer version. Older versions cannot read it.\n\n' +
   // Deliberately factual rather than "your data is safe": all we know is that
   // this failure touched nothing. The app never opened the database, so it has
@@ -103,7 +103,7 @@ const buildVersionErrorMessage = (
   // anti-data-loss advice, so a mis-detected channel must not be able to flip
   // it. The desktop half self-qualifies instead.
   'If you cannot run a newer version, do NOT clear this app data — that is what ' +
-  'makes the loss permanent. On desktop, copy your Super Productivity data ' +
+  'makes the loss permanent. On desktop, copy your ChronoFlow Desktop data ' +
   'folder somewhere safe before changing anything.\n\n' +
   // No "check the console" pointer here: `Technical details` above already
   // carries the whole error, and 5 of the 13 channels have no console a user
@@ -114,7 +114,7 @@ const buildVersionErrorMessage = (
  * Generic "cannot open the database" guidance, with extra recovery steps for
  * backing-store errors (stale LevelDB lock, sandbox not ready yet).
  *
- * @see https://github.com/johannesjo/super-productivity/issues/6255
+ * @see https://github.com/johannesjo/chronoflow-desktop/issues/6255
  */
 const buildGenericErrorMessage = (
   error: IndexedDBOpenError,
@@ -122,7 +122,7 @@ const buildGenericErrorMessage = (
 ): string => {
   let message =
     'Database Error - Cannot Load Data\n\n' +
-    'Super Productivity cannot open its database. ' +
+    'ChronoFlow Desktop cannot open its database. ' +
     'This may be caused by:\n\n' +
     '- Low disk space\n' +
     '- Temporary file lock (try closing other tabs)\n' +

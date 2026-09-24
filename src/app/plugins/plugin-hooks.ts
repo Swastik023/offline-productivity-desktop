@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Hooks, PluginHookHandler } from '@super-productivity/plugin-api';
+import { Hooks, PluginHookHandler } from '@chronoflow-desktop/plugin-api';
 import { PluginLog } from '../core/log';
 
 /**

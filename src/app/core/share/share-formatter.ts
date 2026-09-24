@@ -43,7 +43,7 @@ export interface ShareFormatterOptions {
   utmSource?: string;
   /** UTM medium override (default: 'social') */
   utmMedium?: string;
-  /** Base URL for the app (default: https://super-productivity.com) */
+  /** Base URL for the app (default: https://chronoflow-desktop.com) */
   baseUrl?: string;
   /** Maximum length for text (for Twitter, etc.) */
   maxLength?: number;
@@ -51,7 +51,7 @@ export interface ShareFormatterOptions {
   includeHashtags?: boolean;
 }
 
-const DEFAULT_BASE_URL = 'https://super-productivity.com';
+const DEFAULT_BASE_URL = 'https://chronoflow-desktop.com';
 const DEFAULT_UTM_SOURCE = 'share';
 const DEFAULT_UTM_MEDIUM = 'social';
 const TWITTER_MAX_LENGTH = 280;
@@ -87,12 +87,12 @@ export class ShareFormatter {
     const url = this._buildUrl(options);
     const text =
       customText ||
-      'Check out Super Productivity - an advanced todo list and time tracking app with focus on flexibility and privacy!';
+      'Check out ChronoFlow Desktop - an advanced todo list and time tracking app with focus on flexibility and privacy!';
 
     return {
       text,
       url,
-      title: 'Super Productivity',
+      title: 'ChronoFlow Desktop',
     };
   }
 

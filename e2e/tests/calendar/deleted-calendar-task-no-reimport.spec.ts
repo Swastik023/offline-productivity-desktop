@@ -1,7 +1,7 @@
 import { expect, test } from '../../fixtures/test.fixture';
 
 /**
- * Live repro for https://github.com/super-productivity/super-productivity/issues/5162
+ * Live repro for https://github.com/chronoflow-desktop/chronoflow-desktop/issues/5162
  *
  * Deleting a calendar event task that was auto-imported (`isAutoImportForCurrentDay`)
  * must stick: the next auto-import pass (here: an app restart, which re-runs the

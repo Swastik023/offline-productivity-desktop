@@ -40,7 +40,7 @@ class MatMenuTouchPatchHostComponent {
  * If these tests fail after an Angular Material update, the monkey patch
  * in mat-menu-touch-monkey-patch.ts needs to be updated to match the new API.
  *
- * Related issue: https://github.com/super-productivity/super-productivity/issues/4436
+ * Related issue: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/4436
  */
 describe('Mat Menu Touch Monkey Patch API Compatibility', () => {
   let fixture: ComponentFixture<MatMenuTouchPatchHostComponent>;

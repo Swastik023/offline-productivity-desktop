@@ -67,7 +67,7 @@ export type PluginSyncDirection = 'off' | 'pullOnly' | 'pushOnly' | 'both';
 
 export interface PluginFieldMapping {
   /**
-   * `tagIds` maps Super Productivity tags by title/label, not by internal tag id:
+   * `tagIds` maps ChronoFlow Desktop tags by title/label, not by internal tag id:
    * - `toIssueValue` receives a sorted string[] of local tag titles.
    * - `toTaskValue` must return a string[] of tag titles/labels to match or create locally.
    */

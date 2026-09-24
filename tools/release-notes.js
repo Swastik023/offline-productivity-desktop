@@ -7,7 +7,7 @@ const ROOT_DIR = path.join(__dirname, '..');
 const PLAY_STORE_MAX_CHARS = 500;
 const DEFAULT_CHANGELOG = 'Bug fixes and improvements';
 const DOWNLOADS_NOTE =
-  'For all current downloads, package links, and platform-specific notes: [check the wiki](https://github.com/super-productivity/super-productivity/wiki/2.01-Downloads-and-Install).';
+  'For all current downloads, package links, and platform-specific notes: [check the wiki](https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.01-Downloads-and-Install).';
 
 const GENERATED_RELEASE_NOTES_DIR = path.join(
   ROOT_DIR,
@@ -446,7 +446,7 @@ const buildAiPrompt = ({
   commits,
   deterministicGithubMarkdown,
   playStoreText,
-}) => `You are writing release notes for Super Productivity, an open-source todo and time-tracking app.
+}) => `You are writing release notes for ChronoFlow Desktop, an open-source todo and time-tracking app.
 
 Rewrite the raw commit subjects into user-facing release notes.
 

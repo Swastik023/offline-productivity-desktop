@@ -1,20 +1,20 @@
 # Privacy Policy
 
-**Super Productivity Sync**
+**ChronoFlow Desktop Sync**
 _Version: 08.12.2025_
 
 _Note: This is a translation for convenience only. In case of discrepancies between the German and the English version, the German version shall prevail._
 
 ## 1. Introduction
 
-With this Privacy Policy, we inform you about the type, scope, and purpose of the processing of personal data ("Data") within the scope of using the service **Super Productivity Sync**. This policy also explains your rights under the General Data Protection Regulation (GDPR).
+With this Privacy Policy, we inform you about the type, scope, and purpose of the processing of personal data ("Data") within the scope of using the service **ChronoFlow Desktop Sync**. This policy also explains your rights under the General Data Protection Regulation (GDPR).
 
 ## 2. Controller
 
 **Johannes Millan**
 Germany
 
-Email: contact@super-productivity.com
+Email: contact@chronoflow-desktop.com
 
 _(Further legal information can be found in the Legal Notice / Impressum on the website.)_
 
@@ -30,7 +30,7 @@ A Data Protection Officer has not been appointed as the statutory requirements f
 - Account status information (e.g., Active, Inactive)
 
 **(2) Content Data**
-This includes all data you save in the "Super Productivity" app and synchronize via the Service, e.g.:
+This includes all data you save in the "ChronoFlow Desktop" app and synchronize via the Service, e.g.:
 
 - Tasks
 - Projects
@@ -207,10 +207,10 @@ You have the right to lodge a complaint with a data protection supervisory autho
 Website: https://www.saechsdsb.de/
 
 To exercise your rights (e.g., deletion), a simple email is sufficient:
-📧 contact@super-productivity.com
+📧 contact@chronoflow-desktop.com
 
 ## 11. Contact
 
 If you have any questions about data protection, please contact us at:
-Email: contact@super-productivity.com
+Email: contact@chronoflow-desktop.com
 Or by mail at the address provided in Section 2.

@@ -174,7 +174,7 @@ export const buildProviderTitle = (baseTitle: string, provider: ShareTarget): st
  */
 export const encodeForWhatsApp = (text: string): string => {
   const cleaned = cleanupText(text);
-  return encodeURIComponent(cleaned || 'https://super-productivity.com');
+  return encodeURIComponent(cleaned || 'https://chronoflow-desktop.com');
 };
 
 /**

@@ -3,7 +3,7 @@ import { test, expect } from '../../fixtures/test.fixture';
 /**
  * Tests for mat-menu touch submenu fix.
  *
- * Issue: https://github.com/super-productivity/super-productivity/issues/4436
+ * Issue: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/4436
  *
  * When a submenu opens on a touch device near the screen edge, the submenu
  * can appear under the user's finger, causing an immediate accidental selection.

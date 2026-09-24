@@ -300,8 +300,8 @@ describe('LocalBackupService', () => {
   });
 
   describe('iOS backup ring (#7901)', () => {
-    const PRIMARY = 'super-productivity-backup.json';
-    const PREV = 'super-productivity-backup.prev.json';
+    const PRIMARY = 'chronoflow-desktop-backup.json';
+    const PREV = 'chronoflow-desktop-backup.prev.json';
 
     type LocalBackupServiceWithIosRing = {
       _readIOSExistingSlotOrThrow: (path: string) => Promise<string | null>;

@@ -23,8 +23,8 @@ describe('parseCorsOrigin', () => {
   describe('exact string origins', () => {
     it('should return string as-is when no wildcard present', async () => {
       const { parseCorsOrigin } = await importConfig();
-      const result = parseCorsOrigin('https://app.super-productivity.com');
-      expect(result).toBe('https://app.super-productivity.com');
+      const result = parseCorsOrigin('https://app.chronoflow-desktop.com');
+      expect(result).toBe('https://app.chronoflow-desktop.com');
     });
 
     it('should trim whitespace from exact origins', async () => {
@@ -52,10 +52,10 @@ describe('parseCorsOrigin', () => {
 
     it('should match preview deployment pattern', async () => {
       const { parseCorsOrigin } = await importConfig();
-      const result = parseCorsOrigin('https://*.super-productivity-preview.pages.dev');
+      const result = parseCorsOrigin('https://*.chronoflow-desktop-preview.pages.dev');
       expect(result).toBeInstanceOf(RegExp);
       expect(
-        (result as RegExp).test('https://f5382282.super-productivity-preview.pages.dev'),
+        (result as RegExp).test('https://f5382282.chronoflow-desktop-preview.pages.dev'),
       ).toBe(true);
     });
 
@@ -144,13 +144,13 @@ describe('parseCorsOrigin', () => {
   describe('parseCorsOrigin security', () => {
     it('should reject domain confusion in wildcard patterns', async () => {
       const { parseCorsOrigin } = await importConfig();
-      const result = parseCorsOrigin('https://*.super-productivity-preview.pages.dev');
+      const result = parseCorsOrigin('https://*.chronoflow-desktop-preview.pages.dev');
 
       expect(
-        (result as RegExp).test('https://evil.com.super-productivity-preview.pages.dev'),
+        (result as RegExp).test('https://evil.com.chronoflow-desktop-preview.pages.dev'),
       ).toBe(false);
       expect(
-        (result as RegExp).test('https://a.b.super-productivity-preview.pages.dev'),
+        (result as RegExp).test('https://a.b.chronoflow-desktop-preview.pages.dev'),
       ).toBe(false);
     });
 
@@ -199,14 +199,14 @@ describe('loadConfigFromEnv - CORS_ORIGINS parsing', () => {
   });
 
   it('should handle wildcard syntax in CORS_ORIGINS', async () => {
-    process.env.CORS_ORIGINS = 'https://*.super-productivity-preview.pages.dev';
+    process.env.CORS_ORIGINS = 'https://*.chronoflow-desktop-preview.pages.dev';
 
     const { loadConfigFromEnv } = await importConfig();
     const config = loadConfigFromEnv();
 
     expect(config.cors.allowedOrigins).toHaveLength(1);
     const pattern = config.cors.allowedOrigins![0] as RegExp;
-    expect(pattern.test('https://abc123.super-productivity-preview.pages.dev')).toBe(
+    expect(pattern.test('https://abc123.chronoflow-desktop-preview.pages.dev')).toBe(
       true,
     );
   });
@@ -337,7 +337,7 @@ describe('DEFAULT_CORS_ORIGINS', () => {
     const { loadConfigFromEnv } = await importConfig();
     const config = loadConfigFromEnv();
 
-    expect(config.cors.allowedOrigins).toEqual(['https://app.super-productivity.com']);
+    expect(config.cors.allowedOrigins).toEqual(['https://app.chronoflow-desktop.com']);
   });
 
   // Every self-hosted instance inherits this default with `credentials: true`. A pattern

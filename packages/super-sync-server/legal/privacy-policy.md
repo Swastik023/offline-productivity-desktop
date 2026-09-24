@@ -1,18 +1,18 @@
 # Datenschutzerklärung
 
-**Super Productivity Sync**
+**ChronoFlow Desktop Sync**
 _Stand: 08.12.2025_
 
 ## 1. Einleitung
 
-Mit dieser Datenschutzerklärung informieren wir Sie über die Art, den Umfang und den Zweck der Verarbeitung personenbezogener Daten („Daten“) im Rahmen der Nutzung des Dienstes **Super Productivity Sync**. Diese Erklärung erläutert außerdem Ihre Rechte gemäß der Datenschutz-Grundverordnung (DSGVO).
+Mit dieser Datenschutzerklärung informieren wir Sie über die Art, den Umfang und den Zweck der Verarbeitung personenbezogener Daten („Daten“) im Rahmen der Nutzung des Dienstes **ChronoFlow Desktop Sync**. Diese Erklärung erläutert außerdem Ihre Rechte gemäß der Datenschutz-Grundverordnung (DSGVO).
 
 ## 2. Verantwortlicher
 
 **Johannes Millan**
 Deutschland
 
-E-Mail: contact@super-productivity.com
+E-Mail: contact@chronoflow-desktop.com
 
 _(Weitere rechtliche Angaben finden Sie im Impressum der Website.)_
 
@@ -28,7 +28,7 @@ Ein Datenschutzbeauftragter ist nicht bestellt, da die gesetzlichen Voraussetzun
 - Statusinformationen zum Account (z. B. Aktiv, Inaktiv)
 
 **(2) Inhaltsdaten**
-Dies umfasst alle Daten, die Sie in der App „Super Productivity“ speichern und über den Dienst synchronisieren, z. B.:
+Dies umfasst alle Daten, die Sie in der App „ChronoFlow Desktop“ speichern und über den Dienst synchronisieren, z. B.:
 
 - Aufgaben
 - Projekte
@@ -205,10 +205,10 @@ Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.
 Website: https://www.saechsdsb.de/
 
 Zur Ausübung Ihrer Rechte (z. B. Löschung) genügt eine formlose E-Mail an:
-📧 contact@super-productivity.com
+📧 contact@chronoflow-desktop.com
 
 ## 11. Kontakt
 
 Bei Fragen zum Datenschutz erreichen Sie uns unter:
-E-Mail: contact@super-productivity.com
+E-Mail: contact@chronoflow-desktop.com
 Oder postalisch unter der in Punkt 2 genannten Anschrift.

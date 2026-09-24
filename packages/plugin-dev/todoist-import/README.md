@@ -1,6 +1,6 @@
 # Todoist import plugin
 
-This bundled, one-time importer adds active Todoist data to Super Productivity.
+This bundled, one-time importer adds active Todoist data to ChronoFlow Desktop.
 It is additive: it never replaces existing app data and is not a live Todoist
 integration.
 

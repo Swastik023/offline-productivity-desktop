@@ -1,4 +1,4 @@
-import { PluginAPI } from '@super-productivity/plugin-api';
+import { PluginAPI } from '@chronoflow-desktop/plugin-api';
 import { Action, TaskEvent } from '../types';
 import { AutomationRegistry } from './registry';
 import { AutomationContext } from './definitions';

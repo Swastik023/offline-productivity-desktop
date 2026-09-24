@@ -28,7 +28,7 @@ import {
   SnackCfg,
   Tag,
   Task,
-} from '@super-productivity/plugin-api';
+} from '@chronoflow-desktop/plugin-api';
 import { PluginBridgeService } from './plugin-bridge.service';
 import { PluginLog } from '../core/log';
 import { PluginI18nService } from './plugin-i18n.service';

@@ -1,5 +1,5 @@
 import type { IssueProviderKey } from '../../features/issue/issue.model';
-import type { IssueProviderPluginDefinition } from '@super-productivity/plugin-api';
+import type { IssueProviderPluginDefinition } from '@chronoflow-desktop/plugin-api';
 
 export type {
   PluginSearchResult,
@@ -13,7 +13,7 @@ export type {
   PluginHttpOptions,
   PluginHttp,
   IssueProviderPluginDefinition,
-} from '@super-productivity/plugin-api';
+} from '@chronoflow-desktop/plugin-api';
 
 /**
  * Stored metadata for a registered plugin issue provider.

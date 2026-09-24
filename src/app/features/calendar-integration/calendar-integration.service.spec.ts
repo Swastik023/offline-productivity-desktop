@@ -1498,7 +1498,7 @@ END:VCALENDAR`;
     }));
   });
 
-  // Repro for https://github.com/super-productivity/super-productivity/issues/7971
+  // Repro for https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7971
   //
   // Flow: a calendar event is imported as a task, completed before its due day, then
   // moved to the archive by "Finish Day". The archived task leaves the live NgRx task

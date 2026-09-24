@@ -9,7 +9,7 @@
  * jobs to compile the checked-in iconset without needing Sharp.
  *
  * https://developer.apple.com/library/archive/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Optimizing/Optimizing.html
- * https://github.com/super-productivity/super-productivity/issues/6323
+ * https://github.com/chronoflow-desktop/chronoflow-desktop/issues/6323
  */
 
 const { execFileSync } = require('node:child_process');

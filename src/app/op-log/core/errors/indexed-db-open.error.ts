@@ -16,8 +16,8 @@ import { HANDLED_ERROR_PROP_STR } from '../../../app.constants';
  * them to file what is usually a known transient platform issue (e.g. WebKit
  * bug 273827 on iOS).
  *
- * @see https://github.com/johannesjo/super-productivity/issues/6255
- * @see https://github.com/super-productivity/super-productivity/issues/7415
+ * @see https://github.com/johannesjo/chronoflow-desktop/issues/6255
+ * @see https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7415
  */
 export class IndexedDBOpenError extends Error {
   override name = 'IndexedDBOpenError';
@@ -30,7 +30,7 @@ export class IndexedDBOpenError extends Error {
    * upgraded (the `DB_VERSION` downgrade barrier). The data is intact; only
    * this build is too old to read it.
    *
-   * @see https://github.com/super-productivity/super-productivity/issues/9187
+   * @see https://github.com/chronoflow-desktop/chronoflow-desktop/issues/9187
    */
   readonly isVersionError: boolean;
 

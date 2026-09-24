@@ -102,7 +102,7 @@ For a non-prerelease release, publishing the draft starts:
 | Google Play | `.github/workflows/auto-publish-google-play-on-release.yml` | Promote `internal` to `production`              |
 | Snap Store  | `.github/workflows/build-publish-to-snap-on-release.yml`    | Publish the release Snap to `edge` and `stable` |
 | Web app     | `.github/workflows/build-update-web-app-on-release.yml`     | Build and deploy production web assets          |
-| AUR         | `.github/workflows/build-publish-to-aur-on-release.yml`     | Update `superproductivity-bin`                  |
+| AUR         | `.github/workflows/build-publish-to-aur-on-release.yml`     | Update `chronoflow-bin`                  |
 | Docker Hub  | `.github/workflows/publish-to-hub-docker.yml`               | Build and publish the application image         |
 
 The Docker Hub workflow runs for any published GitHub release and does not contain
@@ -118,7 +118,7 @@ Center.
 - A plain `master` push builds desktop artifacts, uploads a development Android
   build to the Play `internal` track, and publishes the branch Snap to `edge`.
 - A `master` push that changes SuperSync server inputs publishes
-  `ghcr.io/super-productivity/supersync:latest`; this image is not release-tagged.
+  `ghcr.io/chronoflow-desktop/supersync:latest`; this image is not release-tagged.
 - Pre-release and manual Apple workflows upload builds without submitting them for
   App Review. See [the TestFlight plan](plans/2026-07-14-ios-testflight-master-builds.md)
   for proposed additional branch behavior; it is not current behavior.

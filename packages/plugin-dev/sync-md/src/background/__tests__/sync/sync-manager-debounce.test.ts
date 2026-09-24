@@ -2,7 +2,7 @@ import { initSyncManager } from '../../sync/sync-manager';
 import { LocalUserCfg } from '../../local-config';
 import * as fileWatcher from '../../sync/file-watcher';
 import { SYNC_DEBOUNCE_MS_MD_TO_SP, SYNC_DEBOUNCE_MS } from '../../config.const';
-import { PluginHooks } from '@super-productivity/plugin-api';
+import { PluginHooks } from '@chronoflow-desktop/plugin-api';
 
 // Mock dependencies
 jest.mock('../../sync/file-watcher');

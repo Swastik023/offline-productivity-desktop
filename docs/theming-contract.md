@@ -1,6 +1,6 @@
 # Theming Contract
 
-Public contract for authoring custom themes for Super Productivity. This document is authoritative — the validator's warning pass keys off the same contract (`src/app/core/theme/theme-contract.const.ts`).
+Public contract for authoring custom themes for ChronoFlow Desktop. This document is authoritative — the validator's warning pass keys off the same contract (`src/app/core/theme/theme-contract.const.ts`).
 
 ## TL;DR
 

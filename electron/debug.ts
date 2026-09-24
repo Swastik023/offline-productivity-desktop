@@ -107,7 +107,7 @@ export const initDebug = (
 
   app.on('browser-window-created', (event, win) => {
     // Skip dev tools for task widget window
-    if (win.title === 'Super Productivity Task Widget') {
+    if (win.title === 'ChronoFlow Desktop Task Widget') {
       return;
     }
 

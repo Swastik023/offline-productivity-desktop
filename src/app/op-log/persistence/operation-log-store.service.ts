@@ -478,8 +478,8 @@ export class OperationLogStoreService implements RemoteOperationApplyStorePort<O
    *   helps for non-lock errors, so fail fast.
    *
    * @throws IndexedDBOpenError if all retry attempts fail
-   * @see https://github.com/johannesjo/super-productivity/issues/6255
-   * @see https://github.com/super-productivity/super-productivity/issues/7191
+   * @see https://github.com/johannesjo/chronoflow-desktop/issues/6255
+   * @see https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7191
    */
   private async _openDbWithRetry(): Promise<IDBPDatabase<OpLogDB>> {
     let maxRetries = IDB_OPEN_RETRIES;

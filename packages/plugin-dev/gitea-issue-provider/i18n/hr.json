@@ -18,5 +18,5 @@
     "LABELS": "Oznake",
     "DESCRIPTION": "Opis"
   },
-  "FORM_HELP": "<p>Ovdje možeš podesiti Super Productivity da prikazuje otvorene Gitea probleme za određeni repozitorij u ploči za stvaranje zadataka u dnevnom planiranju. Prikazat će se kao prijedlozi i imat će poveznicu na problem kao i dodatne informacije.</p> <p>Također možeš automatski dodati i uvesti sve otvorene probleme.</p><p>Za izbjegavanja ograničenja i dobivanja pristupa, unesi token za pristup.</p>"
+  "FORM_HELP": "<p>Ovdje možeš podesiti ChronoFlow Desktop da prikazuje otvorene Gitea probleme za određeni repozitorij u ploči za stvaranje zadataka u dnevnom planiranju. Prikazat će se kao prijedlozi i imat će poveznicu na problem kao i dodatne informacije.</p> <p>Također možeš automatski dodati i uvesti sve otvorene probleme.</p><p>Za izbjegavanja ograničenja i dobivanja pristupa, unesi token za pristup.</p>"
 }

@@ -1,7 +1,7 @@
 import { mdToSp } from '../../sync/md-to-sp';
 import { parseMarkdownWithHeader } from '../../sync/markdown-parser';
 import { generateTaskOperations } from '../../sync/generate-task-operations';
-import { Task } from '@super-productivity/plugin-api';
+import { Task } from '@chronoflow-desktop/plugin-api';
 
 // Mock dependencies
 jest.mock('../../sync/markdown-parser');

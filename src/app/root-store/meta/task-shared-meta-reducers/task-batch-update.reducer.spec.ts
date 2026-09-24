@@ -12,7 +12,7 @@ import {
   BatchTaskDelete,
   BatchTaskReorder,
   BatchOperation,
-} from '@super-productivity/plugin-api';
+} from '@chronoflow-desktop/plugin-api';
 import { createBaseState, createStateWithExistingTasks } from './test-utils';
 
 describe('taskBatchUpdateMetaReducer', () => {

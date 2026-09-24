@@ -1,0 +1,14 @@
+- [ ] Government Exam Morning Study +GovExam #deepwork 2h @today 08:30
+  - [ ] Polity: Fundamental Rights Chapter 4 reading 45m
+  - [ ] Polity: Solve 25 MCQs & check solutions 30m
+  - [ ] Modern History Chapter 3 quick revision 45m
+- [ ] Live Stream: Build Task Widget Frontend +Stream #live 2.5h @today 11:30
+  - [ ] Stream setup & OBS mic check +Stream #prep 15m
+  - [ ] Implement Task Widget component +Coding #coding 1h
+  - [ ] Stream chat Q&A & hydration break +Stream #break 15m
+  - [ ] Wire WebSocket IPC events +Coding #coding 45m
+  - [ ] Post-stream git commit & wrapup +Stream #wrapup 15m
+- [ ] Code Review & PR Triage +Coding #review 45m @today 15:30
+  - [ ] Review PR #104 auth middleware 25m
+  - [ ] Run test suite verification 20m !today 17:00
+- [ ] Evening Walk & Daily Reflection +Life #health 30m @today 18:30

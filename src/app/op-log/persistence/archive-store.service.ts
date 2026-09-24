@@ -116,7 +116,7 @@ export class ArchiveStoreService {
    * See OperationLogStoreService._openDbWithRetry for the rationale behind the
    * lock-vs-non-lock retry budget split.
    *
-   * @see https://github.com/super-productivity/super-productivity/issues/7191
+   * @see https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7191
    */
   private async _openDbWithRetry(): Promise<IDBPDatabase<ArchiveDBSchema>> {
     let maxRetries = IDB_OPEN_RETRIES;
@@ -178,7 +178,7 @@ export class ArchiveStoreService {
    * If the operation fails because iOS closed the connection, invalidates the
    * cached db reference and retries once after re-opening.
    *
-   * @see https://github.com/johannesjo/super-productivity/issues/6643
+   * @see https://github.com/johannesjo/chronoflow-desktop/issues/6643
    */
   private async _withRetryOnClose<T>(fn: () => Promise<T>): Promise<T> {
     try {

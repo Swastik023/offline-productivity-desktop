@@ -337,11 +337,11 @@ test.describe('@video reel', () => {
       {
         logo: {
           src: '/assets/icons/sp.svg',
-          alt: 'Super Productivity',
+          alt: 'ChronoFlow Desktop',
           monochrome: true,
         },
         title: 'Free and open source.',
-        subtitle: 'superproductivity.com',
+        subtitle: 'chronoflow.com',
         stats: [
           { template: '★ {n}K on GitHub', to: 19 },
           { template: '{n} ★ on Google Play', to: 4.8, decimals: 1 },

@@ -17,7 +17,7 @@ import { log, warn } from 'electron-log/main';
  * Only runs on Linux, where this startup race condition has been observed.
  *
  * @see https://github.com/electron/electron/issues/18263
- * @see https://github.com/super-productivity/super-productivity/issues/7191
+ * @see https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7191
  */
 export const clearStaleLevelDbLocks = async (userDataPath: string): Promise<void> => {
   if (process.platform !== 'linux') {

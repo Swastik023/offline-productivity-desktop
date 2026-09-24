@@ -140,7 +140,7 @@ function parseTasksWithSubTasks(text) {
     PluginAPI.showSnack({
       msg:
         deeplyNestedWarnings.length +
-        ' deeply-nested item(s) flattened to sub-task level. Sub-tasks in Super Productivity do not support nesting.',
+        ' deeply-nested item(s) flattened to sub-task level. Sub-tasks in ChronoFlow Desktop do not support nesting.',
       type: 'INFO',
     });
   }
@@ -435,7 +435,7 @@ async function submitTasks() {
             subTaskData.projectId = projectId;
           }
           // dueDay is intentionally NOT forwarded: sub-tasks inherit the
-          // parent's date in Super Productivity.
+          // parent's date in ChronoFlow Desktop.
           await PluginAPI.addTask(subTaskData);
         }
       }

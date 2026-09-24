@@ -48,7 +48,7 @@ personal planning, not team calendar management:
 4. Convert an event into a task when useful.
 5. Open the source event in Outlook.
 
-This fits Super Productivity's deep-work scope as an optional integration. It must be
+This fits ChronoFlow Desktop's deep-work scope as an optional integration. It must be
 quiet by default, read-only, least-privilege, and safe when offline or disconnected.
 
 ## What can be reused
@@ -115,7 +115,7 @@ not optional polish:
 ### Included
 
 - Microsoft 365 work/school accounts in the global Microsoft cloud.
-- Super Productivity Electron builds on Windows, macOS, and Linux.
+- ChronoFlow Desktop Electron builds on Windows, macOS, and Linux.
 - One Microsoft account per plugin per device.
 - Up to 10 calendars owned by the signed-in mailbox.
 - A fixed event window from 7 days before local today through 28 days after local
@@ -219,7 +219,7 @@ complete cache with a truncated one.
 
 This phase deliberately precedes repo implementation.
 
-1. Create a Super Productivity-owned, multitenant public-client Entra registration
+1. Create a ChronoFlow Desktop-owned, multitenant public-client Entra registration
    limited to accounts in organizational directories. Do not add a client secret.
 2. Register the Electron loopback redirect
    `http://127.0.0.1:<fixed-high-port>/<fixed-callback-path>` through the Entra

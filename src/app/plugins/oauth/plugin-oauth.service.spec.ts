@@ -5,7 +5,7 @@ import {
 } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { PluginOAuthService } from './plugin-oauth.service';
-import { OAuthFlowConfig } from '@super-productivity/plugin-api';
+import { OAuthFlowConfig } from '@chronoflow-desktop/plugin-api';
 
 describe('PluginOAuthService', () => {
   let service: PluginOAuthService;

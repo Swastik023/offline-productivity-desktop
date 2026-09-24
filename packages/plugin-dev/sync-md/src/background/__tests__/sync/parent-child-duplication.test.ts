@@ -1,7 +1,7 @@
 import { parseMarkdown } from '../../sync/markdown-parser';
 import { generateTaskOperations } from '../../sync/generate-task-operations';
 import { convertTasksToMarkdown } from '../../sync/sp-to-md';
-import { Task, BatchTaskCreate, BatchTaskUpdate } from '@super-productivity/plugin-api';
+import { Task, BatchTaskCreate, BatchTaskUpdate } from '@chronoflow-desktop/plugin-api';
 
 describe('Parent-Child Relationship Duplication Bug', () => {
   it('should not duplicate subtasks under multiple parents', () => {

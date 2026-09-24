@@ -115,7 +115,7 @@ export const evaluateGpuStartupGuard = (userDataPath: string): GpuGuardDecision 
 
   // mkdirSync is load-bearing on first-ever install: Electron's
   // `app.setPath('userData', ...)` does NOT create the directory, so
-  // $SNAP_USER_COMMON/.config/superproductivity may not exist yet on the
+  // $SNAP_USER_COMMON/.config/chronoflow may not exist yet on the
   // first launch of a fresh Snap install. Without this, writeFileSync
   // would fail silently and the guard would never write a marker.
   try {

@@ -1,6 +1,6 @@
-# Super Productivity Packages
+# ChronoFlow Desktop Packages
 
-This directory contains plugin packages and the plugin API for Super Productivity.
+This directory contains plugin packages and the plugin API for ChronoFlow Desktop.
 
 ## Structure
 

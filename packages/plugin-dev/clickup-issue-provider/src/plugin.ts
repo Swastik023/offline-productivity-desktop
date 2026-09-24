@@ -4,7 +4,7 @@ import type {
   PluginHttp,
   PluginIssue,
   PluginSearchResult,
-} from '@super-productivity/plugin-api';
+} from '@chronoflow-desktop/plugin-api';
 import {
   API_BASE,
   ClickUpConfig,

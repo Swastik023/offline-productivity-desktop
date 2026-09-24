@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Guidance for AI agents working in this repository. Super Productivity is a todo and time-tracking app on Angular + Electron + Capacitor.
+Guidance for AI agents working in this repository. ChronoFlow Desktop is a todo and time-tracking app on Angular + Electron + Capacitor.
 
 ## Repo map
 
@@ -101,7 +101,7 @@ here because getting it wrong already produced a confidently wrong conclusion.
 1. **`master` ships to real users. "It's only on master" never downgrades severity.** Every master
    push auto-publishes to the Play **internal track** (`.github/workflows/build-android.yml`,
    `tracks: internal` + `status: completed` → testers' phones auto-update within minutes, on their
-   real data). `ghcr.io/super-productivity/supersync:latest` **is** master and has no
+   real data). `ghcr.io/chronoflow-desktop/supersync:latest` **is** master and has no
    release-tagged build at all — it is the default in `packages/super-sync-server/docker-compose.yml`,
    so self-hosters on `docker compose pull` run master HEAD. Snap `edge` is also published from
    every master push. Only desktop/web/F-Droid/Play-production/Snap-stable are release-gated.

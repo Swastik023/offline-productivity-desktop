@@ -4,7 +4,7 @@ import {
   TaskCompletePayload,
   TaskUpdatePayload,
   TaskCreatedPayload,
-} from '@super-productivity/plugin-api';
+} from '@chronoflow-desktop/plugin-api';
 
 declare const plugin: PluginAPI;
 

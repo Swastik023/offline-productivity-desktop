@@ -94,8 +94,8 @@ describe('ShareFormatter', () => {
     it('should format default promotional text', () => {
       const payload = ShareFormatter.formatPromotion();
 
-      expect(payload.text).toContain('Super Productivity');
-      expect(payload.title).toBe('Super Productivity');
+      expect(payload.text).toContain('ChronoFlow Desktop');
+      expect(payload.title).toBe('ChronoFlow Desktop');
       expect(payload.url).toBeDefined();
     });
 

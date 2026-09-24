@@ -1,4 +1,4 @@
-import { PluginAPI } from '@super-productivity/plugin-api';
+import { PluginAPI } from '@chronoflow-desktop/plugin-api';
 import { TaskEvent } from '../types';
 import { RuleRegistry } from './rule-registry';
 import { ConditionEvaluator } from './condition-evaluator';
@@ -6,7 +6,7 @@ import { ActionExecutor } from './action-executor';
 import { lazySetInterval } from './lazy-set-interval';
 
 import { RateLimiter } from './rate-limiter';
-import { DialogCfg } from '@super-productivity/plugin-api';
+import { DialogCfg } from '@chronoflow-desktop/plugin-api';
 import { globalRegistry } from './registry';
 import * as Triggers from './triggers';
 import * as Conditions from './conditions';

@@ -183,7 +183,7 @@ Generic machinery (repair-op lifecycle, typia-error auto-fix loop shape, entity-
 *Verify: validation + data-repair specs.*
 
 **Step 10 — Reference host + publish.**
-Final SP shape: `src/app/op-log` = port implementations + provider factories + dialogs; `imex/sync` = UI. Minimal Node/CLI reference host (doubles as the framework-agnosticism integration test — it would have caught the signals gap). Publish under real names (e.g. `@super-productivity/sync-*`), semver the port interfaces; separate-repo extraction optional and orthogonal.
+Final SP shape: `src/app/op-log` = port implementations + provider factories + dialogs; `imex/sync` = UI. Minimal Node/CLI reference host (doubles as the framework-agnosticism integration test — it would have caught the signals gap). Publish under real names (e.g. `@chronoflow-desktop/sync-*`), semver the port interfaces; separate-repo extraction optional and orthogonal.
 
 Granularity: steps 2–3 = several small PRs; step 4 = one PR per singleton (latch PR is atomic across its 10 consumers); steps 5–8 = one focused PR per service, characterization/port tests first.
 

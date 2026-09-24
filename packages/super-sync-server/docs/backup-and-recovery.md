@@ -2,7 +2,7 @@
 
 ## Architecture Context
 
-Super Productivity uses an append-only operation log for sync. Every client (desktop, mobile, web) keeps a full copy of its data in local IndexedDB. The server is a relay — **clients are the source of truth**, not the server.
+ChronoFlow Desktop uses an append-only operation log for sync. Every client (desktop, mobile, web) keeps a full copy of its data in local IndexedDB. The server is a relay — **clients are the source of truth**, not the server.
 
 This means disaster recovery is simpler than in a traditional server-authoritative system: as long as one client device survives, all data can be recovered.
 

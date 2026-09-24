@@ -1,5 +1,5 @@
 /**
- * Keyboard reel — five-beat choreography demonstrating Super Productivity's
+ * Keyboard reel — five-beat choreography demonstrating ChronoFlow Desktop's
  * keyboard-first design. Each beat anchors a visible keycap chip to a real
  * `page.keyboard.press()` so the cause-and-effect reads honestly: the chip
  * appears, the shortcut fires, the app reacts.
@@ -315,11 +315,11 @@ test.describe('@video keyboard reel', () => {
       {
         logo: {
           src: '/assets/icons/sp.svg',
-          alt: 'Super Productivity',
+          alt: 'ChronoFlow Desktop',
           monochrome: true,
         },
         title: 'Made for keyboards.',
-        subtitle: 'superproductivity.com',
+        subtitle: 'chronoflow.com',
         stats: [
           { template: '{n}+ shortcuts', to: 40 },
           'Web · iOS · Android · macOS · Linux · Windows',

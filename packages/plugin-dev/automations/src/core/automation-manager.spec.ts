@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach, Mock } from 'vitest';
 import { AutomationManager } from './automation-manager';
-import { PluginAPI } from '@super-productivity/plugin-api';
+import { PluginAPI } from '@chronoflow-desktop/plugin-api';
 import { RuleRegistry } from './rule-registry';
 import { ConditionEvaluator } from './condition-evaluator';
 import { ActionExecutor } from './action-executor';

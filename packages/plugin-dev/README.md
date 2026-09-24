@@ -1,6 +1,6 @@
-# Super Productivity Plugin Development
+# ChronoFlow Desktop Plugin Development
 
-This directory contains tools and examples for developing plugins for Super Productivity.
+This directory contains tools and examples for developing plugins for ChronoFlow Desktop.
 
 ## Quick Commands
 
@@ -81,17 +81,17 @@ my-plugin/
 
 ### 1. Local Development
 
-For rapid development within the Super Productivity repo:
+For rapid development within the ChronoFlow Desktop repo:
 
 ```bash
-# Build and install to local Super Productivity
+# Build and install to local ChronoFlow Desktop
 npm run install-local
 
 # This copies your built plugin to:
 # ../../../src/assets/my-plugin/
 ```
 
-Then run Super Productivity in development mode to test your plugin.
+Then run ChronoFlow Desktop in development mode to test your plugin.
 
 ### 2. Watch Mode
 
@@ -283,17 +283,17 @@ Users would need to build it themselves or you can include the built files.
 # Build your plugin
 npm run build
 
-# Copy to Super Productivity assets
+# Copy to ChronoFlow Desktop assets
 npm run install-local
 
-# Run Super Productivity in dev mode
+# Run ChronoFlow Desktop in dev mode
 cd ../../.. && npm start
 ```
 
 ### 2. In Production Build
 
 1. Build your plugin: `npm run package`
-2. Open Super Productivity
+2. Open ChronoFlow Desktop
 3. Go to Settings → Plugins
 4. Click "Upload Plugin"
 5. Select your `plugin.zip` file
@@ -317,7 +317,7 @@ cd ../../.. && npm start
 ### Example with Types
 
 ```typescript
-import type { TaskData, ProjectData } from '@super-productivity/plugin-api';
+import type { TaskData, ProjectData } from '@chronoflow-desktop/plugin-api';
 
 // Type-safe task handling
 async function processTask(task: TaskData): Promise<void> {
@@ -360,7 +360,7 @@ PluginAPI.registerHook('taskUpdate', (data: unknown) => {
 ### TypeScript errors
 
 - Run `npm run typecheck` to see all errors
-- Ensure `@super-productivity/plugin-api` is installed
+- Ensure `@chronoflow-desktop/plugin-api` is installed
 - Check tsconfig.json settings
 
 ### Build issues
@@ -409,5 +409,5 @@ PluginAPI.registerHook('taskUpdate', (data: unknown) => {
 
 ## Support
 
-- GitHub Issues: [Super Productivity Issues](https://github.com/super-productivity/super-productivity/issues)
+- GitHub Issues: [ChronoFlow Desktop Issues](https://github.com/chronoflow-desktop/chronoflow-desktop/issues)
 - Plugin API Docs: See `packages/plugin-api/README.md`

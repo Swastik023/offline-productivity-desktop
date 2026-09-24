@@ -274,12 +274,12 @@
           "loginName": null,
           "password": null,
           "serverUrl": null,
-          "syncFolderPath": "super-productivity",
+          "syncFolderPath": "chronoflow-desktop",
           "userName": null
         },
         "oneDrive": {
           "clientId": null,
-          "syncFolderPath": "Super Productivity",
+          "syncFolderPath": "ChronoFlow Desktop",
           "tenantId": "common",
           "useCustomApp": true
         },
@@ -295,7 +295,7 @@
         "webDav": {
           "baseUrl": null,
           "password": null,
-          "syncFolderPath": "super-productivity",
+          "syncFolderPath": "chronoflow-desktop",
           "userName": null
         }
       },

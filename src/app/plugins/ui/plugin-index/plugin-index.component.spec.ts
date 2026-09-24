@@ -4,7 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EMPTY } from 'rxjs';
 import { signal } from '@angular/core';
-import { PluginIframeMessageType } from '@super-productivity/plugin-api';
+import { PluginIframeMessageType } from '@chronoflow-desktop/plugin-api';
 import { PluginIndexComponent } from './plugin-index.component';
 import { PluginService } from '../../plugin.service';
 import { PluginBridgeService } from '../../plugin-bridge.service';

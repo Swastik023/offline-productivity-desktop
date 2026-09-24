@@ -6,7 +6,7 @@
  * this constant and supply their own `defaultBaseUrl` via
  * `SuperSyncDeps`.
  */
-export const SUPER_SYNC_DEFAULT_BASE_URL = 'https://sync.super-productivity.com';
+export const SUPER_SYNC_DEFAULT_BASE_URL = 'https://sync.chronoflow-desktop.com';
 
 /**
  * Stable runtime identifier for the SuperSync provider. The string

@@ -204,7 +204,7 @@ describe('SyncConfigService', () => {
           loginName: 'alice@example.com',
           userName: 'alice',
           password: 'app-password',
-          syncFolderPath: 'super-productivity',
+          syncFolderPath: 'chronoflow-desktop',
         },
       };
 
@@ -217,7 +217,7 @@ describe('SyncConfigService', () => {
           loginName: 'alice@example.com',
           userName: 'alice',
           password: 'app-password',
-          syncFolderPath: 'super-productivity',
+          syncFolderPath: 'chronoflow-desktop',
         }),
       );
     });
@@ -232,7 +232,7 @@ describe('SyncConfigService', () => {
               loginName: 'alice@example.com',
               userName: 'alice',
               password: 'app-password',
-              syncFolderPath: 'super-productivity',
+              syncFolderPath: 'chronoflow-desktop',
             }),
           ),
         },
@@ -250,7 +250,7 @@ describe('SyncConfigService', () => {
           loginName: '',
           userName: 'alice',
           password: '',
-          syncFolderPath: 'super-productivity',
+          syncFolderPath: 'chronoflow-desktop',
         },
       };
 
@@ -276,7 +276,7 @@ describe('SyncConfigService', () => {
               loginName: 'alice@example.com',
               userName: 'alice',
               password: 'app-password',
-              syncFolderPath: 'super-productivity',
+              syncFolderPath: 'chronoflow-desktop',
             }),
           ),
         },
@@ -294,7 +294,7 @@ describe('SyncConfigService', () => {
           loginName: null,
           userName: 'alice',
           password: '',
-          syncFolderPath: 'super-productivity',
+          syncFolderPath: 'chronoflow-desktop',
         },
       };
 
@@ -839,7 +839,7 @@ describe('SyncConfigService', () => {
           loginName: 'alice@example.com',
           userName: 'alice',
           password: 'app-password',
-          syncFolderPath: 'super-productivity',
+          syncFolderPath: 'chronoflow-desktop',
         },
       });
 

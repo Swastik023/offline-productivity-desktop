@@ -1,7 +1,7 @@
 import { parseMarkdown } from '../../sync/markdown-parser';
 import { generateTaskOperations } from '../../sync/generate-task-operations';
 import { convertTasksToMarkdown } from '../../sync/sp-to-md';
-import { Task, BatchTaskUpdate } from '@super-productivity/plugin-api';
+import { Task, BatchTaskUpdate } from '@chronoflow-desktop/plugin-api';
 
 describe('Subtask Cleanup Issue', () => {
   // Helper to create mock task

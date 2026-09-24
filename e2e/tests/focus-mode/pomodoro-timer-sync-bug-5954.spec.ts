@@ -1,6 +1,6 @@
 /**
  * E2E tests for GitHub issue #5954
- * https://github.com/super-productivity/super-productivity/issues/5954
+ * https://github.com/chronoflow-desktop/chronoflow-desktop/issues/5954
  *
  * Bug: You can break Pomodoro timer syncing
  *
@@ -257,7 +257,7 @@ test.describe('Bug #5954: Pomodoro timer sync issues', () => {
     /**
      * Tests for the scenario where user starts focus mode but all tasks are done.
      * The fix ensures the focus overlay appears so user can select/create a task.
-     * https://github.com/super-productivity/super-productivity/issues/5954#issuecomment-3753395324
+     * https://github.com/chronoflow-desktop/chronoflow-desktop/issues/5954#issuecomment-3753395324
      */
     test('should keep overlay visible and disable play button when all tasks done', async ({
       page,

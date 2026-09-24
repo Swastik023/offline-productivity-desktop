@@ -1,6 +1,6 @@
 /**
  * Integration tests for GitHub issue #5813
- * https://github.com/super-productivity/super-productivity/issues/5813
+ * https://github.com/chronoflow-desktop/chronoflow-desktop/issues/5813
  *
  * Bug: Pomodoro Timer broke when the (now-removed) trackingInterval setting
  * was set to a high value.

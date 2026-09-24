@@ -3,17 +3,17 @@
     "B_INSTALL": {
       "IGNORE": "Negeren",
       "INSTALL": "Installeren",
-      "MSG": "Wilt u Super Productivity als PWA installeren?"
+      "MSG": "Wilt u ChronoFlow Desktop als PWA installeren?"
     },
     "B_OFFLINE": "Je hebt geen verbinding met internet. Het synchroniseren en opvragen van probleemprovidergegevens werkt niet.",
     "B_SYNC_SAFETY": {
       "DISMISS": "Niet nu",
-      "MSG": "Je gebruikt Super Productivity al een tijdje. Stel synchronisatie in om een back-up van je gegevens te maken en ze veilig te houden op al je apparaten.",
+      "MSG": "Je gebruikt ChronoFlow Desktop al een tijdje. Stel synchronisatie in om een back-up van je gegevens te maken en ze veilig te houden op al je apparaten.",
       "SETUP": "Synchronisatie instellen"
     },
     "B_UPDATE_AVAILABLE": {
       "DOWNLOAD": "Downloaden",
-      "MSG": "Er is een nieuwe versie van Super Productivity beschikbaar ({{version}})."
+      "MSG": "Er is een nieuwe versie van ChronoFlow Desktop beschikbaar ({{version}})."
     },
     "CONTEXT_MENU": {
       "CHANGE_BACKGROUND": "Achtergrond wijzigen",
@@ -75,13 +75,13 @@
   },
   "DONATE_PAGE": {
     "BUTTON_TEXT": "Doneer via GitHub Sponsors",
-    "INTRO_1": "Super Productivity wordt volledig gefinancierd door de gemeenschap. Er is geen tracking, geen advertenties en geen gegevensverzameling — je taken blijven op je apparaat.",
+    "INTRO_1": "ChronoFlow Desktop wordt volledig gefinancierd door de gemeenschap. Er is geen tracking, geen advertenties en geen gegevensverzameling — je taken blijven op je apparaat.",
     "INTRO_2": "Als je deze aanpak waardeert en het project gezond en in ontwikkeling wilt houden, wordt een vrijwillige donatie zeer op prijs gesteld."
   },
   "EXAMPLE_TASKS": {
     "LEARN_KEYBOARD_SHORTCUTS": {
       "TITLE": "Leer de sneltoetsen",
-      "NOTES": "Super Productivity is ontworpen om met het toetsenbord te gebruiken. Leer de sneltoetsen om sneller te werken.\n\n**Hoe te beginnen:**\n1. Open het **zijbalkmenu**\n2. Ga naar **Help**\n3. Klik op **Toetsenbordnavigatie-tour**"
+      "NOTES": "ChronoFlow Desktop is ontworpen om met het toetsenbord te gebruiken. Leer de sneltoetsen om sneller te werken.\n\n**Hoe te beginnen:**\n1. Open het **zijbalkmenu**\n2. Ga naar **Help**\n3. Klik op **Toetsenbordnavigatie-tour**"
     },
     "CREATE_PROJECT": {
       "TITLE": "Maak je eerste project aan",
@@ -273,7 +273,7 @@
       "FEEDBACK_PUBLIC": "Plaats op GitHub Discussions",
       "FEEDBACK_PUBLIC_DESC": "Anderen kunnen meelezen en reageren",
       "FEEDBACK_TITLE": "Hoe wil je helpen?",
-      "TITLE": "Gebruik je Super Productivity graag?",
+      "TITLE": "Gebruik je ChronoFlow Desktop graag?",
       "TXT": "Het is een <strong>gratis open-sourceproject</strong> gemaakt door enthousiastelingen — geen tracking, geen advertenties. Een beoordeling of korte boodschap helpt meer mensen het te vinden."
     },
     "DROPBOX": {
@@ -455,7 +455,7 @@
       }
     },
     "ISSUE": {
-      "CROSS_ORIGIN_BROWSER_WARNING": "Deze integratie werkt waarschijnlijk niet in uw browser. Download de desktop- of Android-versie van Super Productivity!",
+      "CROSS_ORIGIN_BROWSER_WARNING": "Deze integratie werkt waarschijnlijk niet in uw browser. Download de desktop- of Android-versie van ChronoFlow Desktop!",
       "DEFAULT": {
         "ISSUE_STR": "Kwestie",
         "ISSUES_STR": "Problemen"
@@ -567,7 +567,7 @@
     },
     "JIRA": {
       "BANNER": {
-        "BLOCK_ACCESS_MSG": "Jira: Om te voorkomen dat api wordt afgesloten, is de toegang geblokkeerd door Super Productivity. U moet waarschijnlijk uw jira-instellingen controleren!",
+        "BLOCK_ACCESS_MSG": "Jira: Om te voorkomen dat api wordt afgesloten, is de toegang geblokkeerd door ChronoFlow Desktop. U moet waarschijnlijk uw jira-instellingen controleren!",
         "BLOCK_ACCESS_UNBLOCK": "Deblokkeer"
       },
       "CFG_CMP": {
@@ -674,7 +674,7 @@
       },
       "S": {
         "ADDED_WORKLOG_FOR": "Jira: Worklog toegevoegd voor {{issueKey}}",
-        "EXTENSION_NOT_LOADED": "Super Productivity-extensie niet geladen. Het kan helpen om de pagina opnieuw te laden",
+        "EXTENSION_NOT_LOADED": "ChronoFlow Desktop-extensie niet geladen. Het kan helpen om de pagina opnieuw te laden",
         "INSUFFICIENT_SETTINGS": "Er zijn onvoldoende instellingen voor Jira",
         "INVALID_RESPONSE": "Jira: Reactie bevat ongeldige gegevens",
         "NO_AUTO_IMPORT_JQL": "Jira: Geen zoekopdracht gedefinieerd voor automatisch importeren",
@@ -898,7 +898,7 @@
         "TOKEN": "Toegangstoken"
       },
       "FORM_SECTION": {
-        "HELP": "<p>Hier kunt u SuperProductivity configureren om open OpenProject-werkpakketten weer te geven. Houd er rekening mee dat om dit in de browser te laten werken, u waarschijnlijk CORS moet configureren voor uw OpenProject-server, om toegang te verlenen vanaf app.super-productivity.com</p>"
+        "HELP": "<p>Hier kunt u SuperProductivity configureren om open OpenProject-werkpakketten weer te geven. Houd er rekening mee dat om dit in de browser te laten werken, u waarschijnlijk CORS moet configureren voor uw OpenProject-server, om toegang te verlenen vanaf app.chronoflow-desktop.com</p>"
       },
       "ISSUE_CONTENT": {
         "ASSIGNEE": "Cessionaris",
@@ -1417,8 +1417,8 @@
         "TITLE": "Synchroniseren",
         "WEB_DAV": {
           "CORS_INFO": "<strong>Experimenteel !!</strong> Om dit te laten werken, moet u CORS uitschakelen of beperken voor uw Nextcloud-instantie, wat negatieve gevolgen voor de veiligheid kan hebben! Raadpleeg <a href='https://github.com/nextcloud/server/issues/3131'>deze thread</a> voor meer informatie. Gebruik op eigen risico!",
-          "D_SYNC_FOLDER_PATH": "Pad relatief aan de root van de WebDAV-server waar synchronisatiebestanden worden opgeslagen (bijv. '/super-productivity' of '/'). Dit is NIET het interne directorypad van je server.",
-          "INFO": "WebDAV-implementaties verschillen helaas sterk. Super Productivity werkt goed met Nextcloud, <strong>maar het werkt mogelijk niet met jouw provider</strong>.",
+          "D_SYNC_FOLDER_PATH": "Pad relatief aan de root van de WebDAV-server waar synchronisatiebestanden worden opgeslagen (bijv. '/chronoflow-desktop' of '/'). Dit is NIET het interne directorypad van je server.",
+          "INFO": "WebDAV-implementaties verschillen helaas sterk. ChronoFlow Desktop werkt goed met Nextcloud, <strong>maar het werkt mogelijk niet met jouw provider</strong>.",
           "L_BASE_URL": "Basis-URL",
           "L_PASSWORD": "Wachtwoord",
           "L_SYNC_FOLDER_PATH": "Map pad synchroniseren",
@@ -1427,7 +1427,7 @@
           "S_FILL_ALL_FIELDS": "Vul eerst alle WebDAV-velden in",
           "S_TEST_FAIL": "Verbindingstest mislukt: {{error}} - Doel-URL: {{url}}",
           "S_TEST_SUCCESS": "Verbindingstest geslaagd! Doel-URL: {{url}}",
-          "CONDITIONAL_HEADER_WARNING_MSG": "Je WebDAV-server ondersteunt geen conditionele headers (If-Unmodified-Since). Dit betekent dat Super Productivity geen gelijktijdige wijzigingen van andere apparaten kan detecteren tijdens het uploaden.<br><br>Synchronisatie werkt nog steeds, maar er is een klein risico op gegevensconflicten als je tegelijkertijd wijzigingen aanbrengt op meerdere apparaten.",
+          "CONDITIONAL_HEADER_WARNING_MSG": "Je WebDAV-server ondersteunt geen conditionele headers (If-Unmodified-Since). Dit betekent dat ChronoFlow Desktop geen gelijktijdige wijzigingen van andere apparaten kan detecteren tijdens het uploaden.<br><br>Synchronisatie werkt nog steeds, maar er is een klein risico op gegevensconflicten als je tegelijkertijd wijzigingen aanbrengt op meerdere apparaten.",
           "CONDITIONAL_HEADER_WARNING_TITLE": "Verminderde synchronisatieveiligheid"
         },
         "BTN_DISABLE_ENCRYPTION": "Versleuteling uitschakelen",
@@ -1482,14 +1482,14 @@
         "L_USE_SPLIT_SYNC_FILES": "Surgical sync (experimenteel) – Sneller synchroniseren met een gesplitste ops/snapshot-bestandsindeling. Na inschakeling moet deze optie ook zijn ingeschakeld op alle apparaten die deze map synchroniseren.",
         "ONEDRIVE": {
           "CLIENT_ID_DESCRIPTION": "Applicatie-ID (client-ID) uit de registratie van je Microsoft Entra-app",
-          "INFO_TEXT": "Microsoft 365-authenticatie gebruikt OAuth. Vul eerst de client en tenant in en authenticeer je daarna. <strong>Gebruik je een eigen Entra-appregistratie?</strong> Registreer op desktop de omleidings-URI <code>superproductivity://oauth-callback/onedrive</code> onder \"Mobile and desktop applications\", schakel \"Allow public client flows\" in en verleen de gedelegeerde machtiging <code>Files.ReadWrite.AppFolder</code>. Zie de <a href=\"https://github.com/super-productivity/super-productivity/wiki/2.09-Configure-Sync-Backend\" target=\"_blank\" rel=\"noopener\">installatiehandleiding voor OneDrive</a>.",
+          "INFO_TEXT": "Microsoft 365-authenticatie gebruikt OAuth. Vul eerst de client en tenant in en authenticeer je daarna. <strong>Gebruik je een eigen Entra-appregistratie?</strong> Registreer op desktop de omleidings-URI <code>chronoflow://oauth-callback/onedrive</code> onder \"Mobile and desktop applications\", schakel \"Allow public client flows\" in en verleen de gedelegeerde machtiging <code>Files.ReadWrite.AppFolder</code>. Zie de <a href=\"https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.09-Configure-Sync-Backend\" target=\"_blank\" rel=\"noopener\">installatiehandleiding voor OneDrive</a>.",
           "L_CLIENT_ID": "Applicatie-ID (client-ID)",
           "L_SYNC_FOLDER_PATH": "Pad naar synchronisatiemap",
           "L_TENANT_ID": "Tenant-ID",
           "L_USE_CUSTOM_APP": "Mijn eigen Microsoft Entra-appregistratie gebruiken",
           "OFFICIAL_MODE_INFO": "De ingebouwde Microsoft 365-aanmelding voor deze app wordt gebruikt. Schakel alleen over naar de aangepaste modus als je een eigen Entra-appregistratie nodig hebt.",
           "PLATFORM_INFO": "OneDrive-synchronisatie is alleen beschikbaar in de desktop- en mobiele apps, niet in de browserversie.",
-          "SYNC_FOLDER_PATH_DESCRIPTION": "Opgeslagen in je OneDrive-appmap (bijv. super-productivity)",
+          "SYNC_FOLDER_PATH_DESCRIPTION": "Opgeslagen in je OneDrive-appmap (bijv. chronoflow-desktop)",
           "TENANT_ID_DESCRIPTION": "Gebruik 'common' voor aanmelding bij meerdere tenants",
           "USE_CUSTOM_APP_DESCRIPTION": "Schakel dit in als je een eigen applicatie-ID (client-ID) wilt opgeven"
         }
@@ -1502,7 +1502,7 @@
         "ERROR_DATA_IS_CURRENTLY_WRITTEN": "Remote Data wordt momenteel geschreven",
         "ERROR_PERMISSION": "Bestandstoegang geweigerd. Controleer uw bestandsysteemrechten.",
         "ERROR_PERMISSION_FLATPAK": "Bestandstoegang geweigerd. Verleen bestandsysteemrechten via Flatseal of gebruik een pad binnen ~\\/var\\/app\\/",
-        "ERROR_PERMISSION_SNAP": "Bestandstoegang geweigerd. Voer 'snap connect super-productivity:home' uit of gebruik een pad binnen ~\\/snap\\/super-productivity\\/common\\/",
+        "ERROR_PERMISSION_SNAP": "Bestandstoegang geweigerd. Voer 'snap connect chronoflow-desktop:home' uit of gebruik een pad binnen ~\\/snap\\/chronoflow-desktop\\/common\\/",
         "INCOMPLETE_CFG": "Verificatie voor synchronisatie is mislukt. Controleer uw configuratie!",
         "SUCCESS_DOWNLOAD": "Gesynchroniseerde gegevens van op afstand",
         "SUCCESS_VIA_BUTTON": "Gegevens succesvol gesynchroniseerd",
@@ -1564,7 +1564,7 @@
         "ERROR_REMOTE_FILE_CORRUPTED": "Externe synchronisatiegegevens zijn onleesbaar (mogelijk afgekapt of beschadigd). Je lokale gegevens zijn veilig. Je kunt de externe gegevens overschrijven met je lokale gegevens.",
         "ERROR_REMOTE_FILE_EMPTY": "Extern synchronisatiebestand is leeg. Dit kan gebeuren na een onderbroken synchronisatie. Externe gegevens overschrijven met je lokale gegevens?",
         "ERROR_REMOTE_FILE_LOCKED": "Extern synchronisatiebestand is door de server vergrendeld. Dit kan bij de volgende synchronisatiepoging worden opgelost.",
-        "ERROR_SYNC_VERSION_MISMATCH": "Externe synchronisatiegegevens gebruiken een incompatibele indelingsversie. Zorg dat alle apparaten dezelfde versie van Super Productivity gebruiken.",
+        "ERROR_SYNC_VERSION_MISMATCH": "Externe synchronisatiegegevens gebruiken een incompatibele indelingsversie. Zorg dat alle apparaten dezelfde versie van ChronoFlow Desktop gebruiken.",
         "WARN_CLIENT_ID_REGENERATED": "Synchronisatieapparaat-ID was ongeldig en is opnieuw gegenereerd. Bij de volgende synchronisatie kan een conflict optreden.",
         "LEGACY_FORMAT_DETECTED": "Synchronisatie-indeling komt niet overeen: de externe opslag is voor het laatst geschreven door een oudere appversie (v16.x of eerder) die een andere synchronisatie-indeling gebruikt. Werk al je apparaten bij naar dezelfde appversie. \"Geforceerd overschrijven\" deblokkeert dit apparaat door de nieuwe indeling naast de legacy-bestanden te schrijven; gebruik dit alleen als geen ouder apparaat nog met deze externe opslag zal synchroniseren, anders wijken ze stilzwijgend af van dit apparaat.",
         "SYNC_VALIDATION_FAILED": "Statusvalidatie na synchronisatie mislukt. Sommige gegevens kunnen inconsistent zijn.",
@@ -2346,11 +2346,11 @@
     "EXPORT_DATA": "Exportgegevens",
     "IMPORT_FROM_FILE": "Importeren uit bestand",
     "IMPORT_FROM_URL": "Importeren van URL",
-    "IMPORT_FROM_URL_DIALOG_DESCRIPTION": "Voer de volledige URL in van het Super Productivity-back-up JSON-bestand dat je wilt importeren.",
+    "IMPORT_FROM_URL_DIALOG_DESCRIPTION": "Voer de volledige URL in van het ChronoFlow Desktop-back-up JSON-bestand dat je wilt importeren.",
     "IMPORT_FROM_URL_DIALOG_TITLE": "Importeren van URL",
     "OPEN_IMPORT_FROM_URL_DIALOG": "Importeren van URL",
     "PRIVACY_EXPORT": "Gegevens exporteren (geanonimiseerd)",
-    "PRIVACY_EXPORT_DESCRIPTION": "Geanonimiseerde gegevens exporteren (om naar contact@super-productivity.com te sturen voor debugging)",
+    "PRIVACY_EXPORT_DESCRIPTION": "Geanonimiseerde gegevens exporteren (om naar contact@chronoflow-desktop.com te sturen voor debugging)",
     "S_BACKUP_DOWNLOADED": "Back-up gedownload naar de map met Android-documenten",
     "S_ERR_IMPORT_FAILED": "Het importeren van gegevens is mislukt",
     "S_ERR_INVALID_DATA": "Importeren mislukt: ongeldige JSON",
@@ -2379,7 +2379,7 @@
     "EDIT": "Bewerk",
     "ENABLED": "Ingeschakeld",
     "EXAMPLE_VAL": "Klik om te bewerken",
-    "EXTENSION_INFO": "<a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/super-productivity/ljkbjodfmekklcoibdnhahlaalhihmlb\"> Download de Chrome-extensie</a> om communicatie met de Jira Api en Idle Time Handling mogelijk te maken. Merk op dat dit niet werkt voor mobiel.",
+    "EXTENSION_INFO": "<a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/chronoflow-desktop/ljkbjodfmekklcoibdnhahlaalhihmlb\"> Download de Chrome-extensie</a> om communicatie met de Jira Api en Idle Time Handling mogelijk te maken. Merk op dat dit niet werkt voor mobiel.",
     "HIDE": "Verberg",
     "ICON_INP_DESCRIPTION": "Alle utf-8 emoji's worden ook ondersteund!",
     "INBOX_PROJECT_TITLE": "Postvak IN",
@@ -2448,10 +2448,10 @@
       "S_RESTORE_SUCCESS": "Back-up succesvol hersteld."
     },
     "CALENDARS": {
-      "BROWSER_WARNING": "Vanwege cross origin beperkingen <b>zal dit waarschijnlijk NIET werken met de browserversie van Super Productivity.<br />  <a href=\"https://super-productivity.com/download/\">Download de desktopversie</a> om deze functie te gebruiken!</b>",
+      "BROWSER_WARNING": "Vanwege cross origin beperkingen <b>zal dit waarschijnlijk NIET werken met de browserversie van ChronoFlow Desktop.<br />  <a href=\"https://chronoflow-desktop.com/download/\">Download de desktopversie</a> om deze functie te gebruiken!</b>",
       "CAL_PATH": "URL van de iCal-bron",
       "CHECK_UPDATES": "Elke X controleren op updates op afstand",
-      "HELP": "Je kunt kalenders integreren om eraan herinnerd te worden en ze toevoegen als taken binnen Super Productivity. De integratie maakt gebruik van de iCal-indeling. Om dit te laten werken moeten uw agenda's toegankelijk zijn via het internet of via het bestandssysteem.",
+      "HELP": "Je kunt kalenders integreren om eraan herinnerd te worden en ze toevoegen als taken binnen ChronoFlow Desktop. De integratie maakt gebruik van de iCal-indeling. Om dit te laten werken moeten uw agenda's toegankelijk zijn via het internet of via het bestandssysteem.",
       "SHOW_BANNER_THRESHOLD": "Toon een melding X voor de gebeurtenis (leeg voor uitgeschakeld)",
       "AUTO_IMPORT_FOR_CURRENT_DAY": "Gebeurtenissen automatisch als taken importeren voor de huidige dag",
       "CAL_COLOR": "Agendakleur",
@@ -2700,7 +2700,7 @@
       "IS_COUNTDOWN_BANNER_ENABLED": "Aftelbanner tonen voordat herinneringen klaar zijn",
       "TITLE": "Herinneringen",
       "DUE_DATE_NOTIFICATION_HOUR": "Uur om meldingen voor vervaldata te tonen (0-23)",
-      "HELP": "<p><strong>Belangrijk:</strong> Herinneringen gebruiken <strong>lokale meldingen</strong>, geen push-meldingen. Dit betekent dat de app minstens één keer op je apparaat geopend moet zijn om herinneringen in te plannen. Herinneringen die op een ander apparaat zijn ingesteld, verschijnen pas na synchronisatie op het doelapparaat.</p><p>Op <strong>iOS</strong> zorg je ervoor dat meldingen zijn ingeschakeld voor Super Productivity in je apparaatinstellingen onder 'Instellingen' > 'Meldingen'.</p>",
+      "HELP": "<p><strong>Belangrijk:</strong> Herinneringen gebruiken <strong>lokale meldingen</strong>, geen push-meldingen. Dit betekent dat de app minstens één keer op je apparaat geopend moet zijn om herinneringen in te plannen. Herinneringen die op een ander apparaat zijn ingesteld, verschijnen pas na synchronisatie op het doelapparaat.</p><p>Op <strong>iOS</strong> zorg je ervoor dat meldingen zijn ingeschakeld voor ChronoFlow Desktop in je apparaatinstellingen onder 'Instellingen' > 'Meldingen'.</p>",
       "IS_FOCUS_WINDOW": "App-venster naar voren brengen wanneer herinnering wordt geactiveerd",
       "NOTIFY_ON_DUE_DATE": "Meldingen tonen voor taken die vandaag vervallen",
       "USE_ALARM_STYLE_REMINDERS": "Alarmachtige meldingen gebruiken (alleen Android)",
@@ -2925,7 +2925,7 @@
     "ARCHIVED_PROJECTS": "Gearchiveerde projecten"
   },
   "MIGRATE": {
-    "C_DOWNLOAD_BACKUP": "Wilt u een back-up downloaden van uw verouderde gegevens (kan worden gebruikt met oudere versies van Super Productivity)?",
+    "C_DOWNLOAD_BACKUP": "Wilt u een back-up downloaden van uw verouderde gegevens (kan worden gebruikt met oudere versies van ChronoFlow Desktop)?",
     "DETECTED_LEGACY": "Verouderde gegevens gedetecteerd. Wij migreren het voor u!",
     "E_MIGRATION_FAILED": "Migratie mislukt! met fout:",
     "E_RESTART_FAILED": "Automatisch opnieuw opstarten is mislukt. Start de app handmatig opnieuw!",
@@ -2938,7 +2938,7 @@
     "STATUS_PREPARING": "Migratie voorbereiden..."
   },
   "ONBOARDING": {
-    "TITLE": "Hoe wil je Super Productivity gebruiken?",
+    "TITLE": "Hoe wil je ChronoFlow Desktop gebruiken?",
     "SUBTITLE": "Kies een instelling die bij je werkwijze past. Je kunt dit later altijd wijzigen in Instellingen.",
     "PRIVACY_HINT": "Je gegevens blijven veilig op je apparaat. Er wordt niets naar een server verzonden.",
     "PRESETS": {
@@ -2966,7 +2966,7 @@
       "OR_PRESS": "of druk op",
       "SKIP_ARIA": "Hint sluiten"
     },
-    "SYNC_CTA": "Gebruik je Super Productivity al op een ander apparaat?",
+    "SYNC_CTA": "Gebruik je ChronoFlow Desktop al op een ander apparaat?",
     "SYNC_CTA_LINK": "Synchronisatie instellen"
   },
   "PDS": {

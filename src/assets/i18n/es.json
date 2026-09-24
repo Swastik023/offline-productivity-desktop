@@ -3,7 +3,7 @@
     "B_INSTALL": {
       "IGNORE": "Ignorar",
       "INSTALL": "Instalar",
-      "MSG": "¿Quieres instalar Super Productivity como una PWA?"
+      "MSG": "¿Quieres instalar ChronoFlow Desktop como una PWA?"
     },
     "B_OFFLINE": "Estás desconectado de internet. La sincronización y la solicitud de datos al proveedor de incidencias no funcionarán.",
     "B_SUPER_SYNC_ENCRYPTION": {
@@ -14,12 +14,12 @@
     },
     "B_SYNC_SAFETY": {
       "DISMISS": "Ahora no",
-      "MSG": "Llevas un tiempo usando Super Productivity. Configura la sincronización para hacer una copia de seguridad de tus datos y mantenerlos seguros en todos tus dispositivos.",
+      "MSG": "Llevas un tiempo usando ChronoFlow Desktop. Configura la sincronización para hacer una copia de seguridad de tus datos y mantenerlos seguros en todos tus dispositivos.",
       "SETUP": "Configurar sincronización"
     },
     "B_UPDATE_AVAILABLE": {
       "DOWNLOAD": "Descargar",
-      "MSG": "Hay una nueva versión de Super Productivity disponible ({{version}})."
+      "MSG": "Hay una nueva versión de ChronoFlow Desktop disponible ({{version}})."
     },
     "CONTEXT_MENU": {
       "CHANGE_BACKGROUND": "Cambiar fondo",
@@ -75,13 +75,13 @@
   },
   "DONATE_PAGE": {
     "BUTTON_TEXT": "Donar a través de GitHub Sponsors",
-    "INTRO_1": "Super Productivity está financiada enteramente por la comunidad. No hay rastreo, ni anuncios, ni recolección de datos — tus tareas se quedan en tu dispositivo.",
+    "INTRO_1": "ChronoFlow Desktop está financiada enteramente por la comunidad. No hay rastreo, ni anuncios, ni recolección de datos — tus tareas se quedan en tu dispositivo.",
     "INTRO_2": "Si valoras este enfoque y quieres mantener el proyecto saludable y en evolución, se agradece enormemente una donación voluntaria."
   },
   "EXAMPLE_TASKS": {
     "LEARN_KEYBOARD_SHORTCUTS": {
       "TITLE": "Aprende los atajos de teclado",
-      "NOTES": "Super Productivity está diseñado para usarse con el teclado. Aprende los atajos para trabajar más rápido.\n\n**Cómo empezar:**\n1. Abre el **menú de la barra lateral**\n2. Ve a **Ayuda**\n3. Haz clic en **Tour de navegación con teclado**"
+      "NOTES": "ChronoFlow Desktop está diseñado para usarse con el teclado. Aprende los atajos para trabajar más rápido.\n\n**Cómo empezar:**\n1. Abre el **menú de la barra lateral**\n2. Ve a **Ayuda**\n3. Haz clic en **Tour de navegación con teclado**"
     },
     "CREATE_PROJECT": {
       "TITLE": "Crea tu primer proyecto",
@@ -207,7 +207,7 @@
         "IS_ADD_SUB_TASKS": "Importar también subtareas cuando se añada una tarea"
       },
       "FORM_SECTION": {
-        "HELP": "<p>Aquí puedes configurar SuperProductivity para listar tareas de CalDav no completadas para un proyecto específico en el panel de creación de tareas en la vista de planificación diaria. Se listarán como sugerencias y proporcionarán un enlace a la tarea así como más información sobre ella.</p> <p>Además puedes añadir y sincronizar automáticamente todas las tareas no completadas a tu backlog de tareas.</p><p>Para que funcione con nextcloud en la aplicación web, es posible que necesites poner en la lista blanca \"https://app.super-productivity.com\" a través de la aplicación de nextcloud <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword<a>.</p>"
+        "HELP": "<p>Aquí puedes configurar SuperProductivity para listar tareas de CalDav no completadas para un proyecto específico en el panel de creación de tareas en la vista de planificación diaria. Se listarán como sugerencias y proporcionarán un enlace a la tarea así como más información sobre ella.</p> <p>Además puedes añadir y sincronizar automáticamente todas las tareas no completadas a tu backlog de tareas.</p><p>Para que funcione con nextcloud en la aplicación web, es posible que necesites poner en la lista blanca \"https://app.chronoflow-desktop.com\" a través de la aplicación de nextcloud <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword<a>.</p>"
       },
       "ISSUE_CONTENT": {
         "DESCRIPTION": "Descripción",
@@ -284,7 +284,7 @@
       "FEEDBACK_PUBLIC": "Publicar en GitHub Discussions",
       "FEEDBACK_PUBLIC_DESC": "Otros pueden verlo y responder",
       "FEEDBACK_TITLE": "¿Cómo te gustaría ayudar?",
-      "TITLE": "¿Te gusta Super Productivity?",
+      "TITLE": "¿Te gusta ChronoFlow Desktop?",
       "TXT": "Es un proyecto <strong>gratuito y de código abierto</strong> hecho por entusiastas — sin rastreo ni anuncios. Una calificación o un mensaje breve ayuda a que más personas lo descubran."
     },
     "DROPBOX": {
@@ -434,7 +434,7 @@
         "FILTER_USER": "Filtrar usuario",
         "GITLAB_BASE_URL": "URL base de GitLab personalizada (opcional)",
         "PROJECT": "nombre de usuario/proyecto",
-        "PROJECT_HINT": "p. ej. super-productivity/super-productivity",
+        "PROJECT_HINT": "p. ej. chronoflow-desktop/chronoflow-desktop",
         "SCOPE": "Ámbito",
         "SCOPE_ALL": "Todo",
         "SCOPE_ASSIGNED": "Asignado a mí",
@@ -466,13 +466,13 @@
       }
     },
     "ISSUE": {
-      "CROSS_ORIGIN_BROWSER_WARNING": "Es probable que esta integración no funcione en tu navegador. ¡Por favor, descarga la versión de escritorio o Android de Super Productivity!",
+      "CROSS_ORIGIN_BROWSER_WARNING": "Es probable que esta integración no funcione en tu navegador. ¡Por favor, descarga la versión de escritorio o Android de ChronoFlow Desktop!",
       "DEFAULT": {
         "ISSUE_STR": "incidencia",
         "ISSUES_STR": "incidencias"
       },
       "DEFAULT_PROJECT_DESCRIPTION": "Proyecto asignado a tareas creadas desde incidencias.",
-      "DEFAULT_PROJECT_LABEL": "Proyecto predeterminado de Super Productivity",
+      "DEFAULT_PROJECT_LABEL": "Proyecto predeterminado de ChronoFlow Desktop",
       "DIALOG": {
         "ADVANCED_CONFIG": "Configuración avanzada",
         "DELETE_CONFIRM": "¿Está seguro de que desea eliminar este proveedor de incidencias? Eliminarlo significa que <strong>todas las tareas de incidencias importadas previamente perderán su referencia</strong>. ¡Esta acción no se puede deshacer!",
@@ -578,7 +578,7 @@
     },
     "JIRA": {
       "BANNER": {
-        "BLOCK_ACCESS_MSG": "Jira: Para evitar el bloqueo de la api, el acceso ha sido bloqueado por Super Productivity. ¡Probablemente deberías comprobar tus ajustes de jira!",
+        "BLOCK_ACCESS_MSG": "Jira: Para evitar el bloqueo de la api, el acceso ha sido bloqueado por ChronoFlow Desktop. ¡Probablemente deberías comprobar tus ajustes de jira!",
         "BLOCK_ACCESS_UNBLOCK": "Desbloquear"
       },
       "CFG_CMP": {
@@ -627,7 +627,7 @@
         "TITLE": "Jira: Enviar Registro de Trabajo"
       },
       "FORM_ADV": {
-        "AUTO_ADD_BACKLOG_JQL_QUERY": "JQL usado para importar incidencias a Super Productivity automáticamente",
+        "AUTO_ADD_BACKLOG_JQL_QUERY": "JQL usado para importar incidencias a ChronoFlow Desktop automáticamente",
         "IS_ADD_WORKLOG_ON_SUB_TASK_DONE": "Abrir diálogo para enviar registro de trabajo a Jira cuando se complete una subtarea",
         "IS_CHECK_TO_RE_ASSIGN_TICKET_ON_TASK_START": "Comprobar si la incidencia en la que se trabaja actualmente está asignada al usuario actual",
         "IS_WORKLOG_ENABLED": "Abrir diálogo para enviar registro de trabajo a Jira cuando se complete la tarea",
@@ -685,7 +685,7 @@
       },
       "S": {
         "ADDED_WORKLOG_FOR": "Jira: Añadido registro de trabajo para {{issueKey}}",
-        "EXTENSION_NOT_LOADED": "Extensión de Super Productivity no cargada. Recargar la página podría ayudar",
+        "EXTENSION_NOT_LOADED": "Extensión de ChronoFlow Desktop no cargada. Recargar la página podría ayudar",
         "INSUFFICIENT_SETTINGS": "Ajustes insuficientes proporcionados para Jira",
         "INVALID_RESPONSE": "Jira: La respuesta contenía datos inválidos",
         "NO_AUTO_IMPORT_JQL": "Jira: No hay consulta de búsqueda definida para importación automática",
@@ -909,7 +909,7 @@
         "TOKEN": "Token de acceso"
       },
       "FORM_SECTION": {
-        "HELP": "<p>Aquí puedes configurar SuperProductivity para listar paquetes de trabajo abiertos de OpenProject. Ten en cuenta que para que esto funcione en el navegador probablemente necesitas configurar CORS para tu servidor OpenProject, para permitir el acceso desde app.super-productivity.com</p>"
+        "HELP": "<p>Aquí puedes configurar SuperProductivity para listar paquetes de trabajo abiertos de OpenProject. Ten en cuenta que para que esto funcione en el navegador probablemente necesitas configurar CORS para tu servidor OpenProject, para permitir el acceso desde app.chronoflow-desktop.com</p>"
       },
       "ISSUE_CONTENT": {
         "ASSIGNEE": "Asignado",
@@ -1558,24 +1558,24 @@
         },
         "ONEDRIVE": {
           "CLIENT_ID_DESCRIPTION": "ID de aplicación (cliente) del registro de tu aplicación de Microsoft Entra",
-          "INFO_TEXT": "La autenticación de Microsoft 365 usa OAuth. Rellena primero el cliente y el inquilino y, después, autentícate. <strong>¿Usas tu propio registro de aplicación de Entra?</strong> En la aplicación de escritorio, registra el URI de redirección <code>superproductivity://oauth-callback/onedrive</code> en \"Mobile and desktop applications\", activa \"Allow public client flows\" y concede el permiso delegado <code>Files.ReadWrite.AppFolder</code>. Consulta la <a href=\"https://github.com/super-productivity/super-productivity/wiki/2.09-Configure-Sync-Backend\" target=\"_blank\" rel=\"noopener\">guía de configuración de OneDrive</a>.",
+          "INFO_TEXT": "La autenticación de Microsoft 365 usa OAuth. Rellena primero el cliente y el inquilino y, después, autentícate. <strong>¿Usas tu propio registro de aplicación de Entra?</strong> En la aplicación de escritorio, registra el URI de redirección <code>chronoflow://oauth-callback/onedrive</code> en \"Mobile and desktop applications\", activa \"Allow public client flows\" y concede el permiso delegado <code>Files.ReadWrite.AppFolder</code>. Consulta la <a href=\"https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.09-Configure-Sync-Backend\" target=\"_blank\" rel=\"noopener\">guía de configuración de OneDrive</a>.",
           "L_CLIENT_ID": "ID de aplicación (cliente)",
           "L_SYNC_FOLDER_PATH": "Ruta de la carpeta de sincronización",
           "L_TENANT_ID": "ID de inquilino",
           "L_USE_CUSTOM_APP": "Usar mi propio registro de aplicación de Microsoft Entra",
           "OFFICIAL_MODE_INFO": "Se está usando el inicio de sesión de Microsoft 365 integrado en esta aplicación. Cambia al modo personalizado solo si necesitas tu propio registro de aplicación de Entra.",
           "PLATFORM_INFO": "La sincronización con OneDrive solo está disponible en las aplicaciones móviles y de escritorio, no en la versión para navegador.",
-          "SYNC_FOLDER_PATH_DESCRIPTION": "Se almacena en la carpeta de aplicaciones de OneDrive (p. ej., super-productivity)",
+          "SYNC_FOLDER_PATH_DESCRIPTION": "Se almacena en la carpeta de aplicaciones de OneDrive (p. ej., chronoflow-desktop)",
           "TENANT_ID_DESCRIPTION": "Usa 'common' para iniciar sesión en varios inquilinos",
           "USE_CUSTOM_APP_DESCRIPTION": "Activa esta opción si quieres proporcionar tu propio ID de aplicación (cliente)"
         },
         "TITLE": "Sincronización",
         "WEB_DAV": {
-          "CONDITIONAL_HEADER_WARNING_MSG": "Tu servidor WebDAV no soporta cabeceras condicionales. Super Productivity no puede detectar cambios concurrentes durante la subida.<br><br>La sincronización funcionará, pero hay un pequeño riesgo de conflictos si cambias datos en varios dispositivos a la vez.",
+          "CONDITIONAL_HEADER_WARNING_MSG": "Tu servidor WebDAV no soporta cabeceras condicionales. ChronoFlow Desktop no puede detectar cambios concurrentes durante la subida.<br><br>La sincronización funcionará, pero hay un pequeño riesgo de conflictos si cambias datos en varios dispositivos a la vez.",
           "CONDITIONAL_HEADER_WARNING_TITLE": "Seguridad de sincronización reducida",
-          "CORS_INFO": "<strong>Hacerlo funcionar en el navegador:</strong> Para hacer que esto funcione en el navegador necesitas poner en la lista blanca a Super Productivity para solicitudes CORS en tu servidor webdav. ¡Esto puede tener implicaciones negativas de seguridad! Para nextcloud por favor <a href='https://github.com/nextcloud/server/issues/3131'>consulta este hilo para más información</a>. Un enfoque para hacer que esto funcione en el móvil es poner en la lista blanca \"https://app.super-productivity.com\" a través de la app nextcloud <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword<a>. ¡Úsalo bajo tu propio riesgo!</p>",
-          "D_SYNC_FOLDER_PATH": "Ruta relativa a la raíz del servidor WebDAV donde se almacenarán los archivos de sincronización (por ejemplo, '/super-productivity' o '/'). Esta NO es la ruta interna de su servidor.",
-          "INFO": "Las implementaciones de WebDAV difieren mucho desafortunadamente. Se sabe que Super Productivity funciona bien con Nextcloud, <strong>pero podría no funcionar con tu proveedor</strong>.",
+          "CORS_INFO": "<strong>Hacerlo funcionar en el navegador:</strong> Para hacer que esto funcione en el navegador necesitas poner en la lista blanca a ChronoFlow Desktop para solicitudes CORS en tu servidor webdav. ¡Esto puede tener implicaciones negativas de seguridad! Para nextcloud por favor <a href='https://github.com/nextcloud/server/issues/3131'>consulta este hilo para más información</a>. Un enfoque para hacer que esto funcione en el móvil es poner en la lista blanca \"https://app.chronoflow-desktop.com\" a través de la app nextcloud <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword<a>. ¡Úsalo bajo tu propio riesgo!</p>",
+          "D_SYNC_FOLDER_PATH": "Ruta relativa a la raíz del servidor WebDAV donde se almacenarán los archivos de sincronización (por ejemplo, '/chronoflow-desktop' o '/'). Esta NO es la ruta interna de su servidor.",
+          "INFO": "Las implementaciones de WebDAV difieren mucho desafortunadamente. Se sabe que ChronoFlow Desktop funciona bien con Nextcloud, <strong>pero podría no funcionar con tu proveedor</strong>.",
           "L_BASE_URL": "URL Base",
           "L_PASSWORD": "Contraseña",
           "L_SYNC_FOLDER_PATH": "Ruta de la carpeta de sincronización",
@@ -1628,7 +1628,7 @@
         "ERROR_PAYLOAD_TOO_LARGE": "Error de sincronización: Tus datos son demasiado grandes para subir.\n\nEsto pasa cuando tienes muchas tareas archivadas. ¡Tus datos NO se sincronizaron!\n\nContacta soporte para ayuda.",
         "ERROR_PERMISSION": "Acceso al archivo denegado. Por favor, verifique los permisos del sistema de archivos.",
         "ERROR_PERMISSION_FLATPAK": "Acceso al archivo denegado. Conceda permiso al sistema de archivos mediante Flatseal o use una ruta dentro de ~\\/var\\/app\\/",
-        "ERROR_PERMISSION_SNAP": "Acceso al archivo denegado. Ejecute 'snap connect super-productivity:home' o use una ruta dentro de ~\\/snap\\/super-productivity\\/common\\/",
+        "ERROR_PERMISSION_SNAP": "Acceso al archivo denegado. Ejecute 'snap connect chronoflow-desktop:home' o use una ruta dentro de ~\\/snap\\/chronoflow-desktop\\/common\\/",
         "ERROR_UNABLE_TO_READ_REMOTE_DATA": "Error al sincronizar. No se pueden leer datos remotos. ¿Quizás habilitaste el cifrado y tu contraseña local no coincide con la remota?",
         "FINISH_DAY_SYNC_ERROR": "Error de sincronización al finalizar el día. Inténtalo de nuevo.",
         "FORCE_UPLOAD_FAILED": "No se pudieron sobrescribir los datos del servidor. Tus cambios locales siguen disponibles.",
@@ -1688,7 +1688,7 @@
         "ERROR_REMOTE_FILE_CORRUPTED": "Los datos de sincronización remotos no se pueden leer (posiblemente están truncados o dañados). Tus datos locales están seguros. Puedes sobrescribir los datos remotos con tus datos locales.",
         "ERROR_REMOTE_FILE_EMPTY": "El archivo de sincronización remoto está vacío. Esto puede ocurrir después de una sincronización interrumpida. ¿Sobrescribir el remoto con tus datos locales?",
         "ERROR_REMOTE_FILE_LOCKED": "El archivo de sincronización remoto está bloqueado por el servidor. Puede resolverse en el siguiente intento de sincronización.",
-        "ERROR_SYNC_VERSION_MISMATCH": "Los datos de sincronización remotos usan una versión de formato incompatible. Asegúrate de que todos los dispositivos ejecuten la misma versión de Super Productivity.",
+        "ERROR_SYNC_VERSION_MISMATCH": "Los datos de sincronización remotos usan una versión de formato incompatible. Asegúrate de que todos los dispositivos ejecuten la misma versión de ChronoFlow Desktop.",
         "WARN_CLIENT_ID_REGENERATED": "El ID del dispositivo de sincronización no era válido y se ha regenerado. Puede producirse un conflicto de sincronización en la próxima sincronización.",
         "LEGACY_FORMAT_DETECTED": "Formato de sincronización incompatible: el almacenamiento remoto fue escrito por última vez por una versión anterior de la app (v16.x o anterior) que usa un formato de sincronización diferente. Actualiza todos tus dispositivos a la misma versión de la app. \"Forzar sobrescritura\" desbloquea este dispositivo escribiendo el nuevo formato junto a los archivos heredados; úsalo solo si ningún dispositivo antiguo volverá a sincronizarse con este remoto, de lo contrario divergirán silenciosamente de este dispositivo.",
         "SYNC_DATA_RECOVERED_FROM_BACKUP": "Se recuperaron los datos de sincronización desde la copia de seguridad porque no se pudo leer el archivo principal.",
@@ -2348,11 +2348,11 @@
     "IMPORT_FROM_FILE": "Importar desde archivo",
     "IMPORT_FROM_TODOIST": "Importar desde Todoist",
     "IMPORT_FROM_URL": "Importar desde URL",
-    "IMPORT_FROM_URL_DIALOG_DESCRIPTION": "Por favor introduce la URL completa del archivo JSON de copia de seguridad de Super Productivity que quieres importar.",
+    "IMPORT_FROM_URL_DIALOG_DESCRIPTION": "Por favor introduce la URL completa del archivo JSON de copia de seguridad de ChronoFlow Desktop que quieres importar.",
     "IMPORT_FROM_URL_DIALOG_TITLE": "Importar desde URL",
     "OPEN_IMPORT_FROM_URL_DIALOG": "Importar desde URL",
     "PRIVACY_EXPORT": "Exportar datos (anonimizados)",
-    "PRIVACY_EXPORT_DESCRIPTION": "Exportar datos anonimizados (para enviar a contact@super-productivity.com para depuración)",
+    "PRIVACY_EXPORT_DESCRIPTION": "Exportar datos anonimizados (para enviar a contact@chronoflow-desktop.com para depuración)",
     "S_BACKUP_DOWNLOADED": "Copia de seguridad descargada a la carpeta de documentos de android",
     "S_ERR_IMPORT_FAILED": "Error al importar datos",
     "S_ERR_INVALID_DATA": "Importación fallida: JSON Inválido",
@@ -2381,7 +2381,7 @@
     "EDIT": "Editar",
     "ENABLED": "Habilitado",
     "EXAMPLE_VAL": "p. ej. 32m",
-    "EXTENSION_INFO": "Por favor <a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/super-productivity/ljkbjodfmekklcoibdnhahlaalhihmlb\"> descarga la extensión de chrome</a> para permitir la comunicación con la Api de Jira y el Manejo de Tiempo Inactivo. Ten en cuenta que esto no funciona para móvil. <strong>¡¡Sin la extensión las funciones no funcionarán!!</strong>",
+    "EXTENSION_INFO": "Por favor <a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/chronoflow-desktop/ljkbjodfmekklcoibdnhahlaalhihmlb\"> descarga la extensión de chrome</a> para permitir la comunicación con la Api de Jira y el Manejo de Tiempo Inactivo. Ten en cuenta que esto no funciona para móvil. <strong>¡¡Sin la extensión las funciones no funcionarán!!</strong>",
     "HIDE": "Ocultar",
     "ICON_INP_DESCRIPTION": "¡Todos los emojis utf-8 también son compatibles!",
     "INBOX_PROJECT_TITLE": "Bandeja de entrada",
@@ -2449,7 +2449,7 @@
       "TITLE": "Copias de Seguridad Automáticas"
     },
     "CALENDARS": {
-      "BROWSER_WARNING": "Debido a las restricciones de origen cruzado <b>es probable que esto NO funcione con la versión del navegador de Super Productivity.<br /> Por favor, <a href=\"https://super-productivity.com/download/\">descarga la versión de escritorio</a> para utilizar esta función.</b>",
+      "BROWSER_WARNING": "Debido a las restricciones de origen cruzado <b>es probable que esto NO funcione con la versión del navegador de ChronoFlow Desktop.<br /> Por favor, <a href=\"https://chronoflow-desktop.com/download/\">descarga la versión de escritorio</a> para utilizar esta función.</b>",
       "CAL_PATH": "URL de la fuente iCal",
       "CHECK_UPDATES": "Buscar actualizaciones remotas cada X",
       "FILTER_EXCLUDE_REGEX": "Excluir eventos que coincidan con la expresión regular (opcional)",
@@ -2535,7 +2535,7 @@
       "EXPAND_SUB_TASKS": "Expandir Subtareas",
       "GLOBAL_ADD_NOTE": "Añadir nueva nota",
       "GLOBAL_ADD_TASK": "Añadir nueva tarea",
-      "GLOBAL_SHOW_HIDE": "Mostrar/Ocultar Super Productivity",
+      "GLOBAL_SHOW_HIDE": "Mostrar/Ocultar ChronoFlow Desktop",
       "GLOBAL_TOGGLE_TASK_START": "Alternar seguimiento de tiempo para última tarea activa",
       "GLOBAL_TOGGLE_TASK_WIDGET": "Mostrar/ocultar el widget de tareas",
       "GO_TO_DAILY_AGENDA": "Ir a Agenda",
@@ -2701,7 +2701,7 @@
       "IS_COUNTDOWN_BANNER_ENABLED": "Mostrar banner de cuenta atrás antes del vencimiento de los recordatorios",
       "TITLE": "Recordatorios",
       "DUE_DATE_NOTIFICATION_HOUR": "Hora para mostrar notificaciones de vencimiento (0-23)",
-      "HELP": "<p><strong>Importante:</strong> Los recordatorios usan <strong>notificaciones locales</strong>, no notificaciones push. Esto significa que la aplicación necesita haber sido abierta al menos una vez en su dispositivo para que los recordatorios se programen. Los recordatorios establecidos en otro dispositivo solo aparecerán después de que la aplicación se sincronice en el dispositivo de destino.</p><p>En <strong>iOS</strong>, asegúrese de que las notificaciones estén habilitadas para Super Productivity en la configuración de su dispositivo en 'Ajustes' > 'Notificaciones'.</p>",
+      "HELP": "<p><strong>Importante:</strong> Los recordatorios usan <strong>notificaciones locales</strong>, no notificaciones push. Esto significa que la aplicación necesita haber sido abierta al menos una vez en su dispositivo para que los recordatorios se programen. Los recordatorios establecidos en otro dispositivo solo aparecerán después de que la aplicación se sincronice en el dispositivo de destino.</p><p>En <strong>iOS</strong>, asegúrese de que las notificaciones estén habilitadas para ChronoFlow Desktop en la configuración de su dispositivo en 'Ajustes' > 'Notificaciones'.</p>",
       "IS_FOCUS_WINDOW": "Enfocar ventana de la aplicación cuando se active el recordatorio",
       "NOTIFY_ON_DUE_DATE": "Mostrar notificaciones para tareas que vencen hoy",
       "USE_ALARM_STYLE_REMINDERS": "Usar notificaciones tipo alarma (solo Android)",
@@ -2926,7 +2926,7 @@
     "ARCHIVED_PROJECTS": "Proyectos archivados"
   },
   "MIGRATE": {
-    "C_DOWNLOAD_BACKUP": "¿Quieres descargar una copia de seguridad de tus datos heredados (se puede usar con versiones anteriores de Super Productivity)?",
+    "C_DOWNLOAD_BACKUP": "¿Quieres descargar una copia de seguridad de tus datos heredados (se puede usar con versiones anteriores de ChronoFlow Desktop)?",
     "DETECTED_LEGACY": "Datos heredados detectados. ¡Los migraremos por ti!",
     "E_MIGRATION_FAILED": "¡Falló la migración! con Error:",
     "E_RESTART_FAILED": "El reinicio automático falló. ¡Por favor reinicia la aplicación manualmente!",
@@ -2939,10 +2939,10 @@
     "STATUS_PREPARING": "Preparando migración..."
   },
   "ONBOARDING": {
-    "TITLE": "¿Cómo quieres usar Super Productivity?",
+    "TITLE": "¿Cómo quieres usar ChronoFlow Desktop?",
     "SUBTITLE": "Elige una configuración que se adapte a tu forma de trabajar. Siempre puedes cambiar esto más tarde en Ajustes.",
     "PRIVACY_HINT": "Tus datos permanecen seguros en tu dispositivo. No se envía nada a un servidor.",
-    "SYNC_CTA": "¿Ya usas Super Productivity en otro dispositivo?",
+    "SYNC_CTA": "¿Ya usas ChronoFlow Desktop en otro dispositivo?",
     "SYNC_CTA_LINK": "Configurar sincronización",
     "PRESETS": {
       "SIMPLE_TODO": {

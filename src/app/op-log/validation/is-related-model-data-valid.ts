@@ -193,7 +193,7 @@ interface ArchiveValidationCtx {
  * Validates archived tasks. Stale projectId/tagId/repeatCfgId references are
  * harmless in archives — they're historical records. Consumers handle missing
  * refs gracefully. We log but don't fail, matching the TODAY_TAG orphan pattern.
- * See: https://github.com/super-productivity/super-productivity/issues/6270
+ * See: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/6270
  */
 const _validateArchiveTasks = (
   archiveLabel: 'archiveYoung' | 'archiveOld',

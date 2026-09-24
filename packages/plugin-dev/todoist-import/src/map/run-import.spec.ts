@@ -3,7 +3,7 @@ import {
   BatchUpdateRequest,
   Tag,
   Task,
-} from '@super-productivity/plugin-api';
+} from '@chronoflow-desktop/plugin-api';
 import { TodoistImportModel, TodoistTask } from '../parse/normalized-model';
 import { planImport } from './plan-import';
 import { runImport } from './run-import';

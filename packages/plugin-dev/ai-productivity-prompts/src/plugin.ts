@@ -1,3 +1,3 @@
-// Procrastination Buster Plugin for Super Productivity
-// import { PluginInterface } from '@super-productivity/plugin-api';
+// Procrastination Buster Plugin for ChronoFlow Desktop
+// import { PluginInterface } from '@chronoflow-desktop/plugin-api';
 // declare const plugin: PluginInterface;

@@ -53,7 +53,7 @@ Do not remove or revoke the old identities yet.
 
 Create profiles only after the new certificates exist:
 
-1. Create a Mac App Store profile for `com.super-productivity.app` using the new
+1. Create a Mac App Store profile for `com.chronoflow-desktop.app` using the new
    Apple Distribution certificate. Save it as
    `tools/mac-profiles/mas.provisionprofile`.
 2. If the direct-download workflow still uses a Developer ID profile, create it
@@ -101,7 +101,7 @@ still required. Never commit PKCS#12 files, encoded secret files, or passwords.
    npm run build
    npm run dist:mac:mas:buildOnly
    codesign -dv --verbose=4 \
-     ".tmp/app-builds/mas-universal/Super Productivity.app"
+     ".tmp/app-builds/mas-universal/ChronoFlow Desktop.app"
    pkgutil --check-signature \
      .tmp/app-builds/mas-universal/super*.pkg
    ```

@@ -1,6 +1,6 @@
 /**
  * Reducer test for GitHub issue #7707
- * https://github.com/super-productivity/super-productivity/issues/7707
+ * https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7707
  *
  * Bug: In focus mode, pressing "-" to decrease the timer down to 0 leaves the
  * timer ticking instead of completing. Same outcome when starting a non-Flowtime

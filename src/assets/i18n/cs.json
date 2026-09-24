@@ -14,12 +14,12 @@
     },
     "B_SYNC_SAFETY": {
       "DISMISS": "Teď ne",
-      "MSG": "Super Productivity používáte už nějakou dobu. Nastavte synchronizaci, abyste zálohovali svá data a udrželi je v bezpečí na všech zařízeních.",
+      "MSG": "ChronoFlow Desktop používáte už nějakou dobu. Nastavte synchronizaci, abyste zálohovali svá data a udrželi je v bezpečí na všech zařízeních.",
       "SETUP": "Nastavit synchronizaci"
     },
     "B_UPDATE_AVAILABLE": {
       "DOWNLOAD": "Stáhnout",
-      "MSG": "Je k dispozici nová verze Super Productivity ({{version}})."
+      "MSG": "Je k dispozici nová verze ChronoFlow Desktop ({{version}})."
     },
     "CONTEXT_MENU": {
       "CHANGE_BACKGROUND": "Změnit pozadí",
@@ -83,13 +83,13 @@
   },
   "DONATE_PAGE": {
     "BUTTON_TEXT": "Přispět přes GitHub Sponsors",
-    "INTRO_1": "Super Productivity je financována výhradně komunitou. Neexistuje žádné sledování, žádné reklamy a žádný sběr dat – vaše úkoly zůstávají ve vašem zařízení.",
+    "INTRO_1": "ChronoFlow Desktop je financována výhradně komunitou. Neexistuje žádné sledování, žádné reklamy a žádný sběr dat – vaše úkoly zůstávají ve vašem zařízení.",
     "INTRO_2": "Pokud si tohoto přístupu vážíte a chcete projekt udržet zdravý a vyvíjející se, dobrovolný dar velmi oceníme."
   },
   "EXAMPLE_TASKS": {
     "LEARN_KEYBOARD_SHORTCUTS": {
       "TITLE": "Naučte se klávesové zkratky",
-      "NOTES": "Super Productivity je navržena pro ovládání klávesnicí. Naučte se zkratky, abyste pracovali rychleji.\n\n**Jak začít:**\n1. Otevřete **postranní menu**\n2. Přejděte na **Nápověda**\n3. Klikněte na **Prohlídka klávesové navigace**"
+      "NOTES": "ChronoFlow Desktop je navržena pro ovládání klávesnicí. Naučte se zkratky, abyste pracovali rychleji.\n\n**Jak začít:**\n1. Otevřete **postranní menu**\n2. Přejděte na **Nápověda**\n3. Klikněte na **Prohlídka klávesové navigace**"
     },
     "CREATE_PROJECT": {
       "TITLE": "Vytvořte svůj první projekt",
@@ -215,7 +215,7 @@
         "TWO_WAY_SYNC_TITLE": "Směr synchronizace názvu"
       },
       "FORM_SECTION": {
-        "HELP": "<p>Zde můžete nakonfigurovat SuperProductivity tak, aby v seznamu úkolů pro konkrétní projekt v panelu vytváření úkolů v denním plánovacím zobrazení zobrazoval neukončené úkoly CalDav. Budou uvedeny jako návrhy a poskytnou odkaz na úkol a další informace o něm.</p> <p>Kromě toho můžete automaticky přidat a synchronizovat všechny neukončené úkoly do vašeho backlogu úkolů.</p><p>Aby to fungovalo v Nextcloud ve webové aplikaci, možná budete muset přidat „https://app.super-productivity.com“ na bílý seznam pomocí aplikace Nextcloud <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword</a>.</p>"
+        "HELP": "<p>Zde můžete nakonfigurovat SuperProductivity tak, aby v seznamu úkolů pro konkrétní projekt v panelu vytváření úkolů v denním plánovacím zobrazení zobrazoval neukončené úkoly CalDav. Budou uvedeny jako návrhy a poskytnou odkaz na úkol a další informace o něm.</p> <p>Kromě toho můžete automaticky přidat a synchronizovat všechny neukončené úkoly do vašeho backlogu úkolů.</p><p>Aby to fungovalo v Nextcloud ve webové aplikaci, možná budete muset přidat „https://app.chronoflow-desktop.com“ na bílý seznam pomocí aplikace Nextcloud <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword</a>.</p>"
       },
       "ISSUE_CONTENT": {
         "DESCRIPTION": "Popis",
@@ -305,7 +305,7 @@
       "FEEDBACK_PUBLIC": "Napsat na GitHub Discussions",
       "FEEDBACK_PUBLIC_DESC": "Ostatní mohou vidět a reagovat",
       "FEEDBACK_TITLE": "Jak chcete pomoci?",
-      "TITLE": "Líbí se vám Super Productivity?",
+      "TITLE": "Líbí se vám ChronoFlow Desktop?",
       "TXT": "Je to <strong>bezplatný projekt s otevřeným zdrojovým kódem</strong>, který vytvářejí nadšenci – žádné sledování, žádné reklamy. Hodnocení nebo krátká zpráva pomáhá, aby si jej našlo více lidí."
     },
     "FINISH_DAY_BEFORE_EXIT": {
@@ -448,7 +448,7 @@
         "FILTER_USER": "Uživatelské jméno (např. pro filtrování změn od vás)",
         "GITLAB_BASE_URL": "Vlastní základní adresa GitLabu (volitelné)",
         "PROJECT": "(výchozí) ID projektu nebo jméno uživatele/projektu",
-        "PROJECT_HINT": "např. super-productivity/super-productivity",
+        "PROJECT_HINT": "např. chronoflow-desktop/chronoflow-desktop",
         "SCOPE": "Rozsah",
         "SCOPE_ALL": "Všechno",
         "SCOPE_ASSIGNED": "Přiřazeno mně",
@@ -480,13 +480,13 @@
       }
     },
     "ISSUE": {
-      "CROSS_ORIGIN_BROWSER_WARNING": "Tato integrace pravděpodobně nebude fungovat ve vašem webovém prohlížeči. Stáhněte si prosím verzi Super Productivity pro Desktop nebo Android!",
+      "CROSS_ORIGIN_BROWSER_WARNING": "Tato integrace pravděpodobně nebude fungovat ve vašem webovém prohlížeči. Stáhněte si prosím verzi ChronoFlow Desktop pro Desktop nebo Android!",
       "DEFAULT": {
         "ISSUES_STR": "úkolů",
         "ISSUE_STR": "úkol"
       },
       "DEFAULT_PROJECT_DESCRIPTION": "Projekt přiřazený k úkolům vytvořeným z issue trackeru.",
-      "DEFAULT_PROJECT_LABEL": "Výchozí projekt Super Productivity",
+      "DEFAULT_PROJECT_LABEL": "Výchozí projekt ChronoFlow Desktop",
       "DEFAULT_NOTE_LABEL": "Výchozí poznámka pro importované úkoly",
       "DEFAULT_TAGS_LABEL": "Výchozí štítky pro importované úkoly",
       "FORM": {
@@ -592,7 +592,7 @@
     },
     "JIRA": {
       "BANNER": {
-        "BLOCK_ACCESS_MSG": "Jira: Aby se předešlo uzamčení API, přístup byl blokován pomocí Super Productivity. Pravděpodobně byste měli zkontrolovat nastavení vaší Jiry!",
+        "BLOCK_ACCESS_MSG": "Jira: Aby se předešlo uzamčení API, přístup byl blokován pomocí ChronoFlow Desktop. Pravděpodobně byste měli zkontrolovat nastavení vaší Jiry!",
         "BLOCK_ACCESS_UNBLOCK": "Odblokovat"
       },
       "CFG_CMP": {
@@ -641,7 +641,7 @@
         "TITLE": "Jira: Odeslat pracovní záznam"
       },
       "FORM_ADV": {
-        "AUTO_ADD_BACKLOG_JQL_QUERY": "JQL použité pro automatický import úkolů do Super Productivity",
+        "AUTO_ADD_BACKLOG_JQL_QUERY": "JQL použité pro automatický import úkolů do ChronoFlow Desktop",
         "IS_ADD_WORKLOG_ON_SUB_TASK_DONE": "Otevřít dialog pro odeslání pracovního záznamu do Jiry, když je podúkol hotov",
         "IS_CHECK_TO_RE_ASSIGN_TICKET_ON_TASK_START": "Zkontrolovat, zda je aktuálně pracovaný úkol přiřazen aktuálnímu uživateli",
         "IS_WORKLOG_ENABLED": "Otevřít dialog pro odeslání pracovního záznamu do Jiry, když je úkol hotov",
@@ -699,7 +699,7 @@
       },
       "S": {
         "ADDED_WORKLOG_FOR": "Jira: Přidán pracovní záznam pro {{issueKey}}",
-        "EXTENSION_NOT_LOADED": "Rozšíření Super Productivity není načteno. Obnovení stránky by mohlo pomoci",
+        "EXTENSION_NOT_LOADED": "Rozšíření ChronoFlow Desktop není načteno. Obnovení stránky by mohlo pomoci",
         "INSUFFICIENT_SETTINGS": "Nedostatečná nastavení pro Jiru",
         "INVALID_RESPONSE": "Jira: Odpověď obsahovala neplatná data",
         "NO_AUTO_IMPORT_JQL": "Jira: Není definován žádný dotaz pro automatický import",
@@ -896,7 +896,7 @@
         "TOKEN": "Přístupový token"
       },
       "FORM_SECTION": {
-        "HELP": "<p>Zde můžete nakonfigurovat SuperProductivity k zobrazení otevřených pracovních balíčků OpenProject. Upozorňujeme, že pro toto fungování v prohlížeči pravděpodobně musíte nakonfigurovat CORS pro váš server OpenProject, aby umožnil přístup z app.super-productivity.com</p>"
+        "HELP": "<p>Zde můžete nakonfigurovat SuperProductivity k zobrazení otevřených pracovních balíčků OpenProject. Upozorňujeme, že pro toto fungování v prohlížeči pravděpodobně musíte nakonfigurovat CORS pro váš server OpenProject, aby umožnil přístup z app.chronoflow-desktop.com</p>"
       },
       "ISSUE_CONTENT": {
         "ASSIGNEE": "Přiřazený",
@@ -1435,14 +1435,14 @@
         },
         "ONEDRIVE": {
           "CLIENT_ID_DESCRIPTION": "ID aplikace (klienta) z registrace vaší aplikace Microsoft Entra",
-          "INFO_TEXT": "Ověřování Microsoft 365 používá OAuth. Nejprve vyplňte klienta a tenanta a poté se ověřte. <strong>Používáte vlastní registraci aplikace Entra?</strong> Na počítači zaregistrujte identifikátor URI pro přesměrování <code>superproductivity://oauth-callback/onedrive</code> v části \"Mobile and desktop applications\", zapněte \"Allow public client flows\" a udělte delegované oprávnění <code>Files.ReadWrite.AppFolder</code>. Viz <a href=\"https://github.com/super-productivity/super-productivity/wiki/2.09-Configure-Sync-Backend\" target=\"_blank\" rel=\"noopener\">průvodce nastavením OneDrive</a>.",
+          "INFO_TEXT": "Ověřování Microsoft 365 používá OAuth. Nejprve vyplňte klienta a tenanta a poté se ověřte. <strong>Používáte vlastní registraci aplikace Entra?</strong> Na počítači zaregistrujte identifikátor URI pro přesměrování <code>chronoflow://oauth-callback/onedrive</code> v části \"Mobile and desktop applications\", zapněte \"Allow public client flows\" a udělte delegované oprávnění <code>Files.ReadWrite.AppFolder</code>. Viz <a href=\"https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.09-Configure-Sync-Backend\" target=\"_blank\" rel=\"noopener\">průvodce nastavením OneDrive</a>.",
           "L_CLIENT_ID": "ID aplikace (klienta)",
           "L_SYNC_FOLDER_PATH": "Cesta k synchronizační složce",
           "L_TENANT_ID": "ID tenanta",
           "L_USE_CUSTOM_APP": "Použít vlastní registraci aplikace Microsoft Entra",
           "OFFICIAL_MODE_INFO": "Používá se integrované přihlášení Microsoft 365 pro tuto aplikaci. Na vlastní režim přepněte pouze v případě, že potřebujete vlastní registraci aplikace Entra.",
           "PLATFORM_INFO": "Synchronizace OneDrive je k dispozici pouze v aplikacích pro počítače a mobilní zařízení, nikoli ve verzi pro prohlížeč.",
-          "SYNC_FOLDER_PATH_DESCRIPTION": "Uloženo ve vaší složce aplikace OneDrive (např. super-productivity)",
+          "SYNC_FOLDER_PATH_DESCRIPTION": "Uloženo ve vaší složce aplikace OneDrive (např. chronoflow-desktop)",
           "TENANT_ID_DESCRIPTION": "Pro přihlášení k více tenantům použijte 'common'",
           "USE_CUSTOM_APP_DESCRIPTION": "Zapněte, pokud chcete zadat vlastní ID aplikace (klienta)"
         },
@@ -1573,9 +1573,9 @@
           "SETUP_SKIP_ENCRYPTION_BTN": "Přeskočit"
         },
         "WEB_DAV": {
-          "CORS_INFO": "<strong>Jak to funguje v prohlížeči:</strong> Aby to fungovalo v prohlížeči, musíte povolit Super Productivity pro CORS požadavky pro vaši instanci Nextcloud. To může mít negativní bezpečnostní dopady! Podívejte se na <a href='https://github.com/nextcloud/server/issues/3131'>tuto diskuzi pro více informací</a>. Jeden z přístupů k tomu, aby to fungovalo na mobilu, je povolení \"https://app.super-productivity.com\" prostřednictvím aplikace Nextcloud <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword<a>. Používejte na vlastní nebezpečí!</p>",
-          "D_SYNC_FOLDER_PATH": "Cesta relativní ke kořenu serveru WebDAV, kde budou uloženy synchronizační soubory (např. '/super-productivity' nebo '/'). Toto NENÍ interní adresářová cesta vašeho serveru.",
-          "INFO": "Implementace WebDAV se bohužel značně liší. Je známo, že Super Productivity funguje dobře s Nextcloud, <strong>ale s vaším poskytovatelem nemusí fungovat</strong>.",
+          "CORS_INFO": "<strong>Jak to funguje v prohlížeči:</strong> Aby to fungovalo v prohlížeči, musíte povolit ChronoFlow Desktop pro CORS požadavky pro vaši instanci Nextcloud. To může mít negativní bezpečnostní dopady! Podívejte se na <a href='https://github.com/nextcloud/server/issues/3131'>tuto diskuzi pro více informací</a>. Jeden z přístupů k tomu, aby to fungovalo na mobilu, je povolení \"https://app.chronoflow-desktop.com\" prostřednictvím aplikace Nextcloud <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword<a>. Používejte na vlastní nebezpečí!</p>",
+          "D_SYNC_FOLDER_PATH": "Cesta relativní ke kořenu serveru WebDAV, kde budou uloženy synchronizační soubory (např. '/chronoflow-desktop' nebo '/'). Toto NENÍ interní adresářová cesta vašeho serveru.",
+          "INFO": "Implementace WebDAV se bohužel značně liší. Je známo, že ChronoFlow Desktop funguje dobře s Nextcloud, <strong>ale s vaším poskytovatelem nemusí fungovat</strong>.",
           "L_BASE_URL": "Základní adresa URL",
           "L_PASSWORD": "Heslo",
           "L_SYNC_FOLDER_PATH": "Cesta k synchronizační složce",
@@ -1585,7 +1585,7 @@
           "S_TEST_FAIL": "Test připojení selhal: {{error}} - Cílová URL: {{url}}",
           "S_TEST_SUCCESS": "Test připojení byl úspěšný! Cílová URL: {{url}}",
           "CONDITIONAL_HEADER_WARNING_TITLE": "Snížená bezpečnost synchronizace",
-          "CONDITIONAL_HEADER_WARNING_MSG": "Váš server WebDAV nepodporuje podmíněné hlavičky (If-Unmodified-Since). To znamená, že Super Productivity nemůže během nahrávání detekovat souběžné změny z jiných zařízení.<br><br>Synchronizace bude stále fungovat, ale existuje malé riziko konfliktů dat, pokud provedete změny na více zařízeních současně."
+          "CONDITIONAL_HEADER_WARNING_MSG": "Váš server WebDAV nepodporuje podmíněné hlavičky (If-Unmodified-Since). To znamená, že ChronoFlow Desktop nemůže během nahrávání detekovat souběžné změny z jiných zařízení.<br><br>Synchronizace bude stále fungovat, ale existuje malé riziko konfliktů dat, pokud provedete změny na více zařízeních současně."
         }
       },
       "S": {
@@ -1603,7 +1603,7 @@
         "ERROR_DATA_IS_CURRENTLY_WRITTEN": "Vzdálená data se právě zapisují",
         "ERROR_PERMISSION": "Přístup k souboru odepřen. Zkontrolujte prosím oprávnění souborového systému.",
         "ERROR_PERMISSION_FLATPAK": "Přístup k souboru odepřen. Udělte oprávnění k souborovému systému přes Flatseal nebo použijte cestu uvnitř ~/.var/app/",
-        "ERROR_PERMISSION_SNAP": "Přístup k souboru odepřen. Spusťte 'snap connect super-productivity:home' nebo použijte cestu uvnitř ~/snap/super-productivity/common/",
+        "ERROR_PERMISSION_SNAP": "Přístup k souboru odepřen. Spusťte 'snap connect chronoflow-desktop:home' nebo použijte cestu uvnitř ~/snap/chronoflow-desktop/common/",
         "ERROR_UNABLE_TO_READ_REMOTE_DATA": "Chyba při synchronizaci. Nelze číst vzdálená data. Možná jste zapnuli šifrování a vaše lokální heslo neodpovídá heslu použitému k šifrování vzdálených dat?",
         "HYDRATION_FAILED": "Nepodařilo se načíst data. Obnovte prosím aplikaci.",
         "INTEGRITY_CHECK_FAILED": "Zjištěn problém s integritou dat. Pokus o automatickou opravu. Pokud potíže přetrvávají, obnovte prosím aplikaci.",
@@ -1661,7 +1661,7 @@
         "ERROR_REMOTE_FILE_CORRUPTED": "Vzdálená synchronizační data nelze přečíst (mohou být neúplná nebo poškozená). Vaše lokální data jsou v bezpečí. Vzdálená data můžete přepsat lokálními.",
         "ERROR_REMOTE_FILE_EMPTY": "Vzdálený synchronizační soubor je prázdný. K tomu může dojít po přerušené synchronizaci. Přepsat vzdálená data lokálními?",
         "ERROR_REMOTE_FILE_LOCKED": "Vzdálený synchronizační soubor je uzamčen serverem. Problém se může vyřešit při příštím pokusu o synchronizaci.",
-        "ERROR_SYNC_VERSION_MISMATCH": "Vzdálená synchronizační data používají nekompatibilní verzi formátu. Ověřte, že všechna zařízení používají stejnou verzi Super Productivity.",
+        "ERROR_SYNC_VERSION_MISMATCH": "Vzdálená synchronizační data používají nekompatibilní verzi formátu. Ověřte, že všechna zařízení používají stejnou verzi ChronoFlow Desktop.",
         "FORCE_UPLOAD_FAILED": "Data na serveru se nepodařilo přepsat. Vaše lokální změny zůstávají dostupné.",
         "HYDRATION_FALLBACK_RECOVERY": "Uložená data se nepodařilo načíst — zobrazují se data, která bylo možné obnovit z lokálního protokolu. Chybějící položky lze obnovit úplnou synchronizací nebo importem zálohy.",
         "INCOMPLETE_REMOTE_OPERATIONS": "Stažené změny se nepodařilo zcela použít. Synchronizace je pozastavena, aby ochránila vaše data. Restartujte aplikaci a zkuste to znovu. Pokud se problém opakuje, obnovte zálohu.",
@@ -2356,11 +2356,11 @@
     "IMPORT_FROM_FILE": "Importovat ze souboru",
     "IMPORT_FROM_TODOIST": "Importovat z Todoist",
     "IMPORT_FROM_URL": "Importovat z URL",
-    "IMPORT_FROM_URL_DIALOG_DESCRIPTION": "Zadejte úplnou URL adresu záložního JSON souboru ze Super Productivity, který chcete importovat.",
+    "IMPORT_FROM_URL_DIALOG_DESCRIPTION": "Zadejte úplnou URL adresu záložního JSON souboru ze ChronoFlow Desktop, který chcete importovat.",
     "IMPORT_FROM_URL_DIALOG_TITLE": "Importovat z URL",
     "OPEN_IMPORT_FROM_URL_DIALOG": "Importovat z URL",
     "PRIVACY_EXPORT": "Exportovat data (anonymizovaná)",
-    "PRIVACY_EXPORT_DESCRIPTION": "Exportovat anonymizovaná data (pro odeslání na contact@super-productivity.com pro ladění)",
+    "PRIVACY_EXPORT_DESCRIPTION": "Exportovat anonymizovaná data (pro odeslání na contact@chronoflow-desktop.com pro ladění)",
     "S_BACKUP_DOWNLOADED": "Záloha byla stažena do složky dokumentů Android",
     "S_ERR_IMPORT_FAILED": "Importování dat selhalo",
     "S_ERR_INVALID_DATA": "Import selhal: Neplatný formát JSON",
@@ -2372,7 +2372,7 @@
     "BTN_COMPRESS_ARCHIVE": "Komprimovat archiv"
   },
   "MIGRATE": {
-    "C_DOWNLOAD_BACKUP": "Chcete stáhnout zálohu svých starších dat (lze použít se staršími verzemi Super Productivity)?",
+    "C_DOWNLOAD_BACKUP": "Chcete stáhnout zálohu svých starších dat (lze použít se staršími verzemi ChronoFlow Desktop)?",
     "DETECTED_LEGACY": "Zjištěna starší data. Provedeme migraci za vás!",
     "E_MIGRATION_FAILED": "Migrace selhala s chybou:",
     "E_RESTART_FAILED": "Automatický restart selhal. Restartujte aplikaci ručně!",
@@ -2404,7 +2404,7 @@
     "EDIT": "Upravit",
     "ENABLED": "Povoleno",
     "EXAMPLE_VAL": "klikněte pro úpravu",
-    "EXTENSION_INFO": "Prosím, <a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/super-productivity/ljkbjodfmekklcoibdnhahlaalhihmlb\"> stáhněte rozšíření pro Chrome</a> pro umožnění komunikace s rozhraním Jira Api a zacházením s nečinným časem. Upozornění, tato funkce nefunguje na mobilních zařízeních.",
+    "EXTENSION_INFO": "Prosím, <a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/chronoflow-desktop/ljkbjodfmekklcoibdnhahlaalhihmlb\"> stáhněte rozšíření pro Chrome</a> pro umožnění komunikace s rozhraním Jira Api a zacházením s nečinným časem. Upozornění, tato funkce nefunguje na mobilních zařízeních.",
     "HIDE": "Skrýt",
     "ICON_INP_DESCRIPTION": "Všechny UTF-8 emoji jsou také podporovány!",
     "INBOX_PROJECT_TITLE": "Příchozí",
@@ -2471,7 +2471,7 @@
     },
     "CALENDARS": {
       "AUTO_IMPORT_FOR_CURRENT_DAY": "Automaticky importovat události jako úkoly pro aktuální den",
-      "BROWSER_WARNING": "Kvůli omezením křížového původu (CORS) <b>toto pravděpodobně NEBUDE fungovat ve webové verzi Super Productivity.<br /> Chcete-li tuto funkci používat, <a href=\"https://super-productivity.com/download/\">stáhněte si prosím desktopovou verzi</a>!</b>",
+      "BROWSER_WARNING": "Kvůli omezením křížového původu (CORS) <b>toto pravděpodobně NEBUDE fungovat ve webové verzi ChronoFlow Desktop.<br /> Chcete-li tuto funkci používat, <a href=\"https://chronoflow-desktop.com/download/\">stáhněte si prosím desktopovou verzi</a>!</b>",
       "CAL_COLOR": "Barva kalendáře",
       "CAL_PATH": "URL zdrojového iCal",
       "CHECK_UPDATES": "Kontrolovat vzdálené aktualizace každých X",
@@ -2480,7 +2480,7 @@
       "FILTER_EXCLUDE_REGEX_DESCRIPTION": "Události, jejichž název odpovídá tomuto regulárnímu výrazu, budou skryty. Použije se po filtru zahrnutí. Příklad: Lunch|Daily|Blocker",
       "FILTER_INCLUDE_REGEX": "Zahrnout události odpovídající regulárnímu výrazu (volitelné)",
       "FILTER_INCLUDE_REGEX_DESCRIPTION": "Zobrazí se pouze události, jejichž název odpovídá tomuto regulárnímu výrazu. Chcete-li zahrnout všechny události, ponechte pole prázdné. Příklad: meeting|standup",
-      "HELP": "Můžete integrovat kalendáře, aby vám připomínaly události, a přidávat je jako úkoly v rámci Super Productivity. Integrace funguje pomocí formátu iCal. Aby to fungovalo, musí být vaše kalendáře přístupné buď přes internet, nebo přes souborový systém.",
+      "HELP": "Můžete integrovat kalendáře, aby vám připomínaly události, a přidávat je jako úkoly v rámci ChronoFlow Desktop. Integrace funguje pomocí formátu iCal. Aby to fungovalo, musí být vaše kalendáře přístupné buď přes internet, nebo přes souborový systém.",
       "INVALID_REGEX": "Neplatný regulární výraz",
       "REFERENCE_CALENDAR": "Referenční kalendář (pouze zobrazení, bez vytváření úkolů)",
       "SHOW_BANNER_THRESHOLD": "Zobrazit oznámení X před událostí (ponechte prázdné pro zakázání)"
@@ -2537,7 +2537,7 @@
       "EXPAND_SUB_TASKS": "Rozbalit podúkoly",
       "GLOBAL_ADD_NOTE": "Přidat novou poznámku",
       "GLOBAL_ADD_TASK": "Přidat nový úkol",
-      "GLOBAL_SHOW_HIDE": "Zobrazit/skrýt Super Productivity",
+      "GLOBAL_SHOW_HIDE": "Zobrazit/skrýt ChronoFlow Desktop",
       "GLOBAL_TOGGLE_TASK_START": "Přepnout sledování času pro poslední aktivní úkol",
       "GLOBAL_TOGGLE_TASK_WIDGET": "Zobrazit/skrýt widget úkolu",
       "GO_TO_DAILY_AGENDA": "Přejít na program",
@@ -2716,7 +2716,7 @@
       "USE_ALARM_STYLE_REMINDERS": "Používat oznámení ve stylu budíku (pouze Android)",
       "USE_ALARM_STYLE_REMINDERS_DESCRIPTION": "Pokud je povoleno, připomínky používají hlasitější zvuky budíku a výraznější oznámení. Doporučeno pro důležité připomínky.",
       "DUE_DATE_NOTIFICATION_HOUR": "Hodina zobrazení upozornění na termín (0-23)",
-      "HELP": "<p><strong>Důležité:</strong> Připomínky používají <strong>lokální oznámení</strong>, ne push oznámení. To znamená, že aplikace musí být na vašem zařízení alespoň jednou otevřena, aby mohly být připomínky naplánovány. Připomínky nastavené na jiném zařízení se zobrazí až po synchronizaci aplikace na cílovém zařízení.</p><p>Na <strong>iOS</strong> se ujistěte, že jsou povolena oznámení pro Super Productivity v nastavení zařízení v \"Nastavení\" > \"Oznámení\".</p>",
+      "HELP": "<p><strong>Důležité:</strong> Připomínky používají <strong>lokální oznámení</strong>, ne push oznámení. To znamená, že aplikace musí být na vašem zařízení alespoň jednou otevřena, aby mohly být připomínky naplánovány. Připomínky nastavené na jiném zařízení se zobrazí až po synchronizaci aplikace na cílovém zařízení.</p><p>Na <strong>iOS</strong> se ujistěte, že jsou povolena oznámení pro ChronoFlow Desktop v nastavení zařízení v \"Nastavení\" > \"Oznámení\".</p>",
       "NOTIFY_ON_DUE_DATE": "Zobrazit oznámení pro úkoly s termínem dnes"
     },
     "SCHEDULE": {
@@ -2951,10 +2951,10 @@
     "DIALOG_MESSAGE": "Aktualizujeme způsob ukládání dat pro lepší spolehlivost synchronizace.<br><br>Záloha vašich dat bude automaticky stažena. Tuto zálohu můžete použít k obnovení dat v případě potřeby (Soubor > Import)."
   },
   "ONBOARDING": {
-    "TITLE": "Jak chcete používat Super Productivity?",
+    "TITLE": "Jak chcete používat ChronoFlow Desktop?",
     "SUBTITLE": "Vyberte si nastavení, které odpovídá vašemu pracovnímu postupu. Můžete to kdykoliv změnit v Nastavení.",
     "PRIVACY_HINT": "Vaše data zůstávají bezpečně na vašem zařízení. Na server se nic neodesílá.",
-    "SYNC_CTA": "Používáte Super Productivity také na jiném zařízení?",
+    "SYNC_CTA": "Používáte ChronoFlow Desktop také na jiném zařízení?",
     "SYNC_CTA_LINK": "Nastavit synchronizaci",
     "PRESETS": {
       "SIMPLE_TODO": {

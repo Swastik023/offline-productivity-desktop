@@ -1,6 +1,6 @@
 /**
  * Tests for GitHub issue #6575
- * https://github.com/super-productivity/super-productivity/issues/6575
+ * https://github.com/chronoflow-desktop/chronoflow-desktop/issues/6575
  *
  * Bug: Finishing a task in focus mode causes the session UI to revert to the
  * preparation state (showing play button instead of pause/end buttons).

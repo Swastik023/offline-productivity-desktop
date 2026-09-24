@@ -2,7 +2,7 @@ import { IssueProviderKey } from '../issue/issue.model';
 import { EntityState } from '@ngrx/entity';
 import { TaskAttachment } from './task-attachment/task-attachment.model';
 // Import the unified Task type from plugin-api
-import { Task as PluginTask } from '@super-productivity/plugin-api';
+import { Task as PluginTask } from '@chronoflow-desktop/plugin-api';
 
 export enum HideSubTasksMode {
   // Show is undefined

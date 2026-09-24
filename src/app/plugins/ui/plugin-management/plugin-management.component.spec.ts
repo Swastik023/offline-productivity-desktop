@@ -88,7 +88,7 @@ describe('PluginManagementComponent', () => {
       minSupVersion: '1.0.0',
       hooks: [],
       permissions: [],
-      author: '  Super Productivity  ',
+      author: '  ChronoFlow Desktop  ',
     };
 
     expect(
@@ -97,7 +97,7 @@ describe('PluginManagementComponent', () => {
         loaded: false,
         isEnabled: false,
       }),
-    ).toBe('Super Productivity');
+    ).toBe('ChronoFlow Desktop');
   });
 
   it('hides missing or blank plugin authors', () => {

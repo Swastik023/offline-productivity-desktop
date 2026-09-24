@@ -65,7 +65,7 @@ export function showOrFocus(passedWin: BrowserWindow): void {
 
 // One physical key press can fire this action several times in a row: Electron's
 // globalShortcut auto-repeats while the key is held (X11 XGrabKey), and a held compositor
-// key bound to `xdg-open superproductivity://toggle-visibility` spawns repeated launches.
+// key bound to `xdg-open chronoflow://toggle-visibility` spawns repeated launches.
 // Without a guard the burst hides the window and immediately re-shows it — the #7114
 // flicker. We debounce in BOTH directions (a repeat must never undo the first event's
 // toggle) with a sliding quiet-gap: every event — even a swallowed one — extends the
@@ -78,7 +78,7 @@ let lastToggleVisibilityEvent = 0;
 
 /**
  * Show the window if it is hidden/unfocused, otherwise hide it. Shared by the
- * `globalShowHide` global shortcut and the `superproductivity://toggle-visibility`
+ * `globalShowHide` global shortcut and the `chronoflow://toggle-visibility`
  * protocol action so both entry points behave identically.
  */
 // eslint-disable-next-line prefer-arrow/prefer-arrow-functions

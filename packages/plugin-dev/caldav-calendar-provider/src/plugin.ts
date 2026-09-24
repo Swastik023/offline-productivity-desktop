@@ -4,7 +4,7 @@ import type {
   PluginHttp,
   PluginIssue,
   PluginSearchResult,
-} from '@super-productivity/plugin-api';
+} from '@chronoflow-desktop/plugin-api';
 import ICAL from 'ical.js';
 
 declare const PluginAPI: {
@@ -354,7 +354,7 @@ const buildICalEvent = (event: {
   const lines: string[] = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//Super Productivity//CalDAV Plugin//EN',
+    'PRODID:-//ChronoFlow Desktop//CalDAV Plugin//EN',
     'BEGIN:VEVENT',
     foldIcalLine(`UID:${event.uid}`),
     `DTSTAMP:${now}`,
@@ -1110,7 +1110,7 @@ const buildNewEventUrl = (
 
 /** Derive a deterministic CalDAV UID from a task ID.
  * CalDAV UIDs are opaque strings with no charset restriction (unlike Google Calendar). */
-const taskIdToCaldavUid = (taskId: string): string => `sp-${taskId}@super-productivity`;
+const taskIdToCaldavUid = (taskId: string): string => `sp-${taskId}@chronoflow-desktop`;
 
 const isHttpStatus = (err: unknown, status: number): boolean =>
   typeof err === 'object' &&

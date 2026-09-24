@@ -35,18 +35,18 @@ describe('OAuthCallbackHandlerService', () => {
 
       const received: OAuthCallbackData[] = [];
       service.authCodeReceived$.subscribe((d) => received.push(d));
-      pendingUrl$.next('com.super-productivity.app://oauth-callback?code=ABC123');
+      pendingUrl$.next('com.chronoflow-desktop.app://oauth-callback?code=ABC123');
 
       expect(received.length).toBe(1);
       expect(received[0].code).toBe('ABC123');
     });
 
-    it('should handle the superproductivity:// callback scheme too', () => {
+    it('should handle the chronoflow:// callback scheme too', () => {
       service['_setupAppUrlListener']();
 
       const received: OAuthCallbackData[] = [];
       service.authCodeReceived$.subscribe((d) => received.push(d));
-      pendingUrl$.next('superproductivity://oauth-callback?code=ABC456');
+      pendingUrl$.next('chronoflow://oauth-callback?code=ABC456');
 
       expect(received[0].code).toBe('ABC456');
     });
@@ -56,7 +56,7 @@ describe('OAuthCallbackHandlerService', () => {
 
       let received = false;
       service.authCodeReceived$.subscribe(() => (received = true));
-      pendingUrl$.next('superproductivity://create-task/hello');
+      pendingUrl$.next('chronoflow://create-task/hello');
 
       expect(received).toBe(false);
     });
@@ -66,7 +66,7 @@ describe('OAuthCallbackHandlerService', () => {
     // process to replay a callback that cannot be completed anyway.
     it('should not retain a routed URL for a later subscriber', () => {
       pendingCapacitorOAuthUrl$.next(
-        'com.super-productivity.app://oauth-callback?code=NOT_RETAINED',
+        'com.chronoflow-desktop.app://oauth-callback?code=NOT_RETAINED',
       );
 
       const received: string[] = [];
@@ -78,7 +78,7 @@ describe('OAuthCallbackHandlerService', () => {
 
   describe('_parseOAuthCallback', () => {
     it('should extract auth code from valid URL', () => {
-      const url = 'com.super-productivity.app://oauth-callback?code=ABC123';
+      const url = 'com.chronoflow-desktop.app://oauth-callback?code=ABC123';
       const result = service['_parseOAuthCallback'](url);
 
       expect(result.code).toBe('ABC123');
@@ -88,7 +88,7 @@ describe('OAuthCallbackHandlerService', () => {
 
     it('should extract error from callback URL', () => {
       const url =
-        'com.super-productivity.app://oauth-callback?error=access_denied&error_description=User%20denied%20access';
+        'com.chronoflow-desktop.app://oauth-callback?error=access_denied&error_description=User%20denied%20access';
       const result = service['_parseOAuthCallback'](url);
 
       expect(result.code).toBeUndefined();
@@ -98,7 +98,7 @@ describe('OAuthCallbackHandlerService', () => {
     });
 
     it('should handle URL without code or error', () => {
-      const url = 'com.super-productivity.app://oauth-callback';
+      const url = 'com.chronoflow-desktop.app://oauth-callback';
       const result = service['_parseOAuthCallback'](url);
 
       expect(result.code).toBeUndefined();
@@ -117,7 +117,7 @@ describe('OAuthCallbackHandlerService', () => {
 
     it('should decode URL-encoded parameters', () => {
       const url =
-        'com.super-productivity.app://oauth-callback?error_description=Access%20was%20denied';
+        'com.chronoflow-desktop.app://oauth-callback?error_description=Access%20was%20denied';
       const result = service['_parseOAuthCallback'](url);
 
       expect(result.error_description).toBe('Access was denied');

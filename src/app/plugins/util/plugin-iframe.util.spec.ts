@@ -2,7 +2,7 @@ import {
   PluginBaseCfg,
   PluginIframeMessageType,
   PluginManifest,
-} from '@super-productivity/plugin-api';
+} from '@chronoflow-desktop/plugin-api';
 import { PluginBridgeService } from '../plugin-bridge.service';
 import {
   buildPluginIframeHtml,

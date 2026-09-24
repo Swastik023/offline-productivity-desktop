@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { OAuthFlowConfig, OAuthTokenResult } from '@super-productivity/plugin-api';
+import { OAuthFlowConfig, OAuthTokenResult } from '@chronoflow-desktop/plugin-api';
 import { PluginOAuthService } from './plugin-oauth.service';
 import { resolveEffectiveOAuthConfig } from './resolve-effective-oauth-config.util';
 import {

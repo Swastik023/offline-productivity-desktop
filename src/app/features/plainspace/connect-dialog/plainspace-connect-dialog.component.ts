@@ -55,18 +55,18 @@ export class PlainspaceConnectDialogComponent {
 
   readonly T = T;
   readonly host = this._data?.host || 'https://plainspace.org';
-  // Deep link to the dedicated "from Super Productivity" onboarding flow, which
+  // Deep link to the dedicated "from ChronoFlow Desktop" onboarding flow, which
   // guides token creation — instead of dropping the user on the bare marketing
   // host. Trailing slash stripped so we never produce a double slash.
   //
   // On desktop we also pass a `?return=` deep link so the connect page can bounce
-  // the user back to the app. Only Electron registers the `superproductivity://`
+  // the user back to the app. Only Electron registers the `chronoflow://`
   // scheme (mobile uses a different one, web none), so gate it on IS_ELECTRON —
-  // otherwise the page would render dead "Open Super Productivity" buttons.
+  // otherwise the page would render dead "Open ChronoFlow Desktop" buttons.
   readonly connectUrl =
-    `${this.host.replace(/\/+$/, '')}/connect/super-productivity` +
+    `${this.host.replace(/\/+$/, '')}/connect/chronoflow-desktop` +
     (IS_ELECTRON
-      ? `?return=${encodeURIComponent('superproductivity://plainspace-connect')}`
+      ? `?return=${encodeURIComponent('chronoflow://plainspace-connect')}`
       : '');
   token = '';
   readonly isConnecting = signal(false);

@@ -1,7 +1,7 @@
 import { expect, test } from '../../fixtures/test.fixture';
 
 /**
- * Live repro for https://github.com/super-productivity/super-productivity/issues/7971
+ * Live repro for https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7971
  *
  * A calendar event auto-imported as a task, completed and archived via "Finish Day",
  * must NOT re-surface in the Schedule the next time calendar events are rendered.

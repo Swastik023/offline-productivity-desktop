@@ -233,7 +233,7 @@ const createTaskWidgetWindowForGeneration = async (
     height: bounds.height,
     x: bounds.x,
     y: bounds.y,
-    title: 'Super Productivity Task Widget',
+    title: 'ChronoFlow Desktop Task Widget',
     frame: false,
     transparent: !IS_MAC,
     backgroundColor: IS_MAC ? '#00000000' : undefined,

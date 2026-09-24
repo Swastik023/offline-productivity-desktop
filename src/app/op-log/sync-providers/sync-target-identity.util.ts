@@ -19,7 +19,7 @@ const CONTENT_ONLY_CFG_FIELDS: ReadonlySet<string> = new Set([
  * clearing a folder still compares `'/foo'` → absent.
  *
  * Deliberately incomplete: OneDrive's defaults are the only non-`''` ones
- * (`tenantId: 'common'`, `syncFolderPath: 'Super Productivity'`, …), so such a
+ * (`tenantId: 'common'`, `syncFolderPath: 'ChronoFlow Desktop'`, …), so such a
  * config still reports a spurious move on its first save — one-time and
  * self-correcting. Covering it would drag the imex/sync defaults table into
  * op-log for less than it costs.

@@ -1,7 +1,7 @@
 import { SharePayload, ShareTarget } from './share.model';
 import * as ShareTextUtil from './share-text.util';
 
-const FALLBACK_SHARE_URL = 'https://super-productivity.com';
+const FALLBACK_SHARE_URL = 'https://chronoflow-desktop.com';
 
 /**
  * Build platform-specific share URL.

@@ -1,7 +1,7 @@
 {
-  "name": "@super-productivity/plugin-api",
+  "name": "@chronoflow-desktop/plugin-api",
   "version": "1.0.1",
-  "description": "TypeScript definitions for Super Productivity plugin development",
+  "description": "TypeScript definitions for ChronoFlow Desktop plugin development",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -13,7 +13,7 @@
     "version": "npm run build"
   },
   "keywords": [
-    "super-productivity",
+    "chronoflow-desktop",
     "plugin",
     "typescript",
     "types",
@@ -24,13 +24,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/super-productivity/super-productivity.git",
+    "url": "git+https://github.com/chronoflow-desktop/chronoflow-desktop.git",
     "directory": "packages/plugin-api"
   },
   "bugs": {
-    "url": "https://github.com/super-productivity/super-productivity/issues"
+    "url": "https://github.com/chronoflow-desktop/chronoflow-desktop/issues"
   },
-  "homepage": "https://github.com/super-productivity/super-productivity#readme",
+  "homepage": "https://github.com/chronoflow-desktop/chronoflow-desktop#readme",
   "files": [
     "dist/**/*.js",
     "dist/**/*.d.ts",

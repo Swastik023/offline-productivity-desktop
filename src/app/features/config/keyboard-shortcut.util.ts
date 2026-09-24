@@ -25,7 +25,7 @@ const QWERTY_CODE_MAP: Record<string, string> = {
  * Note: If multiple key codes map to the same character, the first matching code in the layout
  * map's iteration order will be selected.
  *
- * @see https://github.com/johannesjo/super-productivity/issues/8378
+ * @see https://github.com/johannesjo/chronoflow-desktop/issues/8378
  */
 export const mapShortcutToQwerty = (
   shortcut: string | null | undefined,
@@ -79,7 +79,7 @@ export const mapShortcutToQwerty = (
  * Only translates properties defined in GLOBAL_KEY_CFG_KEYS (system-wide global shortcuts).
  * On macOS, Electron's globalShortcut API registers shortcuts by physical keyboard position.
  *
- * @see https://github.com/johannesjo/super-productivity/issues/8378
+ * @see https://github.com/johannesjo/chronoflow-desktop/issues/8378
  */
 export const mapKeyboardConfigToQwerty = (
   keyboardCfg: KeyboardConfig,

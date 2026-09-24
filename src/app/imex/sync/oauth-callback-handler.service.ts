@@ -58,8 +58,8 @@ export class OAuthCallbackHandlerService implements OnDestroy {
       if (url.includes('plugin-oauth-callback')) {
         this._handlePluginOAuthCallback(url);
       } else if (
-        url.startsWith('com.super-productivity.app://oauth-callback') ||
-        url.startsWith('superproductivity://oauth-callback')
+        url.startsWith('com.chronoflow-desktop.app://oauth-callback') ||
+        url.startsWith('chronoflow://oauth-callback')
       ) {
         const callbackData = this._parseOAuthCallback(url);
 
@@ -95,7 +95,7 @@ export class OAuthCallbackHandlerService implements OnDestroy {
         return;
       }
 
-      if (!callbackUrl.startsWith('superproductivity://oauth-callback')) {
+      if (!callbackUrl.startsWith('chronoflow://oauth-callback')) {
         SyncLog.warn(
           'OAuthCallbackHandler: Rejected callback URL with unexpected scheme',
           callbackUrl.split(':')[0],

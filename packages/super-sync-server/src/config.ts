@@ -144,7 +144,7 @@ export interface ServerConfig {
  * Use the CORS_ORIGINS env var to set your own origins; wildcard subdomain patterns are
  * still supported there (see `parseCorsOrigin`), they just are not shipped as a default.
  */
-const DEFAULT_CORS_ORIGINS: CorsOrigin[] = ['https://app.super-productivity.com'];
+const DEFAULT_CORS_ORIGINS: CorsOrigin[] = ['https://app.chronoflow-desktop.com'];
 
 const DEFAULT_CONFIG: ServerConfig = {
   port: 1900,

@@ -10,7 +10,7 @@
  * `(id) => taskCache.get(id)` as the `TaskLookup` argument.
  */
 
-import type { ActiveWorkContext, Task } from '@super-productivity/plugin-api';
+import type { ActiveWorkContext, Task } from '@chronoflow-desktop/plugin-api';
 
 /** Resolves a task id to the host's current task, or `undefined` if unknown. */
 export type TaskLookup = (taskId: string) => Task | undefined;

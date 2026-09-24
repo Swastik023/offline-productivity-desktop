@@ -33,7 +33,7 @@ export {
   TaskCopy,
   ProjectCopy,
   TagCopy,
-} from '@super-productivity/plugin-api';
+} from '@chronoflow-desktop/plugin-api';
 
 // Import app-specific types
 import { SnackParams } from '../core/snack/snack.model';

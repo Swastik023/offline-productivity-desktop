@@ -16,7 +16,7 @@ export interface TestWebdavConnectionDeps {
 /**
  * Probe a WebDAV server with a draft cfg without persisting credentials
  * or constructing a full provider instance. Used by host UIs (e.g. the
- * Super Productivity "Test connection" button in `dialog-sync-cfg`) to
+ * ChronoFlow Desktop "Test connection" button in `dialog-sync-cfg`) to
  * validate user input.
  *
  * Returns `{ success, error?, fullUrl }`. The user-facing `error` /

@@ -528,7 +528,7 @@ function createIndicatorMessage(
 function createContextMenu(msg?: string): Menu {
   const template: any[] = [];
 
-  // Either show the time string (if task is running) or "Super Productivity"
+  // Either show the time string (if task is running) or "ChronoFlow Desktop"
   if (msg) {
     template.push({ label: msg, enabled: false });
     template.push({ type: 'separator' });

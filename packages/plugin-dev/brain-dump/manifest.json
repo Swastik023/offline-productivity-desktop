@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "minSupVersion": "13.0.0",
   "description": "Quickly capture many tasks at once. Each line becomes a task.",
-  "author": "Super Productivity",
+  "author": "ChronoFlow Desktop",
   "permissions": [
     "getAllProjects",
     "addTask",

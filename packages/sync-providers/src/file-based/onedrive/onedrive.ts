@@ -40,13 +40,13 @@ const ONEDRIVE_PROTOCOL = {
   graphApiBaseUrl: 'https://graph.microsoft.com/v1.0',
   scope: 'offline_access Files.ReadWrite.AppFolder',
   redirectUri: 'https://login.microsoftonline.com/common/oauth2/nativeclient',
-  electronRedirectUri: 'superproductivity://oauth-callback/onedrive',
+  electronRedirectUri: 'chronoflow://oauth-callback/onedrive',
   tokenRefreshSkewMs: 60_000,
 } as const;
 
 const ONEDRIVE_DEFAULTS = {
   tenantId: 'common',
-  syncFolderPath: 'Super Productivity',
+  syncFolderPath: 'ChronoFlow Desktop',
 } as const;
 
 // Hard cap on listFiles pagination iterations. ~200 items per page × 500 pages

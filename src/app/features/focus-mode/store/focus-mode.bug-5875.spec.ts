@@ -1,6 +1,6 @@
 /**
  * Integration tests for GitHub issue #5875
- * https://github.com/super-productivity/super-productivity/issues/5875
+ * https://github.com/chronoflow-desktop/chronoflow-desktop/issues/5875
  *
  * Bug: You can break Pomodoro timer syncing
  *

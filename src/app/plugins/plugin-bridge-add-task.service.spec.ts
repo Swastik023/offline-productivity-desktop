@@ -25,7 +25,7 @@ import { DataInitService } from '../core/data-init/data-init.service';
 import { GlobalConfigService } from '../features/config/global-config.service';
 import { addSubTask } from '../features/tasks/store/task.actions';
 import { Task, TaskCopy } from '../features/tasks/task.model';
-import { PluginCreateTaskData } from '@super-productivity/plugin-api';
+import { PluginCreateTaskData } from '@chronoflow-desktop/plugin-api';
 import { DEFAULT_GLOBAL_CONFIG } from '../features/config/default-global-config.const';
 import EN_TRANSLATIONS from '../../assets/i18n/en.json';
 

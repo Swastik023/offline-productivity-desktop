@@ -26,7 +26,7 @@ import { evaluateGpuStartupGuard } from './gpu-startup-guard';
 import * as fs from 'fs';
 
 const ICONS_FOLDER = __dirname + '/assets/icons/';
-const APP_DISPLAY_NAME = 'Super Productivity';
+const APP_DISPLAY_NAME = 'ChronoFlow Desktop';
 const IS_MAC = process.platform === 'darwin';
 // const DESKTOP_ENV = process.env.DESKTOP_SESSION;
 // const IS_GNOME = DESKTOP_ENV === 'gnome' || DESKTOP_ENV === 'gnome-xorg';
@@ -61,7 +61,7 @@ export const startApp = (): void => {
   app.commandLine.appendSwitch('enable-speech-dispatcher');
 
   // work around for #4375
-  // https://github.com/super-productivity/super-productivity/issues/4375#issuecomment-2883838113
+  // https://github.com/chronoflow-desktop/chronoflow-desktop/issues/4375#issuecomment-2883838113
   // https://github.com/electron/electron/issues/46538#issuecomment-2808806722
   app.commandLine.appendSwitch('gtk-version', '3');
 

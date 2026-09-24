@@ -1,4 +1,4 @@
-import { BatchTaskCreate } from '@super-productivity/plugin-api';
+import { BatchTaskCreate } from '@chronoflow-desktop/plugin-api';
 import { TodoistImportModel, TodoistTask } from '../parse/normalized-model';
 import { BATCH_CHUNK_SIZE, planImport } from './plan-import';
 

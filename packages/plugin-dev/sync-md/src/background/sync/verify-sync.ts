@@ -1,4 +1,4 @@
-import { Task } from '@super-productivity/plugin-api';
+import { Task } from '@chronoflow-desktop/plugin-api';
 import { readTasksFile } from '../helper/file-utils';
 import { parseMarkdown } from './markdown-parser';
 import { LocalUserCfg } from '../local-config';
@@ -16,7 +16,7 @@ export interface SyncDifference {
 }
 
 /**
- * Verifies that the state between Super Productivity and markdown file is in sync
+ * Verifies that the state between ChronoFlow Desktop and markdown file is in sync
  * Returns true if in sync, false otherwise with details about differences
  */
 export const verifySyncState = async (

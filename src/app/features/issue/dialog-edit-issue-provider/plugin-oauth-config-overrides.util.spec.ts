@@ -1,4 +1,4 @@
-import type { OAuthFlowConfig } from '@super-productivity/plugin-api';
+import type { OAuthFlowConfig } from '@chronoflow-desktop/plugin-api';
 import { applyPluginOAuthOverrides } from './plugin-oauth-config-overrides.util';
 import { IssueLog } from '../../../core/log';
 

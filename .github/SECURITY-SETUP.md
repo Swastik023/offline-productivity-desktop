@@ -1,6 +1,6 @@
 # Security Hardening Setup Guide
 
-This document provides step-by-step instructions for completing the security hardening of the Super Productivity repository. These steps require GitHub repository admin access and must be completed via the GitHub web UI.
+This document provides step-by-step instructions for completing the security hardening of the ChronoFlow Desktop repository. These steps require GitHub repository admin access and must be completed via the GitHub web UI.
 
 ## ✅ Already Completed (Automated)
 
@@ -299,7 +299,7 @@ If you suspect a security compromise:
 
 4. **Export audit logs**:
    ```bash
-   gh api /repos/super-productivity/super-productivity/actions/runs --paginate > audit-$(date +%Y%m%d).json
+   gh api /repos/chronoflow-desktop/chronoflow-desktop/actions/runs --paginate > audit-$(date +%Y%m%d).json
    ```
 
 ### Investigation (4 hours)

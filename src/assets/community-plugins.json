@@ -49,14 +49,14 @@
   },
   {
     "name": "MCP",
-    "shortDescription": "Bridge between the Super Productivity app and MCP (Model Context Protocol) servers for Claude Desktop integration.",
+    "shortDescription": "Bridge between the ChronoFlow Desktop app and MCP (Model Context Protocol) servers for Claude Desktop integration.",
     "url": "https://github.com/organicmoron/SP-MCP",
     "author": "organicmoron",
     "authorUrl": "https://github.com/organicmoron",
     "stars": 68
   },
   {
-    "name": "Super Productivity MCP",
+    "name": "ChronoFlow Desktop MCP",
     "shortDescription": "Feature-rich MCP server with 19 tools covering full task CRUD, time tracking summaries, project/tag management, and notifications.",
     "url": "https://github.com/b0x42/Super-Productivity-MCP",
     "author": "b0x42",
@@ -73,7 +73,7 @@
   },
   {
     "name": "Invoicer",
-    "shortDescription": "Generate client invoices from tracked time in Super Productivity, with flexible billing periods, itemization levels, and PDF export.",
+    "shortDescription": "Generate client invoices from tracked time in ChronoFlow Desktop, with flexible billing periods, itemization levels, and PDF export.",
     "url": "https://github.com/1jamesthompson1/sp-invoicer",
     "author": "1jamesthompson1",
     "authorUrl": "https://github.com/1jamesthompson1",
@@ -81,7 +81,7 @@
   },
   {
     "name": "StudyForge Leaderboard",
-    "shortDescription": "Syncs your daily study time from Super Productivity to the StudyForge leaderboard. Compete with friends, track streaks, and join 7-day study war challenges.",
+    "shortDescription": "Syncs your daily study time from ChronoFlow Desktop to the StudyForge leaderboard. Compete with friends, track streaks, and join 7-day study war challenges.",
     "url": "https://github.com/dhananajay-030/studyforge-plugin",
     "author": "dhananajay-030",
     "authorUrl": "https://github.com/dhananajay-030",
@@ -89,7 +89,7 @@
   },
   {
     "name": "Print Tasks",
-    "shortDescription": "Want to go offline but take Super Productivity with you? This plugin provides print layouts for Today, All Tasks, All Projects, by Tag etc.",
+    "shortDescription": "Want to go offline but take ChronoFlow Desktop with you? This plugin provides print layouts for Today, All Tasks, All Projects, by Tag etc.",
     "url": "https://codeberg.org/sinenomine/sp-task-print",
     "author": "sinenomine",
     "authorUrl": "https://codeberg.org/sinenomine/",
@@ -105,7 +105,7 @@
   },
   {
     "name": "Memos Sync",
-    "shortDescription": "Syncs plugin-owned notes between Super Productivity and Memos with attachments, auto-sync, and conflict handling.",
+    "shortDescription": "Syncs plugin-owned notes between ChronoFlow Desktop and Memos with attachments, auto-sync, and conflict handling.",
     "url": "https://github.com/giba0/memos-sync",
     "author": "giba0",
     "authorUrl": "https://github.com/giba0",
@@ -121,8 +121,8 @@
   },
   {
     "name": "Home Assistant Bridge",
-    "shortDescription": "Bidirectional bridge between Super Productivity and Home Assistant. Rules-based automation engine: control lights, scenes, media, and notifications based on your tasks. Auto-focus mode, break reminders, daily summaries, and live HA sensor display.",
-    "url": "https://github.com/jloops412/ha-super-productivity",
+    "shortDescription": "Bidirectional bridge between ChronoFlow Desktop and Home Assistant. Rules-based automation engine: control lights, scenes, media, and notifications based on your tasks. Auto-focus mode, break reminders, daily summaries, and live HA sensor display.",
+    "url": "https://github.com/jloops412/ha-chronoflow-desktop",
     "author": "jloops412",
     "authorUrl": "https://github.com/jloops412",
     "stars": 0
@@ -130,7 +130,7 @@
   {
     "name": "Goals Vision Board",
     "shortDescription": "A customizable two-page visual board for long-term goals, reminders, notes, images, tags, checklists, and metrics.",
-    "url": "https://github.com/CuriousChipmunk/vision-board-super-productivity",
+    "url": "https://github.com/CuriousChipmunk/vision-board-chronoflow-desktop",
     "author": "CuriousChipmunk",
     "authorUrl": "https://github.com/CuriousChipmunk",
     "stars": 0

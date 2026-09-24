@@ -1,5 +1,5 @@
 import { ActionType, AutomationRule, AutomationTriggerType, ConditionType } from '../types';
-import { PluginAPI } from '@super-productivity/plugin-api';
+import { PluginAPI } from '@chronoflow-desktop/plugin-api';
 
 // Keep these arrays in sync with the unions in types.ts. They are duplicated
 // here (and in utils/rule-validator.ts) rather than centralized in types.ts

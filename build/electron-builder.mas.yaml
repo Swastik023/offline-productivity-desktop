@@ -1,5 +1,5 @@
-appId: com.super-productivity.app
-productName: Super Productivity
+appId: com.chronoflow-desktop.app
+productName: ChronoFlow Desktop
 artifactName: ${name}-${arch}.${ext}
 files:
   - electron/**/*
@@ -46,7 +46,7 @@ mac:
 
 mas:
   type: distribution
-  appId: com.super-productivity.app
+  appId: com.chronoflow-desktop.app
   category: public.app-category.productivity
   gatekeeperAssess: false
   darkModeSupport: true

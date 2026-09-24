@@ -7,7 +7,7 @@ import { Task as TaskCopy } from '../features/tasks/task.model';
 import { Project as ProjectCopy } from '../features/project/project.model';
 import { Tag as TagCopy } from '../features/tag/tag.model';
 import { SnackParams } from '../core/snack/snack.model';
-import { Task, Project, Tag, SnackCfg } from '@super-productivity/plugin-api';
+import { Task, Project, Tag, SnackCfg } from '@chronoflow-desktop/plugin-api';
 
 /**
  * Convert internal Task to plugin API Task (mostly passthrough now)

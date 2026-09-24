@@ -3,7 +3,7 @@ import { Update } from '@ngrx/entity';
 import { Task, TaskWithSubTasks } from '../../features/tasks/task.model';
 import { IssueDataReduced } from '../../features/issue/issue.model';
 import { WorkContextType } from '../../features/work-context/work-context.model';
-import { BatchOperation } from '@super-productivity/plugin-api';
+import { BatchOperation } from '@chronoflow-desktop/plugin-api';
 import { PersistentActionMeta } from '../../op-log/core/persistent-action.interface';
 import { OpType } from '../../op-log/core/operation.types';
 import { shouldClearDueTimeForToday } from '../../util/is-today.util';

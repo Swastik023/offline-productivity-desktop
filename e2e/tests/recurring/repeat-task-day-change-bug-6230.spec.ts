@@ -2,7 +2,7 @@ import { expect, test } from '../../fixtures/test.fixture';
 import { openRecurDialog, saveRecurDialog } from '../../utils/recurring-task-helpers';
 
 /**
- * Bug: https://github.com/super-productivity/super-productivity/issues/6230
+ * Bug: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/6230
  *
  * Repeat tasks don't appear in Today after a day change without restarting
  * the app. The app creates repeat task instances only when `todayDateStr$`

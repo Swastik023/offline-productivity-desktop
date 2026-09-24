@@ -5,7 +5,7 @@ import { TASK_FEATURE_NAME } from '../../../features/tasks/store/task.reducer';
 import { Task } from '../../../features/tasks/task.model';
 import { PROJECT_FEATURE_NAME } from '../../../features/project/store/project.reducer';
 import { Action, ActionReducer } from '@ngrx/store';
-import { BatchOperation } from '@super-productivity/plugin-api';
+import { BatchOperation } from '@chronoflow-desktop/plugin-api';
 import { createBaseState } from './test-utils';
 
 describe('taskBatchUpdateMetaReducer - Two Subtasks Bug', () => {

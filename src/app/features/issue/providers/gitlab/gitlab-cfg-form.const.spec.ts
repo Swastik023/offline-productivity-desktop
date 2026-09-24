@@ -35,7 +35,7 @@ describe('GITLAB_PROJECT_REGEX', () => {
 
   describe('valid project identifiers', () => {
     const validCases = [
-      'super-productivity/super-productivity',
+      'chronoflow-desktop/chronoflow-desktop',
       'group/subgroup/project',
       'my_group/my.project',
       'a.b-c/d_e',

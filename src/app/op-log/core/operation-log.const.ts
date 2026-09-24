@@ -276,8 +276,8 @@ export const POST_SYNC_COOLDOWN_MS = 2000;
  * On Linux desktop environments, session logout/login with autostart can leave
  * stale LevelDB locks for 5-15+ seconds, so the total retry window must be long
  * enough to outlast this.
- * @see https://github.com/johannesjo/super-productivity/issues/6255
- * @see https://github.com/super-productivity/super-productivity/issues/7191
+ * @see https://github.com/johannesjo/chronoflow-desktop/issues/6255
+ * @see https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7191
  */
 export const IDB_OPEN_RETRIES = 5;
 
@@ -298,7 +298,7 @@ export const IDB_OPEN_RETRIES = 5;
  * For non-lock errors there is no expectation that waiting helps, so fail
  * fast and let the error surface sooner.
  *
- * @see https://github.com/super-productivity/super-productivity/issues/7191
+ * @see https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7191
  */
 export const IDB_OPEN_RETRIES_NON_LOCK = 3;
 

@@ -1,0 +1,9 @@
+- [ ] 🚀 Project ARISE | Day 1: AI Hardware Bedrock
+  - [ ] ⚡ Benchmark 8-Core CPU & Thread Limits
+  - [ ] 🧠 Audit RAM & The Free vs Available Trap
+  - [ ] 💀 THE REAPER: Trigger Kernel Crash (OOMKilled)
+- [ ] 🏢 Linux Kernel Architecture & System Calls
+  - [ ] 📁 Map SRE Server Filesystem Hierarchy
+  - [ ] 🛡️ Inspect Kernel Bouncer (Syscalls & Sockets)
+  - [ ] 🧟 BREAK-IT: The Zombie Process Apocalypse
+- [ ] 🎯 Day 1 Wrap-Up & Day 2 Docker Teaser

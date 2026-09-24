@@ -1,5 +1,5 @@
 /**
- * Host-side (Super Productivity / NgRx) entity-registry extensions.
+ * Host-side (ChronoFlow Desktop / NgRx) entity-registry extensions.
  *
  * `@sp/sync-core` keeps `EntityConfig` framework-agnostic; the selector and
  * adapter fields below are NgRx-shaped and live with the host that consumes

@@ -1,4 +1,4 @@
-import { Task } from '@super-productivity/plugin-api';
+import { Task } from '@chronoflow-desktop/plugin-api';
 import { ParsedTask } from '../sync/markdown-parser';
 import { LocalUserCfg } from '../local-config';
 

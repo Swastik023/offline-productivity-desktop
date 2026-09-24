@@ -14,7 +14,7 @@ state, not an independent task or calendar engine.
   snapshot. The TypeScript contract is
   `src/app/features/android/android-widget.model.ts`.
 - Kotlin parses the versioned `v: 1` shape in
-  `android/app/src/main/java/com/superproductivity/superproductivity/widget/WidgetData.kt`.
+  `android/app/src/main/java/com/chronoflow/chronoflow/widget/WidgetData.kt`.
   Unknown versions fail closed to an empty list.
 - Native checkbox taps write only to `WidgetDoneQueue`. The renderer overlays
   queued target states immediately; Angular later drains, deduplicates, and

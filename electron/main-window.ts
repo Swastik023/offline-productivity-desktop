@@ -219,7 +219,7 @@ export const createWindow = async ({
     height: mainWindowState.height,
     minHeight: 240,
     minWidth: 300,
-    title: IS_DEV ? 'Super Productivity D' : 'Super Productivity',
+    title: IS_DEV ? 'ChronoFlow Desktop D' : 'ChronoFlow Desktop',
     titleBarStyle,
     titleBarOverlay,
     enableLargerThanScreen: isScreenshotMode,
@@ -329,7 +329,7 @@ export const createWindow = async ({
   mainWin.loadURL(url).then(() => {
     // Set window title for dev mode
     if (IS_DEV) {
-      mainWin.setTitle('Super Productivity D');
+      mainWin.setTitle('ChronoFlow Desktop D');
     }
 
     // load custom stylesheet if any
@@ -589,11 +589,11 @@ function createMenu(quitApp: () => void): void {
   // Create application menu to enable copy & pasting on MacOS
   const menuTpl: MenuItemConstructorOptions[] = [
     {
-      label: 'Super Productivity',
+      label: 'ChronoFlow Desktop',
       submenu: [
-        { role: 'about', label: 'About Super Productivity' },
+        { role: 'about', label: 'About ChronoFlow Desktop' },
         { type: 'separator' },
-        { role: 'hide', label: 'Hide Super Productivity' },
+        { role: 'hide', label: 'Hide ChronoFlow Desktop' },
         { role: 'hideOthers' },
         { role: 'unhide' },
         { type: 'separator' },

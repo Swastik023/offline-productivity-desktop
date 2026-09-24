@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import type { PluginHttp } from '@super-productivity/plugin-api';
+import type { PluginHttp } from '@chronoflow-desktop/plugin-api';
 import {
   parseTeamIds,
   mapSearchResult,

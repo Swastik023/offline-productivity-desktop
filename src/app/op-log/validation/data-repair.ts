@@ -1008,7 +1008,7 @@ const _removeNonExistentProjectIdsFromTasks = (
   const taskIds: string[] = task.ids;
 
   // Active tasks only — archived tasks with stale projectId are harmless
-  // and no longer fail validation. See: https://github.com/super-productivity/super-productivity/issues/6270
+  // and no longer fail validation. See: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/6270
   taskIds.forEach((id) => {
     const t = task.entities[id] as TaskCopy;
     if (t.projectId && !projectIds.includes(t.projectId)) {
@@ -1042,7 +1042,7 @@ const _removeNonExistentTagsFromTasks = (
   };
 
   // Active tasks only — archived tasks with stale tagIds are harmless
-  // and no longer fail validation. See: https://github.com/super-productivity/super-productivity/issues/6270
+  // and no longer fail validation. See: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/6270
   taskIds.forEach((id) => {
     const t = task.entities[id] as TaskCopy;
     if (t.tagIds && t.tagIds.length > 0) {
@@ -1131,7 +1131,7 @@ const _removeNonExistentRepeatCfgIdsFromTasks = (
   let removedCount = 0;
 
   // Active tasks only — archived tasks with stale repeatCfgId are harmless
-  // and no longer fail validation. See: https://github.com/super-productivity/super-productivity/issues/6270
+  // and no longer fail validation. See: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/6270
   taskIds.forEach((id) => {
     const t = task.entities[id] as TaskCopy;
     if (t.repeatCfgId && !repeatCfgIds.includes(t.repeatCfgId)) {

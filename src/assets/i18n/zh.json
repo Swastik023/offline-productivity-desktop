@@ -14,12 +14,12 @@
     },
     "B_SYNC_SAFETY": {
       "DISMISS": "暂不",
-      "MSG": "您已经使用 Super Productivity 一段时间了。设置同步以备份您的数据，并在所有设备上保持安全。",
+      "MSG": "您已经使用 ChronoFlow Desktop 一段时间了。设置同步以备份您的数据，并在所有设备上保持安全。",
       "SETUP": "设置同步"
     },
     "B_UPDATE_AVAILABLE": {
       "DOWNLOAD": "下载",
-      "MSG": "Super Productivity 有新版本可用（{{version}}）。"
+      "MSG": "ChronoFlow Desktop 有新版本可用（{{version}}）。"
     },
     "CONTEXT_MENU": {
       "CHANGE_PROJECT_SETTINGS": "更改项目设置",
@@ -81,13 +81,13 @@
   },
   "DONATE_PAGE": {
     "BUTTON_TEXT": "通过 GitHub Sponsors 捐赠",
-    "INTRO_1": "Super Productivity 完全由社区资助。没有追踪、没有广告、也没有数据收集——您的任务数据仅存于本地设备。",
+    "INTRO_1": "ChronoFlow Desktop 完全由社区资助。没有追踪、没有广告、也没有数据收集——您的任务数据仅存于本地设备。",
     "INTRO_2": "如果您认同这种方式，并希望项目持续健康地发展，您的自愿性捐赠我们将非常感激。"
   },
   "EXAMPLE_TASKS": {
     "LEARN_KEYBOARD_SHORTCUTS": {
       "TITLE": "学习键盘快捷键",
-      "NOTES": "Super Productivity 专为键盘操作而设计。学习快捷键可以让您工作更高效。\n\n**如何开始：**\n1. 打开**侧边栏菜单**\n2. 进入**帮助**\n3. 点击**键盘导航教程**"
+      "NOTES": "ChronoFlow Desktop 专为键盘操作而设计。学习快捷键可以让您工作更高效。\n\n**如何开始：**\n1. 打开**侧边栏菜单**\n2. 进入**帮助**\n3. 点击**键盘导航教程**"
     },
     "CREATE_PROJECT": {
       "TITLE": "创建您的第一个项目",
@@ -213,7 +213,7 @@
         "TWO_WAY_SYNC_TITLE": "标题同步方向"
       },
       "FORM_SECTION": {
-        "HELP": "<p>在这里，您可以将 SuperProductivity 配置为在每日规划视图的任务创建看板中列出特定项目的未完成 CalDav 待办事项。它们将列为建议，并提供指向待办事项的链接以及有关它的更多信息。</p> <p>此外，您还可以自动添加并同步所有未完成的待办事项到您的任务待办事项列表。</p><p>要在网页应用中为 nextcloud 启用此功能，您可能需要通过 nextcloud 应用 <a href='https://apps.nextcloud.com/apps/webapppassword '>webapppassword<a> 将 \"https://app.super-productivity.com \" 加入白名单。</p>"
+        "HELP": "<p>在这里，您可以将 SuperProductivity 配置为在每日规划视图的任务创建看板中列出特定项目的未完成 CalDav 待办事项。它们将列为建议，并提供指向待办事项的链接以及有关它的更多信息。</p> <p>此外，您还可以自动添加并同步所有未完成的待办事项到您的任务待办事项列表。</p><p>要在网页应用中为 nextcloud 启用此功能，您可能需要通过 nextcloud 应用 <a href='https://apps.nextcloud.com/apps/webapppassword '>webapppassword<a> 将 \"https://app.chronoflow-desktop.com \" 加入白名单。</p>"
       },
       "ISSUE_CONTENT": {
         "DESCRIPTION": "描述",
@@ -290,7 +290,7 @@
       "FEEDBACK_PUBLIC": "在 GitHub Discussions 发帖",
       "FEEDBACK_PUBLIC_DESC": "他人可以看到并回复",
       "FEEDBACK_TITLE": "您想如何帮助？",
-      "TITLE": "喜欢 Super Productivity 吗？",
+      "TITLE": "喜欢 ChronoFlow Desktop 吗？",
       "TXT": "这是一个由爱好者打造的<strong>免费开源项目</strong> —— 没有追踪，没有广告。一条评分或简短留言能帮助更多人发现它。"
     },
     "DROPBOX": {
@@ -437,7 +437,7 @@
         "FILTER_USER": "筛选用户名",
         "GITLAB_BASE_URL": "自定义 GitLab 基本 URL（可选）",
         "PROJECT": "用户名/项目",
-        "PROJECT_HINT": "例如 super-productivity/super-productivity",
+        "PROJECT_HINT": "例如 chronoflow-desktop/chronoflow-desktop",
         "SCOPE": "范围",
         "SCOPE_ALL": "全部",
         "SCOPE_ASSIGNED": "分配给我",
@@ -912,7 +912,7 @@
         "TOKEN": "访问令牌"
       },
       "FORM_SECTION": {
-        "HELP": "<p>在这里，您可以将 SuperProductivity 配置为列出未结的 OpenProject 工作包。请注意，为了使其在浏览器中工作，您可能需要为您的 OpenProject 服务器配置跨域资源共享，以允许从 app.super-productivity.com 访问</p>"
+        "HELP": "<p>在这里，您可以将 SuperProductivity 配置为列出未结的 OpenProject 工作包。请注意，为了使其在浏览器中工作，您可能需要为您的 OpenProject 服务器配置跨域资源共享，以允许从 app.chronoflow-desktop.com 访问</p>"
       },
       "ISSUE_CONTENT": {
         "ASSIGNEE": "负责人",
@@ -1570,22 +1570,22 @@
         },
         "ONEDRIVE": {
           "CLIENT_ID_DESCRIPTION": "Microsoft Entra 应用注册中的应用程序（客户端）ID",
-          "INFO_TEXT": "Microsoft 365 使用 OAuth 进行认证。请先填写客户端和租户信息，然后进行认证。<strong>要使用自己的 Entra 应用注册？</strong>在桌面版中，请在“移动和桌面应用程序”下注册重定向 URI <code>superproductivity://oauth-callback/onedrive</code>，启用“允许公共客户端流”，并授予 <code>Files.ReadWrite.AppFolder</code> 委托权限。请参阅 <a href=\"https://github.com/super-productivity/super-productivity/wiki/2.09-Configure-Sync-Backend\" target=\"_blank\" rel=\"noopener\">OneDrive 设置指南</a>。",
+          "INFO_TEXT": "Microsoft 365 使用 OAuth 进行认证。请先填写客户端和租户信息，然后进行认证。<strong>要使用自己的 Entra 应用注册？</strong>在桌面版中，请在“移动和桌面应用程序”下注册重定向 URI <code>chronoflow://oauth-callback/onedrive</code>，启用“允许公共客户端流”，并授予 <code>Files.ReadWrite.AppFolder</code> 委托权限。请参阅 <a href=\"https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.09-Configure-Sync-Backend\" target=\"_blank\" rel=\"noopener\">OneDrive 设置指南</a>。",
           "L_CLIENT_ID": "应用程序（客户端）ID",
           "L_SYNC_FOLDER_PATH": "同步文件夹路径",
           "L_TENANT_ID": "租户 ID",
           "L_USE_CUSTOM_APP": "使用我自己的 Microsoft Entra 应用注册",
           "OFFICIAL_MODE_INFO": "当前使用此应用内置的 Microsoft 365 登录。只有需要使用自己的 Entra 应用注册时，才切换到自定义模式。",
           "PLATFORM_INFO": "OneDrive 同步仅适用于桌面版和移动版，不适用于浏览器版。",
-          "SYNC_FOLDER_PATH_DESCRIPTION": "存储在你的 OneDrive 应用文件夹下（例如 super-productivity）",
+          "SYNC_FOLDER_PATH_DESCRIPTION": "存储在你的 OneDrive 应用文件夹下（例如 chronoflow-desktop）",
           "TENANT_ID_DESCRIPTION": "多租户登录请使用 'common'",
           "USE_CUSTOM_APP_DESCRIPTION": "如果要提供自己的应用程序（客户端）ID，请启用此选项"
         },
         "TITLE": "同步",
         "WEB_DAV": {
-          "CORS_INFO": "<strong>在浏览器中使其工作：</strong> 要使此功能在浏览器中工作，您需要将 Super Productivity 添加到您的 WebDAV 服务器的 CORS 请求白名单中。这可能会带来安全风险！对于 Nextcloud，请<a href='https://github.com/nextcloud/server/issues/3131'>参考此线程获取更多信息</a>。一种在移动设备上实现的方法是，通过 Nextcloud 应用 <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword</a> 将 \"https://app.super-productivity.com\" 加入白名单。风险自负！",
-          "D_SYNC_FOLDER_PATH": "同步文件将存储在 WebDAV 服务器根目录下的相对路径（例如 '/super-productivity' 或 '/'）。这不是您服务器的内部目录路径。",
-          "INFO": "不幸的是，WebDAV 的实现方式差异很大。已知 Super Productivity 与 Nextcloud 配合良好，但可能不适用于您的提供商。",
+          "CORS_INFO": "<strong>在浏览器中使其工作：</strong> 要使此功能在浏览器中工作，您需要将 ChronoFlow Desktop 添加到您的 WebDAV 服务器的 CORS 请求白名单中。这可能会带来安全风险！对于 Nextcloud，请<a href='https://github.com/nextcloud/server/issues/3131'>参考此线程获取更多信息</a>。一种在移动设备上实现的方法是，通过 Nextcloud 应用 <a href='https://apps.nextcloud.com/apps/webapppassword'>webapppassword</a> 将 \"https://app.chronoflow-desktop.com\" 加入白名单。风险自负！",
+          "D_SYNC_FOLDER_PATH": "同步文件将存储在 WebDAV 服务器根目录下的相对路径（例如 '/chronoflow-desktop' 或 '/'）。这不是您服务器的内部目录路径。",
+          "INFO": "不幸的是，WebDAV 的实现方式差异很大。已知 ChronoFlow Desktop 与 Nextcloud 配合良好，但可能不适用于您的提供商。",
           "L_BASE_URL": "基础 URL",
           "L_PASSWORD": "密码",
           "L_SYNC_FOLDER_PATH": "同步文件夹路径",
@@ -1623,11 +1623,11 @@
         "ERROR_PAYLOAD_TOO_LARGE": "同步错误：您的数据太大，无法上传。\n\n当您有大量已归档的任务时会发生此情况。您的数据未同步。\n\n请联系支持人员寻求帮助。",
         "ERROR_PERMISSION": "文件访问被拒绝。如果正在使用 Flatpak/Snap，请通过 Flatseal 授予文件系统权限，或者使用 ~/.var/app/ 目录内的路径。",
         "ERROR_PERMISSION_FLATPAK": "文件访问被拒绝。请通过 Flatseal 授予文件系统权限，或使用路径 ~/.var/app/ 内的目录。",
-        "ERROR_PERMISSION_SNAP": "文件访问被拒绝。请运行命令 'snap connect super-productivity:home'，或使用路径 ~/snap/super-productivity/common/ 内的目录。",
+        "ERROR_PERMISSION_SNAP": "文件访问被拒绝。请运行命令 'snap connect chronoflow-desktop:home'，或使用路径 ~/snap/chronoflow-desktop/common/ 内的目录。",
         "ERROR_REMOTE_FILE_CORRUPTED": "远程同步数据不可读（可能被截断或损坏）。你的本地数据是安全的。你可以用本地数据覆盖远程数据。",
         "ERROR_REMOTE_FILE_EMPTY": "远程同步文件为空。这可能发生在同步中断之后。要用本地数据覆盖远程数据吗？",
         "ERROR_REMOTE_FILE_LOCKED": "远程同步文件被服务器锁定。下次尝试同步时可能会解决。",
-        "ERROR_SYNC_VERSION_MISMATCH": "远程同步数据使用不兼容的格式版本。请确保所有设备运行相同版本的 Super Productivity。",
+        "ERROR_SYNC_VERSION_MISMATCH": "远程同步数据使用不兼容的格式版本。请确保所有设备运行相同版本的 ChronoFlow Desktop。",
         "WARN_CLIENT_ID_REGENERATED": "同步设备 ID 无效，已重新生成。下次同步时可能会发生同步冲突。",
         "ERROR_UNABLE_TO_READ_REMOTE_DATA": "同步时出错。无法读取远程数据。可能是您启用了加密，而您的本地密码与用于加密远程数据的密码不匹配？",
         "FINISH_DAY_SYNC_ERROR": "在结束一天时发生同步错误。请重试。",
@@ -2304,7 +2304,7 @@
     "IMPORT_FROM_URL_DIALOG_TITLE": "从 URL 导入",
     "OPEN_IMPORT_FROM_URL_DIALOG": "从 URL 导入",
     "PRIVACY_EXPORT": "导出数据（匿名化）",
-    "PRIVACY_EXPORT_DESCRIPTION": "导出匿名化数据（发送至 contact@super-productivity.com 进行调试）",
+    "PRIVACY_EXPORT_DESCRIPTION": "导出匿名化数据（发送至 contact@chronoflow-desktop.com 进行调试）",
     "S_BACKUP_DOWNLOADED": "备份已下载至安卓文档文件夹",
     "S_ERR_IMPORT_FAILED": "导入数据失败",
     "S_ERR_INVALID_DATA": "导入失败：JSON 无效",
@@ -2334,7 +2334,7 @@
     "EDIT": "编辑",
     "ENABLED": "启用",
     "EXAMPLE_VAL": "例如 32m",
-    "EXTENSION_INFO": "请 <a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/super-productivity/ljkbjodfmekklcoibdnhahlaalhihmlb \">下载 chrome 扩展</a> 以便允许与 Jira Api 通信并处理空闲时间。请注意，这不适用于移动设备。<strong>没有扩展，功能将无法工作！！</strong>",
+    "EXTENSION_INFO": "请 <a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/chronoflow-desktop/ljkbjodfmekklcoibdnhahlaalhihmlb \">下载 chrome 扩展</a> 以便允许与 Jira Api 通信并处理空闲时间。请注意，这不适用于移动设备。<strong>没有扩展，功能将无法工作！！</strong>",
     "HIDE": "隐藏",
     "ICON_INP_DESCRIPTION": "所有 utf-8 表情符号也支持！",
     "INBOX_PROJECT_TITLE": "收件箱",
@@ -2401,7 +2401,7 @@
     },
     "CALENDARS": {
       "AUTO_IMPORT_FOR_CURRENT_DAY": "自动将当天事件导入为任务",
-      "BROWSER_WARNING": "由于跨源限制，<b>超级生产力的浏览器版本可能无法使用此功能。<br />请 <a href=\"https://super-productivity.com/download/ \">下载桌面版本</a> 以使用此功能！</b>",
+      "BROWSER_WARNING": "由于跨源限制，<b>超级生产力的浏览器版本可能无法使用此功能。<br />请 <a href=\"https://chronoflow-desktop.com/download/ \">下载桌面版本</a> 以使用此功能！</b>",
       "CAL_COLOR": "日历颜色",
       "CAL_PATH": "iCal 源的 URL",
       "CHECK_UPDATES": "每 X 检查远程更新",
@@ -2654,7 +2654,7 @@
       "DEFAULT_TASK_REMIND_OPTION": "创建任务时默认选中的提醒方式",
       "DISABLE_REMINDERS": "禁用所有提醒",
       "DUE_DATE_NOTIFICATION_HOUR": "显示到期通知的时间（0-23）",
-      "HELP": "<p><strong>重要：</strong>提醒使用<strong>本地通知</strong>，而非推送通知。这意味着应用需要在您的设备上至少打开过一次才能安排提醒。在另一台设备上设置的提醒只有在应用在目标设备上同步后才会显示。</p><p>在 <strong>iOS</strong> 上，请确保在设备设置的\"设置\">\"通知\"中为 Super Productivity 启用通知。</p>",
+      "HELP": "<p><strong>重要：</strong>提醒使用<strong>本地通知</strong>，而非推送通知。这意味着应用需要在您的设备上至少打开过一次才能安排提醒。在另一台设备上设置的提醒只有在应用在目标设备上同步后才会显示。</p><p>在 <strong>iOS</strong> 上，请确保在设备设置的\"设置\">\"通知\"中为 ChronoFlow Desktop 启用通知。</p>",
       "IS_COUNTDOWN_BANNER_ENABLED": "提醒到期前显示倒计时横幅",
       "IS_FOCUS_WINDOW": "提醒触发时，将应用程序窗口设为焦点",
       "NOTIFY_ON_DUE_DATE": "显示今天到期任务的通知",
@@ -2859,7 +2859,7 @@
     "ARCHIVED_PROJECTS": "已归档项目"
   },
   "MIGRATE": {
-    "C_DOWNLOAD_BACKUP": "是否要下载旧版数据的备份（可用于旧版本的 Super Productivity）？",
+    "C_DOWNLOAD_BACKUP": "是否要下载旧版数据的备份（可用于旧版本的 ChronoFlow Desktop）？",
     "DETECTED_LEGACY": "检测到旧版数据。我们将为您自动迁移！",
     "DIALOG_MESSAGE": "我们正在更新数据存储方式以提升同步可靠性。系统将自动下载备份。",
     "DIALOG_TITLE": "正在迁移您的数据",
@@ -2877,10 +2877,10 @@
     "TASK_MARKED_DONE": "任务已标记为完成"
   },
   "ONBOARDING": {
-    "TITLE": "你想如何使用 Super Productivity？",
+    "TITLE": "你想如何使用 ChronoFlow Desktop？",
     "SUBTITLE": "选择适合你工作方式的设置。你可以随时在设置中更改。",
     "PRIVACY_HINT": "你的数据安全地保存在你的设备上。不会向服务器发送任何内容。",
-    "SYNC_CTA": "已经在其他设备上使用 Super Productivity？",
+    "SYNC_CTA": "已经在其他设备上使用 ChronoFlow Desktop？",
     "SYNC_CTA_LINK": "设置同步",
     "PRESETS": {
       "SIMPLE_TODO": {

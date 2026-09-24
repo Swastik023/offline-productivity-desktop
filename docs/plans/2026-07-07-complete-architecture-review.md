@@ -1,4 +1,4 @@
-# Super Productivity — Complete Architecture Review
+# ChronoFlow Desktop — Complete Architecture Review
 
 **Date:** 2026-07-07
 **Method:** Eight parallel subsystem reviews (app shell/state, task domain, issue+plugins, sync/op-log boundaries, Electron+mobile, persistence, UI layer, engineering health), each grounded in code reading with file:line evidence, then cross-verified and synthesized. Builds on — and does not repeat — the dedicated SuperSync/op-log architecture reviews of 2026-06 and 2026-07 (issues #8746–#8760, `docs/plans/2026-07-03-sync-engine-extraction-plan.md`).
@@ -96,7 +96,7 @@ Lint-enforced boundaries: 0 violations. Convention-only boundaries: 65 circular 
 **Direction:** make an explicit ADR: either document full-trust-on-install as the permanent model and gate distribution accordingly, or invest in a no-same-origin runtime for the issue-provider plugin class (declarative, needs no DOM — the cheapest class to isolate). Independently and immediately: reserve `MIGRATED_KEYS`, enforce `minSupVersion` at install, add plugin-api contract specs, route `PluginFormField` secrets through the existing secret store instead of synced state.
 
 ### H-5. Android runs two complete runtimes; the legacy one attaches the full native bridge to remote content
-**Evidence:** `LaunchDecider.kt` routes MODE_ONLINE users to `FullscreenActivity` (loads `https://app.super-productivity.com` remotely) vs `CapacitorMainActivity` (bundled); upgraders with legacy data are pinned ONLINE indefinitely. Both inject the 31-method `@JavascriptInterface` bridge — including `setSuperSyncCredentials(baseUrl, accessToken)` and raw DB read/write — with no origin gating, so XSS on (or compromise of) the web origin becomes native-level access with credential-redirection capability on those devices. Additionally three JS↔native mechanisms coexist (Capacitor plugins; the hand-rolled 31-method bridge where every TS-side method is optional and async calls use a timeout-less promise map; polling queues drained on resume).
+**Evidence:** `LaunchDecider.kt` routes MODE_ONLINE users to `FullscreenActivity` (loads `https://app.chronoflow-desktop.com` remotely) vs `CapacitorMainActivity` (bundled); upgraders with legacy data are pinned ONLINE indefinitely. Both inject the 31-method `@JavascriptInterface` bridge — including `setSuperSyncCredentials(baseUrl, accessToken)` and raw DB read/write — with no origin gating, so XSS on (or compromise of) the web origin becomes native-level access with credential-redirection capability on those devices. Additionally three JS↔native mechanisms coexist (Capacitor plugins; the hand-rolled 31-method bridge where every TS-side method is optional and async calls use a timeout-less promise map; polling queues drained on resume).
 **Direction:** define a MODE_ONLINE sunset (one-time migration to offline on next update), then delete `FullscreenActivity` and the duplicated injection path. Until then, gate credential/DB bridge methods on the loaded origin. Converge new native surface on Capacitor plugins (typed, promise-based).
 
 ### H-6. SQLite op-log adapter has no transaction serialization — must fix before the #8389 rollout flip
@@ -232,17 +232,17 @@ Filed 2026-07-07 (12 issues, #8832–#8843):
 
 | # | Finding | Notes |
 | --- | --- | --- |
-| [#8832](https://github.com/super-productivity/super-productivity/issues/8832) | H-5 Android legacy MODE_ONLINE runtime | security-relevant |
-| [#8833](https://github.com/super-productivity/super-productivity/issues/8833) | H-2 scheduling three sources of truth | ref #8299 |
-| [#8834](https://github.com/super-productivity/super-productivity/issues/8834) | H-7 TS strictness vs documented policy | |
-| [#8835](https://github.com/super-productivity/super-productivity/issues/8835) | H-8 Material M2 pinning via css-vars | |
-| [#8836](https://github.com/super-productivity/super-productivity/issues/8836) | H-1 dependency-direction enforcement | ref #8299 |
-| [#8837](https://github.com/super-productivity/super-productivity/issues/8837) | H-3 complete provider→plugin migration | ref #8476, #8209/#8226 |
-| [#8838](https://github.com/super-productivity/super-productivity/issues/8838) | M-1 startup orchestration | |
-| [#8839](https://github.com/super-productivity/super-productivity/issues/8839) | M-8 backup schema-version envelope | adjacent #8770/#8765 |
-| [#8840](https://github.com/super-productivity/super-productivity/issues/8840) | M-11 route-barrel bundle splitting | |
-| [#8841](https://github.com/super-productivity/super-productivity/issues/8841) | M-12 platform-capability adoption | |
-| [#8842](https://github.com/super-productivity/super-productivity/issues/8842) | QW7 reserve `MIGRATED_KEYS` | credential-exposure path |
-| [#8843](https://github.com/super-productivity/super-productivity/issues/8843) | Quick wins checklist | QW3/QW4/QW5/QW6/QW10 + M-2 computed fix |
+| [#8832](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/8832) | H-5 Android legacy MODE_ONLINE runtime | security-relevant |
+| [#8833](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/8833) | H-2 scheduling three sources of truth | ref #8299 |
+| [#8834](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/8834) | H-7 TS strictness vs documented policy | |
+| [#8835](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/8835) | H-8 Material M2 pinning via css-vars | |
+| [#8836](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/8836) | H-1 dependency-direction enforcement | ref #8299 |
+| [#8837](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/8837) | H-3 complete provider→plugin migration | ref #8476, #8209/#8226 |
+| [#8838](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/8838) | M-1 startup orchestration | |
+| [#8839](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/8839) | M-8 backup schema-version envelope | adjacent #8770/#8765 |
+| [#8840](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/8840) | M-11 route-barrel bundle splitting | |
+| [#8841](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/8841) | M-12 platform-capability adoption | |
+| [#8842](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/8842) | QW7 reserve `MIGRATED_KEYS` | credential-exposure path |
+| [#8843](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/8843) | Quick wins checklist | QW3/QW4/QW5/QW6/QW10 + M-2 computed fix |
 
 **Not re-filed** (already tracked): H-6→#8746, M-10/QW9→#8752, M-5→#7913, QW1→#8326, QW8/M-4→#8736, H-4 sandbox→#8209/#8226, and the partial overlaps in the duplicate map above.

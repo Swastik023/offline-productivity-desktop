@@ -261,12 +261,12 @@ export const DEFAULT_GLOBAL_CONFIG: GlobalConfigState = {
       baseUrl: null,
       userName: null,
       password: null,
-      syncFolderPath: 'super-productivity',
+      syncFolderPath: 'chronoflow-desktop',
     },
 
     superSync: {
       baseUrl: environment.production
-        ? 'https://sync.super-productivity.com'
+        ? 'https://sync.chronoflow-desktop.com'
         : 'http://localhost:1901',
       userName: null,
       password: null,
@@ -283,14 +283,14 @@ export const DEFAULT_GLOBAL_CONFIG: GlobalConfigState = {
       loginName: null,
       userName: null,
       password: null,
-      syncFolderPath: 'super-productivity',
+      syncFolderPath: 'chronoflow-desktop',
     },
 
     oneDrive: {
       useCustomApp: !HAS_OFFICIAL_ONEDRIVE_CLIENT_ID,
       clientId: OFFICIAL_ONEDRIVE_CLIENT_ID,
       tenantId: 'common',
-      syncFolderPath: 'Super Productivity',
+      syncFolderPath: 'ChronoFlow Desktop',
     },
   },
 } as const;

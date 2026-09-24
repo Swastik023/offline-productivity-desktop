@@ -7,7 +7,7 @@ import {
 } from '../../utils/recurring-task-helpers';
 
 /**
- * Bug: https://github.com/super-productivity/super-productivity/issues/7951
+ * Bug: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7951
  *
  * Editing a schedule-affecting field of a recurring task whose CURRENT day is
  * still a valid occurrence moved the live instance to the NEXT occurrence

@@ -1,6 +1,6 @@
 /**
  * Effect test for GitHub issue #7856
- * https://github.com/super-productivity/super-productivity/issues/7856
+ * https://github.com/chronoflow-desktop/chronoflow-desktop/issues/7856
  *
  * The in-app Focus/Pomodoro countdown is driven by an RxJS `interval(1000)`
  * (FocusModeService) that Android/Chromium freezes for a backgrounded WebView,

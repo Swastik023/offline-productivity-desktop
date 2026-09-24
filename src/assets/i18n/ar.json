@@ -8,12 +8,12 @@
     "B_OFFLINE": "أنت غير متصل بالإنترنت. لن تعمل مزامنة بيانات موفر المشكلة وطلبها.",
     "B_SYNC_SAFETY": {
       "DISMISS": "ليس الآن",
-      "MSG": "أنت تستخدم Super Productivity منذ فترة. قم بإعداد المزامنة لعمل نسخة احتياطية من بياناتك والحفاظ عليها آمنة عبر جميع أجهزتك.",
+      "MSG": "أنت تستخدم ChronoFlow Desktop منذ فترة. قم بإعداد المزامنة لعمل نسخة احتياطية من بياناتك والحفاظ عليها آمنة عبر جميع أجهزتك.",
       "SETUP": "إعداد المزامنة"
     },
     "B_UPDATE_AVAILABLE": {
       "DOWNLOAD": "تحميل",
-      "MSG": "تتوفر نسخة جديدة من Super Productivity ({{version}})."
+      "MSG": "تتوفر نسخة جديدة من ChronoFlow Desktop ({{version}})."
     },
     "CONTEXT_MENU": {
       "CHANGE_BACKGROUND": "تغيير الخلفية",
@@ -76,7 +76,7 @@
   "EXAMPLE_TASKS": {
     "LEARN_KEYBOARD_SHORTCUTS": {
       "TITLE": "تعلّم اختصارات لوحة المفاتيح",
-      "NOTES": "صُمّم Super Productivity للاستخدام بلوحة المفاتيح. تعلّم الاختصارات للعمل بشكل أسرع.\n\n**كيف تبدأ:**\n1. افتح **القائمة الجانبية**\n2. انتقل إلى **المساعدة**\n3. انقر على **جولة التنقل بلوحة المفاتيح**"
+      "NOTES": "صُمّم ChronoFlow Desktop للاستخدام بلوحة المفاتيح. تعلّم الاختصارات للعمل بشكل أسرع.\n\n**كيف تبدأ:**\n1. افتح **القائمة الجانبية**\n2. انتقل إلى **المساعدة**\n3. انقر على **جولة التنقل بلوحة المفاتيح**"
     },
     "CREATE_PROJECT": {
       "TITLE": "أنشئ مشروعك الأول",
@@ -268,7 +268,7 @@
       "FEEDBACK_PUBLIC": "انشر على GitHub Discussions",
       "FEEDBACK_PUBLIC_DESC": "يستطيع الآخرون رؤيتها والرد",
       "FEEDBACK_TITLE": "كيف تحب أن تساعد؟",
-      "TITLE": "هل تستمتع باستخدام Super Productivity؟",
+      "TITLE": "هل تستمتع باستخدام ChronoFlow Desktop؟",
       "TXT": "إنه مشروع <strong>مجاني ومفتوح المصدر</strong> صنعه هواة — بدون تتبّع وبدون إعلانات. تقييم أو رسالة قصيرة تساعد المزيد من الناس على اكتشافه."
     },
     "DROPBOX": {
@@ -450,7 +450,7 @@
       }
     },
     "ISSUE": {
-      "CROSS_ORIGIN_BROWSER_WARNING": "من المحتمل ألا يعمل هذا التكامل في متصفحك. يُرجى تنزيل إصدار سطح المكتب أو Android من Super Productivity!",
+      "CROSS_ORIGIN_BROWSER_WARNING": "من المحتمل ألا يعمل هذا التكامل في متصفحك. يُرجى تنزيل إصدار سطح المكتب أو Android من ChronoFlow Desktop!",
       "DEFAULT": {
         "ISSUE_STR": "القضية",
         "ISSUES_STR": "مسائل"
@@ -562,7 +562,7 @@
     },
     "JIRA": {
       "BANNER": {
-        "BLOCK_ACCESS_MSG": "جيرا: لمنع الإغلاق من api ، تم حظر الدخول بواسطة Super Productivity. ربما يجب عليك التحقق من إعدادات جيرا الخاص بك!",
+        "BLOCK_ACCESS_MSG": "جيرا: لمنع الإغلاق من api ، تم حظر الدخول بواسطة ChronoFlow Desktop. ربما يجب عليك التحقق من إعدادات جيرا الخاص بك!",
         "BLOCK_ACCESS_UNBLOCK": "رفع الحظر"
       },
       "CFG_CMP": {
@@ -865,7 +865,7 @@
         "TOKEN": "رمز وصول"
       },
       "FORM_SECTION": {
-        "HELP": "<p>هنا يمكنك تكوين SuperProductivity لإدراج حزم عمل OpenProject المفتوحة. يرجى ملاحظة أنه لكي يعمل هذا في المتصفح ، ربما تحتاج إلى تكوين CORS لخادم OpenProject الخاص بك ، للسماح بالوصول من app.super-productivity.com</p>"
+        "HELP": "<p>هنا يمكنك تكوين SuperProductivity لإدراج حزم عمل OpenProject المفتوحة. يرجى ملاحظة أنه لكي يعمل هذا في المتصفح ، ربما تحتاج إلى تكوين CORS لخادم OpenProject الخاص بك ، للسماح بالوصول من app.chronoflow-desktop.com</p>"
       },
       "ISSUE_CONTENT": {
         "ASSIGNEE": "المحال",
@@ -1269,7 +1269,7 @@
         "TITLE": "مزامنة",
         "WEB_DAV": {
           "CORS_INFO": "<strong>تجريبي !!</strong> لإنجاز هذا العمل ، تحتاج إلى تعطيل أو تقييد CORS لمثال Nextcloud الخاص بك ، والذي قد يكون له تداعيات أمنية سلبية! يرجى <a href='https://github.com/nextcloud/server/issues/3131'>الرجوع إلى هذا الموضوع</a> لمزيد من المعلومات. استخدام على مسؤوليتك الخاصة!",
-          "INFO": "تطبيقات WebDAV تختلف بشكل كبير للأسف. من المعروف أن Super Productivity يعمل بشكل جيد مع Nextcloud <strong>لكنه قد لا يعمل مع مزود الخدمة</strong>.",
+          "INFO": "تطبيقات WebDAV تختلف بشكل كبير للأسف. من المعروف أن ChronoFlow Desktop يعمل بشكل جيد مع Nextcloud <strong>لكنه قد لا يعمل مع مزود الخدمة</strong>.",
           "L_BASE_URL": "عنوان URL الأساسي",
           "L_PASSWORD": "كلمه السر",
           "L_SYNC_FOLDER_PATH": "مزامنة مسار المجلد",
@@ -1430,14 +1430,14 @@
         "L_USE_SPLIT_SYNC_FILES": "Surgical sync (تجريبي) – مزامنة أسرع باستخدام بنية ملفات ops/snapshot منفصلة. بعد تفعيلها، يجب تفعيلها أيضًا على جميع الأجهزة التي تزامن هذا المجلد.",
         "ONEDRIVE": {
           "CLIENT_ID_DESCRIPTION": "معرّف التطبيق (العميل) من تسجيل تطبيقك في Microsoft Entra",
-          "INFO_TEXT": "تستخدم مصادقة Microsoft 365 بروتوكول OAuth. أدخل العميل والمستأجر أولًا، ثم أجرِ المصادقة. <strong>هل تستخدم تسجيل تطبيق Entra الخاص بك؟</strong> على سطح المكتب، سجّل عنوان URI لإعادة التوجيه <code>superproductivity://oauth-callback/onedrive</code> ضمن \"تطبيقات الأجهزة المحمولة وسطح المكتب\"، وفعّل \"السماح بتدفقات العميل العام\"، وامنح الإذن المفوّض <code>Files.ReadWrite.AppFolder</code>. راجع <a href=\"https://github.com/super-productivity/super-productivity/wiki/2.09-Configure-Sync-Backend\" target=\"_blank\" rel=\"noopener\">دليل إعداد OneDrive</a>.",
+          "INFO_TEXT": "تستخدم مصادقة Microsoft 365 بروتوكول OAuth. أدخل العميل والمستأجر أولًا، ثم أجرِ المصادقة. <strong>هل تستخدم تسجيل تطبيق Entra الخاص بك؟</strong> على سطح المكتب، سجّل عنوان URI لإعادة التوجيه <code>chronoflow://oauth-callback/onedrive</code> ضمن \"تطبيقات الأجهزة المحمولة وسطح المكتب\"، وفعّل \"السماح بتدفقات العميل العام\"، وامنح الإذن المفوّض <code>Files.ReadWrite.AppFolder</code>. راجع <a href=\"https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.09-Configure-Sync-Backend\" target=\"_blank\" rel=\"noopener\">دليل إعداد OneDrive</a>.",
           "L_CLIENT_ID": "معرّف التطبيق (العميل)",
           "L_SYNC_FOLDER_PATH": "مسار مجلد المزامنة",
           "L_TENANT_ID": "معرّف المستأجر",
           "L_USE_CUSTOM_APP": "استخدام تسجيل تطبيق Microsoft Entra الخاص بي",
           "OFFICIAL_MODE_INFO": "يُستخدم تسجيل الدخول المدمج إلى Microsoft 365 لهذا التطبيق. انتقل إلى الوضع المخصص فقط إذا كنت تحتاج إلى تسجيل تطبيق Entra الخاص بك.",
           "PLATFORM_INFO": "تتوفر مزامنة OneDrive في تطبيقي سطح المكتب والهاتف المحمول فقط، وليس في نسخة المتصفح.",
-          "SYNC_FOLDER_PATH_DESCRIPTION": "يُحفظ ضمن مجلد تطبيق OneDrive (مثل super-productivity)",
+          "SYNC_FOLDER_PATH_DESCRIPTION": "يُحفظ ضمن مجلد تطبيق OneDrive (مثل chronoflow-desktop)",
           "TENANT_ID_DESCRIPTION": "استخدم 'common' لتسجيل الدخول متعدد المستأجرين",
           "USE_CUSTOM_APP_DESCRIPTION": "فعّل هذا الخيار إذا أردت تقديم معرّف التطبيق (العميل) الخاص بك"
         },
@@ -1503,7 +1503,7 @@
         "ERROR_REMOTE_FILE_CORRUPTED": "بيانات المزامنة البعيدة غير قابلة للقراءة (ربما مقطوعة أو تالفة). بياناتك المحلية آمنة. يمكنك استبدال البيانات البعيدة ببياناتك المحلية.",
         "ERROR_REMOTE_FILE_EMPTY": "ملف المزامنة البعيد فارغ. قد يحدث هذا بعد مزامنة متقطعة. هل تريد استبدال البعيد ببياناتك المحلية؟",
         "ERROR_REMOTE_FILE_LOCKED": "ملف المزامنة البعيد مقفل من الخادم. قد يُحل ذلك في محاولة المزامنة التالية.",
-        "ERROR_SYNC_VERSION_MISMATCH": "تستخدم بيانات المزامنة البعيدة إصدار تنسيق غير متوافق. تأكد من أن كل الأجهزة تشغّل نفس إصدار Super Productivity.",
+        "ERROR_SYNC_VERSION_MISMATCH": "تستخدم بيانات المزامنة البعيدة إصدار تنسيق غير متوافق. تأكد من أن كل الأجهزة تشغّل نفس إصدار ChronoFlow Desktop.",
         "WARN_CLIENT_ID_REGENERATED": "كان معرّف جهاز المزامنة غير صالح وتمت إعادة إنشائه. قد يحدث تعارض مزامنة في المزامنة التالية.",
         "LEGACY_FORMAT_DETECTED": "عدم تطابق تنسيق المزامنة: تمت آخر كتابة للتخزين البعيد بواسطة إصدار أقدم من التطبيق (v16.x أو أقدم) يستخدم تنسيق مزامنة مختلفاً. يرجى تحديث كل أجهزتك إلى نفس إصدار التطبيق. يفتح \"فرض الاستبدال\" هذا الجهاز بكتابة التنسيق الجديد بجانب الملفات القديمة؛ استخدمه فقط إذا لم يعد أي جهاز قديم سيزامن مع هذا التخزين البعيد، وإلا فسوف تنفصل تلك الأجهزة بصمت عن هذا الجهاز.",
         "SYNC_VALIDATION_FAILED": "فشل التحقق من الحالة بعد المزامنة. قد تكون بعض البيانات غير متسقة.",
@@ -2324,11 +2324,11 @@
     "EXPORT_DATA": "تصدير البيانات",
     "IMPORT_FROM_FILE": "استيراد من الملف",
     "IMPORT_FROM_URL": "الاستيراد من URL",
-    "IMPORT_FROM_URL_DIALOG_DESCRIPTION": "يرجى إدخال عنوان URL الكامل لملف نسخ Super Productivity الاحتياطي بتنسيق JSON الذي تريد استيراده.",
+    "IMPORT_FROM_URL_DIALOG_DESCRIPTION": "يرجى إدخال عنوان URL الكامل لملف نسخ ChronoFlow Desktop الاحتياطي بتنسيق JSON الذي تريد استيراده.",
     "IMPORT_FROM_URL_DIALOG_TITLE": "الاستيراد من URL",
     "OPEN_IMPORT_FROM_URL_DIALOG": "الاستيراد من URL",
     "PRIVACY_EXPORT": "تصدير البيانات (مجهولة المصدر)",
-    "PRIVACY_EXPORT_DESCRIPTION": "تصدير البيانات مجهولة المصدر (لإرسالها إلى contact@super-productivity.com للتصحيح)",
+    "PRIVACY_EXPORT_DESCRIPTION": "تصدير البيانات مجهولة المصدر (لإرسالها إلى contact@chronoflow-desktop.com للتصحيح)",
     "S_BACKUP_DOWNLOADED": "تم تنزيل النسخة الاحتياطية إلى مجلد مستندات android",
     "S_ERR_IMPORT_FAILED": "فشل استيراد البيانات",
     "S_ERR_INVALID_DATA": "فشل الاستيراد: غير صالح JSON",
@@ -2354,7 +2354,7 @@
     "EDIT": "تصحيح",
     "ENABLED": "تمكين",
     "EXAMPLE_VAL": "إضغط للتعديل",
-    "EXTENSION_INFO": "يرجى <a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/super-productivity/ljkbjodfmekklcoibdnhahlaalhihmlb'}\"> تنزيل ملحق chrome</a> للسماح بالتواصل مع Jira Api و Idle Time Handling. لاحظ أن هذا لا يعمل للجوال.",
+    "EXTENSION_INFO": "يرجى <a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/chronoflow-desktop/ljkbjodfmekklcoibdnhahlaalhihmlb'}\"> تنزيل ملحق chrome</a> للسماح بالتواصل مع Jira Api و Idle Time Handling. لاحظ أن هذا لا يعمل للجوال.",
     "HIDE": "يخفي",
     "ICON_INP_DESCRIPTION": "جميع الرموز التعبيرية utf-8 مدعومة أيضًا!",
     "INBOX_PROJECT_TITLE": "البريد الوارد",
@@ -2404,10 +2404,10 @@
       "S_RESTORE_SUCCESS": "تمت استعادة النسخة الاحتياطية بنجاح."
     },
     "CALENDARS": {
-      "BROWSER_WARNING": "بسبب القيود المفروضة على المصادر المتقاطعة <b>من المحتمل ألا يعمل هذا مع إصدار المتصفح من Super Productivity.<br /> يُرجى <a href=\"https://super-productivity.com/download/\">تنزيل إصدار سطح المكتب</a> لاستخدام هذه الميزة!</b>",
+      "BROWSER_WARNING": "بسبب القيود المفروضة على المصادر المتقاطعة <b>من المحتمل ألا يعمل هذا مع إصدار المتصفح من ChronoFlow Desktop.<br /> يُرجى <a href=\"https://chronoflow-desktop.com/download/\">تنزيل إصدار سطح المكتب</a> لاستخدام هذه الميزة!</b>",
       "CAL_PATH": "عنوان URL لمصدر iCal",
       "CHECK_UPDATES": "التحقق من التحديثات عن بعد كل X",
-      "HELP": "يمكنك دمج التقويمات للتذكير بها وإضافتها كمهام داخل Super Productivity. يعمل التكامل باستخدام تنسيق iCal. لكي يعمل هذا، يجب أن تكون التقويمات الخاصة بك متاحة إما عبر الإنترنت أو عبر نظام الملفات.",
+      "HELP": "يمكنك دمج التقويمات للتذكير بها وإضافتها كمهام داخل ChronoFlow Desktop. يعمل التكامل باستخدام تنسيق iCal. لكي يعمل هذا، يجب أن تكون التقويمات الخاصة بك متاحة إما عبر الإنترنت أو عبر نظام الملفات.",
       "SHOW_BANNER_THRESHOLD": "إظهار إشعار X قبل الحدث (فارغ للمعاقين)",
       "AUTO_IMPORT_FOR_CURRENT_DAY": "استيراد أحداث اليوم الحالي تلقائياً كمهام",
       "CAL_COLOR": "لون التقويم",
@@ -2911,7 +2911,7 @@
     "STATUS_PREPARING": "جاري التحضير..."
   },
   "ONBOARDING": {
-    "TITLE": "كيف تريد استخدام Super Productivity؟",
+    "TITLE": "كيف تريد استخدام ChronoFlow Desktop؟",
     "SUBTITLE": "اختر إعدادًا يناسب طريقة عملك. يمكنك تغيير هذا لاحقًا في الإعدادات.",
     "PRIVACY_HINT": "بياناتك تبقى آمنة على جهازك. لا يتم إرسال أي شيء إلى خادم.",
     "PRESETS": {
@@ -2939,7 +2939,7 @@
       "OR_PRESS": "أو اضغط",
       "SKIP_ARIA": "إغلاق التلميح"
     },
-    "SYNC_CTA": "هل تستخدم Super Productivity بالفعل على جهاز آخر؟",
+    "SYNC_CTA": "هل تستخدم ChronoFlow Desktop بالفعل على جهاز آخر؟",
     "SYNC_CTA_LINK": "إعداد المزامنة"
   },
   "PDS": {
@@ -3183,7 +3183,7 @@
   },
   "DONATE_PAGE": {
     "BUTTON_TEXT": "تبرع عبر GitHub Sponsors",
-    "INTRO_1": "Super Productivity ممول بالكامل من المجتمع. لا يوجد تتبع ولا إعلانات ولا جمع بيانات — مهامك تبقى على جهازك.",
+    "INTRO_1": "ChronoFlow Desktop ممول بالكامل من المجتمع. لا يوجد تتبع ولا إعلانات ولا جمع بيانات — مهامك تبقى على جهازك.",
     "INTRO_2": "إذا كنت تقدّر هذا النهج وتريد الحفاظ على صحة المشروع وتطوره، فإن التبرع الطوعي محل تقدير كبير."
   },
   "GLOBAL": {

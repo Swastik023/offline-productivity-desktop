@@ -1,5 +1,5 @@
 // Generic, framework-agnostic primitives come from @sp/sync-core.
-// Super Productivity-specific types (entity-type union, app action-type enum,
+// ChronoFlow Desktop-specific types (entity-type union, app action-type enum,
 // sync-import reasons, repair payloads, full-state wrapper) live alongside this
 // file in the app.
 
@@ -38,7 +38,7 @@ export const FULL_STATE_OP_TYPES = fullStateOpTypeHelpers.FULL_STATE_OP_TYPES;
 export const isFullStateOpType = fullStateOpTypeHelpers.isFullStateOpType;
 
 /**
- * Entity type — Super Productivity's domain set, sourced from `@sp/shared-schema`
+ * Entity type — ChronoFlow Desktop's domain set, sourced from `@sp/shared-schema`
  * so client and server agree on the union.
  */
 export type EntityType = SharedEntityType;
@@ -56,7 +56,7 @@ export type SyncImportReason =
   | 'REPAIR';
 
 /**
- * Super Productivity's narrowed Operation type: tightens `actionType` and
+ * ChronoFlow Desktop's narrowed Operation type: tightens `actionType` and
  * `entityType` to the app's enums and adds the optional `syncImportReason`
  * field carried on full-state ops.
  */

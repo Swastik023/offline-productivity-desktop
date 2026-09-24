@@ -70,9 +70,9 @@ services:
       retries: 3
       start_period: 10s
 
-  # Super Productivity app
+  # ChronoFlow Desktop app
   app:
-    image: johannesjo/super-productivity:latest
+    image: johannesjo/chronoflow-desktop:latest
     ports:
       - '8080:80'
     environment:

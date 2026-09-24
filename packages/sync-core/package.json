@@ -1,7 +1,7 @@
 {
   "name": "@sp/sync-core",
   "version": "1.0.0",
-  "description": "Framework-agnostic core types and utilities for Super Productivity sync",
+  "description": "Framework-agnostic core types and utilities for ChronoFlow Desktop sync",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",

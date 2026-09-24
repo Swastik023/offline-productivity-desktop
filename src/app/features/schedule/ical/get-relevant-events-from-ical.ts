@@ -512,7 +512,7 @@ const convertVEventToCalendarIntegrationEvent = (
     .getTime();
   // NOTE: if dtend is missing, it defaults to dtstart; @see #1814 and RFC 2455
   // detailed comment in #1814:
-  // https://github.com/super-productivity/super-productivity/issues/1814#issuecomment-1008132824
+  // https://github.com/chronoflow-desktop/chronoflow-desktop/issues/1814#issuecomment-1008132824
   const duration = calculateEventDuration(vevent, start);
   const isAllDay = isAllDayEvent(vevent);
 
@@ -555,7 +555,7 @@ const getAllPossibleEventsAfterStartFromIcal = (
   }
   // Wrap updateTimezones in try-catch to handle edge cases in some Office 365 calendars
   // that can cause "Cannot read properties of null (reading 'parent')" errors.
-  // See: https://github.com/super-productivity/super-productivity/issues/5722
+  // See: https://github.com/chronoflow-desktop/chronoflow-desktop/issues/5722
   let vevents: ICalVEvent[];
   try {
     vevents = ICAL.helpers

@@ -105,7 +105,7 @@ const PROVIDER_FIELD_DEFAULTS: Record<
     useCustomApp: !HAS_OFFICIAL_ONEDRIVE_CLIENT_ID,
     clientId: '',
     tenantId: 'common',
-    syncFolderPath: 'Super Productivity',
+    syncFolderPath: 'ChronoFlow Desktop',
     accessToken: '',
     refreshToken: '',
     tokenExpiresAt: 0,

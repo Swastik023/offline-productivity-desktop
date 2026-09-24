@@ -1,7 +1,7 @@
 {
-  "name": "superProductivity",
+  "name": "chronoflow-desktop",
   "version": "18.18.0",
-  "description": "ToDo list and Time Tracking",
+  "description": "Customized offline-first productivity client extended with live streaming telemetry and task synchronization.",
   "keywords": [
     "ToDo",
     "Task Management",
@@ -9,13 +9,13 @@
     "GitHub",
     "Time Tracking"
   ],
-  "homepage": "https://super-productivity.com",
+  "homepage": "https://chronoflow-desktop.com",
   "repository": {
     "type": "git",
-    "url": "git://github.com/super-productivity/super-productivity.git"
+    "url": "git://github.com/chronoflow-desktop/chronoflow-desktop.git"
   },
   "license": "MIT",
-  "author": "Johannes Millan <contact@super-productivity.com> (http://super-productivity.com)",
+  "author": "Johannes Millan <contact@chronoflow-desktop.com> (http://chronoflow-desktop.com)",
   "main": "./electron/main.js",
   "scripts": {
     "env": "node ./tools/load-env.js",
@@ -364,7 +364,7 @@
   "publish": [
     {
       "provider": "github",
-      "repo": "super-productivity",
+      "repo": "chronoflow-desktop",
       "owner": "johannesjo"
     }
   ],

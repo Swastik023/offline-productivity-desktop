@@ -1,7 +1,7 @@
 {
   "name": "ai-productivity-prompts-plugin",
   "version": "1.0.0",
-  "description": "AI Productivity Prompts plugin for Super Productivity",
+  "description": "AI Productivity Prompts plugin for ChronoFlow Desktop",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -23,6 +23,6 @@
     "archiver": "^7.0.1"
   },
   "dependencies": {
-    "@super-productivity/plugin-api": "file:../../plugin-api"
+    "@chronoflow-desktop/plugin-api": "file:../../plugin-api"
   }
 }

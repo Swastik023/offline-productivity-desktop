@@ -1,4 +1,4 @@
-import { PluginAPI } from '@super-productivity/plugin-api';
+import { PluginAPI } from '@chronoflow-desktop/plugin-api';
 import { mergeSyncResponses, RawSyncResponse } from './from-api';
 
 const SYNC_URL = 'https://api.todoist.com/api/v1/sync';
