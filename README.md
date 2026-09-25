@@ -1,4 +1,6 @@
-# ChronoFlow Desktop — Offline-First Productivity Client with Live Telemetry
+# Offline-First Productivity & Focus Management Desktop Application
+
+> A customized offline-first productivity client extended with real-time streaming HUDs and bespoke plugin architectures.
 
 > A high-performance offline-first task tracker extended with custom plugin harnesses, live WebSocket streaming HUDs, and bi-directional cloud synchronization.
 
