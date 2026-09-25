@@ -4,7 +4,7 @@
 
 > A high-performance offline-first task tracker extended with custom plugin harnesses, live WebSocket streaming HUDs, and bi-directional cloud synchronization.
 
-<a href="https://chronoflow-desktop.com/"><img alt="Banner" src="docs/screens/banner.png"/></a>
+<a href="https://github.com/Swastik023/offline-productivity-desktop"><img alt="Banner" src="docs/screens/banner.svg"/></a>
 
 <div style="height:20px;"></div>
 
@@ -15,7 +15,7 @@
 <p>
 
 <p align="center">
-  :globe_with_meridians: <a href="https://app.chronoflow-desktop.com">Open Web App</a> or :computer: <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.01-Downloads-and-Install">Download</a>
+  :globe_with_meridians: <a href="https://github.com/Swastik023/offline-productivity-desktop">Open Web App</a> or :computer: <a href="#downloads-and-install">Download</a>
 </p>
 
 <br/>
@@ -27,15 +27,15 @@
 <p align="center">
   <a href="https://lbesson.mit-license.org"><img alt="MIT license" src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square"/></a>
   &nbsp;
-  <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/discussions"><img alt="GitHub Discussions" src="https://img.shields.io/badge/Community-Discussions-blue?style=flat-square&logo=github"/></a>
+  <a href="https://github.com/Swastik023/offline-productivity-desktop/discussions"><img alt="GitHub Discussions" src="https://img.shields.io/badge/Community-Discussions-blue?style=flat-square&logo=github"/></a>
 </p>
 
 <p align="center">
-  <a href="https://www.reddit.com/r/superProductivity/"><img alt="Reddit Community" src="https://img.shields.io/badge/Reddit-%23FF4500.svg?style=for-the-badge&logo=Reddit&logoColor=white" width="85"/></a>
+  
   &nbsp;
-  <a href="https://mastodon.social/@chronoflow"><img alt="ChronoFlow Desktop on Mastodon" src="https://img.shields.io/badge/-MASTODON-%232B90D9?style=for-the-badge&logo=mastodon&logoColor=white" width="105"/></a>
+  
   &nbsp;
-  <a href="https://x.com/intent/post?text=Super%20Productivity%20%20https%3A%2F%2Fchronoflow-desktop.com"><img alt="Tweet" src="https://img.shields.io/badge/TWEET-%23000000.svg?style=for-the-badge&logo=X" width="90"/></a>
+  
 </p>
 
 <p align="center">
@@ -50,17 +50,17 @@
   <a href='//www.microsoft.com/store/apps/9NHFVG8361TW?cid=storebadge&ocid=badge' target="_blank"><img src='https://developer.microsoft.com/store/badges/images/English_get-it-from-MS.png' alt='English badge' height="30"/></a>
   <a href='//play.google.com/store/apps/details?id=com.chronoflow.chronoflow' target="_blank"><img src='docs/screens/google-play-badge.svg' alt='Play Store Badge' height="30"/></a>
   <a href='//f-droid.org/en/packages/com.chronoflow.chronoflow' target="_blank"><img src='https://f-droid.org/assets/fdroid-logo-text_S0MUfk_FsnAYL7n2MQye-34IoSNm6QM6xYjDnMqkufo=.svg' alt='F-Droid Badge' height="30"/></a>
-  <a href='http://apps.obtainium.imranr.dev/redirect.html?r=obtainium://add/https://github.com/chronoflow-desktop/chronoflow-desktop/releases'><img src='https://raw.githubusercontent.com/ImranR98/Obtainium/main/assets/graphics/badge_obtainium.png' alt='Obtanium Badge' height="30"/></a>
-  <a href='//apps.apple.com/app/chronoflow-desktop/id1482572463?l=en' target="_blank"><img src='docs/screens/app-store-badge.svg' alt='App Store Badge' height="30"/></a>
+  <a href='http://apps.obtainium.imranr.dev/redirect.html?r=obtainium://add/https://github.com/Swastik023/offline-productivity-desktop/releases'><img src='https://raw.githubusercontent.com/ImranR98/Obtainium/main/assets/graphics/badge_obtainium.png' alt='Obtanium Badge' height="30"/></a>
+  <a href='//apps.apple.com/app/offline-productivity-desktop/id1482572463?l=en' target="_blank"><img src='docs/screens/app-store-badge.svg' alt='App Store Badge' height="30"/></a>
 </p>
 
 <p align="center">
   <strong>For all current downloads, package links, and platform-specific notes:
-    <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.01-Downloads-and-Install" target="_blank">
+    <a href="#downloads-and-install" target="_blank">
       check the wiki
     </a>
   </strong><br/>
-  <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.01-Downloads-and-Install" target="_blank">
+  <a href="#downloads-and-install" target="_blank">
     <img
       src="docs/screens/get-it-on-github.webp"
       alt="Get it on GitHub"
@@ -97,9 +97,9 @@
   - **Collect personal metrics** to see, which of your work routines need adjustments.
 - Integrate with **Jira**, **Trello**, **GitHub**, **GitLab**, **Gitea**, **OpenProject**, **Linear**, **ClickUp** and **Azure DevOps**. Auto import tasks assigned to you, plan the details locally, automatically create work logs, and get notified immediately, when something changes.
 - Basic **CalDAV** integration.
-- Back up and synchronize your data across multiple devices with **SuperSync**, **Dropbox** and **WebDAV** support. SuperSync is our own end-to-end encrypted sync service, which you can also [host yourself](https://github.com/chronoflow-desktop/chronoflow-desktop/tree/master/packages/super-sync-server).
+- Back up and synchronize your data across multiple devices with **SuperSync**, **Dropbox** and **WebDAV** support. SuperSync is our own end-to-end encrypted sync service, which you can also [host yourself](https://github.com/Swastik023/offline-productivity-desktop/tree/master/packages/super-sync-server).
 - Attach context information to tasks and projects. Create **notes**, attach **files** or create **project-level bookmarks** for links, files, and even commands.
-- ChronoFlow Desktop **respects your privacy** and **does NOT collect any data**. No account or registration is required. **You decide where you store your data!**
+- Offline Productivity Desktop **respects your privacy** and **does NOT collect any data**. No account or registration is required. **You decide where you store your data!**
 - It's **free** and **open source** and always will be.
 
 And much more!
@@ -107,7 +107,7 @@ And much more!
 <a href="https://youtu.be/_mvMXWLsL-8"><img alt="Work View with global links" src="docs/screens/screen_standard.png" width="100%"></a>
 
 > [!NOTE]
-> The web version has some limitations: See the **[Web App vs Desktop comparison](https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/3.05-Web-App-vs-Desktop)** for more details.
+> The web version has some limitations: See the **[Web App vs Desktop comparison](https://github.com/Swastik023/offline-productivity-desktop/wiki/3.05-Web-App-vs-Desktop)** for more details.
 
 ## :book: Documentation and Guides
 
@@ -117,21 +117,21 @@ And much more!
   <div style="flex: 1;">
     <h3>Getting Started</h3>
     <ul>
-      <li><a href="https://dev.to/johannesjo/getting-started-with-chronoflow-desktop-2791">Getting started guide</a> (article)</li>
+      <li><a href="https://dev.to/johannesjo/getting-started-with-offline-productivity-desktop-2791">Getting started guide</a> (article)</li>
       <li><a href="https://www.youtube.com/watch?v=VoF2_RSdNXA">Video walkthrough</a> (YouTube)</li>
-      <li><a href="https://dev.to/johannesjo/the-prioritising-scheme-how-to-eat-the-frog-with-chronoflow-desktop-mlk">Eat the frog prioritizing scheme</a></li>
+      <li><a href="https://dev.to/johannesjo/the-prioritising-scheme-how-to-eat-the-frog-with-offline-productivity-desktop-mlk">Eat the frog prioritizing scheme</a></li>
     </ul>
     <p><strong>Starting Point in Wiki:</strong><br>
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/1.01-First-Steps">First steps</a> •
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/3.00-Reference">Reference</a> •
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.00-How_To">How-To</a>
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/wiki/1.01-First-Steps">First steps</a> •
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/wiki/3.00-Reference">Reference</a> •
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/wiki/2.00-How_To">How-To</a>
     </p>
     <p><strong>Productivity Tips:</strong><br>
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/3.03-Keyboard-Shortcuts">Keyboard Shortcuts</a> •
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/3.04-Short-Syntax">Short Syntax</a>
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/wiki/3.03-Keyboard-Shortcuts">Keyboard Shortcuts</a> •
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/wiki/3.04-Short-Syntax">Short Syntax</a>
     </p>
     <p><strong>Need Help?</strong><br>
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/discussions">Visit the discussions page</a>
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/discussions">Visit the discussions page</a>
     </p>
     <p>See the bottom of the README for more information on the documentation.</p>
   </div>
@@ -140,39 +140,39 @@ And much more!
   <div style="flex: 1;">
     <h3>Advanced Topics</h3>
     <p>Here are some other topics covered in the
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki">official wiki</a>:
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/wiki">official wiki</a>:
     </p>
     <p><strong>Development:</strong><br>
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.11-Run-the-Development-Server">Run dev server</a> •
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.12-Package-the-App">Package the app</a> •
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.14-Build-for-Android">Build for Android</a> •
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.13-Run-with-Docker">Run with Docker</a>
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/wiki/2.11-Run-the-Development-Server">Run dev server</a> •
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/wiki/2.12-Package-the-App">Package the app</a> •
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/wiki/2.14-Build-for-Android">Build for Android</a> •
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/wiki/2.13-Run-with-Docker">Run with Docker</a>
     </p>
     <p><strong>Data Management:</strong><br>
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/4.23-Managing-Your-Data">User Data</a> •
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/3.07-Issue-Integration-Comparison">Issue Providers</a> •
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/3.08-Sync-Integration-Comparison">Sync Providers</a>
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/wiki/4.23-Managing-Your-Data">User Data</a> •
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/wiki/3.07-Issue-Integration-Comparison">Issue Providers</a> •
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/wiki/3.08-Sync-Integration-Comparison">Sync Providers</a>
     </p>
     <p><strong>Customization:</strong><br>
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.15-Develop-a-Plugin">Plugins</a> •
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/3.09-Theming">Themes</a>
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/wiki/2.15-Develop-a-Plugin">Plugins</a> •
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/wiki/3.09-Theming">Themes</a>
     </p>
     <p><strong>APIs:</strong><br>
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/3.01-API#1-sync-server-rest-api">Sync Server</a> •
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/3.01-API#2-plugin-api">Plugins</a> •
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/3.01-API#3-local-rest-api">REST</a>
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/wiki/3.01-API#1-sync-server-rest-api">Sync Server</a> •
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/wiki/3.01-API#2-plugin-api">Plugins</a> •
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/wiki/3.01-API#3-local-rest-api">REST</a>
     </p>
   </div>
 </div>
 
 ## Community
 
-The development of ChronoFlow Desktop is driven by a wonderful community of users and contributors. Thank you all so much for your support!
+The development of Offline Productivity Desktop is driven by a wonderful community of users and contributors. Thank you all so much for your support!
 
 <p>
   :eyes:
-  <a href='https://github.com/chronoflow-desktop/awesome-chronoflow-desktop'>
-    Check out our awesome curated list of community-created resources about ChronoFlow Desktop
+  <a href='https://github.com/Swastik023/offline-productivity-desktop'>
+    Check out our awesome curated list of community-created resources about Offline Productivity Desktop
   </a>
 </p>
 
@@ -182,44 +182,36 @@ If you want to get involved, please check out the [CONTRIBUTING.md](CONTRIBUTING
 
 There are several ways to help.
 
-1. **Spread the word:** More users mean more people testing and contributing to the app which in turn means better stability and possibly more and better features. You can vote for ChronoFlow Desktop on [Slant](https://www.slant.co/topics/14021/viewpoints/7/~productivity-tools-for-linux~chronoflow-desktop), [Product Hunt](https://www.producthunt.com/posts/chronoflow-desktop), [Softpedia](https://www.softpedia.com/get/Office-tools/Diary-Organizers-Calendar/Super-Productivity.shtml) or on [AlternativeTo](https://alternativeto.net/software/chronoflow-desktop/), you can [tweet about it](https://twitter.com/intent/tweet?text=I%20like%20Super%20Productivity%20%20https%3A%2F%2Fchronoflow-desktop.com), share it on [LinkedIn](http://www.linkedin.com/shareArticle?mini=true&url=https://chronoflow-desktop.com&title=I%20like%20Super%20Productivity&), [reddit](http://www.reddit.com/submit?url=https%3A%2F%2Fchronoflow-desktop.com&title=I%20like%20Super%20Productivity) or any of your favorite social media platforms. Every little bit helps!
-
-2. **Provide a Pull Request:** Here is a list of [the most popular community requests](https://github.com/chronoflow-desktop/chronoflow-desktop/issues?q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc) and here some info on **[how to run the development build](https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.11-Run-the-Development-Server)** (wiki).
+2. **Provide a Pull Request:** Here is a list of [the most popular community requests](https://github.com/Swastik023/offline-productivity-desktop/issues?q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc) and here some info on **[how to run the development build](https://github.com/Swastik023/offline-productivity-desktop/wiki/2.11-Run-the-Development-Server)** (wiki).
    Please make sure that you're following the [commit message format](.github/CONTRIBUTING.md#commit-message-format) and to also include the issue number in your commit message, if you're fixing a particular issue (e.g.: `feat: add nice feature #31`).
 
-3. **[Answer questions](https://github.com/chronoflow-desktop/chronoflow-desktop/discussions)**: You know the answer to another user's problem? Share your knowledge!
+3. **[Answer questions](https://github.com/Swastik023/offline-productivity-desktop/discussions)**: You know the answer to another user's problem? Share your knowledge!
 
-4. **[Provide your opinion](https://github.com/chronoflow-desktop/chronoflow-desktop/issues?q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3A%22community+feedback+wanted%22):** Some community suggestions are controversial. Your input might be helpful and if it is just an up- or down-vote.
+4. **[Provide your opinion](https://github.com/Swastik023/offline-productivity-desktop/issues?q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3A%22community+feedback+wanted%22):** Some community suggestions are controversial. Your input might be helpful and if it is just an up- or down-vote.
 
-5. **[Provide a more refined UI spec for existing feature requests](https://github.com/chronoflow-desktop/chronoflow-desktop/issues?q=is%3Aissue+is%3Aopen+label%3A%22needs+concept+and%2For+ui+spec%22)**
+5. **[Provide a more refined UI spec for existing feature requests](https://github.com/Swastik023/offline-productivity-desktop/issues?q=is%3Aissue+is%3Aopen+label%3A%22needs+concept+and%2For+ui+spec%22)**
 
-6. **[Report bugs](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/new)**
+6. **[Report bugs](https://github.com/Swastik023/offline-productivity-desktop/issues/new)**
 
-7. **[Make a feature or improvement request](https://github.com/chronoflow-desktop/chronoflow-desktop/issues/new)**: Something can be done better? Something essential missing? Let us know!
+7. **[Make a feature or improvement request](https://github.com/Swastik023/offline-productivity-desktop/issues/new)**: Something can be done better? Something essential missing? Let us know!
 
-8. **[Translations](https://github.com/chronoflow-desktop/chronoflow-desktop/tree/master/src/assets/i18n), Icons, etc.**: You don't have to be a programmer to help; **[learn how to contribute translations](https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.18-Contribute-Translations)**!
+8. **[Translations](https://github.com/Swastik023/offline-productivity-desktop/tree/master/src/assets/i18n), Icons, etc.**: You don't have to be a programmer to help; **[learn how to contribute translations](https://github.com/Swastik023/offline-productivity-desktop/wiki/2.18-Contribute-Translations)**!
 
-[//]: # '[![inlang status badge](https://badge.inlang.com/?url=github.com/chronoflow-desktop/chronoflow-desktop)](https://fink.inlang.com/github.com/chronoflow-desktop/chronoflow-desktop?ref=badge)'
+
 [//]: #
 [//]: # 'You can use the Fink Localization Editor to edit, lint, and add translations for different languages. [Contribute via fink Guide](https://inlang.com/g/6ddyhpoi).'
 
-9. **[Sponsor the project](https://github.com/sponsors/johannesjo)**
+9. **[Star the project](https://github.com/Swastik023/offline-productivity-desktop)**
 
-10. **Create [custom plugins](https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/2.15-Develop-a-Plugin)** or **[custom themes](https://github.com/chronoflow-desktop/chronoflow-desktop/wiki/3.09-Theming)**
+10. **Create [custom plugins](https://github.com/Swastik023/offline-productivity-desktop/wiki/2.15-Develop-a-Plugin)** or **[custom themes](https://github.com/Swastik023/offline-productivity-desktop/wiki/3.09-Theming)**
 
-### Special Thanks to our Sponsors!!!
+## Code Signing
 
-Recently support for ChronoFlow Desktop has been growing! A big thank you to all our sponsors!
-
-_(If you are, intend to or have been a sponsor and want to be shown here, [please let me know](mailto:contact@chronoflow-desktop.com)!)_
-
-### Code Signing
-
-Windows binaries are signed. Free code signing is provided by [SignPath.io](https://signpath.io?utm_source=foundation&utm_medium=github&utm_campaign=chronoflow-desktop), certificate by [SignPath Foundation](https://signpath.org?utm_source=foundation&utm_medium=github&utm_campaign=chronoflow-desktop).
+Windows binaries are signed. Free code signing is provided by [SignPath.io](https://signpath.io?utm_source=foundation&utm_medium=github&utm_campaign=offline-productivity-desktop), certificate by [SignPath Foundation](https://signpath.org?utm_source=foundation&utm_medium=github&utm_campaign=offline-productivity-desktop).
 
 ## Documentation: Manual versus Automated
 
-There are two wikis: the official one hosted in by GitHub and the autonomously generated variant using [DeepWiki.com](https://deepwiki.com/chronoflow-desktop/chronoflow-desktop). The manually curated version is a more stable and approachable resource designed to help you understand the app from a more human-focused perspective whereas DeepWiki is optimized for explaining the code itself with little regard for context beyond that.
+There are two wikis: the official one hosted in by GitHub and the autonomously generated variant using [DeepWiki.com](https://deepwiki.com/Swastik023/offline-productivity-desktop). The manually curated version is a more stable and approachable resource designed to help you understand the app from a more human-focused perspective whereas DeepWiki is optimized for explaining the code itself with little regard for context beyond that.
 
 <div style="display: flex; gap: 10px; align-items: flex-start;">
 
@@ -230,7 +222,7 @@ There are two wikis: the official one hosted in by GitHub and the autonomously g
       It is preferable to maintain local documentation rather than rely on an external service.
       It also preferable that the documentation is updated in tandem with the code changes as
       demonstrated in
-      <a href="https://github.com/chronoflow-desktop/chronoflow-desktop/commit/7a51d4b06e414fdcc48e4999197a93eee9cd09da">this commit</a>.
+      <a href="https://github.com/Swastik023/offline-productivity-desktop/commit/7a51d4b06e414fdcc48e4999197a93eee9cd09da">this commit</a>.
     </p>
     <p>
       Changes to files within <code>./docs/wiki</code> are linted in CI before being automatically
@@ -248,7 +240,7 @@ There are two wikis: the official one hosted in by GitHub and the autonomously g
     <p>
       If you have very specific questions about how the code works or why a bug might be producing
       a particular message it might be useful to
-      <a href="https://deepwiki.com/chronoflow-desktop/chronoflow-desktop">
+      <a href="https://deepwiki.com/Swastik023/offline-productivity-desktop">
         <img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki">
       </a>. It can help "cite your sources" when discussing functionality and code that you don't fully
       understand as part of feature requests or bug reports.
